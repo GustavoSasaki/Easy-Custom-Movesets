@@ -26,6 +26,21 @@ local function clean_character_stats(cs)
     cs['kick_jump_strength'] = getNotNil(cs['kick_jump_strength'], "number", allJumpsStrength)
 end
 
+characterStatsTable = {}
+for _, character in ipairs(initialCharacterStatsTable) do
+    clean_character_stats(character)
+    table_insert(characterStatsTable,character)
+end
+
+--- @param characterStats CharacterStats
+local function upsert_table(characterStats)
+    for i = 1, #characterStatsTable do
+        if characterStatsTable[i].name == characterStats.name then
+            characterStatsTable[i] = characterStats
+        end
+    end
+    table_insert(characterStatsTable, characterStats)
+end
 
 --- @class CharacterStats
 --- @field public name string|nil (Default "Untitled")
@@ -43,7 +58,7 @@ end
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
-    table_insert(characterStatsTable, characterStats)
+    upsert_table(characterStats)
 end
 
 
