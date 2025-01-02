@@ -14,6 +14,7 @@ end
 local function clean_character_stats(cs) 
     cs['name'] = getNotNil(cs['name'], "string", "Untitled")
     cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 1.0)
+    cs['gravity'] = getNotNil(cs['gravity'], "number", 1.0)
 
     local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 1.0)
     cs['single_jump_strength'] = getNotNil(cs['single_jump_strength'], "number", allJumpsStrength)
@@ -28,7 +29,16 @@ end
 
 --- @class CharacterStats
 --- @field public name string|nil (Default "Untitled")
---- @field public swimming_speed number|nuil (Default 100)
+--- @field public swimming_speed number|nil (Default 100)
+--- @field public gravity number|nil (Default 100)
+--- @field public jump_strength number|nil (Default 100)
+--- @field public single_jump_strength number|nil (Default jump_strength)
+--- @field public double_jump_strength number|nil (Default jump_strength)
+--- @field public triple_jump_strength number|nil (Default jump_strength)
+--- @field public back_flip_strength number|nil (Default jump_strength)
+--- @field public side_flip_strength number|nil (Default jump_strength)
+--- @field public long_jump_strength number|nil (Default jump_strength)
+--- @field public kick_jump_strength number|nil (Default jump_strength)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
