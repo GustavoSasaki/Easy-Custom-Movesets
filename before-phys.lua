@@ -24,7 +24,7 @@ local function apply_swimming_speed(m,stats)
     m.vel.z = m.vel.z * hScale
 end
 
-
+--- @param m gMarioStates
 local function mario_before_phys_step(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
