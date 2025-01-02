@@ -1,17 +1,32 @@
 local table_insert = table.insert
 
----@param name string
----@param swimming_speed number|nil (Default 1.0)
-local function character_add(name, velocity,swimming_speed)
-    table_insert(characterStatsTable, {
-        name = type(name) == "string" and name or "Untitled",
-        swimming_speed = type(swimming_speed) == "number" and swimming_speed or 1.0
-    })
+local function getNotNil(value,valueType,defaultValue)
+    if value ~= nil and type(value) == valueType then
+        if type(value) == "number" then
+            return value/100
+        end
+        return value
+    end
+    return defaultValue
 end
 
+--- @param cs CharacterStats
+local function clean_character_stats(cs) 
+    cs['name'] = getNotNil(cs['name'], "string", "Untitled")
+    cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 1.0)
+end
+
+
 --- @class CharacterStats
---- @field public name string
---- @field public swimming_speed number
+--- @field public name string|nil (Default "Untitled")
+--- @field public swimming_speed number|nuil (Default 100)
+
+--- @param characterStats CharacterStats
+local function character_add(characterStats)
+    clean_character_stats(characterStats)
+    table_insert(characterStatsTable, characterStats)
+end
+
 
 --- @param name string
 --- @return CharacterStats|nil
