@@ -27,6 +27,9 @@ local function clean_character_stats(cs)
     cs['side_flip_strength'] = 62 * getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
     cs['long_jump_strength'] = 30 * getNotNil(cs['long_jump_strength'], "number", allJumpsStrength)
     cs['kick_jump_strength'] = 20 * getNotNil(cs['kick_jump_strength'], "number", allJumpsStrength)
+    
+    cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 1.0)
+    cs['long_jump_max_velocity'] = 48 * getNotNil(cs['long_jump_max_velocity'], "number", 1.0)
 end
 
 characterStatsTable = {}
@@ -57,6 +60,8 @@ end
 --- @field public side_flip_strength number|nil (Default jump_strength)
 --- @field public long_jump_strength number|nil (Default jump_strength)
 --- @field public kick_jump_strength number|nil (Default jump_strength)
+--- @field public long_jump_velocity_multiplier number|nil (Default 100)
+--- @field public long_jump_max_velocity number|nil (100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
