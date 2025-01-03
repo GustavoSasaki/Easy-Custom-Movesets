@@ -65,10 +65,10 @@ end
 --- @field public long_jump_strength number|nil (Default jump_strength)
 --- @field public kick_jump_strength number|nil (Default jump_strength)
 --- @field public dive_y_vel number|nil (Default 0)
---- @field public dive_velocity number|nil (0)
---- @field public dive_max_velocity number|nil (100)
+--- @field public dive_velocity number|nil (Default 0)
+--- @field public dive_max_velocity number|nil (Default 100)
 --- @field public long_jump_velocity_multiplier number|nil (Default 100)
---- @field public long_jump_max_velocity number|nil (100)
+--- @field public long_jump_max_velocity number|nil (Default 100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
