@@ -18,14 +18,15 @@ local function clean_character_stats(cs)
     -- gravity magic number defined at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario_step.c#L689
     cs['gravity'] = 4 * getNotNil(cs['gravity'], "number", 0.0)
 
-    local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 1.0)
-    cs['single_jump_strength'] = getNotNil(cs['single_jump_strength'], "number", allJumpsStrength)
-    cs['double_jump_strength'] = getNotNil(cs['double_jump_strength'], "number", allJumpsStrength)
-    cs['triple_jump_strength'] = getNotNil(cs['triple_jump_strength'], "number", allJumpsStrength)
-    cs['back_flip_strength'] = getNotNil(cs['back_flip_strength'], "number", allJumpsStrength)
-    cs['side_flip_strength'] = getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
-    cs['long_jump_strength'] = getNotNil(cs['long_jump_strength'], "number", allJumpsStrength)
-    cs['kick_jump_strength'] = getNotNil(cs['kick_jump_strength'], "number", allJumpsStrength)
+    -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
+    local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 0.0)
+    cs['single_jump_strength'] = 42 * getNotNil(cs['single_jump_strength'], "number", allJumpsStrength)
+    cs['double_jump_strength'] = 52 * getNotNil(cs['double_jump_strength'], "number", allJumpsStrength)
+    cs['triple_jump_strength'] = 69 * getNotNil(cs['triple_jump_strength'], "number", allJumpsStrength)
+    cs['back_flip_strength'] = 62 * getNotNil(cs['back_flip_strength'], "number", allJumpsStrength)
+    cs['side_flip_strength'] = 62 * getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
+    cs['long_jump_strength'] = 30 * getNotNil(cs['long_jump_strength'], "number", allJumpsStrength)
+    cs['kick_jump_strength'] = 20 * getNotNil(cs['kick_jump_strength'], "number", allJumpsStrength)
 end
 
 characterStatsTable = {}
