@@ -10,8 +10,7 @@ local function apply_gravity(m)
         return
     end
 
-    -- gravity magic number defined at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario_step.c#L689
-    m.vel.y =  m.vel.y - 4*stats.gravity
+    m.vel.y =  m.vel.y - stats.gravity
 end
 
 
