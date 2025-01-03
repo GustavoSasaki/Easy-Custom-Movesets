@@ -37,6 +37,13 @@ local function apply_jump_speed(m, stats)
         m.vel.y = m.vel.y + stats.kick_jump_strength
         return
     end
+    if m.action == ACT_DIVE then
+        m.vel.y = m.vel.y + stats.dive_y_vel
+        m.forwardVel = m.forwardVel + stats.dive_velocity
+        if (m.forwardVel > stats.dive_max_velocity) then
+            m.forwardVel = stats.dive_max_velocity
+        end
+    end
 end
 
 --- @param m gMarioStates
