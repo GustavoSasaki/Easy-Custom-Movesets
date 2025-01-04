@@ -23,13 +23,13 @@ initialCharacterStatsTable = {{
     -- character with big triple jump/fast long jump
     name = "Tomo",
     long_jump_velocity_multiplier = 300,
-    long_jump_max_velocity = 150
+    long_jump_max_velocity = 170
 }, {
     -- character with a faster and upward trajectory dive
     name = "Kagura",
-    dive_y_vel = 20,
+    dive_y_vel = 15,
     dive_velocity = 120,
-    dive_max_velocity = 125
+    dive_max_velocity = 130
 }, {
     -- character with big kick
     name = "Chiyo",
@@ -51,4 +51,9 @@ initialCharacterStatsTable = {{
     back_flip_strength = 130,
     side_flip_strength = 130,
     long_jump_strength = 130
+},
+{
+    -- character with incrase fall gravity
+    name = "Chihiro",
+    fall_gravity = 120
 }}

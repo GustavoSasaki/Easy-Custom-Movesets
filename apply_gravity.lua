@@ -19,7 +19,12 @@ local function apply_gravity(m)
     if isMarioWingCapDescending(m) then
         m.vel.y = m.vel.y - 2 * stats.gravity
     else
-        m.vel.y = m.vel.y - 4 * stats.gravity
+        local isFalling = (m.vel.y - 4 * stats.gravity - 4) < 0
+        if isFalling then
+            m.vel.y = m.vel.y - 4 * stats.fall_gravity
+        else
+            m.vel.y = m.vel.y - 4 * stats.gravity
+        end
     end
 end
 
