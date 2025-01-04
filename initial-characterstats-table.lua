@@ -55,5 +55,6 @@ initialCharacterStatsTable = {{
 {
     -- character with incrase fall gravity
     name = "Chihiro",
-    fall_gravity = 120
+    fall_gravity = 120,
+    explode_on_death = true
 }}

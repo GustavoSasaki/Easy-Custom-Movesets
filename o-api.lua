@@ -17,6 +17,7 @@ local function clean_character_stats(cs)
 
     cs['gravity'] = getNotNil(cs['gravity'], "number", 0.0)
     cs['fall_gravity'] = getNotNil(cs['fall_gravity'], "number", cs['gravity'])
+    cs['explode_on_death']  = getNotNil(cs['explode_on_death'], "boolean", false)
 
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
     local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 0.0)
