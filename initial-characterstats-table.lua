@@ -18,7 +18,8 @@ initialCharacterStatsTable = {{
     -- float character with big long jump
     name = "Osaka",
     gravity = 90,
-    long_jump_strength = 120
+    long_jump_strength = 105,
+    airborne_deceleration_speed = 20
 }, {
     -- character with big triple jump/fast long jump
     name = "Tomo",
@@ -41,7 +42,8 @@ initialCharacterStatsTable = {{
     -- character with bigger jumps
     name = "Sakaki",
     swimming_speed = 400,
-    jump_strength = 125
+    jump_strength = 120,
+    airborne_deceleration_speed = 50
 }, {
     -- weird character with bad normal jump, but good back/side/long jumps
     name = "Kaori",
@@ -53,7 +55,7 @@ initialCharacterStatsTable = {{
     long_jump_strength = 130
 },
 {
-    -- character with incrase fall gravity
+    -- character with increase fall gravity and explode on death
     name = "Chihiro",
     fall_gravity = 120,
     explode_on_death = true
