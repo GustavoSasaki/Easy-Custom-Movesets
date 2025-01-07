@@ -11,14 +11,14 @@ local function getNotNil(value,valueType,defaultValue)
 end
 
 --- @param cs CharacterStats
-local function clean_character_stats(cs) 
+local function clean_character_stats(cs)
     cs['name'] = getNotNil(cs['name'], "string", "Untitled")
     cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 1.0)
 
     cs['gravity'] = getNotNil(cs['gravity'], "number", 0.0)
     cs['fall_gravity'] = getNotNil(cs['fall_gravity'], "number", cs['gravity'])
     cs['explode_on_death']  = getNotNil(cs['explode_on_death'], "boolean", false)
-    cs['airborne_deceleration_speed']  = 0.35 * getNotNil(cs['airborne_deceleration_speed'], "number", 0.0)
+    cs['airborne_deceleration_speed'] = getNotNil(cs['airborne_deceleration_speed'], "number", 0.0)
 
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
     local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 0.0)
@@ -32,7 +32,7 @@ local function clean_character_stats(cs)
 
     cs['dive_y_vel'] = cs['dive_y_vel'] ~= nil and type(cs['dive_y_vel']) == "number" and cs['dive_y_vel'] or 0
     cs['dive_velocity'] = 15 * getNotNil(cs['dive_velocity'], "number", 0)
-    cs['dive_max_velocity'] = 48 * getNotNil(cs['dive_max_velocity'], "number", 1.0)
+    cs['dive_max_velocity'] = 48 * (getNotNil(cs['dive_max_velocity'], "number", 0.0) + 1)
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 1.0)
     cs['long_jump_max_velocity'] = 48 * getNotNil(cs['long_jump_max_velocity'], "number", 1.0)
@@ -78,7 +78,6 @@ local function character_add(characterStats)
     upsert_table(characterStats)
 end
 
-
 --- @param name string
 --- @return CharacterStats|nil
 local function stats_from_name(name)
@@ -90,12 +89,11 @@ local function stats_from_name(name)
     return nil
 end
 
-
 hook_event(HOOK_UPDATE, function()
     gPlayerSyncTable[0].char_select_name = _G.charSelect.character_get_current_table().name
 end)
 
 _G.charStats = {
     character_add = character_add,
-    stats_from_name = stats_from_name,
+    stats_from_name = stats_from_name
 }
