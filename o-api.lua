@@ -19,6 +19,12 @@ local function clean_character_stats(cs)
     cs['fall_gravity'] = getNotNil(cs['fall_gravity'], "number", cs['gravity'])
     cs['explode_on_death']  = getNotNil(cs['explode_on_death'], "boolean", false)
     cs['airborne_deceleration_speed']  = 0.35 * getNotNil(cs['airborne_deceleration_speed'], "number", 0.0)
+    cs['ground_speed']  = getNotNil(cs['ground_speed'], "number", 0.0)
+    cs['target_speed']  = getNotNil(cs['target_speed'], "number", 0.0)
+    cs['speed_decay_factor']  = getNotNil(cs['speed_decay_factor'], "number", 0.0)
+    if  cs['speed_decay_factor'] == -1.0 then
+        cs['speed_decay_factor'] = -0.9
+    end
 
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
     local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 0.0)
@@ -32,7 +38,7 @@ local function clean_character_stats(cs)
 
     cs['dive_y_vel'] = cs['dive_y_vel'] ~= nil and type(cs['dive_y_vel']) == "number" and cs['dive_y_vel'] or 0
     cs['dive_velocity'] = 15 * getNotNil(cs['dive_velocity'], "number", 0)
-    cs['dive_max_velocity'] = 48 * getNotNil(cs['dive_max_velocity'], "number", 1.0)
+    cs['dive_max_velocity'] = 48 * (1 + getNotNil(cs['dive_max_velocity'], "number", 0.0))
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 1.0)
     cs['long_jump_max_velocity'] = 48 * getNotNil(cs['long_jump_max_velocity'], "number", 1.0)

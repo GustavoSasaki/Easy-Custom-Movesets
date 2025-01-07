@@ -37,7 +37,10 @@ initialCharacterStatsTable = {{
     gravity = 140,
     kick_jump_strength = 250,
     triple_jump_strength = 130,
-    swimming_speed = 95
+    ground_speed = 120,
+    target_speed = 120,
+    speed_decay_factor = 70,
+    dive_max_velocity=100
 }, {
     -- character with bigger jumps
     name = "Sakaki",
