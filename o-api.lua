@@ -13,11 +13,11 @@ end
 --- @param cs CharacterStats
 local function clean_character_stats(cs)
     cs['name'] = getNotNil(cs['name'], "string", "Untitled")
-    cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 1.0)
+    cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 0.0) + 1
 
     cs['gravity'] = getNotNil(cs['gravity'], "number", 0.0)
     cs['fall_gravity'] = getNotNil(cs['fall_gravity'], "number", cs['gravity'])
-    cs['explode_on_death']  = getNotNil(cs['explode_on_death'], "boolean", false)
+    cs['explode_on_death'] = getNotNil(cs['explode_on_death'], "boolean", false)
     cs['airborne_deceleration_speed'] = getNotNil(cs['airborne_deceleration_speed'], "number", 0.0)
 
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
