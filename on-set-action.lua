@@ -25,8 +25,8 @@ local function apply_jump_speed(m, stats)
     end
     if m.action == ACT_LONG_JUMP then
         m.vel.y = m.vel.y + stats.long_jump_strength
-        local speedBeforeLongJump = m.forwardVel * 0.66
-        m.forwardVel = m.forwardVel + speedBeforeLongJump * stats.long_jump_velocity_multiplier
+        local speedIncreaseLongJump = m.forwardVel * 0.33
+        m.forwardVel = m.forwardVel + speedIncreaseLongJump * stats.long_jump_velocity_multiplier
         if (m.forwardVel > stats.long_jump_max_velocity) then
             m.forwardVel = stats.long_jump_max_velocity
         end

@@ -1,9 +1,9 @@
 local table_insert = table.insert
 
-local function getNotNil(value,valueType,defaultValue)
+local function getNotNil(value, valueType, defaultValue)
     if value ~= nil and type(value) == valueType then
         if type(value) == "number" then
-            return value/100 -1.0
+            return value / 100 - 1.0
         end
         return value
     end
@@ -34,14 +34,14 @@ local function clean_character_stats(cs)
     cs['dive_velocity'] = 15 * getNotNil(cs['dive_velocity'], "number", 0)
     cs['dive_max_velocity'] = 48 * (getNotNil(cs['dive_max_velocity'], "number", 0.0) + 1)
 
-    cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 1.0)
-    cs['long_jump_max_velocity'] = 48 * getNotNil(cs['long_jump_max_velocity'], "number", 1.0)
+    cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
+    cs['long_jump_max_velocity'] = 48 * (getNotNil(cs['long_jump_max_velocity'], "number", 0.0) + 1)
 end
 
 characterStatsTable = {}
 for _, character in ipairs(initialCharacterStatsTable) do
     clean_character_stats(character)
-    table_insert(characterStatsTable,character)
+    table_insert(characterStatsTable, character)
 end
 
 --- @param characterStats CharacterStats
