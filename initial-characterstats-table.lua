@@ -19,18 +19,17 @@ initialCharacterStatsTable = {{
     name = "Osaka",
     gravity = 90,
     long_jump_strength = 105,
-    airborne_deceleration_speed = 20
 }, {
-    -- character with big triple jump/fast long jump
+    -- character with fast long jump
     name = "Tomo",
-    long_jump_velocity_multiplier = 300,
+    long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 170
 }, {
     -- character with a faster and upward trajectory dive
     name = "Kagura",
     dive_y_vel = 15,
     dive_velocity = 120,
-    dive_max_velocity = 130
+    dive_max_velocity = 120
 }, {
     -- character with big kick
     name = "Chiyo",
@@ -39,10 +38,10 @@ initialCharacterStatsTable = {{
     triple_jump_strength = 130,
     swimming_speed = 95
 }, {
-    -- character with bigger jumps
+    -- character with bigger jumps and low airborn deceleration
     name = "Sakaki",
-    swimming_speed = 400,
-    jump_strength = 120,
+    swimming_speed = 250,
+    jump_strength = 115,
     airborne_deceleration_speed = 50
 }, {
     -- weird character with bad normal jump, but good back/side/long jumps
@@ -55,8 +54,9 @@ initialCharacterStatsTable = {{
     long_jump_strength = 130
 },
 {
-    -- character with increase fall gravity and explode on death
-    name = "Chihiro",
+    -- character with increase fall gravity, explode on death
+    name = "Yomi",
     fall_gravity = 120,
-    explode_on_death = true
+    explode_on_death = true,
+    jump_strength = 103,
 }}
