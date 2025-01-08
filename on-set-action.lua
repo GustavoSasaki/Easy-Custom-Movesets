@@ -52,7 +52,7 @@ local function on_set_action(m)
         return
     end
 
-    local stats = _G.charStats.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
     if stats == nil then
         return
     end

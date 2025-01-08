@@ -42,12 +42,12 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 ## How customize your character
 
 ### Integrating your mod
-Inside your main.lua, after **_G.charSelect.character_add** , you can change character stats by executing **_G.charStats.character_add**.
+Inside your main.lua, after **_G.charSelect.character_add** , you can change character stats by executing **_G.customMoves.character_add**.
 
 ```
     _G.charSelect.character_add("Custom Model", {"Custom Model Description", "Custom Model Description"}, "Custom Model Creator", {r = 255, g = 200, b = 200}, E_MODEL_CUSTOM_MODEL, CT_MARIO, get_texture_info("custom-icon"))
-    if charStatsExists then
-        _G.charStats.character_add({name="Custom Model",swimming_speed=500})
+    if _G.customMovesExists then
+        _G.customMoves.character_add({name="Custom Model",swimming_speed=500})
     end
 ```
 

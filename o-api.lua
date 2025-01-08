@@ -96,7 +96,7 @@ hook_event(HOOK_UPDATE, function()
     gPlayerSyncTable[0].char_select_name = _G.charSelect.character_get_current_table().name
 end)
 
-_G.charStats = {
+_G.customMoves = {
     character_add = character_add,
     stats_from_name = stats_from_name
 }
