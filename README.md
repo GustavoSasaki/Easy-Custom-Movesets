@@ -10,9 +10,11 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 
 | Name              | Explanation | Default Value | Observation |
 | :---------------- | :------: | :-------: | :-------:|
-| swimming_speed       |  How much faster the character can swim (percentage).  | 100 | |
 | gravity       |   How much gravity affects the character (percentage).  | 100 | |
 | jump_strength       |   How much higher all jumps are (percentage).  | 100 | Impacts only the jump constant. Single/double jump velocity depends on a constant and forward velocity.|
+| walking_speed       |   How much faster the character can walk  (percentage).  | 100 | |
+| in_air_speed       |   How much faster the character can move horizontally in the air  (percentage).  | 100 | |
+| swimming_speed       |  How much faster the character can swim (percentage).  | 100 | |
 | dive_velocity       |   Changes the constant forward velocity added when diving.   | 100 | |
 | dive_max_velocity       |   Increases the max forward velocity cap for dives (percentage).  | 100 |  |
 | long_jump_velocity_multiplier       |   When diving, an multiplier is applied to current forward velocity. Increases this multiplier (percentage). | 100 | The multiplier value is 1.5|
@@ -22,7 +24,10 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 
 | Name              | Explanation | Default Value | Observation |
 | :---------------- | :------: | :----: | :-------:|
-| fall_gravity       |  Gravity effect when falling (y velocity < 0) (percentage).  | 100 | |
+| fall_gravity       |  Gravity effect when falling (y velocity < 0) (percentage).  | gravity (100) | |
+| hold_walking_speed       |  How much faster the character can walk while holding something  (percentage). | walking_speed (100) | |
+| crawling_speed       |  How much faster the character can crawl (percentage). | walking_speed (100) | |
+| grounded_slowing_speed       |  How much faster the character moves while decelerating in the ground | 100 | The higher the value, the more slippery the character feels. Unfortunately, the forward velocity is always reset to zero when landing from a jump, making this stat harder to notice. |
 | explode_on_death       |  Creates a small explosion on death.| false | A "troll" stat. |
 | airborne_deceleration_speed       |  Changes deceleration speed in the air (percentage). | 100 |	The velocity change is minimal.|
 | single_jump_strength       |   	Increases the height of single jumps (percentage). | 100 ||
@@ -57,5 +62,9 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 
 ## Mods Integrated
 - [Azumanga Daioh](https://mods.sm64coopdx.com/mods/azumanga-daioh-64-pack.205/)
+- [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)
 - [Hatsune Miku](https://mods.sm64coopdx.com/mods/cs-hatsune-miku.418/)
+- [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
+- [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
+- [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
