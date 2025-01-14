@@ -40,7 +40,7 @@ local function clean_character_stats(cs)
     cs['walking_speed'] = (getNotNil(cs['walking_speed'], "number", 0.0) + 1)
     cs['in_air_speed'] = (getNotNil(cs['in_air_speed'], "number", 0.0) + 1)
     cs['hold_walking_speed'] = (getNotNil(cs['hold_walking_speed'], "number", cs['walking_speed']) + 1)
-    cs['crawling_speed'] = (getNotNil(cs['crawling_speed'], "number", 0.0) + 1)
+    cs['crawling_speed'] = (getNotNil(cs['crawling_speed'], "number", cs['walking_speed']) + 1)
     cs['grounded_slowing_speed'] = (getNotNil(cs['grounded_slowing_speed'], "number", 0.0) + 1)
 end
 
@@ -82,8 +82,8 @@ end
 --- @field public long_jump_max_velocity number|nil (Default 100)
 --- @field public walking_speed number|nil (Default 100)
 --- @field public in_air_speed number|nil (Default 100)
---- @field public hold_walking_speed number|nil (Default 100)
---- @field public crawling_speed number|nil (Default 100)
+--- @field public hold_walking_speed number|nil (Default walking_speed)
+--- @field public crawling_speed number|nil (Default walking_speed)
 --- @field public grounded_slowing_speed number|nil (Default 100)
 
 --- @param characterStats CharacterStats
