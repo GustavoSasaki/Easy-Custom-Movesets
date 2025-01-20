@@ -33,7 +33,6 @@ local function isJumping(m)
     return
         m.action == ACT_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_HOLD_JUMP or m.action == ACT_FREEFALL or
             m.action == ACT_SIDE_FLIP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_TWIRLING or m.action ==
-            ACT_WATER_JUMP or m.action == ACT_WATER_JUMP or m.action == ACT_HOLD_WATER_JUMP or m.action ==
             ACT_STEEP_JUMP or m.action == ACT_TRIPLE_JUMP or m.action == ACT_BACKFLIP or m.action == ACT_LONG_JUMP or
             m.action == ACT_RIDING_SHELL_JUMP or m.action == ACT_RIDING_SHELL_FALL or m.action == ACT_DIVE or m.action ==
             ACT_JUMP_KICK
@@ -59,6 +58,13 @@ local function apply_walking_speed(m, stats)
 
     m.vel.x = m.vel.x * hScale
     m.vel.z = m.vel.z * hScale
+
+    if (hScale ~= 1 and m.vel.x > 250) then
+        m.vel.x = 250
+    end
+    if (hScale ~= 1 and m.vel.z > 250) then
+        m.vel.z = 250
+    end
 end
 
 --- @param m gMarioStates
