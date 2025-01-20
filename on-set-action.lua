@@ -4,26 +4,20 @@ local function apply_jump_speed(m, stats)
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
     if m.action == ACT_JUMP or m.action == ACT_HOLD_JUMP then
         m.vel.y = m.vel.y + stats.single_jump_strength
-        return
-    end
-    if m.action == ACT_DOUBLE_JUMP then
-        m.vel.y = m.vel.y + stats.double_jump_strength
-        return
-    end
-    if m.action == ACT_TRIPLE_JUMP then
-        m.vel.y = m.vel.y + stats.triple_jump_strength
-        return
-    end
-    if m.action == ACT_BACKFLIP then
-        m.vel.y = m.vel.y + stats.back_flip_strength
-        return
-    end
 
-    if m.action == ACT_SIDE_FLIP then
+    elseif m.action == ACT_DOUBLE_JUMP then
+        m.vel.y = m.vel.y + stats.double_jump_strength
+
+    elseif m.action == ACT_TRIPLE_JUMP then
+        m.vel.y = m.vel.y + stats.triple_jump_strength
+
+    elseif m.action == ACT_BACKFLIP then
+        m.vel.y = m.vel.y + stats.back_flip_strength
+
+    elseif m.action == ACT_SIDE_FLIP then
         m.vel.y = m.vel.y + stats.side_flip_strength
-        return
-    end
-    if m.action == ACT_LONG_JUMP then
+
+    elseif m.action == ACT_LONG_JUMP then
         m.vel.y = m.vel.y + stats.long_jump_strength
         local speedIncreaseLongJump = m.forwardVel * 0.33
         m.forwardVel = m.forwardVel + speedIncreaseLongJump * stats.long_jump_velocity_multiplier
@@ -31,18 +25,19 @@ local function apply_jump_speed(m, stats)
             m.forwardVel = stats.long_jump_max_velocity
         end
 
-        return
-    end
-    if m.action == ACT_JUMP_KICK then
+    elseif m.action == ACT_JUMP_KICK then
         m.vel.y = m.vel.y + stats.kick_jump_strength
-        return
-    end
-    if m.action == ACT_DIVE then
+
+    elseif m.action == ACT_DIVE then
         m.vel.y = m.vel.y + stats.dive_y_vel
         m.forwardVel = m.forwardVel + stats.dive_velocity
         if (m.forwardVel > stats.dive_max_velocity) then
             m.forwardVel = stats.dive_max_velocity
         end
+
+    elseif m.action == ACT_MR_L_JUMP then
+        m.bounceSquishTimer = 0
+        m.vel.y = stats.mr_l_jump_strength
     end
 end
 

@@ -1,3 +1,4 @@
+--- @param m gMarioStates
 local function on_death(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
