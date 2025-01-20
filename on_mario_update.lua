@@ -30,6 +30,10 @@ local function mario_update(m)
     if stats.back_flip_twirling_on and m.action == ACT_BACKFLIP and m.vel.y < 0 then
         set_mario_action(m, ACT_TWIRLING, 0)
     end
+    
+    if stats.twirling_ground_pound_on and m.action == ACT_TWIRLING and (m.input & INPUT_Z_PRESSED) ~= 0 then
+        set_mario_action(m, ACT_GROUND_POUND, 0)
+    end
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
