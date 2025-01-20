@@ -42,6 +42,8 @@ local function clean_character_stats(cs)
     cs['hold_walking_speed'] = (getNotNil(cs['hold_walking_speed'], "number", cs['walking_speed']) + 1)
     cs['crawling_speed'] = (getNotNil(cs['crawling_speed'], "number", cs['walking_speed']) + 1)
     cs['grounded_slowing_speed'] = (getNotNil(cs['grounded_slowing_speed'], "number", 0.0) + 1)
+
+    cs['back_flip_twirling_on'] = getNotNil(cs['back_flip_twirling_on'], "boolean", false) 
 end
 
 characterStatsTable = {}
@@ -85,6 +87,7 @@ end
 --- @field public hold_walking_speed number|nil (Default walking_speed)
 --- @field public crawling_speed number|nil (Default walking_speed)
 --- @field public grounded_slowing_speed number|nil (Default 100)
+--- @field public back_flip_twirling_on bool|nil (Default false)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

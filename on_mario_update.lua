@@ -23,10 +23,13 @@ local function mario_update(m)
             m.forwardVel = m.forwardVel - stats.airborne_deceleration_speed
         end
         if (m.forwardVel < -16.0) then
-            m.forwardVel = m.forwardVel + (stats.airborne_deceleration_speed * 2 )
+            m.forwardVel = m.forwardVel + (stats.airborne_deceleration_speed * 2)
         end
     end
-end
 
+    if stats.back_flip_twirling_on and m.action == ACT_BACKFLIP and m.vel.y < 0 then
+        set_mario_action(m, ACT_TWIRLING, 0)
+    end
+end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
