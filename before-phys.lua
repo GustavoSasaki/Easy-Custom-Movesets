@@ -56,14 +56,11 @@ local function apply_walking_speed(m, stats)
         hScale = stats.grounded_slowing_speed
     end
 
-    m.vel.x = m.vel.x * hScale
-    m.vel.z = m.vel.z * hScale
-
-    if (hScale ~= 1 and m.vel.x > 250) then
-        m.vel.x = 250
+    if m.vel.x < 200 and m.vel.x > -200 then 
+        m.vel.x = m.vel.x * hScale
     end
-    if (hScale ~= 1 and m.vel.z > 250) then
-        m.vel.z = 250
+    if m.vel.z < 200 and m.vel.z > -200 then 
+        m.vel.z = m.vel.z * hScale
     end
 end
 
