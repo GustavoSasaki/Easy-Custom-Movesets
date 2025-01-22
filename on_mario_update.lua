@@ -8,11 +8,13 @@ local function apply_mr_l(m, stats)
     end
 
     if m.action == ACT_CROUCHING then
-        if m.actionTimer == 0 then
-            audio_sample_play(MR_L_AUDIO, m.pos, 1)
+        if m.actionTimer == 7 then
+            audio_sample_play(MR_L_AUDIO, m.pos, 0.6)
         end
         m.actionTimer = m.actionTimer + 1
-        m.bounceSquishTimer = math.floor(m.actionTimer / 1.3)
+        if m.actionTimer > 4 then
+            m.bounceSquishTimer = math.floor(m.actionTimer / 1.3)
+        end
     end
 
     if m.prevAction == ACT_CROUCHING then

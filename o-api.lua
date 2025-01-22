@@ -46,7 +46,7 @@ local function clean_character_stats(cs)
     cs['mr_l_jump_on'] = getNotNil(cs['mr_l_jump_on'], "boolean", false) 
     cs['mr_l_jump_strength'] = cs['mr_l_jump_strength'] ~= nil and type(cs['mr_l_jump_strength']) == "number" and cs['mr_l_jump_strength'] or 93
     cs['mr_l_gravity'] = getNotNil(cs['mr_l_gravity'], "number", 0.4)
-    cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", 0.6) 
+    cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", -0.4) + 1
 
     cs['back_flip_twirling_on'] = getNotNil(cs['back_flip_twirling_on'], "boolean", false) 
     cs['twirling_ground_pound_on'] = getNotNil(cs['twirling_ground_pound_on'], "boolean", false) 
