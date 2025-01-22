@@ -17,8 +17,9 @@ initialCharacterStatsTable = {{
 }, {
     -- float character with big long jump
     name = "Osaka",
-    gravity = 87,
-    long_jump_strength = 105
+    gravity = 85,
+    long_jump_strength = 105,
+    mr_l_jump_on = true
 }, {
     -- character with fast long jump
     name = "Tomo",
@@ -65,118 +66,140 @@ initialCharacterStatsTable = {{
     walking_speed = 120,
     in_air_speed = 120,
     grounded_slowing_speed = 110
-},
-{
+}, {
     -- fast character with bigger single/double/triple jump
-    name = "Silver the Hedgehog", 
+    name = "Silver the Hedgehog",
     walking_speed = 115,
     hold_walking_speed = 90,
     in_air_speed = 115,
     single_jump_strength = 105,
-    double_jump_strength= 110,
+    double_jump_strength = 110,
     triple_jump_strength = 115
-},
-{
+}, {
     -- character with faster walking speed and jump height
-    name = "Pepsiman", 
+    name = "Pepsiman",
     walking_speed = 130,
     jump_strength = 110
-},
-{
+}, {
     -- gonna go fast ( fast character with fast long )
-    name = "Classic Sonic", 
+    name = "Classic Sonic",
     walking_speed = 160,
     in_air_speed = 125,
     grounded_slowing_speed = 300,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
-    jump_strength = 95,
-},
-{
+    jump_strength = 95
+}, {
     -- gonna go fast ( fast character with fast long )
-    name = "Modern Sonic", 
+    name = "Modern Sonic",
     walking_speed = 160,
     in_air_speed = 125,
     long_jump_velocity_multiplier = 150,
     long_jump_max_velocity = 140,
-    jump_strength = 95,
-},
-{
-    name = "Shadow the Hedgehog", 
+    jump_strength = 95
+}, {
+    name = "Shadow the Hedgehog",
     walking_speed = 160,
     in_air_speed = 125,
     grounded_slowing_speed = 300,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     jump_strength = 95,
-    explode_on_death = true,
-},
-{
+    explode_on_death = true
+}, {
     -- character with fast air speed
-    name = "Classic Tails", 
+    name = "Classic Tails",
     walking_speed = 120,
     in_air_speed = 140,
-    gravity = 93,
-},
-{
+    gravity = 93
+}, {
     -- character with fast air speed
-    name = "Modern Tails", 
+    name = "Modern Tails",
     walking_speed = 120,
     in_air_speed = 140,
-    gravity = 93,
-},
-{
+    gravity = 93
+}, {
     -- character with fast air speed and higher back/side flip
-    name = "Classic Knuckles", 
+    name = "Classic Knuckles",
     walking_speed = 115,
     in_air_speed = 130,
     gravity = 95,
     fall_gravity = 105,
     back_flip_strength = 115,
     side_flip_strength = 115
-},
-{
+}, {
     -- character with fast air speed and higher back/side flip
-    name = "Modern Knuckles", 
+    name = "Modern Knuckles",
     walking_speed = 115,
     in_air_speed = 130,
     gravity = 95,
     fall_gravity = 105,
     back_flip_strength = 115,
     side_flip_strength = 115
-},
-{
+}, {
     -- heavy and fast character with big kick and small jumps
-    name = "Classic Eggman", 
+    name = "Classic Eggman",
     walking_speed = 161,
     jump_strength = 95,
     gravity = 117,
-    kick_jump_strength = 180,
-},
-{
+    kick_jump_strength = 180
+}, {
     -- heavy and fast character with big kick and small jumps
-    name = "Modern Eggman", 
+    name = "Modern Eggman",
     walking_speed = 161,
     jump_strength = 95,
     gravity = 117,
-    kick_jump_strength = 180,
-},
-{
-    name = "Classic Super Sonic", 
+    kick_jump_strength = 180
+}, {
+    name = "Classic Super Sonic",
     walking_speed = 200,
     in_air_speed = 160,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
-    jump_strength = 95,
-},
-{
-    name = "Modern Super Sonic", 
+    jump_strength = 95
+}, {
+    name = "Modern Super Sonic",
     walking_speed = 200,
     in_air_speed = 160,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
-    jump_strength = 95,
-},
-}
+    jump_strength = 95
+}, {
+    -- character with mr l jump 
+    name = "Mr.L",
+    mr_l_jump_on = true,
+    jump_strength = 103,
+    grounded_slowing_speed = 150
+}, {
+    -- character with fast crawling and do twirling after back flip
+    name = 'Baby Mario',
+    single_jump_strength = 90,
+    crawling_speed = 500,
+    back_flip_twirling_on = true,
+    back_flip_strength = 107,
+    hold_walking_speed = 85
+
+}, {
+    -- character with mr l jump that has great horizontal maneuverability
+    name = 'Neco-Arc',
+    mr_l_jump_on = true,
+    mr_l_air_speed = 140,
+    mr_l_gravity = 135,
+    mr_l_jump_strength = 85
+}, {
+    name = 'Neco-Arc Colors',
+    mr_l_jump_on = true,
+    mr_l_air_speed = 140,
+    mr_l_gravity = 135,
+    mr_l_jump_strength = 85
+}, {
+    -- character that can do twirling after back flip and ground pound while twirling
+    name = 'Yui',
+    back_flip_twirling_on = true,
+    twirling_ground_pound_on = true,
+    back_flip_strength = 120,
+    fall_gravity = 95,
+    gravity = 97
+}}
