@@ -3,7 +3,8 @@ ACT_MR_L_JUMP = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_ATTACKING | 
 
 ACT_MR_L_FALL = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION | AIR_STEP_NONE)
 
-MR_L_AUDIO = audio_sample_load('MR_L.mp3')
+MR_L_ANTICIPATION_AUDIO = audio_sample_load('MR_L_anticipation.mp3')
+MR_L_JUMP_AUDIO = audio_sample_load('MR_L_jump.mp3')
 
 
 --- @param m gMarioStates
@@ -21,8 +22,12 @@ function act_mr_l_jump(m)
     if m.actionTimer % 3 ~= 2 then
         m.particleFlags = m.particleFlags | PARTICLE_SPARKLES
     end
+    
     if m.actionTimer == 5 then
-        play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, CHAR_SOUND_HOOHOO);
+        audio_sample_play(MR_L_JUMP_AUDIO, m.pos, 0.5)
+    end
+    if m.actionTimer == 11 then
+        play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, CHAR_SOUND_YAHOO);
     end
 
     m.intendedMag = m.intendedMag * stats.mr_l_air_speed;

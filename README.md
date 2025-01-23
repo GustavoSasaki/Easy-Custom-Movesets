@@ -44,6 +44,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | mr_l_jump_strength       |   Vertical velocity when doing mr l jump (units). | 93 |  high strength and high gravity gives the explosive feeling of original jump of super paper mario|
 | mr_l_gravity       |   How much gravity affects the character when doing mr l jump (percentage). | 140 |  |
 | mr_l_air_speed       |   How much faster the character can move horizontally when doing mr l jump  (percentage). | 60 |  |
+| play_mr_l_anticipation_audio       |   Play sound when charging up to do an mr. l jump  | true |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder

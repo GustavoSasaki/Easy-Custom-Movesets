@@ -47,6 +47,7 @@ local function clean_character_stats(cs)
     cs['mr_l_jump_strength'] = cs['mr_l_jump_strength'] ~= nil and type(cs['mr_l_jump_strength']) == "number" and cs['mr_l_jump_strength'] or 93
     cs['mr_l_gravity'] = getNotNil(cs['mr_l_gravity'], "number", 0.4)
     cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", -0.4) + 1
+    cs['play_mr_l_anticipation_audio'] = getNotNil(cs['play_mr_l_anticipation_audio'], "boolean", true) 
 
     cs['back_flip_twirling_on'] = getNotNil(cs['back_flip_twirling_on'], "boolean", false) 
     cs['twirling_ground_pound_on'] = getNotNil(cs['twirling_ground_pound_on'], "boolean", false) 
@@ -97,6 +98,7 @@ end
 --- @field public mr_l_jump_strength number|nil (Default 93)
 --- @field public mr_l_gravity number|nil (Default 140)
 --- @field public mr_l_air_speed number|nil (Default 60)
+--- @field public play_mr_l_anticipation_audio number|nil (Default true)
 --- @field public back_flip_twirling_on bool|nil (Default false)
 --- @field public twirling_ground_pound_on bool|nil (Default false)
 
