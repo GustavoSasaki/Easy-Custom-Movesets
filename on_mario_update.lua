@@ -9,7 +9,9 @@ local function apply_mr_l(m, stats)
 
     if m.action == ACT_CROUCHING then
         if m.actionTimer == 7 then
-            audio_sample_play(MR_L_ANTICIPATION_AUDIO, m.pos, 0.5)
+            if stats.play_mr_l_anticipation_audio then
+                audio_sample_play(MR_L_ANTICIPATION_AUDIO, m.pos, 0.5)
+            end
         end
         m.actionTimer = m.actionTimer + 1
         if m.actionTimer > 4 then
@@ -21,9 +23,7 @@ local function apply_mr_l(m, stats)
         if m.bounceSquishTimer > 16 and (m.action == ACT_STOP_CROUCHING or m.action == ACT_START_CRAWLING) then
             set_mario_action(m, ACT_MR_L_JUMP, 0)
         else
-            if stats.play_mr_l_anticipation_audio then
-                audio_sample_stop(MR_L_ANTICIPATION_AUDIO)
-            end
+            audio_sample_stop(MR_L_ANTICIPATION_AUDIO)
             m.actionTimer = 0
             m.bounceSquishTimer = 0
         end
