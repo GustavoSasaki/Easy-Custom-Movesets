@@ -20,7 +20,9 @@ local function apply_gravity(m)
         m.vel.y = m.vel.y - 2 * stats.gravity
     else
         local isFalling = (m.vel.y - 4 * stats.gravity - 4) < 0
-        if m.action == ACT_MR_L_JUMP then
+        if m.action == ACT_TWIRLING then
+            m.vel.y = m.vel.y - 4 * stats.twirling_gravity
+        elseif m.action == ACT_MR_L_JUMP then
             m.vel.y = m.vel.y - 4 * stats.mr_l_gravity
         elseif isFalling then
             m.vel.y = m.vel.y - 4 * stats.fall_gravity
