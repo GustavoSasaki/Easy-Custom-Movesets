@@ -70,6 +70,14 @@ local function mario_update(m)
     end
 
     apply_mr_l(m, stats)
+
+    if m.action == ACT_TRIPLE_JUMP and stats.triple_jump_twirling_on then
+        if stats.triple_jump_twirling_when == "start" then
+            set_mario_action(m, ACT_TWIRLING, 0)
+        elseif stats.triple_jump_twirling_when == "fall" and m.vel.y < 4 then
+            set_mario_action(m, ACT_TWIRLING, 0)
+        end
+    end
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

@@ -23,6 +23,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | back_flip_twirling_on       |  Allows the character to enter a twirling state after performing a backflip.| false | same as Luigi from Super Mario 64 DS |
 | twirling_ground_pound_on       | 	Allows the character to perform a ground pound while twirling. | false |  |
 | twirling_dive_on       | 	Allows the character to perform a dive while twirling. | false |  |
+| triple_jump_twirling_on       | 	The character start twirling after triple jump. | false |  |
 
 ## Less Important Stats
 
@@ -47,6 +48,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | mr_l_air_speed       |   How much faster the character can move horizontally when doing mr l jump  (percentage). | 60 |  |
 | play_mr_l_anticipation_audio       |   Play sound when charging up to do an mr. l jump  | true |  |
 | twirling_gravity       |   Gravity effect when twirling (percentage)  | gravity (100)  |  |
+| triple_jump_twirling_when | Defines when the character starts twirling after a triple jump. | fall | Options: `fall` – Start twirling when the character begins falling during the triple jump or `start` – Start twirling immediately at the beginning of the triple jump. 
+ 
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
