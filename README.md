@@ -22,6 +22,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | mr_l_jump_on       |  	Enables the character to perform a super jump after holding a crouch.  | false | same as Luigi in super paper mario |
 | back_flip_twirling_on       |  Allows the character to enter a twirling state after performing a backflip.| false | same as Luigi from Super Mario 64 DS |
 | twirling_ground_pound_on       | 	Allows the character to perform a ground pound while twirling. | false |  |
+| twirling_dive_on       | 	Allows the character to perform a dive while twirling. | false |  |
 
 ## Less Important Stats
 

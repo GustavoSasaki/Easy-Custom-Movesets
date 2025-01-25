@@ -49,6 +49,8 @@ local function clean_character_stats(cs)
     cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", -0.4) + 1
     cs['play_mr_l_anticipation_audio'] = getNotNil(cs['play_mr_l_anticipation_audio'], "boolean", true) 
 
+    cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false) 
+
     cs['back_flip_twirling_on'] = getNotNil(cs['back_flip_twirling_on'], "boolean", false) 
     cs['twirling_ground_pound_on'] = getNotNil(cs['twirling_ground_pound_on'], "boolean", false) 
 end
@@ -101,6 +103,7 @@ end
 --- @field public play_mr_l_anticipation_audio number|nil (Default true)
 --- @field public back_flip_twirling_on bool|nil (Default false)
 --- @field public twirling_ground_pound_on bool|nil (Default false)
+--- @field public twirling_dive_on bool|nil (Default false)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
