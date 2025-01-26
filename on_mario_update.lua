@@ -78,6 +78,10 @@ local function mario_update(m)
             set_mario_action(m, ACT_TWIRLING, 0)
         end
     end
+
+    if m.action == ACT_SIDE_FLIP and stats.side_flip_twirling_on and m.vel.y < 4 then
+        set_mario_action(m, ACT_TWIRLING, 0)
+    end
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

@@ -52,10 +52,10 @@ local function clean_character_stats(cs)
     cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false) 
     cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity) 
     cs.triple_jump_twirling_on = getNotNil(cs.triple_jump_twirling_on, "boolean", false) 
-    cs.triple_jump_twirling_when = getNotNil(cs.triple_jump_twirling_on, "string", "fall") 
-    
-    cs['back_flip_twirling_on'] = getNotNil(cs['back_flip_twirling_on'], "boolean", false) 
-    cs['twirling_ground_pound_on'] = getNotNil(cs['twirling_ground_pound_on'], "boolean", false) 
+    cs.triple_jump_twirling_when = getNotNil(cs.triple_jump_twirling_when, "string", "fall") 
+    cs.back_flip_twirling_on = getNotNil(cs.back_flip_twirling_on, "boolean", false) 
+    cs.side_flip_twirling_on = getNotNil(cs.side_flip_twirling_on, "boolean", false) 
+    cs.twirling_ground_pound_on = getNotNil(cs.twirling_ground_pound_on, "boolean", false) 
 end
 
 characterStatsTable = {}
@@ -103,8 +103,9 @@ end
 --- @field public mr_l_jump_strength number|nil (Default 93)
 --- @field public mr_l_gravity number|nil (Default 140)
 --- @field public mr_l_air_speed number|nil (Default 60)
---- @field public play_mr_l_anticipation_audio number|nil (Default true)
+--- @field public play_mr_l_anticipation_audio bool|nil (Default true)
 --- @field public back_flip_twirling_on bool|nil (Default false)
+--- @field public side_flip_twirling_on bool|nil (Default false)
 --- @field public twirling_ground_pound_on bool|nil (Default false)
 --- @field public twirling_dive_on bool|nil (Default false)
 --- @field public twirling_gravity number|nil (Default gravity)

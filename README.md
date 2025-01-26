@@ -49,7 +49,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | play_mr_l_anticipation_audio       |   Play sound when charging up to do an mr. l jump  | true |  |
 | twirling_gravity       |   Gravity effect when twirling (percentage)  | gravity (100)  |  |
 | triple_jump_twirling_when | Defines when the character starts twirling after a triple jump. | fall | Options: `fall` – Start twirling when the character begins falling during the triple jump or `start` – Start twirling immediately at the beginning of the triple jump. 
- 
+| side_flip_twirling_on       |   The character start twirling after side flip.  | false  |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
