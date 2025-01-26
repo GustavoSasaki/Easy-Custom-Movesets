@@ -24,7 +24,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | twirling_ground_pound_on       | 	Allows the character to perform a ground pound while twirling. | false |  |
 | twirling_dive_on       | 	Allows the character to perform a dive while twirling. | false |  |
 | triple_jump_twirling_on       | 	The character start twirling after triple jump. | false |  |
-| fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity` |
+| fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity`. Stat slightly bugged, The Shifting Sand Tornados will continue chasing you even after twirling, this results in the character ascending more than normal. |
 
 
 ## Less Important Stats

@@ -1,6 +1,6 @@
-ACT_FAST_TWIRLING = allocate_mario_action(ACT_FLAG_AIR | ACT_FLAG_ATTACKING | ACT_FLAG_SWIMMING_OR_FLYING | ACT_FLAG_ATTACKING)
+ACT_FAST_TWIRLING = allocate_mario_action(ACT_FLAG_AIR | ACT_GROUP_AIRBORNE | ACT_FLAG_ATTACKING | ACT_FLAG_SWIMMING_OR_FLYING | ACT_FLAG_ATTACKING)
 
-function ACT_FAST_TWIRLING(m)
+function act_fast_twirling(m)
 
     local startTwirlYaw = m.twirlYaw
     local yawVelTarget = (m.input & INPUT_A_DOWN) ~= 0 and 0x2000 or 0x1800
@@ -43,5 +43,5 @@ function ACT_FAST_TWIRLING(m)
 end
 
 hook_mario_action(ACT_FAST_TWIRLING, {
-    every_frame = ACT_FAST_TWIRLING
+    every_frame = act_fast_twirling
 }, INT_GROUND_POUND_OR_TWIRL)
