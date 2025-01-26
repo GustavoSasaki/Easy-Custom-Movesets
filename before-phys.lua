@@ -50,6 +50,8 @@ local function apply_walking_speed(m, stats)
         hScale = stats.crawling_speed
     elseif m.action == ACT_HOLD_WALKING or m.action == ACT_HEAVY_HOLD_WALKING then
         hScale = stats.hold_walking_speed
+    elseif m.action == ACT_TWIRLING or m.action == ACT_FAST_TWIRLING then
+        hScale = stats.twirling_speed
     elseif isJumping(m) then
         hScale = stats.in_air_speed
     elseif isGroundedSlowing(m) then

@@ -58,6 +58,7 @@ local function clean_character_stats(cs)
     cs.back_flip_twirling_on = getNotNil(cs.back_flip_twirling_on, "boolean", false) 
     cs.side_flip_twirling_on = getNotNil(cs.side_flip_twirling_on, "boolean", false) 
     cs.twirling_ground_pound_on = getNotNil(cs.twirling_ground_pound_on, "boolean", false) 
+    cs.twirling_speed = (getNotNil(cs.twirling_speed, "number", cs.in_air_speed) + 1)
 end
 
 characterStatsTable = {}
@@ -115,6 +116,7 @@ end
 --- @field public fast_twirling_gravity number|nil (Default twirling_gravity)
 --- @field public triple_jump_twirling_on bool|nil (Default false)
 --- @field public triple_jump_twirling_when string|nil (Default fall)
+--- @field public twirling_speed number|nil (Default in_air_speed)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

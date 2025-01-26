@@ -39,7 +39,7 @@ local function apply_jump_speed(m, stats)
         m.bounceSquishTimer = 0
         m.vel.y = stats.mr_l_jump_strength
     elseif m.action == ACT_TWIRL_LAND and
-        (stats.triple_jump_twirling_on or stats.back_flip_twirling_on or stats.twirling_ground_pound_on) and
+        (stats.triple_jump_twirling_on or stats.back_flip_twirling_on or stats.side_flip_twirling_on) and
         (m.controller.stickX ~= 0 or m.controller.stickY ~= 0) then
         set_mario_action(m, ACT_IDLE, 0);
     end
