@@ -24,6 +24,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | twirling_ground_pound_on       | 	Allows the character to perform a ground pound while twirling. | false |  |
 | twirling_dive_on       | 	Allows the character to perform a dive while twirling. | false |  |
 | triple_jump_twirling_on       | 	The character start twirling after triple jump. | false |  |
+| fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity` |
+
 
 ## Less Important Stats
 
@@ -48,6 +50,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | mr_l_air_speed       |   How much faster the character can move horizontally when doing mr l jump  (percentage). | 60 |  |
 | play_mr_l_anticipation_audio       |   Play sound when charging up to do an mr. l jump  | true |  |
 | twirling_gravity       |   Gravity effect when twirling (percentage)  | gravity (100)  |  |
+| fast_twirling_gravity       |   Gravity effect when fast twirling (percentage)  | twirling_gravity ( 100 )  |  |
 | triple_jump_twirling_when | Defines when the character starts twirling after a triple jump. | fall | Options: `fall` – Start twirling when the character begins falling during the triple jump or `start` – Start twirling immediately at the beginning of the triple jump. 
 | side_flip_twirling_on       |   The character start twirling after side flip.  | false  |  |
 

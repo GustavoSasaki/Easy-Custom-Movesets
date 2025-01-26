@@ -65,7 +65,8 @@ local function mario_update(m)
         set_mario_action(m, ACT_GROUND_POUND, 0)
     end
 
-    if stats.twirling_dive_on and m.action == ACT_TWIRLING and (m.input & INPUT_B_PRESSED) ~= 0 then
+    if stats.twirling_dive_on and (m.action == ACT_TWIRLING or m.action == ACT_FAST_TWIRLING) and
+        (m.input & INPUT_B_PRESSED) ~= 0 then
         set_mario_action(m, ACT_DIVE, 0)
     end
 
@@ -82,6 +83,11 @@ local function mario_update(m)
     if m.action == ACT_SIDE_FLIP and stats.side_flip_twirling_on and m.vel.y < 4 then
         set_mario_action(m, ACT_TWIRLING, 0)
     end
+
+    if m.action == ACT_TWIRLING and stats.fast_twirling_on then
+        set_mario_action(m, ACT_FAST_TWIRLING, 0)
+    end
+
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
