@@ -44,11 +44,14 @@ local function apply_gravity(m)
                 m.vel.y = m.vel.y - 4 * stats.twirling_gravity
             end
         elseif m.action == ACT_FAST_TWIRLING then
-            if stats.twirling_gravity > 0 or m.vel.y < 0 then
+            if stats.twirling_gravity > 0 or m.vel.y < 0 and (m.controller.buttonDown & Z_TRIG) ~= 0 then
                 m.vel.y = m.vel.y - 4 * stats.fast_twirling_gravity
             end
             if (m.controller.buttonDown & Z_TRIG) == 0 and m.vel.y < 0 then
                 apply_twirl_gravity(m)
+                if stats.twirling_gravity > 0 or m.vel.y < 0 then
+                    m.vel.y = m.vel.y - 4 * stats.twirling_gravity
+                end
             end
         elseif m.action == ACT_MR_L_JUMP then
             m.vel.y = m.vel.y - 4 * stats.mr_l_gravity

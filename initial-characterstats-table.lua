@@ -202,4 +202,75 @@ initialCharacterStatsTable = {{
     back_flip_strength = 120,
     fall_gravity = 95,
     gravity = 97
+}, {
+    -- character with bad jumps, but do twiling on triple jump and can do dive upward trajectory on twiling.
+    name = "Tumble",
+    triple_jump_twirling_on = true,
+    twirling_dive_on = true,
+    dive_y_vel = 40,
+    single_jump_strength = 85,
+    double_jump_strength = 85
+
+}, {
+    -- character that do twirling after back flip/triple jump and has increase twirling gravity
+    name = "Megumin",
+    explode_on_death = true,
+    triple_jump_twirling_on = true,
+    triple_jump_strength = 105,
+    back_flip_twirling_on = true,
+    twirling_gravity = 120,
+    hold_walking_speed = 90
+}, {
+    name = "Megumin (Recolor)",
+    explode_on_death = true,
+    triple_jump_twirling_on = true,
+    triple_jump_strength = 105,
+    back_flip_twirling_on = true,
+    twirling_gravity = 120,
+    hold_walking_speed = 90
+}, {
+    -- float and fast character that do twirling after triple jump
+    -- also, can do ground pound on twirling
+    -- have bad back flip/side flip
+    name = 'Toon Link',
+    fall_gravity = 90,
+    hold_walking_speed = 90,
+    triple_jump_twirling_on = true,
+    twirling_ground_pound_on = true,
+    walking_speed = 140,
+    back_flip_strength = 85,
+    side_flip_strength = 85
+}, {
+    name = "Junio Sonic",
+    walking_speed = 160,
+    in_air_speed = 125,
+    long_jump_velocity_multiplier = 150,
+    long_jump_max_velocity = 140,
+    jump_strength = 95,
+    mr_l_jump_on = true,
+    play_mr_l_anticipation_audio = false
+}, {
+    -- character that do twirling when starting triple jump/side flip, can do dive when twirling. Also, horrible long jump
+    name = "MyMelodyHD",
+    triple_jump_twirling_on = true,
+    triple_jump_twirling_when = "start",
+    side_flip_twirling_on = true,
+    twirling_dive_on = true,
+    long_jump_strength = 50
+}, {
+    -- character that do twirling when side flip. It twirling has increase gravity and horizontal speed 
+    name = 'Luma',
+    side_flip_twirling_on = true,
+    fast_twirling_on = true,
+    twirling_gravity = 130,
+    twirling_speed = 250,
+    back_flip_strength = 85
+}, {
+    -- character that do twirling when triple jump. It twirling low gravity, you can descending quickly with fast twirling ( press Z button)
+    name = 'Komodo Joe',
+    triple_jump_twirling_on = true,
+    triple_jump_twirling_when = "start",
+    fast_twirling_on = true,
+    twirling_gravity = 90,
+    fast_twirling_gravity = 110
 }}

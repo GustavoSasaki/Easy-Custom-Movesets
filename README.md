@@ -49,8 +49,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | mr_l_gravity       |   How much gravity affects the character when doing mr l jump (percentage). | 140 |  |
 | mr_l_air_speed       |   How much faster the character can move horizontally when doing mr l jump  (percentage). | 60 |  |
 | play_mr_l_anticipation_audio       |   Play sound when charging up to do an mr. l jump  | true |  |
-| twirling_gravity       |   Gravity effect when twirling (percentage)  | gravity (100)  |  |
-| fast_twirling_gravity       |   Gravity effect when fast twirling (percentage)  | twirling_gravity ( 100 )  |  |
+| twirling_gravity       |   Gravity effect when twirling (percentage)  | gravity (100)  | High values such as 90 already make the character very floaty. |
+| fast_twirling_gravity       |   Gravity effect when fast twirling (percentage)  | twirling_gravity ( 100 )  | High values such as 90 already make the character very floaty. |
 | triple_jump_twirling_when | Defines when the character starts twirling after a triple jump. | fall | Options: `fall` – Start twirling when the character begins falling during the triple jump or `start` – Start twirling immediately at the beginning of the triple jump. 
 | side_flip_twirling_on       |   The character start twirling after side flip.  | false  |  |
 | twirling_speed       |   How much faster the character can move horizontally while twirling  (percentage).  | in_air_speed ( 100 )  | |
@@ -81,10 +81,16 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Baby Mario](https://mods.sm64coopdx.com/mods/cs-baby-mario.48/)
 - [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)
 - [Hatsune Miku](https://mods.sm64coopdx.com/mods/cs-hatsune-miku.418/)
+- [Junio Sonic](https://mods.sm64coopdx.com/mods/junio-sonic-cs.450/)
+- [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
+- [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
 - [Mr. L](https://mods.sm64coopdx.com/mods/cs-mr-l.475/)
+- [MyMelodyHd](https://mods.sm64coopdx.com/mods/cs-mymelodyhd.535/)
 - [Neco-Arc](https://mods.sm64coopdx.com/mods/cs-neco-arc.327/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
 - [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
+- [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
+- [Trumble](https://mods.sm64coopdx.com/mods/cs-tumble.380/)
 - [Yui Hirasawa](https://mods.sm64coopdx.com/mods/cs-yui-hirasawa-k-on.258/)
