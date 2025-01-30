@@ -43,21 +43,22 @@ local function clean_character_stats(cs)
     cs['crawling_speed'] = (getNotNil(cs['crawling_speed'], "number", cs['walking_speed']) + 1)
     cs['grounded_slowing_speed'] = (getNotNil(cs['grounded_slowing_speed'], "number", 0.0) + 1)
 
-    cs['mr_l_jump_on'] = getNotNil(cs['mr_l_jump_on'], "boolean", false) 
-    cs['mr_l_jump_strength'] = cs['mr_l_jump_strength'] ~= nil and type(cs['mr_l_jump_strength']) == "number" and cs['mr_l_jump_strength'] or 93
+    cs['mr_l_jump_on'] = getNotNil(cs['mr_l_jump_on'], "boolean", false)
+    cs['mr_l_jump_strength'] = cs['mr_l_jump_strength'] ~= nil and type(cs['mr_l_jump_strength']) == "number" and
+                                   cs['mr_l_jump_strength'] or 93
     cs['mr_l_gravity'] = getNotNil(cs['mr_l_gravity'], "number", 0.4)
     cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", -0.4) + 1
-    cs['play_mr_l_anticipation_audio'] = getNotNil(cs['play_mr_l_anticipation_audio'], "boolean", true) 
+    cs['play_mr_l_anticipation_audio'] = getNotNil(cs['play_mr_l_anticipation_audio'], "boolean", true)
 
-    cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false) 
-    cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity) 
-    cs.triple_jump_twirling_on = getNotNil(cs.triple_jump_twirling_on, "boolean", false) 
-    cs.triple_jump_twirling_when = getNotNil(cs.triple_jump_twirling_when, "string", "fall") 
-    cs.fast_twirling_on= getNotNil(cs.fast_twirling_on, "boolean", false) 
-    cs.fast_twirling_gravity = getNotNil(cs.fast_twirling_gravity, "number", cs.twirling_gravity) 
-    cs.back_flip_twirling_on = getNotNil(cs.back_flip_twirling_on, "boolean", false) 
-    cs.side_flip_twirling_on = getNotNil(cs.side_flip_twirling_on, "boolean", false) 
-    cs.twirling_ground_pound_on = getNotNil(cs.twirling_ground_pound_on, "boolean", false) 
+    cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false)
+    cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity)
+    cs.triple_jump_twirling_on = getNotNil(cs.triple_jump_twirling_on, "boolean", false)
+    cs.triple_jump_twirling_when = getNotNil(cs.triple_jump_twirling_when, "string", "fall")
+    cs.fast_twirling_on = getNotNil(cs.fast_twirling_on, "boolean", false)
+    cs.fast_twirling_gravity = getNotNil(cs.fast_twirling_gravity, "number", cs.twirling_gravity)
+    cs.back_flip_twirling_on = getNotNil(cs.back_flip_twirling_on, "boolean", false)
+    cs.side_flip_twirling_on = getNotNil(cs.side_flip_twirling_on, "boolean", false)
+    cs.twirling_ground_pound_on = getNotNil(cs.twirling_ground_pound_on, "boolean", false)
     cs.twirling_speed = (getNotNil(cs.twirling_speed, "number", cs.in_air_speed) + 1)
 end
 
@@ -143,3 +144,12 @@ _G.customMoves = {
     character_add = character_add,
     stats_from_name = stats_from_name
 }
+hook_event(HOOK_ON_PLAYER_CONNECTED, function()
+
+    for i = #characterStatsTable, 1, -1 do
+
+        if _G.charSelect.character_get_number_from_string(characterStatsTable[i].name) == nil then
+          table.remove(characterStatsTable, i)
+        end
+    end
+end)
