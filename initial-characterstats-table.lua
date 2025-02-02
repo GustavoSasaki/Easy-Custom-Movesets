@@ -281,4 +281,95 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 150,
     long_jump_max_velocity = 130,
 
-}}
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'Alpharad',
+    water_damage_multiplier = 25,
+    swimming_speed = 300,
+    single_jump_strength = 90,
+    triple_jump_strength = 110,
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'Fyrus',
+    water_damage_multiplier = 25,
+    swimming_speed = 300,
+    back_flip_strength = 110,
+    side_flip_strength = 110
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'Giwi',
+    water_damage_multiplier = 25,
+    swimming_speed = 300,
+    gravity = 90,
+    fall_gravity = 110,
+    long_jump_max_velocity = 130,
+    long_jump_velocity_multiplier = 150,
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'Jaiden',
+    water_damage_multiplier = 25,
+    swimming_speed = 300,
+    mr_l_jump_on = true,
+    mr_l_air_speed = 120,
+    back_flip_strength = 80,
+},
+{
+    -- character that dont take water damage, but cant heal breathing
+    name= 'Kidd',
+    water_damage_multiplier = 0,
+    swimming_speed = 350,
+    disable_breath_heal = true,
+    single_jump_strength = 90,
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'Smith',
+    water_damage_multiplier = 50,
+    swimming_speed = 250,
+    triple_jump_twirling_on = true,
+    triple_jump_twirling_when = "start",
+    twirling_speed = 90,
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'VOID',
+    water_damage_multiplier = 50,
+    swimming_speed = 250,
+    dive_y_vel = 35,
+    dive_velocity = 100,
+    dive_max_velocity = 110
+},
+{
+    -- character witch can stand in water long, swim faster
+    name= 'Vulpixie',
+    water_damage_multiplier = 50,
+    swimming_speed = 250,
+    fall_gravity = 95,
+    back_flip_twirling_on = true,
+    back_flip_strength = 103,
+},
+{
+    -- character witch can swin faster, but cant stand in water for too long  
+    name= 'Weegee',
+    water_damage_multiplier = 200,
+    swimming_speed = 400,
+    walking_speed = 120,
+    triple_jump_strength = 87,
+},
+{
+    -- character witch can stand in water/snow water long, swim faster
+    name = 'King Penguin',
+    water_damage_multiplier = 0,
+    snow_water_damage_multiplier = 0,
+    swimming_speed = 300,
+    kick_jump_strength = 200,
+    hold_walking_speed = 200,
+    gravity = 120,
+    in_air_speed = 150,
+    walking_speed = 150
+}
+}

@@ -1,15 +1,5 @@
 local ACT_AIRBORNE = 0x080 -- https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/include/sm64.h#L266
 
---- @param m gMarioStates
---- @param stats CharacterStats
-local function apply_damage_multipliers(m, stats)
-
-    if m.health >= 0x100 and m.hurtCounter == 0 and m.healCounter == 0 and (m.input & INPUT_IN_POISON_GAS) ~= 0 and
-        (m.action & ACT_FLAG_INTANGIBLE) == 0 and (m.flags & MARIO_METAL_CAP) == 0 and not gDebugLevelSelect then
-        m.health = m.health - 4 * stats.bad_gas_damage_multiplier
-    end
-
-end
 
 --- @param m gMarioStates
 --- @param stats CharacterStats
@@ -116,7 +106,6 @@ local function before_mario_update(m)
         return
     end
 
-    apply_damage_multipliers(m,stats)
 end
 
 hook_event(HOOK_BEFORE_MARIO_UPDATE, before_mario_update)

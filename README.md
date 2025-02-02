@@ -25,7 +25,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | twirling_dive_on       | 	Allows the character to perform a dive while twirling. | false |  |
 | triple_jump_twirling_on       | 	The character start twirling after triple jump. | false |  |
 | fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity`. Stat slightly bugged, The Shifting Sand Tornados will continue chasing you even after twirling, this results in the character ascending more than normal. |
-
+| water_damage_multiplier       | 	How much damage the character takes when holding breath under water (percentage). | 100 |  |
 
 ## Less Important Stats
 
@@ -55,6 +55,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | side_flip_twirling_on       |   The character start twirling after side flip.  | false  |  |
 | twirling_speed       |   How much faster the character can move horizontally while twirling  (percentage).  | in_air_speed ( 100 )  | |
 | bad_gas_damage_multiplier       |   How much damage the character takes from bad gas  (percentage).  |  100   | |
+| snow_water_damage_multiplier       | 	How much damage the character takes when holding breath under snow water (percentage). | water_damage_multiplier ( 100 ) |  |
+| disable_breath_heal       | 	Disable the healing when breathing in water surface. | false |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -81,8 +83,11 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Azumanga Daioh](https://mods.sm64coopdx.com/mods/azumanga-daioh-64-pack.205/)
 - [Baby Mario](https://mods.sm64coopdx.com/mods/cs-baby-mario.48/)
 - [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)
+- [Dry Bones](https://mods.sm64coopdx.com/mods/cs-dry-bones.37/)
+- [Frogsuit Wildcard](https://mods.sm64coopdx.com/mods/cs-frogsuit-wildcard-models.308/)
 - [Hatsune Miku](https://mods.sm64coopdx.com/mods/cs-hatsune-miku.418/)
 - [Junio Sonic](https://mods.sm64coopdx.com/mods/junio-sonic-cs.450/)
+- [King Penguin](https://mods.sm64coopdx.com/mods/cs-king-penguin.346/)
 - [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
 - [Mr. L](https://mods.sm64coopdx.com/mods/cs-mr-l.475/)
