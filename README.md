@@ -57,6 +57,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | bad_gas_damage_multiplier       |   How much damage the character takes from bad gas  (percentage).  |  100   | |
 | snow_water_damage_multiplier       | 	How much damage the character takes when holding breath under snow water (percentage). | water_damage_multiplier ( 100 ) |  |
 | disable_breath_heal       | 	Disable the healing when breathing in water surface. | false |  |
+| burning_damage_multiplier       | 	How much damage the character takes when burning (percentage). | 100 |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -96,6 +97,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
 - [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
+- [SMRPG](https://mods.sm64coopdx.com/mods/cs-smrpg-characters.35/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
 - [Trumble](https://mods.sm64coopdx.com/mods/cs-tumble.380/)

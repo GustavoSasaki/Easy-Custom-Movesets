@@ -54,6 +54,7 @@ local function clean_character_stats(cs)
     cs.water_damage_multiplier = getNotNil(cs.water_damage_multiplier, "number", 0.0) 
     cs.snow_water_damage_multiplier = getNotNil(cs.snow_water_damage_multiplier, "number",  cs.water_damage_multiplier ) 
     cs.disable_breath_heal = getNotNil(cs.disable_breath_heal, "boolean", false)
+    cs.burning_damage_multiplier = getNotNil(cs.burning_damage_multiplier, "number",  0.0 ) 
 
     cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false)
     cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity)
@@ -127,6 +128,7 @@ end
 --- @field public water_damage_multiplier number|nil (Default 100)
 --- @field public snow_water_damage_multiplier number|nil (Default water_damage_multiplier)
 --- @field public disable_breath_heal bool|nil (Default false)
+--- @field public burning_damage_multiplier number|nil (Default 100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
