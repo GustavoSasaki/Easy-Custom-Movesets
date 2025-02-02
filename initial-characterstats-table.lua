@@ -379,4 +379,10 @@ initialCharacterStatsTable = {{
     fall_gravity = 85, 
     long_jump_strength = 125,
     kick_jump_strength = 75,
+},
+{
+    -- no burning damage
+    name = 'Thomas the Tank Engine',
+    disable_burning = true,
+    bad_gas_damage_multiplier = 0,
 }}
