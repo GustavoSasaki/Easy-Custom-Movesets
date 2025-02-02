@@ -1,8 +1,7 @@
 --- @param m gMarioStates
-local function isAboveWater(m) 
+local function isAboveWater(m)
     return m.pos.y >= (m.waterLevel - 140)
 end
-
 
 --- @param m gMarioStates
 --- @param stats CharacterStats
@@ -39,12 +38,38 @@ local function apply_damage_multipliers(m, stats)
             end
         elseif not isDebugMode then
             -- Damage while underwater
-            local damageMultiplier = terrainIsSnow and (3 * stats.snow_water_damage_multiplier) or (1 * stats.water_damage_multiplier)
+            local damageMultiplier = terrainIsSnow and (3 * stats.snow_water_damage_multiplier) or
+                                         (1 * stats.water_damage_multiplier)
             m.health = m.health - damageMultiplier
         end
     end
 end
 
+--- @param m gMarioStates
+--- @param stats CharacterStats
+local function apply_lava_damage_multiplier(m, stats)
+
+    if m.floor.type ~= SURFACE_BURNING then
+        return
+    elseif (m.action & ACT_GROUP_MASK) == ACT_GROUP_CUTSCENE then
+        return
+    elseif m.action == ACT_BUBBLED or m.action == ACT_FLAG_RIDING_SHELL then
+        return
+    elseif (m.flags & MARIO_METAL_CAP) ~= 0 then
+        return
+    elseif gDjuiInMainMenu then
+        return
+    elseif m.pos.y > (m.floorHeight + 10.0) then
+        return
+    end
+
+    local damageAdded = (marioHasCap and 12 or 18) * stats.lava_damage_multiplier
+    if damageAdded > 0 then
+        m.hurtCounter = m.hurtCounter + damageAdded
+    else
+        m.healCounter = m.healCounter - damageAdded
+    end
+end
 
 --- @param m gMarioStates
 local function before_mario_update(m)
@@ -60,11 +85,10 @@ local function before_mario_update(m)
     end
 
     apply_damage_multipliers(m, stats)
+    apply_lava_damage_multiplier(m, stats)
     if stats.disable_damage then
         m.hurtCounter = 0
     end
 end
-
-
 
 hook_event(HOOK_BEFORE_MARIO_UPDATE, before_mario_update)

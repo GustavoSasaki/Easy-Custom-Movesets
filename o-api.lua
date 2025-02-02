@@ -57,6 +57,7 @@ local function clean_character_stats(cs)
     cs.burning_damage_multiplier = getNotNil(cs.burning_damage_multiplier, "number",  0.0 ) 
     cs.disable_burning = getNotNil(cs.disable_burning, "boolean", false)
     cs.disable_damage = getNotNil(cs.disable_damage, "boolean", false)
+    cs.lava_damage_multiplier = getNotNil(cs.lava_damage_multiplier, "number", 0.0) 
 
     cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false)
     cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity)
@@ -133,6 +134,7 @@ end
 --- @field public burning_damage_multiplier number|nil (Default 100)
 --- @field public disable_burning bool|nil (Default false)
 --- @field public disable_damage bool|nil (Default false)
+--- @field public lava_damage_multiplier number|nil (Default 100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

@@ -329,7 +329,8 @@ initialCharacterStatsTable = {{
     swimming_speed = 350,
     disable_breath_heal = true,
     single_jump_strength = 90,
-    burning_damage_multiplier = 50
+    burning_damage_multiplier = 50,
+    lava_damage_multiplier = 50
 }, {
     -- character witch can stand in water long, swim faster
     name = 'Smith',
@@ -381,7 +382,8 @@ initialCharacterStatsTable = {{
     hold_walking_speed = 85,
     walking_speed = 135,
     in_air_speed = 135,
-    back_flip_strength = 110
+    back_flip_strength = 110,
+    lava_damage_multiplier = 170
 }, {
     -- float character with stronger long jump
     name = 'Mallow',
@@ -393,16 +395,16 @@ initialCharacterStatsTable = {{
     -- no burning damage
     name = 'Thomas the Tank Engine',
     disable_burning = true,
-    bad_gas_damage_multiplier = 0
-},
-{
+    bad_gas_damage_multiplier = 0,
+    lava_damage_multiplier = 0
+}, {
     name = 'Squidward',
     water_damage_multiplier = 0,
     swimming_speed = 300,
     burning_damage_multiplier = 50,
+    lava_damage_multiplier = 50,
     double_jump_strength = 110
-},
-{
+}, {
     -- inume to damage character, also he is fast and slippery 
     name = 'Nabbit',
     disable_damage = true,
@@ -414,5 +416,10 @@ initialCharacterStatsTable = {{
     in_air_speed = 120,
     grounded_slowing_speed = 150
 
-}
-}
+}, {
+    name = 'VL & CJes',
+    jump_strength = 106,
+    grounded_slowing_speed = 150,
+    back_flip_twirling_on = true,
+    twirling_ground_pound_on = true
+}}

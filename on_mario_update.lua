@@ -77,7 +77,7 @@ local function mario_update(m)
         end
     end
 
-    if stats.back_flip_twirling_on and m.action == ACT_BACKFLIP and m.vel.y < 0 then
+    if stats.back_flip_twirling_on and m.action == ACT_BACKFLIP and m.vel.y < 8 then
         set_mario_action(m, ACT_TWIRLING, 0)
     end
 
@@ -109,7 +109,43 @@ local function mario_update(m)
     end
 
     apply_burning_damage_multiplier(m,stats)
+--  apply_lava_damage_multiplier(m,stats)
+
+  gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
 
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
+
+-- local function isHurtCounterChanged(m)
+--     if m.hurtCounter == 0 then
+--         return false
+--     end
+--     return m.hurtCounter ~= (gPlayerSyncTable[m.playerIndex].prevHurtCounter - 1)
+-- end
+-- 
+-- --- @param m gMarioStates
+-- local function before_mario_update(m)
+--     if (m == nil) then
+--         return
+--     end
+--     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
+--         return
+--     end
+--     local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+--     if stats == nil then
+--         return
+--     end
+-- 
+--     if m.hurtCounter > gPlayerSyncTable[m.playerIndex].prevHurtCounter then
+--         m.hurtCounter = m.hurtCounter + (m.hurtCounter - gPlayerSyncTable[m.playerIndex].prevHurtCounter)
+--     end
+--     gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
+-- 
+--     if m.hurtCounter == 1 and ((m.health - 128) % 8 == 0) then
+--         m.health = m.health - 64
+--     end
+-- 
+-- end
+-- 
+-- hook_event(HOOK_BEFORE_MARIO_UPDATE, before_mario_update)

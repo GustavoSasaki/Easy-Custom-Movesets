@@ -60,6 +60,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | disable_breath_heal       | 	Disable the healing when breathing in water surface. | false |  |
 | burning_damage_multiplier       | 	How much damage the character takes when burning (percentage). | 100 |  |
 | disable_burning       | 	Disable bruning from flames | false |  |
+| lava_damage_multiplier       | 	How much damage the character takes from lava (percentage). | 100 |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -106,4 +107,5 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Thomas The Tank Engine](https://mods.sm64coopdx.com/mods/cs-thomas-the-tank-engine.41/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
 - [Trumble](https://mods.sm64coopdx.com/mods/cs-tumble.380/)
+- [VL-Tone and CJes Luigi](https://mods.sm64coopdx.com/mods/cs-vl-tone-and-cjes-luigi.12/)
 - [Yui Hirasawa](https://mods.sm64coopdx.com/mods/cs-yui-hirasawa-k-on.258/)
