@@ -401,5 +401,18 @@ initialCharacterStatsTable = {{
     swimming_speed = 300,
     burning_damage_multiplier = 50,
     double_jump_strength = 110
+},
+{
+    -- inume to damage character, also he is fast and slippery 
+    name = 'Nabbit',
+    disable_damage = true,
+    water_damage_multiplier = 0,
+    snow_water_damage_multiplier = 0,
+    bad_gas_damage_multiplie = 0,
+    disable_burning = true,
+    walking_speed = 120,
+    in_air_speed = 120,
+    grounded_slowing_speed = 150
+
 }
 }

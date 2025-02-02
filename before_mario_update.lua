@@ -60,6 +60,9 @@ local function before_mario_update(m)
     end
 
     apply_damage_multipliers(m, stats)
+    if stats.disable_damage then
+        m.hurtCounter = 0
+    end
 end
 
 

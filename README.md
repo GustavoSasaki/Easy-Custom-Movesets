@@ -26,6 +26,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | triple_jump_twirling_on       | 	The character start twirling after triple jump. | false |  |
 | fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity`. Stat slightly bugged, The Shifting Sand Tornados will continue chasing you even after twirling, this results in the character ascending more than normal. |
 | water_damage_multiplier       | 	How much damage the character takes when holding breath under water (percentage). | 100 |  |
+| disable_damage       | 	Disable damage. | false | This stast doest not work for water damage, burning damage or bad gas damage |
 
 ## Less Important Stats
 
@@ -94,6 +95,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
 - [Mr. L](https://mods.sm64coopdx.com/mods/cs-mr-l.475/)
 - [MyMelodyHd](https://mods.sm64coopdx.com/mods/cs-mymelodyhd.535/)
+- [Nabbit](https://mods.sm64coopdx.com/mods/cs-nabbit.38/)
 - [Neco-Arc](https://mods.sm64coopdx.com/mods/cs-neco-arc.327/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
