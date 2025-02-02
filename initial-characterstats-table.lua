@@ -83,19 +83,20 @@ initialCharacterStatsTable = {{
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Classic Sonic",
-    walking_speed = 160,
-    in_air_speed = 125,
-    grounded_slowing_speed = 300,
+    walking_speed = 252,
+    in_air_speed = 222,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
+    airborne_deceleration_speed = 50,
     jump_strength = 95
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Modern Sonic",
-    walking_speed = 160,
-    in_air_speed = 125,
-    long_jump_velocity_multiplier = 150,
-    long_jump_max_velocity = 140,
+    walking_speed = 252,
+    in_air_speed = 222,
+    long_jump_velocity_multiplier = 200,
+    long_jump_max_velocity = 130,
+    airborne_deceleration_speed = 50,
     jump_strength = 95
 }, {
     name = "Shadow the Hedgehog",
@@ -109,15 +110,23 @@ initialCharacterStatsTable = {{
 }, {
     -- character with fast air speed
     name = "Classic Tails",
-    walking_speed = 120,
-    in_air_speed = 140,
-    gravity = 93
+    walking_speed = 252,
+    in_air_speed = 222,
+    long_jump_velocity_multiplier = 200,
+    long_jump_max_velocity = 130,
+    airborne_deceleration_speed = 50,
+    jump_strength = 95,
+    fall_gravity = 80
 }, {
     -- character with fast air speed
     name = "Modern Tails",
-    walking_speed = 120,
-    in_air_speed = 140,
-    gravity = 93
+    walking_speed = 252,
+    in_air_speed = 222,
+    long_jump_velocity_multiplier = 200,
+    long_jump_max_velocity = 130,
+    airborne_deceleration_speed = 50,
+    jump_strength = 95,
+    fall_gravity = 80
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Classic Knuckles",
@@ -152,16 +161,16 @@ initialCharacterStatsTable = {{
     kick_jump_strength = 180
 }, {
     name = "Classic Super Sonic",
-    walking_speed = 200,
-    in_air_speed = 160,
+    walking_speed = 252,
+    in_air_speed = 222,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
     jump_strength = 95
 }, {
     name = "Modern Super Sonic",
-    walking_speed = 200,
-    in_air_speed = 160,
+    walking_speed = 252,
+    in_air_speed = 222,
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
@@ -242,10 +251,11 @@ initialCharacterStatsTable = {{
     side_flip_strength = 85
 }, {
     name = "Junio Sonic",
-    walking_speed = 160,
-    in_air_speed = 125,
-    long_jump_velocity_multiplier = 150,
-    long_jump_max_velocity = 140,
+    walking_speed = 252,
+    in_air_speed = 222,
+    long_jump_velocity_multiplier = 200,
+    long_jump_max_velocity = 130,
+    airborne_deceleration_speed = 50,
     jump_strength = 95,
     mr_l_jump_on = true,
     play_mr_l_anticipation_audio = false
@@ -362,7 +372,7 @@ initialCharacterStatsTable = {{
     gravity = 120,
     in_air_speed = 150,
     walking_speed = 150,
-    burning_damage_multiplier = 50,
+    burning_damage_multiplier = 50
 }, {
     -- speedy character with weakness to burning
     name = 'Geno',
@@ -375,14 +385,21 @@ initialCharacterStatsTable = {{
 }, {
     -- float character with stronger long jump
     name = 'Mallow',
-    gravity = 95,  
-    fall_gravity = 85, 
+    gravity = 95,
+    fall_gravity = 85,
     long_jump_strength = 125,
-    kick_jump_strength = 75,
-},
-{
+    kick_jump_strength = 75
+}, {
     -- no burning damage
     name = 'Thomas the Tank Engine',
     disable_burning = true,
-    bad_gas_damage_multiplier = 0,
-}}
+    bad_gas_damage_multiplier = 0
+},
+{
+    name = 'Squidward',
+    water_damage_multiplier = 0,
+    swimming_speed = 300,
+    burning_damage_multiplier = 50,
+    double_jump_strength = 110
+}
+}

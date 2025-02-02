@@ -100,6 +100,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
 - [SMRPG](https://mods.sm64coopdx.com/mods/cs-smrpg-characters.35/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
+- [Squidward](https://mods.sm64coopdx.com/mods/squidward-cs.438/)
 - [Thomas The Tank Engine](https://mods.sm64coopdx.com/mods/cs-thomas-the-tank-engine.41/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
 - [Trumble](https://mods.sm64coopdx.com/mods/cs-tumble.380/)
