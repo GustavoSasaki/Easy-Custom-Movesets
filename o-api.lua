@@ -50,6 +50,8 @@ local function clean_character_stats(cs)
     cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", -0.4) + 1
     cs['play_mr_l_anticipation_audio'] = getNotNil(cs['play_mr_l_anticipation_audio'], "boolean", true)
 
+    cs['bad_gas_damage_multiplier'] = getNotNil(cs['bad_gas_damage_multiplier'], "number", 0.0) 
+
     cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false)
     cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity)
     cs.triple_jump_twirling_on = getNotNil(cs.triple_jump_twirling_on, "boolean", false)
@@ -118,6 +120,7 @@ end
 --- @field public triple_jump_twirling_on bool|nil (Default false)
 --- @field public triple_jump_twirling_when string|nil (Default fall)
 --- @field public twirling_speed number|nil (Default in_air_speed)
+--- @field public bad_gas_damage_multiplier number|nil (Default 100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -144,7 +147,9 @@ _G.customMoves = {
     character_add = character_add,
     stats_from_name = stats_from_name
 }
-hook_event(HOOK_ON_PLAYER_CONNECTED, function()
+
+--- @param m gMarioStates
+hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
 
     for i = #characterStatsTable, 1, -1 do
 

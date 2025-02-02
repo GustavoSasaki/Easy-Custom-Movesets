@@ -54,6 +54,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | triple_jump_twirling_when | Defines when the character starts twirling after a triple jump. | fall | Options: `fall` – Start twirling when the character begins falling during the triple jump or `start` – Start twirling immediately at the beginning of the triple jump. 
 | side_flip_twirling_on       |   The character start twirling after side flip.  | false  |  |
 | twirling_speed       |   How much faster the character can move horizontally while twirling  (percentage).  | in_air_speed ( 100 )  | |
+| bad_gas_damage_multiplier       |   How much damage the character takes from bad gas  (percentage).  |  100   | |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder

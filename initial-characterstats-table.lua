@@ -273,4 +273,12 @@ initialCharacterStatsTable = {{
     fast_twirling_on = true,
     twirling_gravity = 90,
     fast_twirling_gravity = 110
+}, {
+    -- character with bad gas immunity, It has stronger long jump
+    name = 'Dry Bones',
+    gravity = 90,
+    bad_gas_damage_multiplier = 0,
+    long_jump_velocity_multiplier = 150,
+    long_jump_max_velocity = 130,
+
 }}
