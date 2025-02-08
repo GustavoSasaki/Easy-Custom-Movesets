@@ -1,10 +1,9 @@
 local ACT_AIRBORNE = 0x080 -- https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/include/sm64.h#L266
 
-
 --- @param m gMarioStates
 --- @param stats CharacterStats
 local function apply_burning_damage_multiplier(m, stats)
-    if m.action ~= ACT_BURNING_GROUND and  m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
+    if m.action ~= ACT_BURNING_GROUND and m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
         return
     end
 
@@ -12,11 +11,23 @@ local function apply_burning_damage_multiplier(m, stats)
 
     if (m.health < 0x100) then
         if (m.playerIndex ~= 0) then
-            --never kill remote marios
+            -- never kill remote marios
             m.health = 0x100;
         else
             m.health = 0xFF;
         end
+    end
+end
+
+--- @param m gMarioStates
+--- @param stats CharacterStats
+local function do_ground_pound_dive(m, stats)
+
+    if stats.ground_pound_dive_on and m.action == ACT_GROUND_POUND and m.actionTimer >= 6 and
+        (m.input & INPUT_B_PRESSED) ~= 0 then
+        m.vel.y = stats.ground_pound_dive_y_vel
+        m.forwardVel = stats.ground_pound_dive_forward_vel
+        set_mario_action(m, ACT_DIVE, 0)
     end
 end
 
@@ -108,44 +119,11 @@ local function mario_update(m)
         set_mario_action(m, ACT_FAST_TWIRLING, 0)
     end
 
-    apply_burning_damage_multiplier(m,stats)
---  apply_lava_damage_multiplier(m,stats)
+    apply_burning_damage_multiplier(m, stats)
+    do_ground_pound_dive(m, stats)
 
-  gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
+    gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
 
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
-
--- local function isHurtCounterChanged(m)
---     if m.hurtCounter == 0 then
---         return false
---     end
---     return m.hurtCounter ~= (gPlayerSyncTable[m.playerIndex].prevHurtCounter - 1)
--- end
--- 
--- --- @param m gMarioStates
--- local function before_mario_update(m)
---     if (m == nil) then
---         return
---     end
---     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
---         return
---     end
---     local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
---     if stats == nil then
---         return
---     end
--- 
---     if m.hurtCounter > gPlayerSyncTable[m.playerIndex].prevHurtCounter then
---         m.hurtCounter = m.hurtCounter + (m.hurtCounter - gPlayerSyncTable[m.playerIndex].prevHurtCounter)
---     end
---     gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
--- 
---     if m.hurtCounter == 1 and ((m.health - 128) % 8 == 0) then
---         m.health = m.health - 64
---     end
--- 
--- end
--- 
--- hook_event(HOOK_BEFORE_MARIO_UPDATE, before_mario_update)

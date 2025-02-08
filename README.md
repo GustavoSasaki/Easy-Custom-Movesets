@@ -27,6 +27,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity`. Stat slightly bugged, The Shifting Sand Tornados will continue chasing you even after twirling, this results in the character ascending more than normal. |
 | water_damage_multiplier       | 	How much damage the character takes when holding breath under water (percentage). | 100 |  |
 | disable_damage       | 	Disable damage. | false | This stast doest not work for water damage, burning damage or bad gas damage |
+| ground_pound_dive_on       | 	Allows the character to perform a dive while ground pound. | false |  |
 
 ## Less Important Stats
 
@@ -61,6 +62,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | burning_damage_multiplier       | 	How much damage the character takes when burning (percentage). | 100 |  |
 | disable_burning       | 	Disable bruning from flames | false |  |
 | lava_damage_multiplier       | 	How much damage the character takes from lava (percentage). | 100 |  |
+| ground_pound_dive_y_vel       | 	Adds vertical velocity when diving after ground pound (units).  | 0 | Recomended add some value in this stat, this will make ground pound dive feel  much better |
+| ground_pound_dive_forward_vel       | 	Forward velocity added when diving after ground pound (units).  | dive_max_velocity (48) |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -93,6 +96,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Junio Sonic](https://mods.sm64coopdx.com/mods/junio-sonic-cs.450/)
 - [King Penguin](https://mods.sm64coopdx.com/mods/cs-king-penguin.346/)
 - [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
+- [Marvin the martian](https://mods.sm64coopdx.com/mods/marvin-the-martian.497/)
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
 - [Mr. L](https://mods.sm64coopdx.com/mods/cs-mr-l.475/)
 - [MyMelodyHd](https://mods.sm64coopdx.com/mods/cs-mymelodyhd.535/)

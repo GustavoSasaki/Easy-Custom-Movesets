@@ -34,6 +34,10 @@ local function clean_character_stats(cs)
     cs['dive_velocity'] = 15 * getNotNil(cs['dive_velocity'], "number", 0)
     cs['dive_max_velocity'] = 48 * (getNotNil(cs['dive_max_velocity'], "number", 0.0) + 1)
 
+    cs['ground_pound_dive_on'] = getNotNil(cs['ground_pound_dive_on'], "boolean", false)
+    cs['ground_pound_dive_y_vel']  = cs['ground_pound_dive_y_vel'] ~= nil and type(cs['ground_pound_dive_y_vel']) == "number" and cs['ground_pound_dive_y_vel'] or 0
+    cs['ground_pound_dive_forward_vel']  = cs['ground_pound_dive_forward_vel'] ~= nil and type(cs['ground_pound_dive_forward_vel']) == "number" and cs['ground_pound_dive_forward_vel'] or cs['dive_max_velocity']
+
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
     cs['long_jump_max_velocity'] = 48 * (getNotNil(cs['long_jump_max_velocity'], "number", 0.0) + 1)
 
@@ -105,6 +109,9 @@ end
 --- @field public dive_y_vel number|nil (Default 0)
 --- @field public dive_velocity number|nil (Default 100)
 --- @field public dive_max_velocity number|nil (Default 100)
+--- @field public ground_pound_dive_on bool|nil (Default false)
+--- @field public ground_pound_dive_y_vel number|nil (Default 0)
+--- @field public ground_pound_dive_forward_vel number|nil (Default dive_max_velocity)
 --- @field public long_jump_velocity_multiplier number|nil (Default 100)
 --- @field public long_jump_max_velocity number|nil (Default 100)
 --- @field public walking_speed number|nil (Default 100)

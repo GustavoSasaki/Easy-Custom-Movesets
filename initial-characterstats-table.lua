@@ -422,4 +422,14 @@ initialCharacterStatsTable = {{
     grounded_slowing_speed = 150,
     back_flip_twirling_on = true,
     twirling_ground_pound_on = true
+},
+{
+    -- foat character that can dive on ground pound
+    name = 'Marvin the martian',
+    ground_pound_dive_on =  true,
+    ground_pound_dive_y_vel = 40,
+    gravity = 90,
+    fall_gravity = 75,
+    water_damage_multiplier = 125
+
 }}
