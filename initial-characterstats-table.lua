@@ -450,4 +450,13 @@ initialCharacterStatsTable = {{
     disable_burning = true,
     side_flip_strength = 90,
     back_flip_strength = 90
+},
+{
+    -- character that can do fart after ground pound
+    name = 'Turkey Wario',
+    waft_fart_on = true,
+    burning_damage_multiplier = 125,
+    waft_fart_per_level = 3,
+    gravity = 105,
+    fall_gravity = 110
 }}

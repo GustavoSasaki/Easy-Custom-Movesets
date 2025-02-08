@@ -143,6 +143,13 @@ local function mario_update(m)
         set_mario_action(m, ACT_FAST_TWIRLING, 0)
     end
 
+    if stats.waft_fart_on and m.action == ACT_GROUND_POUND and (m.input & INPUT_Z_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].fart > 0 and m.actionTimer > 6 then
+        m.forwardVel = stats.waft_fart_velocity
+        set_camera_pitch_shake(0x60, 0x3, 0x8000);
+        set_camera_roll_shake(0x30, 0x3, 0x8000);
+        set_mario_action(m, ACT_WAFT_FART, 0)
+    end
+
     apply_burning_damage_multiplier(m,stats)
     apply_ground_pound_stats(m, stats)
 

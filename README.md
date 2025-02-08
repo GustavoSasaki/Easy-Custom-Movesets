@@ -28,6 +28,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | water_damage_multiplier       | 	How much damage the character takes when holding breath under water (percentage). | 100 |  |
 | disable_damage       | 	Disable damage. | false | This stast doest not work for water damage, burning damage or bad gas damage |
 | ground_pound_dive_on       | 	Allows the character to perform a dive while ground pound. | false |  |
+| waft_fart_on       | 	Allows the character to perform an super fart jump while ground pound with Z button. This jump has an limited number of uses per level. | false |  |
 
 ## Less Important Stats
 
@@ -67,6 +68,9 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | ground_pound_antecipation_speed_up       | 	Increases the speed of the spinning animation before performing a ground pound.  | "no" | `small`  Increases speed by 20% , `medium`  Increases speed by 25%, `fast` Increases speed by 80% and `immediately` skips animation|
 | ground_pound_gravity       |  Gravity effect when ground pounding (percentage).  | gravity (100) | |
 | ground_pound_max_y_vel       |  Increases the max Y velocity when ground pounding (percentage).  |  100 | |
+| waft_fart_velocity       |  Horizontal velocity of waft fart jump (units).  |  100 | |
+| waft_fart_strength       |  Height of waft fart jump (units).  |  93 | |
+| waft_fart_per_level       |  Number of time the character can use waft fart jum per level (units).  |  1 | |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -116,5 +120,6 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Thomas The Tank Engine](https://mods.sm64coopdx.com/mods/cs-thomas-the-tank-engine.41/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
 - [Trumble](https://mods.sm64coopdx.com/mods/cs-tumble.380/)
+- [Turkey Wario](https://mods.sm64coopdx.com/mods/cs-turkey-wario.411/)
 - [VL-Tone and CJes Luigi](https://mods.sm64coopdx.com/mods/cs-vl-tone-and-cjes-luigi.12/)
 - [Yui Hirasawa](https://mods.sm64coopdx.com/mods/cs-yui-hirasawa-k-on.258/)

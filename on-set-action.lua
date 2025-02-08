@@ -38,6 +38,10 @@ local function apply_jump_speed(m, stats)
     elseif m.action == ACT_MR_L_JUMP then
         m.bounceSquishTimer = 0
         m.vel.y = stats.mr_l_jump_strength
+    elseif m.action == ACT_WAFT_FART then
+        gPlayerSyncTable[m.playerIndex].fart = gPlayerSyncTable[m.playerIndex].fart - 1
+        m.vel.y = stats.waft_fart_strength
+        set_mario_particle_flags(m, PARTICLE_MIST_CIRCLE, false);
     elseif m.action == ACT_TWIRL_LAND and
         (stats.triple_jump_twirling_on or stats.back_flip_twirling_on or stats.side_flip_twirling_on) and
         (m.controller.stickX ~= 0 or m.controller.stickY ~= 0) then
@@ -55,6 +59,12 @@ local function on_set_action(m)
     if stats == nil then
         return
     end
+
+if m.action == ACT_SPAWN_NO_SPIN_AIRBORNE or  m.action == ACT_SPAWN_NO_SPIN_LANDING 
+or  m.action == ACT_SPAWN_SPIN_AIRBORNE  or  m.action == ACT_SPAWN_SPIN_LANDING then
+    gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level
+end 
+
     apply_jump_speed(m, stats)
 end
 
