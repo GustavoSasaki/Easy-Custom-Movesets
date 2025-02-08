@@ -55,6 +55,8 @@ local function apply_gravity(m)
             end
         elseif m.action == ACT_MR_L_JUMP then
             m.vel.y = m.vel.y - 4 * stats.mr_l_gravity
+        elseif m.action == ACT_GROUND_POUND then
+            m.vel.y = m.vel.y - 4 * stats.ground_pound_gravity
         elseif isFalling then
             m.vel.y = m.vel.y - 4 * stats.fall_gravity
         else

@@ -38,6 +38,8 @@ local function clean_character_stats(cs)
     cs['ground_pound_dive_on'] = getNotNil(cs['ground_pound_dive_on'], "boolean", false)
     cs['ground_pound_dive_y_vel']  = cs['ground_pound_dive_y_vel'] ~= nil and type(cs['ground_pound_dive_y_vel']) == "number" and cs['ground_pound_dive_y_vel'] or 0
     cs['ground_pound_dive_forward_vel']  = cs['ground_pound_dive_forward_vel'] ~= nil and type(cs['ground_pound_dive_forward_vel']) == "number" and cs['ground_pound_dive_forward_vel'] or cs['dive_max_velocity']
+    cs.ground_pound_gravity = getNotNil(cs.ground_pound_gravity, "number", cs.gravity)
+    cs.ground_pound_max_y_vel= 75 * (getNotNil(cs.ground_pound_max_y_vel, "number", 0.0) + 1)
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
     cs['long_jump_max_velocity'] = 48 * (getNotNil(cs['long_jump_max_velocity'], "number", 0.0) + 1)
@@ -144,6 +146,8 @@ end
 --- @field public disable_damage bool|nil (Default false)
 --- @field public lava_damage_multiplier number|nil (Default 100)
 --- @field public ground_pound_antecipation_speed_up string|nil (Default "zero")
+--- @field public ground_pound_gravity string|nil (Default gravity)
+--- @field public ground_pound_max_y_vel number|nil (Default 100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -180,4 +184,6 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
           table.remove(characterStatsTable, i)
         end
     end
+
+    gPlayerSyncTable[0].prevVelY = 0
 end)

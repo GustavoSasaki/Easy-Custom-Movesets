@@ -67,6 +67,24 @@ local function apply_walking_speed(m, stats)
 end
 
 --- @param m gMarioStates
+--- @param stats CharacterStats
+local function apply_ground_pound_cap_velocity(m, stats)
+    if m.action ~= ACT_GROUND_POUND then
+        return
+    end
+
+    if m.vel.y <= -75 then
+        m.vel.y = gPlayerSyncTable[m.playerIndex].prevYvel
+        -- re-applying gravity
+        m.vel.y = m.vel.y - 4 * (1 + stats.ground_pound_gravity)
+    end
+
+    if m.vel.y < -stats.ground_pound_max_y_vel then
+        m.vel.y = -stats.ground_pound_max_y_vel
+    end
+end
+
+--- @param m gMarioStates
 local function mario_before_phys_step(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
@@ -79,6 +97,9 @@ local function mario_before_phys_step(m)
 
     apply_swimming_speed(m, stats)
     apply_walking_speed(m, stats)
+    apply_ground_pound_cap_velocity(m, stats)
+
+    gPlayerSyncTable[m.playerIndex].prevYvel = m.vel.y
 end
 
 hook_event(HOOK_BEFORE_PHYS_STEP, mario_before_phys_step)

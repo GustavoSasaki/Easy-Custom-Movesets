@@ -65,7 +65,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | ground_pound_dive_y_vel       | 	Adds vertical velocity when diving after ground pound (units).  | 0 | Recomended add some value in this stat, this will make ground pound dive feel  much better |
 | ground_pound_dive_forward_vel       | 	Forward velocity added when diving after ground pound (units).  | dive_max_velocity (48) |  |
 | ground_pound_antecipation_speed_up       | 	Increases the speed of the spinning animation before performing a ground pound.  | "no" | `small`  Increases speed by 20% , `medium`  Increases speed by 25%, `fast` Increases speed by 80% and `immediately` skips animation|
-
+| ground_pound_gravity       |  Gravity effect when ground pounding (percentage).  | gravity (100) | |
+| ground_pound_max_y_vel       |  Increases the max Y velocity when ground pounding (percentage).  |  100 | |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -99,6 +100,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [King Penguin](https://mods.sm64coopdx.com/mods/cs-king-penguin.346/)
 - [Lego Mario](https://mods.sm64coopdx.com/mods/cs-lego-mario.553/)
 - [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
+- [Marty the Thwomp](https://mods.sm64coopdx.com/mods/marty-the-thwomp-64.481/)
 - [Marvin the martian](https://mods.sm64coopdx.com/mods/marvin-the-martian.497/)
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
 - [Mr. L](https://mods.sm64coopdx.com/mods/cs-mr-l.475/)

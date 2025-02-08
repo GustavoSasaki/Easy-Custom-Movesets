@@ -396,7 +396,8 @@ initialCharacterStatsTable = {{
     name = 'Thomas the Tank Engine',
     disable_burning = true,
     bad_gas_damage_multiplier = 0,
-    lava_damage_multiplier = 0
+    lava_damage_multiplier = 0,
+    ground_pound_max_y_vel = 130
 }, {
     name = 'Squidward',
     water_damage_multiplier = 0,
@@ -433,10 +434,20 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 125
 
 }, {
-    -- chracter with fast ground pound and can dive during it
+    -- chracter with fast ground pound animation and can dive during ground pound
     name = 'Lego Mario',
     ground_pound_antecipation_speed_up = 'immediately',
     ground_pound_dive_on =  true,
     ground_pound_dive_y_vel = 10,
     hold_walking_speed = 85,
+},
+{
+    -- chracter with fast ground pound and immunity to burn
+    name = 'Marty the Thwomp',
+    ground_pound_antecipation_speed_up = 'small',
+    ground_pound_max_y_vel = 200,
+    ground_pound_gravity = 500,
+    disable_burning = true,
+    side_flip_strength = 90,
+    back_flip_strength = 90
 }}

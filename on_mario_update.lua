@@ -22,7 +22,7 @@ end
 
 --- @param m gMarioStates
 --- @param stats CharacterStats
-local function skip_action_timer_in_groundpound(m, stats)
+local function skip_action_timer_in_ground_pound(m, stats)
     if stats.ground_pound_antecipation_speed_up == "immediately" then
         m.actionTimer = 10
     elseif stats.ground_pound_antecipation_speed_up == "fast" then
@@ -44,7 +44,7 @@ local function apply_ground_pound_stats(m, stats)
     end
 
     if m.actionTimer < 10 then
-        skip_action_timer_in_groundpound(m,stats)
+        skip_action_timer_in_ground_pound(m,stats)
     end
 
     if stats.ground_pound_dive_on and m.action == ACT_GROUND_POUND and m.actionTimer >= 6 and
