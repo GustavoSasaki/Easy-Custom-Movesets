@@ -397,7 +397,8 @@ initialCharacterStatsTable = {{
     disable_burning = true,
     bad_gas_damage_multiplier = 0,
     lava_damage_multiplier = 0,
-    ground_pound_max_y_vel = 130
+    ground_pound_max_y_vel = 130,
+    ground_pound_shake = 150
 }, {
     name = 'Squidward',
     water_damage_multiplier = 0,
@@ -449,7 +450,8 @@ initialCharacterStatsTable = {{
     ground_pound_gravity = 500,
     disable_burning = true,
     side_flip_strength = 90,
-    back_flip_strength = 90
+    back_flip_strength = 90,
+    ground_pound_shake = 150
 },
 {
     -- character that can do fart after ground pound
@@ -459,4 +461,16 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 3,
     gravity = 105,
     fall_gravity = 110
-}}
+},
+{
+    name = 'Slippy Toad',
+    gravity = 90,
+    fall_gravity = 85,
+    ground_pound_dive_on =  true,
+    ground_pound_dive_y_vel = 10 ,
+    waft_fart_on = true,
+    water_damage_multiplier = 25,
+    swimming_speed = 250,
+    triple_jump_strength = 90,
+}
+}

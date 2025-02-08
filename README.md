@@ -71,6 +71,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | waft_fart_velocity       |  Horizontal velocity of waft fart jump (units).  |  100 | |
 | waft_fart_strength       |  Height of waft fart jump (units).  |  93 | |
 | waft_fart_per_level       |  Number of time the character can use waft fart jum per level (units).  |  1 | |
+| ground_pound_shake       |  Increase camera shake when ground pounding (percentage).   |  100 | It just visual, no gampleay effect |
+
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -114,6 +116,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
 - [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
+- [Slippy Toad](https://mods.sm64coopdx.com/mods/slippy-toad-64.549/)
 - [SMRPG](https://mods.sm64coopdx.com/mods/cs-smrpg-characters.35/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
 - [Squidward](https://mods.sm64coopdx.com/mods/squidward-cs.438/)

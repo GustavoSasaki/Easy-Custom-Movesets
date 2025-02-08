@@ -60,6 +60,11 @@ local function on_set_action(m)
         return
     end
 
+
+if m.action == ACT_GROUND_POUND_LAND then
+    set_camera_pitch_shake(0x60*stats.ground_pound_shake, 0xC, 0x8000);
+end
+
 if m.action == ACT_SPAWN_NO_SPIN_AIRBORNE or  m.action == ACT_SPAWN_NO_SPIN_LANDING 
 or  m.action == ACT_SPAWN_SPIN_AIRBORNE  or  m.action == ACT_SPAWN_SPIN_LANDING then
     gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level

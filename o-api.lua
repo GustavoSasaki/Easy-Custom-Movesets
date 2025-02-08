@@ -44,6 +44,7 @@ local function clean_character_stats(cs)
     cs.waft_fart_velocity= cs.waft_fart_velocity ~= nil and type(cs.waft_fart_velocity) == "number" and cs.waft_fart_velocity or 100
     cs.waft_fart_strength= cs.waft_fart_strength ~= nil and type(cs.waft_fart_strength) == "number" and cs.waft_fart_strength or 93
     cs.waft_fart_per_level= cs.waft_fart_per_level ~= nil and type(cs.waft_fart_per_level) == "number" and cs.waft_fart_per_level or 1
+    cs.ground_pound_shake=  (getNotNil(cs.ground_pound_shake, "number", 0.0) + 1)
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
     cs['long_jump_max_velocity'] = 48 * (getNotNil(cs['long_jump_max_velocity'], "number", 0.0) + 1)
@@ -156,6 +157,7 @@ end
 --- @field public waft_fart_velocity number|nil (Default 100)
 --- @field public waft_fart_strength number|nil (Default 93)
 --- @field public waft_fart_per_level number|nil (Default 1)
+--- @field public ground_pound_shake number|nil (Default 100)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
