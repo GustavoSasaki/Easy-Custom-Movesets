@@ -432,4 +432,11 @@ initialCharacterStatsTable = {{
     fall_gravity = 75,
     water_damage_multiplier = 125
 
+}, {
+    -- chracter with fast ground pound and can dive during it
+    name = 'Lego Mario',
+    ground_pound_antecipation_speed_up = 'immediately',
+    ground_pound_dive_on =  true,
+    ground_pound_dive_y_vel = 10,
+    hold_walking_speed = 85,
 }}

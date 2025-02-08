@@ -1,9 +1,10 @@
 local ACT_AIRBORNE = 0x080 -- https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/include/sm64.h#L266
 
+
 --- @param m gMarioStates
 --- @param stats CharacterStats
 local function apply_burning_damage_multiplier(m, stats)
-    if m.action ~= ACT_BURNING_GROUND and m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
+    if m.action ~= ACT_BURNING_GROUND and  m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
         return
     end
 
@@ -11,7 +12,7 @@ local function apply_burning_damage_multiplier(m, stats)
 
     if (m.health < 0x100) then
         if (m.playerIndex ~= 0) then
-            -- never kill remote marios
+            --never kill remote marios
             m.health = 0x100;
         else
             m.health = 0xFF;
@@ -21,7 +22,30 @@ end
 
 --- @param m gMarioStates
 --- @param stats CharacterStats
-local function do_ground_pound_dive(m, stats)
+local function skip_action_timer_in_groundpound(m, stats)
+    if stats.ground_pound_antecipation_speed_up == "immediately" then
+        m.actionTimer = 10
+    elseif stats.ground_pound_antecipation_speed_up == "fast" then
+        m.actionTimer =  m.actionTimer + 4
+    elseif stats.ground_pound_antecipation_speed_up == "medium" then
+        m.actionTimer =  m.actionTimer + 1    
+    elseif stats.ground_pound_antecipation_speed_up == "small" then
+        if  m.actionTimer == 2 or  m.actionTimer == 6 then
+            m.actionTimer =  m.actionTimer + 1
+        end
+    end
+end
+
+--- @param m gMarioStates
+--- @param stats CharacterStats
+local function apply_ground_pound_stats(m, stats)
+    if m.action ~= ACT_GROUND_POUND then
+        return
+    end
+
+    if m.actionTimer < 10 then
+        skip_action_timer_in_groundpound(m,stats)
+    end
 
     if stats.ground_pound_dive_on and m.action == ACT_GROUND_POUND and m.actionTimer >= 6 and
         (m.input & INPUT_B_PRESSED) ~= 0 then
@@ -119,10 +143,10 @@ local function mario_update(m)
         set_mario_action(m, ACT_FAST_TWIRLING, 0)
     end
 
-    apply_burning_damage_multiplier(m, stats)
-    do_ground_pound_dive(m, stats)
+    apply_burning_damage_multiplier(m,stats)
+    apply_ground_pound_stats(m, stats)
 
-    gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
+  gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
 
 end
 

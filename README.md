@@ -64,6 +64,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | lava_damage_multiplier       | 	How much damage the character takes from lava (percentage). | 100 |  |
 | ground_pound_dive_y_vel       | 	Adds vertical velocity when diving after ground pound (units).  | 0 | Recomended add some value in this stat, this will make ground pound dive feel  much better |
 | ground_pound_dive_forward_vel       | 	Forward velocity added when diving after ground pound (units).  | dive_max_velocity (48) |  |
+| ground_pound_antecipation_speed_up       | 	Increases the speed of the spinning animation before performing a ground pound.  | "no" | `small`  Increases speed by 20% , `medium`  Increases speed by 25%, `fast` Increases speed by 80% and `immediately` skips animation|
+
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -95,6 +97,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Hatsune Miku](https://mods.sm64coopdx.com/mods/cs-hatsune-miku.418/)
 - [Junio Sonic](https://mods.sm64coopdx.com/mods/junio-sonic-cs.450/)
 - [King Penguin](https://mods.sm64coopdx.com/mods/cs-king-penguin.346/)
+- [Lego Mario](https://mods.sm64coopdx.com/mods/cs-lego-mario.553/)
 - [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
 - [Marvin the martian](https://mods.sm64coopdx.com/mods/marvin-the-martian.497/)
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
