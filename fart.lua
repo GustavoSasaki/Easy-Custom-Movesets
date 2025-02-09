@@ -2,7 +2,7 @@ ACT_WAFT_FART = allocate_mario_action(AIR_STEP_NONE | ACT_GROUP_AIRBORNE | ACT_F
                                           ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 WAFT_FART_AUDIO = audio_sample_load('waft_fart.mp3')
 
-function act_smb_fart(m)
+function act_waft_fart(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
     end
@@ -12,11 +12,14 @@ function act_smb_fart(m)
         return
     end
 
-    if m.actionTimer < 16 and m.actionTimer % 3 ~= 2 then
+    if m.actionTimer < 16 and m.actionTimer % 4 <= 1 then
         set_mario_particle_flags(m, PARTICLE_MIST_CIRCLE, false);
         queue_rumble_data_mario(m, 10, 80);
     end
 
+    if m.actionTimer < 64  then
+        set_mario_particle_flags(m, PARTICLE_DUST, false);
+    end
     if m.actionTimer == 5 then
         audio_sample_play(WAFT_FART_AUDIO, m.pos, 1)
     end
@@ -36,5 +39,5 @@ function act_smb_fart(m)
 end
 
 hook_mario_action(ACT_WAFT_FART, {
-    every_frame = act_smb_fart
+    every_frame = act_waft_fart
 })
