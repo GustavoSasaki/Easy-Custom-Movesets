@@ -1,10 +1,9 @@
 local ACT_AIRBORNE = 0x080 -- https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/include/sm64.h#L266
 
-
 --- @param m gMarioStates
 --- @param stats CharacterStats
 local function apply_burning_damage_multiplier(m, stats)
-    if m.action ~= ACT_BURNING_GROUND and  m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
+    if m.action ~= ACT_BURNING_GROUND and m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
         return
     end
 
@@ -12,7 +11,7 @@ local function apply_burning_damage_multiplier(m, stats)
 
     if (m.health < 0x100) then
         if (m.playerIndex ~= 0) then
-            --never kill remote marios
+            -- never kill remote marios
             m.health = 0x100;
         else
             m.health = 0xFF;
@@ -26,12 +25,12 @@ local function skip_action_timer_in_ground_pound(m, stats)
     if stats.ground_pound_antecipation_speed_up == "immediately" then
         m.actionTimer = 10
     elseif stats.ground_pound_antecipation_speed_up == "fast" then
-        m.actionTimer =  m.actionTimer + 4
+        m.actionTimer = m.actionTimer + 4
     elseif stats.ground_pound_antecipation_speed_up == "medium" then
-        m.actionTimer =  m.actionTimer + 1    
+        m.actionTimer = m.actionTimer + 1
     elseif stats.ground_pound_antecipation_speed_up == "small" then
-        if  m.actionTimer == 2 or  m.actionTimer == 6 then
-            m.actionTimer =  m.actionTimer + 1
+        if m.actionTimer == 2 or m.actionTimer == 6 then
+            m.actionTimer = m.actionTimer + 1
         end
     end
 end
@@ -44,7 +43,7 @@ local function apply_ground_pound_stats(m, stats)
     end
 
     if m.actionTimer < 10 then
-        skip_action_timer_in_ground_pound(m,stats)
+        skip_action_timer_in_ground_pound(m, stats)
     end
 
     if stats.ground_pound_dive_on and m.action == ACT_GROUND_POUND and m.actionTimer >= 6 and
@@ -143,17 +142,26 @@ local function mario_update(m)
         set_mario_action(m, ACT_FAST_TWIRLING, 0)
     end
 
-    if stats.waft_fart_on and m.action == ACT_GROUND_POUND and (m.input & INPUT_Z_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].fart > 0 and m.actionTimer > 6 then
+    if stats.waft_fart_on and m.action == ACT_GROUND_POUND and (m.input & INPUT_Z_PRESSED) ~= 0 and
+        gPlayerSyncTable[m.playerIndex].fart > 0 and m.actionTimer > 6 then
         m.forwardVel = stats.waft_fart_velocity
         set_camera_pitch_shake(0x60, 0x3, 0x8000);
         set_camera_roll_shake(0x30, 0x3, 0x8000);
         set_mario_action(m, ACT_WAFT_FART, 0)
     end
 
-    apply_burning_damage_multiplier(m,stats)
+    if stats.ground_pound_jump_on and (m.controller.buttonDown & A_BUTTON) ~= 0 and
+        (m.action == ACT_GROUND_POUND_LAND or
+            (m.prevAction == ACT_GROUND_POUND_LAND and m.action == ACT_BUTT_SLIDE_STOP)) then
+        set_mario_action(m, ACT_GROUND_POUND_JUMP, 0)
+        m.vel.y = stats.ground_pound_jump_strength
+        m.forwardVel = stats.ground_pound_forward_vel
+    end
+
+    apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
 
-  gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
+    gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
 
 end
 

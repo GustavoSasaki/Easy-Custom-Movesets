@@ -35,9 +35,9 @@ local function clean_character_stats(cs)
     cs['dive_max_velocity'] = 48 * (getNotNil(cs['dive_max_velocity'], "number", 0.0) + 1)
 
     cs.ground_pound_antecipation_speed_up = getNotNil(cs.ground_pound_antecipation_speed_up, "string", "zero")
-    cs['ground_pound_dive_on'] = getNotNil(cs['ground_pound_dive_on'], "boolean", false)
-    cs['ground_pound_dive_y_vel']  = cs['ground_pound_dive_y_vel'] ~= nil and type(cs['ground_pound_dive_y_vel']) == "number" and cs['ground_pound_dive_y_vel'] or 0
-    cs['ground_pound_dive_forward_vel']  = cs['ground_pound_dive_forward_vel'] ~= nil and type(cs['ground_pound_dive_forward_vel']) == "number" and cs['ground_pound_dive_forward_vel'] or cs['dive_max_velocity']
+    cs.ground_pound_dive_on = getNotNil(cs.ground_pound_dive_on, "boolean", false)
+    cs.ground_pound_dive_y_vel= cs.ground_pound_dive_y_vel ~= nil and type(cs.ground_pound_dive_y_vel) == "number" and cs.ground_pound_dive_y_vel or 0
+    cs.ground_pound_dive_forward_vel  = cs.ground_pound_dive_forward_vel ~= nil and type(cs.ground_pound_dive_forward_vel) == "number" and cs.ground_pound_dive_forward_vel or cs['dive_max_velocity']
     cs.ground_pound_gravity = getNotNil(cs.ground_pound_gravity, "number", cs.gravity)
     cs.ground_pound_max_y_vel= 75 * (getNotNil(cs.ground_pound_max_y_vel, "number", 0.0) + 1)
     cs.waft_fart_on= getNotNil(cs.waft_fart_on, "boolean", false)
@@ -45,6 +45,10 @@ local function clean_character_stats(cs)
     cs.waft_fart_strength= cs.waft_fart_strength ~= nil and type(cs.waft_fart_strength) == "number" and cs.waft_fart_strength or 93
     cs.waft_fart_per_level= cs.waft_fart_per_level ~= nil and type(cs.waft_fart_per_level) == "number" and cs.waft_fart_per_level or 1
     cs.ground_pound_shake=  (getNotNil(cs.ground_pound_shake, "number", 0.0) + 1)
+    cs.ground_pound_jump_on=  getNotNil(cs.ground_pound_jump_on, "boolean", false)
+    cs.ground_pound_jump_strength=  cs.ground_pound_jump_strength ~= nil and type(cs.ground_pound_jump_strength) == "number" and cs.ground_pound_jump_strength or 70
+    cs.ground_pound_forward_vel=  cs.ground_pound_forward_vel ~= nil and type(cs.ground_pound_forward_vel) == "number" and cs.ground_pound_forward_vel or 5
+    cs.ground_pound_jump_dive_on=  getNotNil(cs.ground_pound_jump_dive_on, "boolean", false)
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
     cs['long_jump_max_velocity'] = 48 * (getNotNil(cs['long_jump_max_velocity'], "number", 0.0) + 1)
@@ -158,6 +162,10 @@ end
 --- @field public waft_fart_strength number|nil (Default 93)
 --- @field public waft_fart_per_level number|nil (Default 1)
 --- @field public ground_pound_shake number|nil (Default 100)
+--- @field public ground_pound_jump_on bool|nil (Default false)
+--- @field public ground_pound_jump_strength number|nil (Default 70)
+--- @field public ground_pound_forward_vel number|nil (Default 5)
+--- @field public ground_pound_jump_dive_on bool|nil (Default false)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

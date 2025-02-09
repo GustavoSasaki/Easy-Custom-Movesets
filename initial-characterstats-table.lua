@@ -424,11 +424,10 @@ initialCharacterStatsTable = {{
     grounded_slowing_speed = 150,
     back_flip_twirling_on = true,
     twirling_ground_pound_on = true
-},
-{
+}, {
     -- foat character that can dive on ground pound
     name = 'Marvin the martian',
-    ground_pound_dive_on =  true,
+    ground_pound_dive_on = true,
     ground_pound_dive_y_vel = 40,
     gravity = 90,
     fall_gravity = 75,
@@ -438,11 +437,10 @@ initialCharacterStatsTable = {{
     -- chracter with fast ground pound animation and can dive during ground pound
     name = 'Lego Mario',
     ground_pound_antecipation_speed_up = 'immediately',
-    ground_pound_dive_on =  true,
+    ground_pound_dive_on = true,
     ground_pound_dive_y_vel = 10,
-    hold_walking_speed = 85,
-},
-{
+    hold_walking_speed = 85
+}, {
     -- chracter with fast ground pound and immunity to burn
     name = 'Marty the Thwomp',
     ground_pound_antecipation_speed_up = 'small',
@@ -452,8 +450,7 @@ initialCharacterStatsTable = {{
     side_flip_strength = 90,
     back_flip_strength = 90,
     ground_pound_shake = 150
-},
-{
+}, {
     -- character that can do fart after ground pound
     name = 'Turkey Wario',
     waft_fart_on = true,
@@ -461,16 +458,63 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 3,
     gravity = 105,
     fall_gravity = 110
-},
-{
+}, {
     name = 'Slippy Toad',
     gravity = 90,
     fall_gravity = 85,
-    ground_pound_dive_on =  true,
-    ground_pound_dive_y_vel = 10 ,
+    ground_pound_dive_on = true,
+    ground_pound_dive_y_vel = 10,
     waft_fart_on = true,
     water_damage_multiplier = 25,
     swimming_speed = 250,
-    triple_jump_strength = 90,
-}
-}
+    triple_jump_strength = 90
+}, {
+    -- character that can do ground pound jump
+    name = 'Croc',
+    ground_pound_antecipation_speed_up = 'small',
+    ground_pound_jump_on = true,
+    ground_pound_strength = 80,
+    water_damage_multiplier = 50,
+    swimming_speed = 200
+}, {
+    -- character that can do ground pound jump and ground pound dive
+    name = 'Fae',
+    ground_pound_antecipation_speed_up = 'medium',
+    ground_pound_jump_on = true,
+    ground_pound_forward_vel = 20,
+    ground_pound_dive_on = true,
+    ground_pound_jump_dive_on = true,
+    lava_damage_multiplier = 125
+}, {
+    name = 'Mips',
+    ground_pound_antecipation_speed_up = 'immediately',
+    ground_pound_jump_on = true,
+    ground_pound_forward_vel = 40,
+    mr_l_jump_on = true,
+    walking_speed = 133,
+    water_damage_multiplier = 175,
+    disable_breath_heal = true,
+    single_jump_strength = 80,
+    double_jump_strength = 80,
+    triple_jump_strength = 80
+}, {
+    name = 'Mips Colors',
+    ground_pound_antecipation_speed_up = 'immediately',
+    ground_pound_jump_on = true,
+    ground_pound_forward_vel = 40,
+    mr_l_jump_on = true,
+    walking_speed = 133,
+    water_damage_multiplier = 175,
+    disable_breath_heal = true,
+    single_jump_strength = 80,
+    double_jump_strength = 80,
+    triple_jump_strength = 80
+}, {
+        -- character that can do fart after ground pound. this fart getts lots of horizontal speed, but not heigth
+    name = 'Talking Red',
+    waft_fart_on = true,
+    waft_fart_per_level = 15,
+    waft_fart_velocity = 150,
+    waft_fart_strength = 70
+}}
+

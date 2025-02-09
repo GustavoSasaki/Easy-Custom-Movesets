@@ -29,6 +29,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | disable_damage       | 	Disable damage. | false | This stast doest not work for water damage, burning damage or bad gas damage |
 | ground_pound_dive_on       | 	Allows the character to perform a dive while ground pound. | false |  |
 | waft_fart_on       | 	Allows the character to perform an super fart jump while ground pound with Z button. This jump has an limited number of uses per level. | false |  |
+| ground_pound_jump_on       | 	Allows the character to perform an special jump after ground pound.  | false | Just like Super Mario Odyssey  |
 
 ## Less Important Stats
 
@@ -72,7 +73,9 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | waft_fart_strength       |  Height of waft fart jump (units).  |  93 | |
 | waft_fart_per_level       |  Number of time the character can use waft fart jum per level (units).  |  1 | |
 | ground_pound_shake       |  Increase camera shake when ground pounding (percentage).   |  100 | It just visual, no gampleay effect |
-
+| ground_pound_jump_strength       | Height of ground pound jump (units).   |  70 |  |
+| ground_pound_forward_vel       |  Horizontal velocity of ground pound jump (units).  |  5 |  |
+| ground_pound_jump_dive_on       |  Allows the character to dive while performing an ground pound jump.   |  false |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -99,16 +102,19 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Azumanga Daioh](https://mods.sm64coopdx.com/mods/azumanga-daioh-64-pack.205/)
 - [Baby Mario](https://mods.sm64coopdx.com/mods/cs-baby-mario.48/)
 - [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)
+- [Croc](https://mods.sm64coopdx.com/mods/cs-croc.522/)
 - [Dry Bones](https://mods.sm64coopdx.com/mods/cs-dry-bones.37/)
 - [Frogsuit Wildcard](https://mods.sm64coopdx.com/mods/cs-frogsuit-wildcard-models.308/)
 - [Hatsune Miku](https://mods.sm64coopdx.com/mods/cs-hatsune-miku.418/)
 - [Junio Sonic](https://mods.sm64coopdx.com/mods/junio-sonic-cs.450/)
 - [King Penguin](https://mods.sm64coopdx.com/mods/cs-king-penguin.346/)
+- [Kitsufae](https://mods.sm64coopdx.com/mods/cs-kitsufae-pack.276/)
 - [Lego Mario](https://mods.sm64coopdx.com/mods/cs-lego-mario.553/)
 - [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
 - [Marty the Thwomp](https://mods.sm64coopdx.com/mods/marty-the-thwomp-64.481/)
 - [Marvin the martian](https://mods.sm64coopdx.com/mods/marvin-the-martian.497/)
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
+- [Mips](https://mods.sm64coopdx.com/mods/cs-mips.326/)
 - [Mr. L](https://mods.sm64coopdx.com/mods/cs-mr-l.475/)
 - [MyMelodyHd](https://mods.sm64coopdx.com/mods/cs-mymelodyhd.535/)
 - [Nabbit](https://mods.sm64coopdx.com/mods/cs-nabbit.38/)
@@ -119,6 +125,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Slippy Toad](https://mods.sm64coopdx.com/mods/slippy-toad-64.549/)
 - [SMRPG](https://mods.sm64coopdx.com/mods/cs-smrpg-characters.35/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
+- [Talking Red](https://mods.sm64coopdx.com/mods/cs-talking-red.164/)
 - [Squidward](https://mods.sm64coopdx.com/mods/squidward-cs.438/)
 - [Thomas The Tank Engine](https://mods.sm64coopdx.com/mods/cs-thomas-the-tank-engine.41/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
