@@ -85,6 +85,25 @@ local function apply_mr_l(m, stats)
 end
 
 --- @param m gMarioStates
+--- @param stats CharacterStats
+local function apply_saultube_animation(m, stats)
+    if _G.jumpingAnimExists == false then
+        return
+    end
+
+    if stats.saultube_single_jump_animation and m.action == ACT_JUMP then 
+        _G.jumpingAnim.change_single_jump_animation(m)
+    elseif stats.saultube_double_jump_animation and m.action == ACT_DOUBLE_JUMP then
+        _G.jumpingAnim.change_double_jump_animation(m)
+    elseif stats.saultube_triple_jump_animation and m.action == ACT_TRIPLE_JUMP then
+        _G.jumpingAnim.change_triple_jump_animation(m)
+    end
+
+    --- @field public saultube_single_jump_animation bool|nil (Default false)
+--- @field public saultube_double_jump_animation bool|nil (Default false)
+--- @field public saultube_triple_jump_animation bool|nil (Default false)
+end
+--- @param m gMarioStates
 local function mario_update(m)
     if (m == nil) then
         return
@@ -160,6 +179,7 @@ local function mario_update(m)
 
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
+    apply_saultube_animation(m, stats)
 
     gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
 

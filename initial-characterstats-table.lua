@@ -510,11 +510,20 @@ initialCharacterStatsTable = {{
     double_jump_strength = 80,
     triple_jump_strength = 80
 }, {
-        -- character that can do fart after ground pound. this fart getts lots of horizontal speed, but not heigth
+    -- character that can do fart after ground pound. this fart getts lots of horizontal speed, but not heigth
     name = 'Talking Red',
     waft_fart_on = true,
     waft_fart_per_level = 15,
     waft_fart_velocity = 150,
     waft_fart_strength = 70
+},
+{
+    -- character with saultube custom animation + speedy + ground pound jump
+    name = 'Saul',
+    walking_speed = 120,
+    ground_pound_dive_on = true,
+    saultube_jump_animation = true,
+    single_jump_strength = 95,
+
 }}
 

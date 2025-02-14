@@ -30,6 +30,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | ground_pound_dive_on       | 	Allows the character to perform a dive while ground pound. | false |  |
 | waft_fart_on       | 	Allows the character to perform an super fart jump while ground pound with Z button. This jump has an limited number of uses per level. | false |  |
 | ground_pound_jump_on       | 	Allows the character to perform an special jump after ground pound.  | false | Just like Super Mario Odyssey  |
+| saultube_jump_animation       | 	Apply custom single/double/triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 
 ## Less Important Stats
 
@@ -76,10 +77,14 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | ground_pound_jump_strength       | Height of ground pound jump (units).   |  70 |  |
 | ground_pound_forward_vel       |  Horizontal velocity of ground pound jump (units).  |  5 |  |
 | ground_pound_jump_dive_on       |  Allows the character to dive while performing an ground pound jump.   |  false |  |
+| saultube_single_jump_animation       | 	Apply custom single jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
+| saultube_double_jump_animation       | 	Apply custom double jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
+| saultube_triple_jump_animation       | 	Apply custom triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
-- Download the character-stats ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
+- Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
+- Optional (enable the use of saultube animation stats): Download the ZIP file from [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) and unzip into mod folder
 
 
 ## How customize your character

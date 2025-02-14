@@ -85,6 +85,11 @@ local function clean_character_stats(cs)
     cs.side_flip_twirling_on = getNotNil(cs.side_flip_twirling_on, "boolean", false)
     cs.twirling_ground_pound_on = getNotNil(cs.twirling_ground_pound_on, "boolean", false)
     cs.twirling_speed = (getNotNil(cs.twirling_speed, "number", cs.in_air_speed) + 1)
+
+    cs.saultube_jump_animation = getNotNil(cs.saultube_jump_animation, "boolean", false)
+    cs.saultube_single_jump_animation = getNotNil(cs.saultube_single_jump_animation, "boolean", cs.saultube_jump_animation )
+    cs.saultube_double_jump_animation = getNotNil(cs.saultube_double_jump_animation, "boolean", cs.saultube_jump_animation )
+    cs.saultube_triple_jump_animation = getNotNil(cs.saultube_triple_jump_animation, "boolean", cs.saultube_jump_animation )
 end
 
 characterStatsTable = {}
@@ -166,6 +171,10 @@ end
 --- @field public ground_pound_jump_strength number|nil (Default 70)
 --- @field public ground_pound_forward_vel number|nil (Default 5)
 --- @field public ground_pound_jump_dive_on bool|nil (Default false)
+--- @field public saultube_jump_animation bool|nil (Default false)
+--- @field public saultube_single_jump_animation bool|nil (Default saultube_jump_animation)
+--- @field public saultube_double_jump_animation bool|nil (Default saultube_jump_animation)
+--- @field public saultube_triple_jump_animation bool|nil (Default saultube_jump_animation)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
