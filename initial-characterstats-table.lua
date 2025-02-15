@@ -552,7 +552,7 @@ initialCharacterStatsTable = {{
     long_jump_triple_jump_on = true,
     ground_pound_jump_strength = 80
 }, {
-    -- character with fast but small ground pound jump
+    -- character with fast but small long jump triple jump
     name = 'Phanuby',
     saultube_double_jump_animation = true,
     long_jump_triple_jump_on = true,
@@ -571,12 +571,13 @@ initialCharacterStatsTable = {{
     twirling_dive_on = true,
     in_air_speed = 120
 }, {
+    -- character with super side flip
     name = 'BizzareScape',
     explode_on_death = true,
     saultube_double_jump_animation = true,
     double_jump_strength = 115,
     triple_jump_strength = 105,
-    back_flip_twirling_on = true,
+    super_side_flip_on = true,
     burning_damage_multiplier = 200,
     lava_damage_multiplier = 200
 }, {
@@ -590,5 +591,24 @@ initialCharacterStatsTable = {{
     long_jump_triple_jump_on = true,
     long_jump_triple_jump_forward_vel = 55,
     long_jump_triple_jump_strength = 90
+}, {
+    -- speedy character with an small fast super side flip with great maneuverability
+    name = 'Asterix the gaul',
+    super_side_flip_on = true,
+    super_side_flip_strength = 70,
+    super_side_flip_kick_foward_vel = 30,
+    super_side_flip_add_foward_vel = 30,
+    walking_speed = 130
+}, {
+        -- character with ground pound jump and he can also do super side flip with lower speed
+    name = 'Patrick Starfish',
+    super_side_flip_on = true,
+    super_side_flip_convert_foward_vel = 140,
+    super_side_flip_min_velocity = 20,
+    super_side_flip_strength = 65,
+    ground_pound_jump_on = true,
+    ground_pound_jump_strength = 60,
+    water_damage_multiplier = 0,
+    swimming_speed = 95,
 }}
 

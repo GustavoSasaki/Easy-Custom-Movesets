@@ -206,6 +206,15 @@ local function mario_update(m)
     end
 
     gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
+    local isLongJumpLand = (m.action == ACT_LONG_JUMP_LAND or m.action == ACT_LONG_JUMP_LAND_STOP or m.action ==
+                               ACT_WALKING or m.action == ACT_TURNING_AROUNG)
+
+    if stats.super_side_flip_on and analog_stick_held_back(m) == 1 and isLongJumpLand and (m.controller.buttonDown & A_BUTTON) ~= 0 
+    and gPlayerSyncTable[m.playerIndex].longJumpTimer < 20  and gPlayerSyncTable[m.playerIndex].longJumpLandSpeed > stats.super_side_flip_min_velocity then
+        set_mario_action(m, ACT_SUPER_SIDE_FLIP, 0);
+        m.vel.y = stats.super_side_flip_strength
+        m.forwardVel = - (m.forwardVel * stats.super_side_flip_convert_foward_vel + stats.super_side_flip_add_foward_vel)
+    end
 
 end
 

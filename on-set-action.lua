@@ -26,7 +26,7 @@ local function apply_jump_speed(m, stats)
         end
 
     elseif m.action == ACT_JUMP_KICK then
-        m.vel.y = m.vel.y + stats.kick_jump_strength
+        m.vel.y = m.vel.y + (20 * stats.kick_jump_strength)
 
     elseif m.action == ACT_DIVE then
         m.vel.y = m.vel.y + stats.dive_y_vel
@@ -46,6 +46,8 @@ local function apply_jump_speed(m, stats)
         (stats.triple_jump_twirling_on or stats.back_flip_twirling_on or stats.side_flip_twirling_on) and
         (m.controller.stickX ~= 0 or m.controller.stickY ~= 0) then
         set_mario_action(m, ACT_IDLE, 0);
+    elseif m.action == ACT_LONG_JUMP_LAND then
+        gPlayerSyncTable[m.playerIndex].longJumpLandSpeed = m.forwardVel
     end
 end
 
@@ -60,15 +62,14 @@ local function on_set_action(m)
         return
     end
 
+    if m.action == ACT_GROUND_POUND_LAND then
+        set_camera_pitch_shake(0x60 * stats.ground_pound_shake, 0xC, 0x8000);
+    end
 
-if m.action == ACT_GROUND_POUND_LAND then
-    set_camera_pitch_shake(0x60*stats.ground_pound_shake, 0xC, 0x8000);
-end
-
-if m.action == ACT_SPAWN_NO_SPIN_AIRBORNE or  m.action == ACT_SPAWN_NO_SPIN_LANDING 
-or  m.action == ACT_SPAWN_SPIN_AIRBORNE  or  m.action == ACT_SPAWN_SPIN_LANDING then
-    gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level
-end 
+    if m.action == ACT_SPAWN_NO_SPIN_AIRBORNE or m.action == ACT_SPAWN_NO_SPIN_LANDING or m.action ==
+        ACT_SPAWN_SPIN_AIRBORNE or m.action == ACT_SPAWN_SPIN_LANDING then
+        gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level
+    end
 
     apply_jump_speed(m, stats)
 end

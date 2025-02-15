@@ -28,7 +28,7 @@ local function clean_character_stats(cs)
     cs['back_flip_strength'] = 62 * getNotNil(cs['back_flip_strength'], "number", allJumpsStrength)
     cs['side_flip_strength'] = 62 * getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
     cs['long_jump_strength'] = 30 * getNotNil(cs['long_jump_strength'], "number", allJumpsStrength)
-    cs['kick_jump_strength'] = 20 * getNotNil(cs['kick_jump_strength'], "number", allJumpsStrength)
+    cs.kick_jump_strength = getNotNil(cs.kick_jump_strength, "number", allJumpsStrength)
 
     cs['dive_y_vel'] = cs['dive_y_vel'] ~= nil and type(cs['dive_y_vel']) == "number" and cs['dive_y_vel'] or 0
     cs['dive_velocity'] = 15 * getNotNil(cs['dive_velocity'], "number", 0)
@@ -95,6 +95,17 @@ local function clean_character_stats(cs)
     cs.long_jump_triple_jump_strength = getNotNil(cs.long_jump_triple_jump_strength, "number", cs.triple_jump_strength)
     cs.long_jump_triple_jump_forward_vel =  cs.long_jump_triple_jump_forward_vel ~= nil and type(cs.long_jump_triple_jump_forward_vel) == "number" and cs.long_jump_triple_jump_forward_vel or nil
     cs.long_jump_triple_jump_add_forward_vel =  cs.long_jump_triple_jump_add_forward_vel ~= nil and type(cs.long_jump_triple_jump_add_forward_vel) == "number" and cs.long_jump_triple_jump_add_forward_vel or 0
+
+    cs.super_side_flip_on= getNotNil(cs.super_side_flip_on, "boolean", false)
+    cs.super_side_flip_strength= cs.super_side_flip_strength ~= nil and type(cs.super_side_flip_strength) == "number" and cs.super_side_flip_strength or 75
+
+    cs.super_side_flip_convert_foward_vel= getNotNil(cs.super_side_flip_foward_vel, "number", 0) + 1
+    cs.super_side_flip_add_foward_vel=cs.super_side_flip_add_foward_vel ~= nil and type(cs.super_side_flip_add_foward_vel) == "number" and cs.super_side_flip_add_foward_vel or 20
+    cs.super_side_flip_kick_strength= getNotNil(cs.super_side_flip_kick_strength, "number", 0.5) + 1
+    cs.super_side_flip_kick_forward_vel= cs.super_side_flip_kick_forward_vel ~= nil and type(cs.super_side_flip_kick_forward_vel) == "number" and cs.super_side_flip_kick_forward_vel or nil
+    cs.super_side_flip_gravity= getNotNil(cs.super_side_flip_gravity, "number", -0.25) + 1
+    cs.super_side_flip_max_gravity= getNotNil(cs.super_side_flip_max_gravity, "number", 0) + 1
+    cs.super_side_flip_min_velocity= cs.super_side_flip_min_velocity ~= nil and type(cs.super_side_flip_min_velocity) == "number" and cs.super_side_flip_min_velocity or 36
 
 end
 
@@ -185,7 +196,15 @@ end
 --- @field public long_jump_triple_jump_strength number|nil (Default triple_jump_strength)
 --- @field public long_jump_triple_jump_forward_vel number|nil (Default nil)
 --- @field public long_jump_triple_jump_add_forward_vel number|nil (Default 0)
-
+--- @field public super_side_flip_on bool|nil (Default false)
+--- @field public super_side_flip_strength number|nil (Default 75)
+--- @field public super_side_flip_convert_foward_vel number|nil (Default 100)
+--- @field public super_side_flip_add_foward_vel number|nil (Default 20)
+--- @field public super_side_flip_kick_strength number|nil (Default 150)
+--- @field public super_side_flip_kick_forward_vel number|nil (Default nil)
+--- @field public super_side_flip_gravity number|nil (Default 75)
+--- @field public super_side_flip_max_gravity number|nil (Default 93)
+--- @field public super_side_flip_min_velocity number|nil (Default 36)
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -226,5 +245,6 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].prevVelY = 0
 
     gPlayerSyncTable[0].fart = 1
+    gPlayerSyncTable[0].longJumpLandSpeed = 0
     gPlayerSyncTable[0].longJumpTimer = 100
 end)

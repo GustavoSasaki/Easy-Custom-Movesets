@@ -32,6 +32,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | ground_pound_jump_on       | 	Allows the character to perform an special jump after ground pound.  | false | Just like Super Mario Odyssey  |
 | saultube_jump_animation       | 	Apply custom single/double/triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | long_jump_triple_jump_on       | 	Allows the character to perform an triple jump after long jump.  | false | After long jump, press A without pressing Z |
+| super_side_flip_strength       | 	Allows the character to perform an special side flip after long jump.  | false | |
 
 ## Less Important Stats
 
@@ -81,9 +82,18 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | saultube_single_jump_animation       | 	Apply custom single jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | saultube_double_jump_animation       | 	Apply custom double jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | saultube_triple_jump_animation       | 	Apply custom triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
-| long_jump_triple_jump_strength       |  Increases the height of the triple jump after long jump(percentage).  |  triple_jump_strength (100) |  |
+| long_jump_triple_jump_strength       |  Increases the height of the triple jump after long jump (percentage).  |  triple_jump_strength (100) |  |
 | long_jump_triple_jump_forward_vel       |  Set horizontal velocity of long jump triple jump (units).   |  nil | if nil, doest not change current velocity |
 | long_jump_triple_jump_add_forward_vel       |  Added horizontal velocity of long jump triple jump (units).   |  0 | |
+| super_side_flip_strength       |  Height of super side flip (units).   |  75 | |
+| super_side_flip_convert_foward_vel       | Conversion from foward velocity of the long jump into the side flip (percentage).  |  100 | |
+| super_side_flip_add_foward_vel       |  Horizontal velocity added when super side flip (units) |  20 | |
+| super_side_flip_kick_strength       |  Height of the kick when doing super side flip (percentage of an normal kick).   |  150 | |
+| super_side_flip_kick_forward_vel       |  Forward velocity of the kick when doing super side flip (units).   |  nil | if nil, ignore this stat. |
+| super_side_flip_gravity       | Gravity effect when doing super side flip (percentage). |  75 |  |
+| super_side_flip_max_gravity       | Max downard velocity when aplying gravity of super side flip (percentage). |  93 |  |
+| super_side_flip_min_velocity       |  Minimal forward velocity of the long jump to execute super side flip (units). |  36 |  |
+
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
 - Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
@@ -107,6 +117,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 
 
 ## Mods Integrated
+- [Asterix](https://mods.sm64coopdx.com/mods/asterix.534/)
 - [Azumanga Daioh](https://mods.sm64coopdx.com/mods/azumanga-daioh-64-pack.205/)
 - [Baby Mario](https://mods.sm64coopdx.com/mods/cs-baby-mario.48/)
 - [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)
@@ -127,6 +138,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [MyMelodyHd](https://mods.sm64coopdx.com/mods/cs-mymelodyhd.535/)
 - [Nabbit](https://mods.sm64coopdx.com/mods/cs-nabbit.38/)
 - [Neco-Arc](https://mods.sm64coopdx.com/mods/cs-neco-arc.327/)
+- [Patrick Starfish](https://mods.sm64coopdx.com/mods/cs-patrick-starfish.269/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
 - [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
