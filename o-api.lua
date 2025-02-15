@@ -24,7 +24,7 @@ local function clean_character_stats(cs)
     local allJumpsStrength = getNotNil(cs['jump_strength'], "number", 0.0)
     cs['single_jump_strength'] = 42 * getNotNil(cs['single_jump_strength'], "number", allJumpsStrength)
     cs['double_jump_strength'] = 52 * getNotNil(cs['double_jump_strength'], "number", allJumpsStrength)
-    cs['triple_jump_strength'] = 69 * getNotNil(cs['triple_jump_strength'], "number", allJumpsStrength)
+    cs['triple_jump_strength'] = getNotNil(cs['triple_jump_strength'], "number", allJumpsStrength)
     cs['back_flip_strength'] = 62 * getNotNil(cs['back_flip_strength'], "number", allJumpsStrength)
     cs['side_flip_strength'] = 62 * getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
     cs['long_jump_strength'] = 30 * getNotNil(cs['long_jump_strength'], "number", allJumpsStrength)
@@ -90,6 +90,12 @@ local function clean_character_stats(cs)
     cs.saultube_single_jump_animation = getNotNil(cs.saultube_single_jump_animation, "boolean", cs.saultube_jump_animation )
     cs.saultube_double_jump_animation = getNotNil(cs.saultube_double_jump_animation, "boolean", cs.saultube_jump_animation )
     cs.saultube_triple_jump_animation = getNotNil(cs.saultube_triple_jump_animation, "boolean", cs.saultube_jump_animation )
+
+    cs.long_jump_triple_jump_on= getNotNil(cs.long_jump_triple_jump_on, "boolean", false)
+    cs.long_jump_triple_jump_strength = getNotNil(cs.long_jump_triple_jump_strength, "number", cs.triple_jump_strength)
+    cs.long_jump_triple_jump_forward_vel =  cs.long_jump_triple_jump_forward_vel ~= nil and type(cs.long_jump_triple_jump_forward_vel) == "number" and cs.long_jump_triple_jump_forward_vel or nil
+    cs.long_jump_triple_jump_add_forward_vel =  cs.long_jump_triple_jump_add_forward_vel ~= nil and type(cs.long_jump_triple_jump_add_forward_vel) == "number" and cs.long_jump_triple_jump_add_forward_vel or 0
+
 end
 
 characterStatsTable = {}
@@ -175,6 +181,11 @@ end
 --- @field public saultube_single_jump_animation bool|nil (Default saultube_jump_animation)
 --- @field public saultube_double_jump_animation bool|nil (Default saultube_jump_animation)
 --- @field public saultube_triple_jump_animation bool|nil (Default saultube_jump_animation)
+--- @field public long_jump_triple_jump_on bool|nil (Default false)
+--- @field public long_jump_triple_jump_strength number|nil (Default triple_jump_strength)
+--- @field public long_jump_triple_jump_forward_vel number|nil (Default nil)
+--- @field public long_jump_triple_jump_add_forward_vel number|nil (Default 0)
+
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -215,4 +226,5 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].prevVelY = 0
 
     gPlayerSyncTable[0].fart = 1
+    gPlayerSyncTable[0].longJumpTimer = 100
 end)

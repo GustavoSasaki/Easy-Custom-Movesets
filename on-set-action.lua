@@ -9,7 +9,7 @@ local function apply_jump_speed(m, stats)
         m.vel.y = m.vel.y + stats.double_jump_strength
 
     elseif m.action == ACT_TRIPLE_JUMP then
-        m.vel.y = m.vel.y + stats.triple_jump_strength
+        m.vel.y = m.vel.y + (stats.triple_jump_strength * 69)
 
     elseif m.action == ACT_BACKFLIP then
         m.vel.y = m.vel.y + stats.back_flip_strength

@@ -91,7 +91,7 @@ local function apply_saultube_animation(m, stats)
         return
     end
 
-    if stats.saultube_single_jump_animation and m.action == ACT_JUMP then 
+    if stats.saultube_single_jump_animation and m.action == ACT_JUMP then
         _G.jumpingAnim.change_single_jump_animation(m)
     elseif stats.saultube_double_jump_animation and m.action == ACT_DOUBLE_JUMP then
         _G.jumpingAnim.change_double_jump_animation(m)
@@ -99,10 +99,24 @@ local function apply_saultube_animation(m, stats)
         _G.jumpingAnim.change_triple_jump_animation(m)
     end
 
-    --- @field public saultube_single_jump_animation bool|nil (Default false)
---- @field public saultube_double_jump_animation bool|nil (Default false)
---- @field public saultube_triple_jump_animation bool|nil (Default false)
 end
+
+--- @param m gMarioStates
+--- @param stats CharacterStats
+local function apply_long_jump_triple_jump(m, stats)
+    local isLongJumpLand = (m.action == ACT_LONG_JUMP_LAND or m.action == ACT_LONG_JUMP_LAND_STOP or m.action ==
+                               ACT_WALKING)
+    if stats.long_jump_triple_jump_on and isLongJumpLand and (m.controller.buttonDown & A_BUTTON) ~= 0 and
+        (m.input & INPUT_Z_PRESSED) == 0 and gPlayerSyncTable[m.playerIndex].longJumpTimer < 10 and m.forwardVel >= 40.0 then
+        set_mario_action(m, ACT_TRIPLE_JUMP, 0);
+        m.vel.y = (stats.long_jump_triple_jump_strength + 1) * 69
+        if (stats.long_jump_triple_jump_forward_vel) then
+            m.forwardVel = stats.long_jump_triple_jump_forward_vel
+        end
+        m.forwardVel = m.forwardVel + stats.long_jump_triple_jump_add_forward_vel
+    end
+end
+
 --- @param m gMarioStates
 local function mario_update(m)
     if (m == nil) then
@@ -180,6 +194,16 @@ local function mario_update(m)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)
+
+    if (m.action == ACT_LONG_JUMP_LAND) then
+        gPlayerSyncTable[m.playerIndex].longJumpTimer = 0
+    end
+
+    apply_long_jump_triple_jump(m, stats)
+
+    if (gPlayerSyncTable[m.playerIndex].longJumpTimer < 100) then
+        gPlayerSyncTable[m.playerIndex].longJumpTimer = gPlayerSyncTable[m.playerIndex].longJumpTimer + 1
+    end
 
     gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
 

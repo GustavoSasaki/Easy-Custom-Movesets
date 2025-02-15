@@ -31,6 +31,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | waft_fart_on       | 	Allows the character to perform an super fart jump while ground pound with Z button. This jump has an limited number of uses per level. | false |  |
 | ground_pound_jump_on       | 	Allows the character to perform an special jump after ground pound.  | false | Just like Super Mario Odyssey  |
 | saultube_jump_animation       | 	Apply custom single/double/triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
+| long_jump_triple_jump_on       | 	Allows the character to perform an triple jump after long jump.  | false | After long jump, press A without pressing Z |
 
 ## Less Important Stats
 
@@ -80,7 +81,9 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | saultube_single_jump_animation       | 	Apply custom single jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | saultube_double_jump_animation       | 	Apply custom double jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | saultube_triple_jump_animation       | 	Apply custom triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
-
+| long_jump_triple_jump_strength       |  Increases the height of the triple jump after long jump(percentage).  |  triple_jump_strength (100) |  |
+| long_jump_triple_jump_forward_vel       |  Set horizontal velocity of long jump triple jump (units).   |  nil | if nil, doest not change current velocity |
+| long_jump_triple_jump_add_forward_vel       |  Added horizontal velocity of long jump triple jump (units).   |  0 | |
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
 - Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
@@ -131,6 +134,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [SMRPG](https://mods.sm64coopdx.com/mods/cs-smrpg-characters.35/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
 - [Talking Red](https://mods.sm64coopdx.com/mods/cs-talking-red.164/)
+- [Saul & Friends](https://mods.sm64coopdx.com/mods/saul-friends.470/)
 - [Squidward](https://mods.sm64coopdx.com/mods/squidward-cs.438/)
 - [Thomas The Tank Engine](https://mods.sm64coopdx.com/mods/cs-thomas-the-tank-engine.41/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)

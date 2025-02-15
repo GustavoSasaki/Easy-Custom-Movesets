@@ -7,7 +7,8 @@ initialCharacterStatsTable = {{
 }, {
     -- float character
     name = "Sackboy",
-    gravity = 95
+    gravity = 95,
+    ground_pound_dive_on = true
 }, {
     -- heavy character with better back/side flip
     name = "Peter Griffin",
@@ -37,7 +38,8 @@ initialCharacterStatsTable = {{
     gravity = 140,
     kick_jump_strength = 250,
     triple_jump_strength = 130,
-    swimming_speed = 95
+    swimming_speed = 95,
+    water_damage_multiplier = 150
 }, {
     -- character with bigger jumps and low airborn deceleration
     name = "Sakaki",
@@ -516,14 +518,77 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 15,
     waft_fart_velocity = 150,
     waft_fart_strength = 70
-},
-{
+}, {
     -- character with saultube custom animation + speedy + ground pound jump
     name = 'Saul',
     walking_speed = 120,
     ground_pound_dive_on = true,
     saultube_jump_animation = true,
-    single_jump_strength = 95,
-
+    single_jump_strength = 95
+}, {
+    -- character with big triple jump with saultube custom animation
+    -- also bad single and double jump
+    name = 'BlazingMo',
+    single_jump_strength = 80,
+    double_jump_strength = 90,
+    triple_jump_strength = 120,
+    back_flip_strength = 115,
+    saultube_triple_jump_animation = true
+}, {
+    -- character with triple jump after long jump + can dive after ground pound
+    name = 'Octi',
+    long_jump_triple_jump_on = true,
+    ground_pound_dive_on = true,
+    water_damage_multiplier = 25,
+    swimming_speed = 200
+}, {
+    -- speedy and heavy character that can do ground pound jump and long jump triple jump
+    name = 'Brobgonal The Second',
+    walking_speed = 135,
+    in_air_speed = 135,
+    gravity = 110,
+    ground_pound_antecipation_speed_up = 'small',
+    ground_pound_jump_on = true,
+    long_jump_triple_jump_on = true,
+    ground_pound_jump_strength = 80
+}, {
+    -- character with fast but small ground pound jump
+    name = 'Phanuby',
+    saultube_double_jump_animation = true,
+    long_jump_triple_jump_on = true,
+    long_jump_triple_jump_add_forward_vel = 50,
+    long_jump_triple_jump_strength = 80,
+    hold_walking_speed = 90,
+    burning_damage_multiplier = 125,
+    snow_water_damage_multiplier = 0
+}, {
+    -- character witch start twirling when triple jump
+    name = 'Marten',
+    saultube_single_jump_animation = true,
+    disable_damage = true,
+    triple_jump_twirling_on = true,
+    triple_jump_twirling_when = "start",
+    twirling_dive_on = true,
+    in_air_speed = 120
+}, {
+    name = 'BizzareScape',
+    explode_on_death = true,
+    saultube_double_jump_animation = true,
+    double_jump_strength = 115,
+    triple_jump_strength = 105,
+    back_flip_twirling_on = true,
+    burning_damage_multiplier = 200,
+    lava_damage_multiplier = 200
+}, {
+    -- character witch mr l jump and an long jump triple jump with constant foward velocity
+    name = 'Sonks_132',
+    saultube_single_jump_animation = true,
+    saultube_triple_jump_animation = true,
+    mr_l_jump_on = true,
+    back_flip_strength = 105,
+    play_mr_l_anticipation_audio = false,
+    long_jump_triple_jump_on = true,
+    long_jump_triple_jump_forward_vel = 55,
+    long_jump_triple_jump_strength = 90
 }}
 
