@@ -610,5 +610,15 @@ initialCharacterStatsTable = {{
     ground_pound_jump_strength = 60,
     water_damage_multiplier = 0,
     swimming_speed = 95,
+},
+{
+    name = 'QP',
+    gravity = 95,
+    long_jump_triple_jump_on = true,
+    long_jump_triple_jump_add_forward_vel = 30,
+    long_jump_triple_jump_strength = 90,
+    ground_pound_jump_on = true,
+    ground_pound_strength = 65,
+    ground_pound_forward_vel = 30
 }}
 

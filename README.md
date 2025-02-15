@@ -32,7 +32,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | ground_pound_jump_on       | 	Allows the character to perform an special jump after ground pound.  | false | Just like Super Mario Odyssey  |
 | saultube_jump_animation       | 	Apply custom single/double/triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | long_jump_triple_jump_on       | 	Allows the character to perform an triple jump after long jump.  | false | After long jump, press A without pressing Z |
-| super_side_flip_strength       | 	Allows the character to perform an special side flip after long jump.  | false | |
+| super_side_flip_on       | 	Allows the character to perform an special side flip after long jump.  | false | |
 
 ## Less Important Stats
 
@@ -140,6 +140,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Neco-Arc](https://mods.sm64coopdx.com/mods/cs-neco-arc.327/)
 - [Patrick Starfish](https://mods.sm64coopdx.com/mods/cs-patrick-starfish.269/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
+- [QP](https://mods.sm64coopdx.com/threads/cs-qp.670/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
 - [Silver](https://mods.sm64coopdx.com/mods/silver-the-hedgehog-cs.398/)
 - [Slippy Toad](https://mods.sm64coopdx.com/mods/slippy-toad-64.549/)
