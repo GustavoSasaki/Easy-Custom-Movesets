@@ -14,7 +14,7 @@ local function apply_lava_damage(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function hazard_surface_interact(m, hazard_type)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return true

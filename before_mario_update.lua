@@ -1,9 +1,9 @@
---- @param m gMarioStates
+--- @param m MarioState
 local function isAboveWater(m)
     return m.pos.y >= (m.waterLevel - 140)
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_damage_multipliers(m, stats)
     if m.health < 0x100 then
@@ -45,7 +45,7 @@ local function apply_damage_multipliers(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_lava_damage_multiplier(m, stats)
 
@@ -71,7 +71,7 @@ local function apply_lava_damage_multiplier(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function before_mario_update(m)
     if (m == nil) then
         return

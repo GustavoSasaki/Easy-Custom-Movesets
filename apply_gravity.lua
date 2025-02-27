@@ -1,10 +1,10 @@
---- @param m gMarioStates
+--- @param m MarioState
 --- @return boolean
 local function isMarioWingCapDescending(m)
     return (m.flags & MARIO_WING_CAP) ~= 0 and m.vel.y < 0 and (m.input & INPUT_A_DOWN)
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function apply_twirl_gravity(m)
     m.vel.y = m.vel.y + 4 -- cancel normal gravity
 
@@ -23,7 +23,7 @@ local function apply_twirl_gravity(m)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function apply_gravity(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return

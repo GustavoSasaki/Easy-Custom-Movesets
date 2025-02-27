@@ -1,7 +1,7 @@
 
 
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param interactee Object
 --- @param interactType InteractionType
 local function allow_interact(m, interactee, interactType)

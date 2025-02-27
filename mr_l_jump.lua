@@ -7,7 +7,7 @@ MR_L_ANTICIPATION_AUDIO = audio_sample_load('MR_L_anticipation.mp3')
 MR_L_JUMP_AUDIO = audio_sample_load('MR_L_jump.mp3')
 
 
---- @param m gMarioStates
+--- @param m MarioState
 function act_mr_l_jump(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
@@ -38,7 +38,7 @@ function act_mr_l_jump(m)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 function act_mr_l_fall(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return

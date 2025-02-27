@@ -1,4 +1,4 @@
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_swimming_speed(m, stats)
     if (m.action & ACT_FLAG_SWIMMING) == 0 then
@@ -18,17 +18,17 @@ local function apply_swimming_speed(m, stats)
     m.vel.z = m.vel.z * hScale
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function isGroundedSlowing(m)
     return m.action == ACT_BRAKING or m.action == ACT_DECELERATING or m.action == ACT_HOLD_DECELERATING
 end
---- @param m gMarioStates
+--- @param m MarioState
 local function isGrounded(m)
     return m.action == ACT_WALKING or m.action == ACT_HOLD_WALKING or m.action == ACT_HEAVY_HOLD_WALKING or m.action ==
                ACT_CRAWLING or m.action == ACT_FINISH_TURNING_AROUND or isGroundedSlowing(m)
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function isJumping(m)
     return
         m.action == ACT_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_HOLD_JUMP or m.action == ACT_FREEFALL or
@@ -38,7 +38,7 @@ local function isJumping(m)
             m.action == ACT_DIVE or m.action == ACT_JUMP_KICK or m.action == ACT_WAFT_FART or m.action == ACT_SUPER_SIDE_FLIP or m.action == ACT_SUPER_SIDE_FLIP_KICK
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_walking_speed(m, stats)
     if isGrounded(m) == false and isJumping(m) == false then
@@ -66,7 +66,7 @@ local function apply_walking_speed(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_ground_pound_cap_velocity(m, stats)
     if m.action ~= ACT_GROUND_POUND then
@@ -84,7 +84,7 @@ local function apply_ground_pound_cap_velocity(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function mario_before_phys_step(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
