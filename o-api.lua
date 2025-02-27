@@ -107,6 +107,13 @@ local function clean_character_stats(cs)
     cs.super_side_flip_max_gravity= getNotNil(cs.super_side_flip_max_gravity, "number", 0) + 1
     cs.super_side_flip_min_velocity= cs.super_side_flip_min_velocity ~= nil and type(cs.super_side_flip_min_velocity) == "number" and cs.super_side_flip_min_velocity or 36
 
+    cs.wall_slide_on = getNotNil(cs.wall_slide_on, "boolean", false)
+    cs.wall_slide_gravity = getNotNil(cs.wall_slide_gravity, "number", -0.5) + 1
+    cs.wall_slide_max_gravity = getNotNil(cs.wall_slide_max_gravity, "number", -0.73) + 1
+    cs.wall_slide_forward_vel = cs.wall_slide_forward_vel ~= nil and type(cs.wall_slide_forward_vel) == "number" and cs.wall_slide_forward_vel or 20
+    cs.wall_slide_jump_strength = cs.wall_slide_jump_strength ~= nil and type(cs.wall_slide_jump_strength) == "number" and cs.wall_slide_jump_strength or 75
+    cs.wall_slide_jump_type = cs.wall_slide_jump_type ~= nil and type(cs.wall_slide_jump_type) == "number" and cs.wall_slide_jump_type or ACT_TRIPLE_JUMP
+
 end
 
 characterStatsTable = {}
@@ -130,7 +137,7 @@ end
 --- @field public swimming_speed number|nil (Default 100)
 --- @field public gravity number|nil (Default 100)
 --- @field public fall_gravity number|nil (Default gravity)
---- @field public explode_on_death bool|nil (Default false)
+--- @field public explode_on_death boolean|nil (Default false)
 --- @field public airborne_deceleration_speed number|nil (Default 100)
 --- @field public jump_strength number|nil (Default 100)
 --- @field public single_jump_strength number|nil (Default jump_strength)
@@ -143,7 +150,7 @@ end
 --- @field public dive_y_vel number|nil (Default 0)
 --- @field public dive_velocity number|nil (Default 100)
 --- @field public dive_max_velocity number|nil (Default 100)
---- @field public ground_pound_dive_on bool|nil (Default false)
+--- @field public ground_pound_dive_on boolean|nil (Default false)
 --- @field public ground_pound_dive_y_vel number|nil (Default 0)
 --- @field public ground_pound_dive_forward_vel number|nil (Default dive_max_velocity)
 --- @field public long_jump_velocity_multiplier number|nil (Default 100)
@@ -153,50 +160,50 @@ end
 --- @field public hold_walking_speed number|nil (Default walking_speed)
 --- @field public crawling_speed number|nil (Default walking_speed)
 --- @field public grounded_slowing_speed number|nil (Default 100)
---- @field public mr_l_jump_on bool|nil (Default false)
+--- @field public mr_l_jump_on boolean|nil (Default false)
 --- @field public mr_l_jump_strength number|nil (Default 93)
 --- @field public mr_l_gravity number|nil (Default 140)
 --- @field public mr_l_air_speed number|nil (Default 60)
---- @field public play_mr_l_anticipation_audio bool|nil (Default true)
---- @field public back_flip_twirling_on bool|nil (Default false)
---- @field public side_flip_twirling_on bool|nil (Default false)
---- @field public twirling_ground_pound_on bool|nil (Default false)
---- @field public twirling_dive_on bool|nil (Default false)
+--- @field public play_mr_l_anticipation_audio boolean|nil (Default true)
+--- @field public back_flip_twirling_on boolean|nil (Default false)
+--- @field public side_flip_twirling_on boolean|nil (Default false)
+--- @field public twirling_ground_pound_on boolean|nil (Default false)
+--- @field public twirling_dive_on boolean|nil (Default false)
 --- @field public twirling_gravity number|nil (Default gravity)
---- @field public fast_twirling_on bool|nil (Default false)
+--- @field public fast_twirling_on boolean|nil (Default false)
 --- @field public fast_twirling_gravity number|nil (Default twirling_gravity)
---- @field public triple_jump_twirling_on bool|nil (Default false)
+--- @field public triple_jump_twirling_on boolean|nil (Default false)
 --- @field public triple_jump_twirling_when string|nil (Default fall)
 --- @field public twirling_speed number|nil (Default in_air_speed)
 --- @field public bad_gas_damage_multiplier number|nil (Default 100)
 --- @field public water_damage_multiplier number|nil (Default 100)
 --- @field public snow_water_damage_multiplier number|nil (Default water_damage_multiplier)
---- @field public disable_breath_heal bool|nil (Default false)
+--- @field public disable_breath_heal boolean|nil (Default false)
 --- @field public burning_damage_multiplier number|nil (Default 100)
---- @field public disable_burning bool|nil (Default false)
---- @field public disable_damage bool|nil (Default false)
+--- @field public disable_burning boolean|nil (Default false)
+--- @field public disable_damage boolean|nil (Default false)
 --- @field public lava_damage_multiplier number|nil (Default 100)
 --- @field public ground_pound_antecipation_speed_up string|nil (Default "zero")
 --- @field public ground_pound_gravity string|nil (Default gravity)
 --- @field public ground_pound_max_y_vel number|nil (Default 100)
---- @field public waft_fart_on bool|nil (Default false)
+--- @field public waft_fart_on boolean|nil (Default false)
 --- @field public waft_fart_velocity number|nil (Default 100)
 --- @field public waft_fart_strength number|nil (Default 93)
 --- @field public waft_fart_per_level number|nil (Default 1)
 --- @field public ground_pound_shake number|nil (Default 100)
---- @field public ground_pound_jump_on bool|nil (Default false)
+--- @field public ground_pound_jump_on boolean|nil (Default false)
 --- @field public ground_pound_jump_strength number|nil (Default 70)
 --- @field public ground_pound_forward_vel number|nil (Default 5)
---- @field public ground_pound_jump_dive_on bool|nil (Default false)
---- @field public saultube_jump_animation bool|nil (Default false)
---- @field public saultube_single_jump_animation bool|nil (Default saultube_jump_animation)
---- @field public saultube_double_jump_animation bool|nil (Default saultube_jump_animation)
---- @field public saultube_triple_jump_animation bool|nil (Default saultube_jump_animation)
---- @field public long_jump_triple_jump_on bool|nil (Default false)
+--- @field public ground_pound_jump_dive_on boolean|nil (Default false)
+--- @field public saultube_jump_animation boolean|nil (Default false)
+--- @field public saultube_single_jump_animation boolean|nil (Default saultube_jump_animation)
+--- @field public saultube_double_jump_animation boolean|nil (Default saultube_jump_animation)
+--- @field public saultube_triple_jump_animation boolean|nil (Default saultube_jump_animation)
+--- @field public long_jump_triple_jump_on boolean|nil (Default false)
 --- @field public long_jump_triple_jump_strength number|nil (Default triple_jump_strength)
 --- @field public long_jump_triple_jump_forward_vel number|nil (Default nil)
 --- @field public long_jump_triple_jump_add_forward_vel number|nil (Default 0)
---- @field public super_side_flip_on bool|nil (Default false)
+--- @field public super_side_flip_on boolean|nil (Default false)
 --- @field public super_side_flip_strength number|nil (Default 75)
 --- @field public super_side_flip_convert_foward_vel number|nil (Default 100)
 --- @field public super_side_flip_add_foward_vel number|nil (Default 20)
@@ -205,6 +212,13 @@ end
 --- @field public super_side_flip_gravity number|nil (Default 75)
 --- @field public super_side_flip_max_gravity number|nil (Default 93)
 --- @field public super_side_flip_min_velocity number|nil (Default 36)
+--- @field public wall_slide_on boolean (Default false)
+--- @field public wall_slide_gravity number  (Default 0.5)
+--- @field public wall_slide_max_gravity number  (Default 0.26)
+--- @field public wall_slide_forward_vel number  (Default 20)
+--- @field public wall_slide_jump_strength number  (Default 75)
+--- @field public wall_slide_jump_type number  (Default ACT_TRIPLE_JUMP)
+
 
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -232,7 +246,7 @@ _G.customMoves = {
     stats_from_name = stats_from_name
 }
 
---- @param m gMarioStates
+--- @param m MarioState
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
 
     for i = #characterStatsTable, 1, -1 do

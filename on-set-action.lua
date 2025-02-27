@@ -1,4 +1,4 @@
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_jump_speed(m, stats)
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
@@ -48,10 +48,13 @@ local function apply_jump_speed(m, stats)
         set_mario_action(m, ACT_IDLE, 0);
     elseif m.action == ACT_LONG_JUMP_LAND then
         gPlayerSyncTable[m.playerIndex].longJumpLandSpeed = m.forwardVel
+    elseif m.action == ACT_SOFT_BONK and stats.wall_slide_on then
+        m.faceAngle.y = m.faceAngle.y + 0x8000
+        set_mario_action(m, ACT_WALL_SLIDE, 0)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function on_set_action(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return

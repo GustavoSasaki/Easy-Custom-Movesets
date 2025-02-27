@@ -1,6 +1,6 @@
 local ACT_AIRBORNE = 0x080 -- https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/include/sm64.h#L266
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_burning_damage_multiplier(m, stats)
     if m.action ~= ACT_BURNING_GROUND and m.action ~= ACT_BURNING_FALL and m.action ~= ACT_BURNING_JUMP then
@@ -19,7 +19,7 @@ local function apply_burning_damage_multiplier(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function skip_action_timer_in_ground_pound(m, stats)
     if stats.ground_pound_antecipation_speed_up == "immediately" then
@@ -35,7 +35,7 @@ local function skip_action_timer_in_ground_pound(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_ground_pound_stats(m, stats)
     if m.action ~= ACT_GROUND_POUND then
@@ -54,7 +54,7 @@ local function apply_ground_pound_stats(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_mr_l(m, stats)
     if stats.mr_l_jump_on == false then
@@ -84,7 +84,7 @@ local function apply_mr_l(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_saultube_animation(m, stats)
     if _G.jumpingAnimExists == false then
@@ -101,7 +101,7 @@ local function apply_saultube_animation(m, stats)
 
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_long_jump_triple_jump(m, stats)
     local isLongJumpLand = (m.action == ACT_LONG_JUMP_LAND or m.action == ACT_LONG_JUMP_LAND_STOP or m.action ==
@@ -117,7 +117,7 @@ local function apply_long_jump_triple_jump(m, stats)
     end
 end
 
---- @param m gMarioStates
+--- @param m MarioState
 local function mario_update(m)
     if (m == nil) then
         return

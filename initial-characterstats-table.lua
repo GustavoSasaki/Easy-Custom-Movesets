@@ -526,6 +526,12 @@ initialCharacterStatsTable = {{
     saultube_jump_animation = true,
     single_jump_strength = 95
 }, {
+    name = 'Saul PFP',
+    walking_speed = 120,
+    ground_pound_dive_on = true,
+    saultube_jump_animation = true,
+    single_jump_strength = 95
+}, {
     -- character with big triple jump with saultube custom animation
     -- also bad single and double jump
     name = 'BlazingMo',
@@ -600,7 +606,7 @@ initialCharacterStatsTable = {{
     super_side_flip_add_foward_vel = 30,
     walking_speed = 130
 }, {
-        -- character with ground pound jump and he can also do super side flip with lower speed
+    -- character with ground pound jump and he can also do super side flip with lower speed
     name = 'Patrick Starfish',
     super_side_flip_on = true,
     super_side_flip_convert_foward_vel = 140,
@@ -609,9 +615,8 @@ initialCharacterStatsTable = {{
     ground_pound_jump_on = true,
     ground_pound_jump_strength = 60,
     water_damage_multiplier = 0,
-    swimming_speed = 95,
-},
-{
+    swimming_speed = 95
+}, {
     name = 'QP',
     gravity = 95,
     long_jump_triple_jump_on = true,
@@ -620,5 +625,70 @@ initialCharacterStatsTable = {{
     ground_pound_jump_on = true,
     ground_pound_strength = 65,
     ground_pound_forward_vel = 30
+}, {
+    -- character with wall slide and can dive on ground pound
+    name = 'Penelope Pussycat',
+    wall_slide_on = true,
+    ground_pound_dive_on = true,
+    water_damage_multiplier = 150,
+    bad_gas_damage_multiplier = 200
+}, {
+    -- fast character with small jumps that stick in the wall
+    name = 'Ninji',
+    super_side_flip_on = true,
+    wall_slide_on = true,
+    wall_slide_max_gravity = 0,
+    in_air_speed = 150,
+    walking_speed = 150,
+    jump_strength = 85,
+    wall_slide_jump_strength = 60
+}, {
+    -- character that do an dive when jumping from weall slide. Also is great swimmer
+    name = 'Yae',
+    wall_slide_on = true,
+    wall_slide_max_gravity = 20,
+    wall_slide_jump_type = ACT_DIVE,
+    wall_slide_forward_vel = 48,
+    wall_slide_jump_strength = 60,
+    water_damage_multiplier = 0,
+    swimming_speed = 250,
+    long_jump_triple_jump_on = true,
+    long_jump_triple_jump_strength = 90
+}, {
+    -- character with wall slide and big kicks
+    name = 'Goemon',
+    wall_slide_on = true,
+    wall_slide_gravity = 30,
+    wall_slide_jump_type = ACT_JUMP,
+    jump_strength = 105,
+    walking_speed = 110,
+    in_air_speed = 110,
+    kick_jump_strength = 200
+}, {
+    -- character that can do wall slide jump with low forward speed. Also can do ground pound jump
+    name = 'Ebisumaru',
+    wall_slide_on = true,
+    wall_slide_jump_type = ACT_JUMP,
+    wall_slide_forward_vel = 5,
+    ground_pound_jump_on = true,
+    ground_pound_jump_strength = 60,
+    wall_slide_max_gravity = 80,
+    wall_slide_jump_strength = 60,
+    ground_pound_antecipation_speed_up = 'small',
+    ground_pound_max_y_vel = 200,
+    saultube_double_jump_animation = true,
+    fall_gravity = 130
+}, {
+    -- character that goes up when wall slide, also start twirling when jumping from wall slide
+    name = 'Gnarpy',
+    wall_slide_on = true,
+    wall_slide_gravity = -20,
+    gravity = 90,
+    triple_jump_twirling_on = true,
+    wall_slide_forward_vel = 30,
+    wall_slide_jump_strength = 35,
+    wall_slide_jump_type = ACT_TWIRLING,
+    twirling_ground_pound_on = true,
+    triple_jump_twirling_when = "start"
 }}
 
