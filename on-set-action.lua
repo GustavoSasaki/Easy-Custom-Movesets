@@ -84,6 +84,10 @@ local function on_set_action(m)
         return
     end
 
+    if stats.disable_double_jump then
+        m.doubleJumpTimer = 0
+    end
+
     if m.action == ACT_GROUND_POUND_LAND then
         set_camera_pitch_shake(0x60 * stats.ground_pound_shake, 0xC, 0x8000);
     end
@@ -96,6 +100,11 @@ local function on_set_action(m)
     if m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
         resetVelocityToPrevAction(m)
         set_mario_action(m,ACT_JUMP_KICK,0)
+    end
+
+    if stats.disable_double_jump and m.action == ACT_DOUBLE_JUMP then
+        resetVelocityToPrevAction(m)
+        set_mario_action(m,ACT_JUMP,0)
     end
     
 

@@ -120,6 +120,7 @@ local function clean_character_stats(cs)
     cs.in_air_jump_sound =  cs.in_air_jump_sound == nil and CHAR_SOUND_HOOHOO or cs.in_air_jump_sound 
 
     cs.kick_dive_on = getNotNil(cs.kick_dive_on, "boolean", false)
+    cs.disable_double_jump = getNotNil(cs.disable_double_jump, "boolean", false)
 
     if cs.in_air_jump_forward_vel_multiplier == nil then
         cs.in_air_jump_forward_vel_multiplier = 0.25
@@ -254,6 +255,7 @@ end
 --- @field public in_air_jump_forward_vel_multiplier number|number[]  (Default 0.25)
 --- @field public in_air_jump_forward_vel_slowdown number|number[]  (Default 0.2)
 --- @field public kick_dive_on boolean (Default false)
+--- @field public disable_double_jump boolean (Default false)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

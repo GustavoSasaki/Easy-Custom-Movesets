@@ -145,6 +145,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Nabbit](https://mods.sm64coopdx.com/mods/cs-nabbit.38/)
 - [Neco-Arc](https://mods.sm64coopdx.com/mods/cs-neco-arc.327/)
 - [Ninji](https://mods.sm64coopdx.com/mods/cs-ninji.574/)
+- [PaRappa the Rappe](https://mods.sm64coopdx.com/mods/cs-parappa-the-rapper.212/)
 - [Patrick Starfish](https://mods.sm64coopdx.com/mods/cs-patrick-starfish.269/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [Penelope Pussycat ](https://mods.sm64coopdx.com/mods/penelope-pussycat.539/)

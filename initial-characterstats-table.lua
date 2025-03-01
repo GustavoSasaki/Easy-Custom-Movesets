@@ -672,7 +672,7 @@ initialCharacterStatsTable = {{
     jump_strength = 105,
     walking_speed = 110,
     in_air_speed = 110,
-    kick_jump_strength = 200
+    kick_jump_strength = 150
 }, {
     -- character that can do wall slide jump with low forward speed. Also can do ground pound jump
     name = 'Ebisumaru',
@@ -737,6 +737,7 @@ initialCharacterStatsTable = {{
     back_flip_strength = 85,
     side_flip_strength = 85
 }, {
+    -- character that when pressing B always do an kick, and if press again do an dive.
     name = 'Wapeach',
     kick_dive_on = true,
     kick_jump_strength = 135,
@@ -746,5 +747,16 @@ initialCharacterStatsTable = {{
     ground_pound_shake = 120,
     ground_pound_max_y_vel = 200,
     ground_pound_gravity = 200
+},
+{
+    -- character with in air jump that can not do double jump.
+    -- to do triple jump you need to long jump first.
+    name = 'Parappa the Rapper',
+    disable_double_jump = true,
+    in_air_jump = 1,
+    in_air_jump_strength = 5,
+    in_air_jump_forward_vel_multiplier = 75,
+    long_jump_triple_jump_on = true,
+    kick_dive_on = true,
 }}
 
