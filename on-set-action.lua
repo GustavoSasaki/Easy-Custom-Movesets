@@ -56,6 +56,11 @@ local function apply_jump_speed(m, stats)
     end
 end
 
+-- @param m MarioState
+local function resetVelocityToPrevAction(m)
+    m.forwardVel = gPlayerSyncTable[m.playerIndex].prevForwardVel
+    m.vel.y = gPlayerSyncTable[m.playerIndex].prevVelY
+end
 --- @param m MarioState
 --- @param stats CharacterStats
 local function apply_in_air_jump(m, stats)
@@ -87,6 +92,12 @@ local function on_set_action(m)
         ACT_SPAWN_SPIN_AIRBORNE or m.action == ACT_SPAWN_SPIN_LANDING then
         gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level
     end
+
+    if m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
+        resetVelocityToPrevAction(m)
+        set_mario_action(m,ACT_JUMP_KICK,0)
+    end
+    
 
     apply_jump_speed(m, stats)
     apply_in_air_jump(m, stats)

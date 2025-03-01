@@ -155,6 +155,18 @@ local function apply_in_air_jump(m, stats)
     end
 end
 
+
+--- @param m MarioState
+--- @param stats CharacterStats
+local function apply_kick_dive(m, stats)
+    if stats.kick_dive_on and m.action == ACT_JUMP_KICK and (m.input & INPUT_B_PRESSED) ~= 0  and m.actionTimer ~= 0 then
+        set_mario_action(m, ACT_DIVE, 0);
+    end
+
+    if m.action == ACT_JUMP_KICK  then
+        m.actionTimer = m.actionTimer + 1
+    end
+end
 --- @param m MarioState
 local function mario_update(m)
     if (m == nil) then
@@ -226,10 +238,11 @@ local function mario_update(m)
             (m.prevAction == ACT_GROUND_POUND_LAND and m.action == ACT_BUTT_SLIDE_STOP)) then
         set_mario_action(m, ACT_GROUND_POUND_JUMP, 0)
         m.vel.y = stats.ground_pound_jump_strength
-        m.forwardVel = stats.ground_pound_forward_vel
+        m.forwardVel = stats.ground_pound_jump_forward_vel
     end
 
     apply_in_air_jump(m, stats)
+    apply_kick_dive(m,stats)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)
@@ -246,7 +259,7 @@ local function mario_update(m)
 
     gPlayerSyncTable[m.playerIndex].prevHurtCounter = m.hurtCounter
     local isLongJumpLand = (m.action == ACT_LONG_JUMP_LAND or m.action == ACT_LONG_JUMP_LAND_STOP or m.action ==
-                               ACT_WALKING or m.action == ACT_TURNING_AROUNG)
+                               ACT_WALKING or m.action == ACT_TURNING_AROUND)
 
     if stats.super_side_flip_on and analog_stick_held_back(m) == 1 and isLongJumpLand and
         (m.controller.buttonDown & A_BUTTON) ~= 0 and gPlayerSyncTable[m.playerIndex].longJumpTimer < 20 and
@@ -256,6 +269,8 @@ local function mario_update(m)
         m.forwardVel = -(m.forwardVel * stats.super_side_flip_convert_foward_vel + stats.super_side_flip_add_foward_vel)
     end
 
+    gPlayerSyncTable[m.playerIndex].prevForwardVel = m.forwardVel
+    gPlayerSyncTable[m.playerIndex].prevVelY = m.vel.y
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

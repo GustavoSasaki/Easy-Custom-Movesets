@@ -45,7 +45,8 @@ initialCharacterStatsTable = {{
     name = "Sakaki",
     swimming_speed = 250,
     jump_strength = 115,
-    airborne_deceleration_speed = 50
+    airborne_deceleration_speed = 50,
+    wall_slide_on = true,
 }, {
     -- weird character with bad normal jump, but good back/side/long jumps
     name = "Kaori",
@@ -60,7 +61,8 @@ initialCharacterStatsTable = {{
     name = "Yomi",
     fall_gravity = 120,
     explode_on_death = true,
-    jump_strength = 103
+    jump_strength = 103,
+    kick_dive_on = true,
 }, {
     -- float and fast character
     name = "Cream the Rabbit",
@@ -81,7 +83,8 @@ initialCharacterStatsTable = {{
     -- character with faster walking speed and jump height
     name = "Pepsiman",
     walking_speed = 130,
-    jump_strength = 110
+    jump_strength = 110,
+    kick_dive_on = true,
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Classic Sonic",
@@ -198,13 +201,15 @@ initialCharacterStatsTable = {{
     mr_l_jump_on = true,
     mr_l_air_speed = 140,
     mr_l_gravity = 135,
-    mr_l_jump_strength = 85
+    mr_l_jump_strength = 85,
+    wall_slide_on = true,
 }, {
     name = 'Neco-Arc Colors',
     mr_l_jump_on = true,
     mr_l_air_speed = 140,
     mr_l_gravity = 135,
-    mr_l_jump_strength = 85
+    mr_l_jump_strength = 85,
+    wall_slide_on = true,
 }, {
     -- character that can do twirling after back flip and ground pound while twirling
     name = 'Yui',
@@ -348,7 +353,10 @@ initialCharacterStatsTable = {{
     swimming_speed = 250,
     dive_y_vel = 35,
     dive_velocity = 100,
-    dive_max_velocity = 110
+    dive_max_velocity = 110,
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP,
 }, {
     -- character witch can stand in water long, swim faster
     name = 'Vulpixie',
@@ -363,7 +371,8 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 200,
     swimming_speed = 400,
     walking_speed = 120,
-    triple_jump_strength = 87
+    triple_jump_strength = 87,
+    kick_dive_on = true,
 }, {
     -- character witch can stand in water/snow water long, swim faster
     name = 'King Penguin',
@@ -392,7 +401,7 @@ initialCharacterStatsTable = {{
     gravity = 95,
     fall_gravity = 85,
     long_jump_strength = 125,
-    kick_jump_strength = 75
+    kick_jump_strength = 75,
 }, {
     -- no burning damage
     name = 'Thomas the Tank Engine',
@@ -483,7 +492,7 @@ initialCharacterStatsTable = {{
     name = 'Fae',
     ground_pound_antecipation_speed_up = 'medium',
     ground_pound_jump_on = true,
-    ground_pound_forward_vel = 20,
+    ground_pound_jump_forward_vel = 20,
     ground_pound_dive_on = true,
     ground_pound_jump_dive_on = true,
     lava_damage_multiplier = 125
@@ -491,7 +500,7 @@ initialCharacterStatsTable = {{
     name = 'Mips',
     ground_pound_antecipation_speed_up = 'immediately',
     ground_pound_jump_on = true,
-    ground_pound_forward_vel = 40,
+    ground_pound_jump_forward_vel = 40,
     mr_l_jump_on = true,
     walking_speed = 133,
     water_damage_multiplier = 175,
@@ -503,7 +512,7 @@ initialCharacterStatsTable = {{
     name = 'Mips Colors',
     ground_pound_antecipation_speed_up = 'immediately',
     ground_pound_jump_on = true,
-    ground_pound_forward_vel = 40,
+    ground_pound_jump_forward_vel = 40,
     mr_l_jump_on = true,
     walking_speed = 133,
     water_damage_multiplier = 175,
@@ -623,8 +632,8 @@ initialCharacterStatsTable = {{
     long_jump_triple_jump_add_forward_vel = 30,
     long_jump_triple_jump_strength = 90,
     ground_pound_jump_on = true,
-    ground_pound_strength = 65,
-    ground_pound_forward_vel = 30
+    ground_pound_jump_strength = 65,
+    ground_pound_jump_forward_vel = 30
 }, {
     -- character with wall slide and can dive on ground pound
     name = 'Penelope Pussycat',
@@ -690,38 +699,35 @@ initialCharacterStatsTable = {{
     wall_slide_jump_type = ACT_TWIRLING,
     twirling_ground_pound_on = true,
     triple_jump_twirling_when = "start"
-},
-{
+}, {
     -- character with double jump
     name = 'Donald Duck',
-    in_air_jump =1,
+    in_air_jump = 1,
     in_air_jump_strength = 35,
     swimming_speed = 150,
     ground_pound_jump_on = true,
     back_flip_twirling_on = true
-},
-{
+}, {
     -- character with small jumps that can do 3 jump on the air. Each jump is smaller, and does not slowdown
     name = 'Connie',
-    in_air_jump =3,
-    in_air_jump_strength = {25,20,15},
-    in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE,CHAR_ANIM_DOUBLE_JUMP_RISE,CHAR_ANIM_TRIPLE_JUMP},
+    in_air_jump = 3,
+    in_air_jump_strength = {25, 20, 15},
+    in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_TRIPLE_JUMP},
     jump_strength = 85,
     walking_speed = 120,
     in_air_speed = 115,
     burning_damage_multiplier = 150,
     lava_damage_multiplier = 150,
     in_air_jump_forward_vel_slowdown = 0,
-    long_jump_triple_jump_on = true,
-},
-{
+    long_jump_triple_jump_on = true
+}, {
     -- character that can do 2 small jump that increase horizontal velocity
     name = 'Yumpi',
-    in_air_jump =2,
-    in_air_jump_strength = {10,5},
-    in_air_jump_animation = {CHAR_ANIM_FLY_FROM_CANNON,CHAR_ANIM_TRIPLE_JUMP},
-    in_air_jump_sound = {CHAR_SOUND_HOOHOO,CHAR_SOUND_YAHOO},
-    in_air_jump_forward_vel_slowdown = {-50,-75},
+    in_air_jump = 2,
+    in_air_jump_strength = {10, 5},
+    in_air_jump_animation = {CHAR_ANIM_FLY_FROM_CANNON, CHAR_ANIM_TRIPLE_JUMP},
+    in_air_jump_sound = {CHAR_SOUND_HOOHOO, CHAR_SOUND_YAHOO},
+    in_air_jump_forward_vel_slowdown = {-50, -75},
     walking_speed = 105,
     ground_pound_dive_on = true,
     ground_pound_dive_y_vel = 40,
@@ -730,6 +736,15 @@ initialCharacterStatsTable = {{
     dive_max_velocity = 200,
     back_flip_strength = 85,
     side_flip_strength = 85
-}
-}
+}, {
+    name = 'Wapeach',
+    kick_dive_on = true,
+    kick_jump_strength = 135,
+    super_side_flip_on = true,
+    bad_gas_damage_multiplier = 0,
+    fall_gravity = 110,
+    ground_pound_shake = 120,
+    ground_pound_max_y_vel = 200,
+    ground_pound_gravity = 200
+}}
 

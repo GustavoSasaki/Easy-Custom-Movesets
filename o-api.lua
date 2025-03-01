@@ -47,7 +47,7 @@ local function clean_character_stats(cs)
     cs.ground_pound_shake=  (getNotNil(cs.ground_pound_shake, "number", 0.0) + 1)
     cs.ground_pound_jump_on=  getNotNil(cs.ground_pound_jump_on, "boolean", false)
     cs.ground_pound_jump_strength=  cs.ground_pound_jump_strength ~= nil and type(cs.ground_pound_jump_strength) == "number" and cs.ground_pound_jump_strength or 70
-    cs.ground_pound_forward_vel=  cs.ground_pound_forward_vel ~= nil and type(cs.ground_pound_forward_vel) == "number" and cs.ground_pound_forward_vel or 5
+    cs.ground_pound_jump_forward_vel=  cs.ground_pound_jump_forward_vel ~= nil and type(cs.ground_pound_jump_forward_vel) == "number" and cs.ground_pound_jump_forward_vel or 5
     cs.ground_pound_jump_dive_on=  getNotNil(cs.ground_pound_jump_dive_on, "boolean", false)
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
@@ -118,6 +118,8 @@ local function clean_character_stats(cs)
     cs.in_air_jump_strength = cs.in_air_jump_strength == nil and  42 or cs.in_air_jump_strength
     cs.in_air_jump_animation = cs.in_air_jump_animation == nil and CHAR_ANIM_DOUBLE_JUMP_RISE or  cs.in_air_jump_animation 
     cs.in_air_jump_sound =  cs.in_air_jump_sound == nil and CHAR_SOUND_HOOHOO or cs.in_air_jump_sound 
+
+    cs.kick_dive_on = getNotNil(cs.kick_dive_on, "boolean", false)
 
     if cs.in_air_jump_forward_vel_multiplier == nil then
         cs.in_air_jump_forward_vel_multiplier = 0.25
@@ -220,7 +222,7 @@ end
 --- @field public ground_pound_shake number|nil (Default 100)
 --- @field public ground_pound_jump_on boolean|nil (Default false)
 --- @field public ground_pound_jump_strength number|nil (Default 70)
---- @field public ground_pound_forward_vel number|nil (Default 5)
+--- @field public ground_pound_jump_forward_vel number|nil (Default 5)
 --- @field public ground_pound_jump_dive_on boolean|nil (Default false)
 --- @field public saultube_jump_animation boolean|nil (Default false)
 --- @field public saultube_single_jump_animation boolean|nil (Default saultube_jump_animation)
@@ -251,6 +253,7 @@ end
 --- @field public in_air_jump_sound number|number[]  (Default CHAR_SOUND_HOOHOO)
 --- @field public in_air_jump_forward_vel_multiplier number|number[]  (Default 0.25)
 --- @field public in_air_jump_forward_vel_slowdown number|number[]  (Default 0.2)
+--- @field public kick_dive_on boolean (Default false)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
@@ -288,6 +291,7 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     end
 
     gPlayerSyncTable[0].prevVelY = 0
+    gPlayerSyncTable[0].prevForwardVel = 0
 
     gPlayerSyncTable[0].fart = 1
     gPlayerSyncTable[0].longJumpLandSpeed = 0

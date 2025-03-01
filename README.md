@@ -77,7 +77,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | waft_fart_per_level       |  Number of time the character can use waft fart jum per level (units).  |  1 | |
 | ground_pound_shake       |  Increase camera shake when ground pounding (percentage).   |  100 | It just visual, no gampleay effect |
 | ground_pound_jump_strength       | Height of ground pound jump (units).   |  70 |  |
-| ground_pound_forward_vel       |  Horizontal velocity of ground pound jump (units).  |  5 |  |
+| ground_pound_jump_forward_vel       |  Horizontal velocity of ground pound jump (units).  |  5 |  |
 | ground_pound_jump_dive_on       |  Allows the character to dive while performing an ground pound jump.   |  false |  |
 | saultube_single_jump_animation       | 	Apply custom single jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | saultube_double_jump_animation       | 	Apply custom double jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
@@ -164,6 +164,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Trumble](https://mods.sm64coopdx.com/mods/cs-tumble.380/)
 - [Turkey Wario](https://mods.sm64coopdx.com/mods/cs-turkey-wario.411/)
 - [VL-Tone and CJes Luigi](https://mods.sm64coopdx.com/mods/cs-vl-tone-and-cjes-luigi.12/)
+- [Wapeach](https://mods.sm64coopdx.com/mods/cs-wapeach.17/)
 - [Yae](https://mods.sm64coopdx.com/mods/yae.597/)
 - [Yui Hirasawa](https://mods.sm64coopdx.com/mods/cs-yui-hirasawa-k-on.258/)
 - [Yumpi](https://mods.sm64coopdx.com/mods/cs-yumpi.199/)
