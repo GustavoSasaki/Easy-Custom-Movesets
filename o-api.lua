@@ -99,7 +99,7 @@ local function clean_character_stats(cs)
     cs.super_side_flip_on= getNotNil(cs.super_side_flip_on, "boolean", false)
     cs.super_side_flip_strength= cs.super_side_flip_strength ~= nil and type(cs.super_side_flip_strength) == "number" and cs.super_side_flip_strength or 75
 
-    cs.super_side_flip_convert_foward_vel= getNotNil(cs.super_side_flip_foward_vel, "number", 0) + 1
+    cs.super_side_flip_convert_foward_vel= getNotNil(cs.super_side_flip_convert_foward_vel, "number", 0) + 1
     cs.super_side_flip_add_foward_vel=cs.super_side_flip_add_foward_vel ~= nil and type(cs.super_side_flip_add_foward_vel) == "number" and cs.super_side_flip_add_foward_vel or 20
     cs.super_side_flip_kick_strength= getNotNil(cs.super_side_flip_kick_strength, "number", 0.5) + 1
     cs.super_side_flip_kick_forward_vel= cs.super_side_flip_kick_forward_vel ~= nil and type(cs.super_side_flip_kick_forward_vel) == "number" and cs.super_side_flip_kick_forward_vel or nil
@@ -114,6 +114,33 @@ local function clean_character_stats(cs)
     cs.wall_slide_jump_strength = cs.wall_slide_jump_strength ~= nil and type(cs.wall_slide_jump_strength) == "number" and cs.wall_slide_jump_strength or 75
     cs.wall_slide_jump_type = cs.wall_slide_jump_type ~= nil and type(cs.wall_slide_jump_type) == "number" and cs.wall_slide_jump_type or ACT_TRIPLE_JUMP
 
+    cs.in_air_jump = cs.in_air_jump ~= nil and type(cs.in_air_jump) == "number" and cs.in_air_jump or 0
+    cs.in_air_jump_strength = cs.in_air_jump_strength == nil and  42 or cs.in_air_jump_strength
+    cs.in_air_jump_animation = cs.in_air_jump_animation == nil and CHAR_ANIM_DOUBLE_JUMP_RISE or  cs.in_air_jump_animation 
+    cs.in_air_jump_sound =  cs.in_air_jump_sound == nil and CHAR_SOUND_HOOHOO or cs.in_air_jump_sound 
+
+    if cs.in_air_jump_forward_vel_multiplier == nil then
+        cs.in_air_jump_forward_vel_multiplier = 0.25
+    elseif type(cs.in_air_jump_forward_vel_multiplier) == "number" then
+        cs.in_air_jump_forward_vel_multiplier= getNotNil(cs.in_air_jump_forward_vel_multiplier, "number", -0.75) + 1
+    else
+        local fowardVelMultiplier = {}
+        for i = 1, #cs.in_air_jump_forward_vel_multiplier do
+            table.insert(fowardVelMultiplier, getNotNil( cs.in_air_jump_forward_vel_multiplier[i], "number", -0.75) + 1)
+        end
+        cs.in_air_jump_forward_vel_multiplier = fowardVelMultiplier
+    end
+    if cs.in_air_jump_forward_vel_slowdown == nil then
+        cs.in_air_jump_forward_vel_slowdown = 0.2
+    elseif type(cs.in_air_jump_forward_vel_slowdown) == "number" then
+        cs.in_air_jump_forward_vel_slowdown= getNotNil(cs.in_air_jump_forward_vel_slowdown, "number", -0.8) + 1
+    else
+        local fowardVelSlowdown = {}
+        for i = 1, #cs.in_air_jump_forward_vel_slowdown do
+            table.insert(fowardVelSlowdown, getNotNil( cs.in_air_jump_forward_vel_slowdown[i], "number", -0.8) + 1)
+        end
+        cs.in_air_jump_forward_vel_slowdown = fowardVelSlowdown
+    end
 end
 
 characterStatsTable = {}
@@ -218,8 +245,12 @@ end
 --- @field public wall_slide_forward_vel number  (Default 20)
 --- @field public wall_slide_jump_strength number  (Default 75)
 --- @field public wall_slide_jump_type number  (Default ACT_TRIPLE_JUMP)
-
-
+--- @field public in_air_jump number (Default 0)
+--- @field public in_air_jump_strength number|number[] (Default 42)
+--- @field public in_air_jump_animation CharacterAnimID (Default CHAR_ANIM_DOUBLE_JUMP_RISE)
+--- @field public in_air_jump_sound number|number[]  (Default CHAR_SOUND_HOOHOO)
+--- @field public in_air_jump_forward_vel_multiplier number|number[]  (Default 0.25)
+--- @field public in_air_jump_forward_vel_slowdown number|number[]  (Default 0.2)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
@@ -261,4 +292,5 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].fart = 1
     gPlayerSyncTable[0].longJumpLandSpeed = 0
     gPlayerSyncTable[0].longJumpTimer = 100
+    gPlayerSyncTable[0].inAirJump = 0
 end)

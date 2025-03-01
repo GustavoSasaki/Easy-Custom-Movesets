@@ -690,5 +690,46 @@ initialCharacterStatsTable = {{
     wall_slide_jump_type = ACT_TWIRLING,
     twirling_ground_pound_on = true,
     triple_jump_twirling_when = "start"
-}}
+},
+{
+    -- character with double jump
+    name = 'Donald Duck',
+    in_air_jump =1,
+    in_air_jump_strength = 35,
+    swimming_speed = 150,
+    ground_pound_jump_on = true,
+    back_flip_twirling_on = true
+},
+{
+    -- character with small jumps that can do 3 jump on the air. Each jump is smaller, and does not slowdown
+    name = 'Connie',
+    in_air_jump =3,
+    in_air_jump_strength = {25,20,15},
+    in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE,CHAR_ANIM_DOUBLE_JUMP_RISE,CHAR_ANIM_TRIPLE_JUMP},
+    jump_strength = 85,
+    walking_speed = 120,
+    in_air_speed = 115,
+    burning_damage_multiplier = 150,
+    lava_damage_multiplier = 150,
+    in_air_jump_forward_vel_slowdown = 0,
+    long_jump_triple_jump_on = true,
+},
+{
+    -- character that can do 2 small jump that increase horizontal velocity
+    name = 'Yumpi',
+    in_air_jump =2,
+    in_air_jump_strength = {10,5},
+    in_air_jump_animation = {CHAR_ANIM_FLY_FROM_CANNON,CHAR_ANIM_TRIPLE_JUMP},
+    in_air_jump_sound = {CHAR_SOUND_HOOHOO,CHAR_SOUND_YAHOO},
+    in_air_jump_forward_vel_slowdown = {-50,-75},
+    walking_speed = 105,
+    ground_pound_dive_on = true,
+    ground_pound_dive_y_vel = 40,
+    ground_pound_antecipation_speed_up = 'medium',
+    dive_velocity = 200,
+    dive_max_velocity = 200,
+    back_flip_strength = 85,
+    side_flip_strength = 85
+}
+}
 

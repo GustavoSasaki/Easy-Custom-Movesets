@@ -1,6 +1,6 @@
 ACT_WALL_SLIDE = (0x0BF | ACT_FLAG_AIR | ACT_FLAG_MOVING | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 
-function act_wall_slide(m)
+local function act_wall_slide(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
     end
@@ -48,7 +48,7 @@ function act_wall_slide(m)
     return 0
 end
 
-function act_wall_slide_gravity(m)
+local function act_wall_slide_gravity(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
     end

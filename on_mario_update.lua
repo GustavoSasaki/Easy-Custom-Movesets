@@ -118,6 +118,44 @@ local function apply_long_jump_triple_jump(m, stats)
 end
 
 --- @param m MarioState
+--- @param stats CharacterStats
+local function apply_in_air_jump(m, stats)
+    if (m.input & INPUT_A_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].inAirJump > 0 and
+        (m.action == ACT_STEEP_JUMP or m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
+            ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR) 
+            and (m.pos.y - m.floorHeight) > 100 then
+
+        gPlayerSyncTable[m.playerIndex].inAirJump = gPlayerSyncTable[m.playerIndex].inAirJump - 1
+
+        local velocity = stats.in_air_jump_strength
+        if type(stats.in_air_jump_strength) ~= "number" then
+            velocity = stats.in_air_jump_strength[stats.in_air_jump - gPlayerSyncTable[m.playerIndex].inAirJump]
+        end
+
+        local mutiplier = stats.in_air_jump_forward_vel_multiplier
+        if type(stats.in_air_jump_forward_vel_multiplier) ~= "number" then
+            velocity = stats.in_air_jump_forward_vel_multiplier[stats.in_air_jump -
+                           gPlayerSyncTable[m.playerIndex].inAirJump]
+        end
+
+        set_mario_y_vel_based_on_fspeed(m, velocity, mutiplier)
+
+        local slowdown = stats.in_air_jump_forward_vel_slowdown
+        if type(stats.in_air_jump_forward_vel_slowdown) ~= "number" then
+            slowdown = stats.in_air_jump_forward_vel_slowdown[stats.in_air_jump -
+                           gPlayerSyncTable[m.playerIndex].inAirJump]
+        end
+        m.forwardVel = m.forwardVel * (1 - slowdown)
+        if m.forwardVel > 100 then
+            m.forwardVel = 100
+        end
+
+        set_mario_action(m, ACT_IN_AIR_JUMP, 0)
+        m.faceAngle.y = m.intendedYaw
+    end
+end
+
+--- @param m MarioState
 local function mario_update(m)
     if (m == nil) then
         return
@@ -191,6 +229,7 @@ local function mario_update(m)
         m.forwardVel = stats.ground_pound_forward_vel
     end
 
+    apply_in_air_jump(m, stats)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)
@@ -209,11 +248,12 @@ local function mario_update(m)
     local isLongJumpLand = (m.action == ACT_LONG_JUMP_LAND or m.action == ACT_LONG_JUMP_LAND_STOP or m.action ==
                                ACT_WALKING or m.action == ACT_TURNING_AROUNG)
 
-    if stats.super_side_flip_on and analog_stick_held_back(m) == 1 and isLongJumpLand and (m.controller.buttonDown & A_BUTTON) ~= 0 
-    and gPlayerSyncTable[m.playerIndex].longJumpTimer < 20  and gPlayerSyncTable[m.playerIndex].longJumpLandSpeed > stats.super_side_flip_min_velocity then
+    if stats.super_side_flip_on and analog_stick_held_back(m) == 1 and isLongJumpLand and
+        (m.controller.buttonDown & A_BUTTON) ~= 0 and gPlayerSyncTable[m.playerIndex].longJumpTimer < 20 and
+        gPlayerSyncTable[m.playerIndex].longJumpLandSpeed > stats.super_side_flip_min_velocity then
         set_mario_action(m, ACT_SUPER_SIDE_FLIP, 0);
         m.vel.y = stats.super_side_flip_strength
-        m.forwardVel = - (m.forwardVel * stats.super_side_flip_convert_foward_vel + stats.super_side_flip_add_foward_vel)
+        m.forwardVel = -(m.forwardVel * stats.super_side_flip_convert_foward_vel + stats.super_side_flip_add_foward_vel)
     end
 
 end

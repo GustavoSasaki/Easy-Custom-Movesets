@@ -51,6 +51,20 @@ local function apply_jump_speed(m, stats)
     elseif m.action == ACT_SOFT_BONK and stats.wall_slide_on then
         m.faceAngle.y = m.faceAngle.y + 0x8000
         set_mario_action(m, ACT_WALL_SLIDE, 0)
+    elseif m.action == ACT_IN_AIR_JUMP then
+        set_anim_to_frame(m, 0)
+    end
+end
+
+--- @param m MarioState
+--- @param stats CharacterStats
+local function apply_in_air_jump(m, stats)
+    if m.action == ACT_JUMP_LAND or m.action == ACT_FREEFALL_LAND or m.action == ACT_DOUBLE_JUMP_LAND or m.action ==
+        ACT_SIDE_FLIP_LAND or m.action == ACT_HOLD_JUMP_LAND or m.action == ACT_HOLD_FREEFALL_LAND or m.action ==
+        ACT_QUICKSAND_JUMP_LAND or m.action == ACT_HOLD_QUICKSAND_JUMP_LAND or m.action == ACT_TRIPLE_JUMP_LAND or
+        m.action == ACT_LONG_JUMP_LAND or m.action == ACT_BACKFLIP_LAND or m.action == ACT_WALKING then
+            
+        gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
     end
 end
 
@@ -75,6 +89,7 @@ local function on_set_action(m)
     end
 
     apply_jump_speed(m, stats)
+    apply_in_air_jump(m, stats)
 end
 
 hook_event(HOOK_ON_SET_MARIO_ACTION, on_set_action)
