@@ -88,6 +88,7 @@ local function before_mario_update(m)
     apply_lava_damage_multiplier(m, stats)
     if stats.disable_damage then
         m.hurtCounter = 0
+        m.healCounter = 1
     end
 end
 

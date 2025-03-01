@@ -15,8 +15,8 @@ local function act_wall_slide(m)
         local rc = set_mario_action(m, stats.wall_slide_jump_type, 0)
         m.vel.y = stats.wall_slide_jump_strength
 
-        if m.forwardVel < stats.wall_slide_forward_vel then
-            m.forwardVel = stats.wall_slide_forward_vel
+        if m.forwardVel < stats.wall_slide_jump_forward_vel then
+            m.forwardVel = stats.wall_slide_jump_forward_vel
         end
         m.wallKickTimer = 0
         return rc

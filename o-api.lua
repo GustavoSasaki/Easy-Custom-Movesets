@@ -110,7 +110,7 @@ local function clean_character_stats(cs)
     cs.wall_slide_on = getNotNil(cs.wall_slide_on, "boolean", false)
     cs.wall_slide_gravity = getNotNil(cs.wall_slide_gravity, "number", -0.5) + 1
     cs.wall_slide_max_gravity = getNotNil(cs.wall_slide_max_gravity, "number", -0.73) + 1
-    cs.wall_slide_forward_vel = cs.wall_slide_forward_vel ~= nil and type(cs.wall_slide_forward_vel) == "number" and cs.wall_slide_forward_vel or 20
+    cs.wall_slide_jump_forward_vel = cs.wall_slide_jump_forward_vel ~= nil and type(cs.wall_slide_jump_forward_vel) == "number" and cs.wall_slide_jump_forward_vel or 20
     cs.wall_slide_jump_strength = cs.wall_slide_jump_strength ~= nil and type(cs.wall_slide_jump_strength) == "number" and cs.wall_slide_jump_strength or 75
     cs.wall_slide_jump_type = cs.wall_slide_jump_type ~= nil and type(cs.wall_slide_jump_type) == "number" and cs.wall_slide_jump_type or ACT_TRIPLE_JUMP
 
@@ -245,7 +245,7 @@ end
 --- @field public wall_slide_on boolean (Default false)
 --- @field public wall_slide_gravity number  (Default 0.5)
 --- @field public wall_slide_max_gravity number  (Default 0.26)
---- @field public wall_slide_forward_vel number  (Default 20)
+--- @field public wall_slide_jump_forward_vel number  (Default 20)
 --- @field public wall_slide_jump_strength number  (Default 75)
 --- @field public wall_slide_jump_type number  (Default ACT_TRIPLE_JUMP)
 --- @field public in_air_jump number (Default 0)
