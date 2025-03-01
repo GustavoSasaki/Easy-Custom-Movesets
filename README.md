@@ -26,13 +26,16 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | triple_jump_twirling_on       | 	The character start twirling after triple jump. | false |  |
 | fast_twirling_on       | 	 Allows the character to descend faster when twirling by pressing the Z button. | false |  To adjust the descending speed, modify the value of `fast_twirling_gravity`. Stat slightly bugged, The Shifting Sand Tornados will continue chasing you even after twirling, this results in the character ascending more than normal. |
 | water_damage_multiplier       | 	How much damage the character takes when holding breath under water (percentage). | 100 |  |
-| disable_damage       | 	Disable damage. | false | This stast doest not work for water damage, burning damage or bad gas damage |
+| disable_damage       | 	Disable damage. | false | |
 | ground_pound_dive_on       | 	Allows the character to perform a dive while ground pound. | false |  |
 | waft_fart_on       | 	Allows the character to perform an super fart jump while ground pound with Z button. This jump has an limited number of uses per level. | false |  |
 | ground_pound_jump_on       | 	Allows the character to perform an special jump after ground pound.  | false | Just like Super Mario Odyssey  |
 | saultube_jump_animation       | 	Apply custom single/double/triple jump animation from Saultube  | false | You need to install [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) to work this stat |
 | long_jump_triple_jump_on       | 	Allows the character to perform an triple jump after long jump.  | false | After long jump, press A without pressing Z |
 | super_side_flip_on       | 	Allows the character to perform an special side flip after long jump.  | false | |
+| wall_slide_on       | 	Allows the character to perform wall slide.  | false | Code created by djoslin0. |
+| in_air_jump       | 	How many jumps in the air the character can do | 0 |  |
+| kick_dive_on       | 	When pressing B, instead of performing a dive or kick depending on speed, the character will always execute a kick first. If B is pressed again, a dive will follow. | false |  |
 
 ## Less Important Stats
 
@@ -93,7 +96,17 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | super_side_flip_gravity       | Gravity effect when doing super side flip (percentage). |  75 |  |
 | super_side_flip_max_gravity       | Max downard velocity when aplying gravity of super side flip (percentage). |  93 |  |
 | super_side_flip_min_velocity       |  Minimal forward velocity of the long jump to execute super side flip (units). |  36 |  |
-
+| wall_slide_gravity       |   Gravity effect when wall sliding (percentage).  | 50 |  |
+| wall_slide_max_gravity       |   Max downard velocity when aplying gravity of wall slide (percentage). | 26 |  |
+| wall_slide_jump_forward_vel       |   Forward velocity added when jumping from wall slide (units). | 20 |  |
+| wall_slide_jump_strength       |  Increases the height of jump after wall slide (units). | 75 |  |
+| wall_slide_jump_type       |  Type of the jump after wall slide. | ACT_TRIPLE_JUMP | [Documentation](https://github.com/coop-deluxe/sm64coopdx/blob/abf818b90eef960a139f29e08efcec7f678fcda3/docs/lua/constants.md#sm64h) with all the types. |
+| in_air_jump_strength       |  Jump strength of in air jumps (units). | 42 | You can also pass an array defining the valur for each individual in air jump (Ex: {30,20,10} would make the first jump have 30 strength, the second 20 and third 10) |
+| in_air_jump_animations       |  Animation of in air jumps (CharacterAnimID). | CHAR_ANIM_DOUBLE_JUMP_RISE |[Documentation](https://github.com/coop-deluxe/sm64coopdx/blob/abf818b90eef960a139f29e08efcec7f678fcda3/docs/lua/constants.md#enum-characteranimid) with all the animation. You can also pass as an array |
+| in_air_jump_sound       |  Sound of in air jumps (CharacterSound). | CHAR_SOUND_HOOHOO | [Documentation](https://github.com/coop-deluxe/sm64coopdx/blob/abf818b90eef960a139f29e08efcec7f678fcda3/docs/lua/constants.md#CharacterSound) with all the sounds. You can also pass as an array |
+| in_air_jump_forward_vel_multiplier       | How much forward velocity is converted to in air jumps (percentage). | 25 | You can also pass as an array |
+| in_air_jump_forward_vel_slowdown       | How much forward velocity is losted everytime the character do an air jumps (percentage). | 20 | You can also pass as an array |
+| disable_double_jump       | Disable double jump. | false | Some moves (such as in air jumps) makes get the right time for double jump be really awkard. Removing double jump is an way to resolve this. |
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
 - Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
