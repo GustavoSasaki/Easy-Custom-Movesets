@@ -97,7 +97,7 @@ local function on_set_action(m)
         gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level
     end
 
-    if m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
+    if stats.kick_dive_on and m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
         resetVelocityToPrevAction(m)
         set_mario_action(m,ACT_JUMP_KICK,0)
     end

@@ -758,6 +758,5 @@ initialCharacterStatsTable = {{
     in_air_jump_forward_vel_multiplier = 75,
     long_jump_triple_jump_on = true,
     kick_dive_on = true,
-    disable_damage = true
 }}
 
