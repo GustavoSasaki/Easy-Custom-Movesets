@@ -8,19 +8,22 @@ initialCharacterStatsTable = {{
     -- float character
     name = "Sackboy",
     gravity = 95,
-    ground_pound_dive_on = true
+    ground_pound_dive_on = true,
+    knockback_resistance = -10
 }, {
     -- heavy character with better back/side flip
     name = "Peter Griffin",
     gravity = 115,
     back_flip_strength = 120,
-    side_flip_strength = 120
+    side_flip_strength = 120,
+    knockback_resistance = 60
 }, {
     -- float character with big long jump
     name = "Osaka",
     gravity = 85,
     long_jump_strength = 105,
-    mr_l_jump_on = true
+    mr_l_jump_on = true,
+    knockback_resistance = -5
 }, {
     -- character with fast long jump
     name = "Tomo",
@@ -193,7 +196,8 @@ initialCharacterStatsTable = {{
     crawling_speed = 500,
     back_flip_twirling_on = true,
     back_flip_strength = 107,
-    hold_walking_speed = 85
+    hold_walking_speed = 85,
+    knockback_resistance = -5
 
 }, {
     -- character with mr l jump that has great horizontal maneuverability
@@ -296,7 +300,8 @@ initialCharacterStatsTable = {{
     gravity = 90,
     bad_gas_damage_multiplier = 0,
     long_jump_velocity_multiplier = 150,
-    long_jump_max_velocity = 130
+    long_jump_max_velocity = 130,
+    knockback_resistance = -5
 
 }, {
     -- character witch can stand in water long, swim faster
@@ -384,7 +389,8 @@ initialCharacterStatsTable = {{
     gravity = 120,
     in_air_speed = 150,
     walking_speed = 150,
-    burning_damage_multiplier = 50
+    burning_damage_multiplier = 50,
+    knockback_resistance = 30
 }, {
     -- speedy character with weakness to burning
     name = 'Geno',
@@ -409,7 +415,8 @@ initialCharacterStatsTable = {{
     bad_gas_damage_multiplier = 0,
     lava_damage_multiplier = 0,
     ground_pound_max_y_vel = 130,
-    ground_pound_shake = 150
+    ground_pound_shake = 150,
+    knockback_resistance = 60
 }, {
     name = 'Squidward',
     water_damage_multiplier = 0,
@@ -450,7 +457,8 @@ initialCharacterStatsTable = {{
     ground_pound_antecipation_speed_up = 'immediately',
     ground_pound_dive_on = true,
     ground_pound_dive_y_vel = 10,
-    hold_walking_speed = 85
+    hold_walking_speed = 85,
+    knockback_resistance = 35
 }, {
     -- chracter with fast ground pound and immunity to burn
     name = 'Marty the Thwomp',
@@ -613,7 +621,8 @@ initialCharacterStatsTable = {{
     super_side_flip_strength = 70,
     super_side_flip_kick_foward_vel = 30,
     super_side_flip_add_foward_vel = 30,
-    walking_speed = 130
+    walking_speed = 130,
+    knockback_resistance = 35
 }, {
     -- character with ground pound jump and he can also do super side flip with lower speed
     name = 'Patrick Starfish',
@@ -650,7 +659,8 @@ initialCharacterStatsTable = {{
     in_air_speed = 150,
     walking_speed = 150,
     jump_strength = 85,
-    wall_slide_jump_strength = 60
+    wall_slide_jump_strength = 60,
+    knockback_resistance = -5
 }, {
     -- character that do an dive when jumping from weall slide. Also is great swimmer
     name = 'Yae',
@@ -747,7 +757,8 @@ initialCharacterStatsTable = {{
     fall_gravity = 110,
     ground_pound_shake = 120,
     ground_pound_max_y_vel = 200,
-    ground_pound_gravity = 200
+    ground_pound_gravity = 200,
+    knockback_resistance = 35
 },
 {
     -- character with in air jump that can not do double jump.

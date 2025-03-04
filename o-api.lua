@@ -145,6 +145,7 @@ local function clean_character_stats(cs)
         cs.in_air_jump_forward_vel_slowdown = fowardVelSlowdown
     end
 
+    cs.knockback_resistance = getNotNil(cs.knockback_resistance, "number", 0) + 1
     cs.disable_twirling_land = cs.disable_twirling_land ~= nil and type(cs.disable_twirling_land) == "boolean" and cs.disable_twirling_land or (cs.triple_jump_twirling_on or cs.back_flip_twirling_on or cs.side_flip_twirling_on)
 end
 
@@ -259,6 +260,7 @@ end
 --- @field public kick_dive_on boolean (Default false)
 --- @field public disable_double_jump boolean (Default false)
 --- @field public disable_twirling_land boolean (Default triple_jump_twirling_on or back_flip_twirling_on or side_flip_twirling_on)
+--- @field public knockback_resistance number (Default 0)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

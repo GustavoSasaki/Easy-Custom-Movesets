@@ -73,6 +73,26 @@ local function apply_in_air_jump(m, stats)
     end
 end
 
+--- @param action integer
+--- @return boolean
+local function isKnockBack(action)
+    return action == ACT_HARD_BACKWARD_GROUND_KB or action == ACT_HARD_FORWARD_GROUND_KB or action ==
+               ACT_BACKWARD_GROUND_KB or action == ACT_FORWARD_GROUND_KB or action == ACT_SOFT_BACKWARD_GROUND_KB or
+               action == ACT_SOFT_FORWARD_GROUND_KB or action == ACT_HARD_BACKWARD_AIR_KB or action ==
+               ACT_HARD_FORWARD_AIR_KB
+end
+
+--- @param m MarioState
+--- @param stats CharacterStats
+local function apply_knock_back_resistance(m, stats)
+    if m.action == ACT_THROWN_BACKWARD or m.action == ACT_THROWN_FORWARD then
+        m.forwardVel = m.forwardVel * (1 - stats.knockback_resistance)
+    elseif isKnockBack(m.action) and
+        not (isKnockBack(m.prevAction) or m.prevAction == ACT_THROWN_BACKWARD or m.prevAction == ACT_THROWN_FORWARD) then
+        m.forwardVel = m.forwardVel * (1 - stats.knockback_resistance)
+    end
+end
+
 --- @param m MarioState
 local function on_set_action(m)
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
@@ -117,6 +137,7 @@ local function on_set_action(m)
 
     apply_jump_speed(m, stats)
     apply_in_air_jump(m, stats)
+    apply_knock_back_resistance(m, stats)
 end
 
 hook_event(HOOK_ON_SET_MARIO_ACTION, on_set_action)

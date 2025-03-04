@@ -108,6 +108,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | in_air_jump_forward_vel_slowdown       | How much forward velocity is losted everytime the character do an air jumps (percentage). | 20 | You can also pass as an array |
 | disable_double_jump       | Disable double jump. | false | Some moves (such as in air jumps) makes get the right time for double jump be really awkard. Removing double jump is an way to resolve this. |
 | disable_twirling_land       | Disable landing state of twirling | false | When landing from twirling the character executes landing animatio. In this state, it doenst accepts inputs. |
+| knock_back_resistance       | Reduce knock back (percentage). | 0 |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
