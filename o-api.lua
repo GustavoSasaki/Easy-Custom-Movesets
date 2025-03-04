@@ -148,6 +148,7 @@ local function clean_character_stats(cs)
     cs.knockback_resistance = getNotNil(cs.knockback_resistance, "number", 0) + 1
     cs.disable_coin_heal= getNotNil(cs.disable_coin_heal, "boolean", false)
     cs.coin_heal_multiplier = cs.disable_coin_heal == true and 0 or getNotNil(cs.coin_heal_multiplier, "number", 0) 
+    cs.one_hit = getNotNil(cs.one_hit, "boolean", false)
     cs.disable_twirling_land = cs.disable_twirling_land ~= nil and type(cs.disable_twirling_land) == "boolean" and cs.disable_twirling_land or (cs.triple_jump_twirling_on or cs.back_flip_twirling_on or cs.side_flip_twirling_on)
 end
 
@@ -265,6 +266,7 @@ end
 --- @field public knockback_resistance number (Default 100)
 --- @field public coin_heal_multiplier number (Default 0)
 --- @field public disable_coin_heal boolean (Default false)
+--- @field public one_hit boolean (Default false)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

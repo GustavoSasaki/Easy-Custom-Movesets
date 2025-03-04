@@ -770,5 +770,13 @@ initialCharacterStatsTable = {{
     in_air_jump_forward_vel_multiplier = 75,
     long_jump_triple_jump_on = true,
     kick_dive_on = true,
+},
+{
+    name = 'The Kid',
+    one_hit = true,
+    burning_damage_multiplier = 800,
+    in_air_jump = 1,
+    in_air_jump_strength = 35,
+    in_air_speed = 120
 }}
 

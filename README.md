@@ -111,6 +111,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | knock_back_resistance       | Reduce knock back (percentage). | 0 |  |
 | disable_coin_heal       | Disable heal from coins. | false |  |
 | coin_heal_multiplier       | Increase heal from coins (percentage). | 0 |  The value can be negative, making getting coin deal damage. |
+| one_hit       | The character die after being hit once. | false |   |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -151,6 +152,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Hatsune Miku](https://mods.sm64coopdx.com/mods/cs-hatsune-miku.418/)
 - [Junio Sonic](https://mods.sm64coopdx.com/mods/junio-sonic-cs.450/)
 - [King Penguin](https://mods.sm64coopdx.com/mods/cs-king-penguin.346/)
+- [Kid](https://mods.sm64coopdx.com/mods/cs-the-kid.435/)
 - [Kitsufae](https://mods.sm64coopdx.com/mods/cs-kitsufae-pack.276/)
 - [Lego Mario](https://mods.sm64coopdx.com/mods/cs-lego-mario.553/)
 - [Luma](https://mods.sm64coopdx.com/mods/cs-pet-luma.371/)
