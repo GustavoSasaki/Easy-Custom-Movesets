@@ -698,7 +698,8 @@ initialCharacterStatsTable = {{
     wall_slide_jump_strength = 35,
     wall_slide_jump_type = ACT_TWIRLING,
     twirling_ground_pound_on = true,
-    triple_jump_twirling_when = "start"
+    triple_jump_twirling_when = "start",
+    disable_twirling_land = true
 }, {
     -- character with double jump
     name = 'Donald Duck',

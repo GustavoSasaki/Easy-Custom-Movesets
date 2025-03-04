@@ -68,7 +68,7 @@ local function apply_in_air_jump(m, stats)
         ACT_SIDE_FLIP_LAND or m.action == ACT_HOLD_JUMP_LAND or m.action == ACT_HOLD_FREEFALL_LAND or m.action ==
         ACT_QUICKSAND_JUMP_LAND or m.action == ACT_HOLD_QUICKSAND_JUMP_LAND or m.action == ACT_TRIPLE_JUMP_LAND or
         m.action == ACT_LONG_JUMP_LAND or m.action == ACT_BACKFLIP_LAND or m.action == ACT_WALKING then
-            
+
         gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
     end
 end
@@ -99,14 +99,21 @@ local function on_set_action(m)
 
     if stats.kick_dive_on and m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
         resetVelocityToPrevAction(m)
-        set_mario_action(m,ACT_JUMP_KICK,0)
+        set_mario_action(m, ACT_JUMP_KICK, 0)
     end
 
     if stats.disable_double_jump and m.action == ACT_DOUBLE_JUMP then
         resetVelocityToPrevAction(m)
-        set_mario_action(m,ACT_JUMP,0)
+        set_mario_action(m, ACT_JUMP, 0)
     end
-    
+
+    if stats.disable_twirling_land and m.action == ACT_TWIRL_LAND then
+        if (m.input & INPUT_NONZERO_ANALOG) ~= 0 then
+            m.action = ACT_WALKING
+        else
+            m.action = ACT_IDLE
+        end
+    end
 
     apply_jump_speed(m, stats)
     apply_in_air_jump(m, stats)

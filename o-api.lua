@@ -144,6 +144,8 @@ local function clean_character_stats(cs)
         end
         cs.in_air_jump_forward_vel_slowdown = fowardVelSlowdown
     end
+
+    cs.disable_twirling_land = cs.disable_twirling_land ~= nil and type(cs.disable_twirling_land) == "boolean" and cs.disable_twirling_land or (cs.triple_jump_twirling_on or cs.back_flip_twirling_on or cs.side_flip_twirling_on)
 end
 
 characterStatsTable = {}
@@ -195,14 +197,14 @@ end
 --- @field public mr_l_gravity number|nil (Default 140)
 --- @field public mr_l_air_speed number|nil (Default 60)
 --- @field public play_mr_l_anticipation_audio boolean|nil (Default true)
---- @field public back_flip_twirling_on boolean|nil (Default false)
---- @field public side_flip_twirling_on boolean|nil (Default false)
+--- @field public back_flip_twirling_on boolean (Default false)
+--- @field public side_flip_twirling_on boolean (Default false)
 --- @field public twirling_ground_pound_on boolean|nil (Default false)
 --- @field public twirling_dive_on boolean|nil (Default false)
 --- @field public twirling_gravity number|nil (Default gravity)
 --- @field public fast_twirling_on boolean|nil (Default false)
 --- @field public fast_twirling_gravity number|nil (Default twirling_gravity)
---- @field public triple_jump_twirling_on boolean|nil (Default false)
+--- @field public triple_jump_twirling_on boolean (Default false)
 --- @field public triple_jump_twirling_when string|nil (Default fall)
 --- @field public twirling_speed number|nil (Default in_air_speed)
 --- @field public bad_gas_damage_multiplier number|nil (Default 100)
@@ -256,6 +258,7 @@ end
 --- @field public in_air_jump_forward_vel_slowdown number|number[]  (Default 0.2)
 --- @field public kick_dive_on boolean (Default false)
 --- @field public disable_double_jump boolean (Default false)
+--- @field public disable_twirling_land boolean (Default triple_jump_twirling_on or back_flip_twirling_on or side_flip_twirling_on)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
