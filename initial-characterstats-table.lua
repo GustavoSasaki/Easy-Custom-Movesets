@@ -49,7 +49,7 @@ initialCharacterStatsTable = {{
     swimming_speed = 250,
     jump_strength = 115,
     airborne_deceleration_speed = 50,
-    wall_slide_on = true,
+    wall_slide_on = true
 }, {
     -- weird character with bad normal jump, but good back/side/long jumps
     name = "Kaori",
@@ -65,7 +65,7 @@ initialCharacterStatsTable = {{
     fall_gravity = 120,
     explode_on_death = true,
     jump_strength = 103,
-    kick_dive_on = true,
+    kick_dive_on = true
 }, {
     -- float and fast character
     name = "Cream the Rabbit",
@@ -87,7 +87,7 @@ initialCharacterStatsTable = {{
     name = "Pepsiman",
     walking_speed = 130,
     jump_strength = 110,
-    kick_dive_on = true,
+    kick_dive_on = true
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Classic Sonic",
@@ -206,14 +206,14 @@ initialCharacterStatsTable = {{
     mr_l_air_speed = 140,
     mr_l_gravity = 135,
     mr_l_jump_strength = 85,
-    wall_slide_on = true,
+    wall_slide_on = true
 }, {
     name = 'Neco-Arc Colors',
     mr_l_jump_on = true,
     mr_l_air_speed = 140,
     mr_l_gravity = 135,
     mr_l_jump_strength = 85,
-    wall_slide_on = true,
+    wall_slide_on = true
 }, {
     -- character that can do twirling after back flip and ground pound while twirling
     name = 'Yui',
@@ -361,7 +361,7 @@ initialCharacterStatsTable = {{
     dive_max_velocity = 110,
     wall_slide_on = true,
     wall_slide_jump_strength = 60,
-    wall_slide_jump_type = ACT_JUMP,
+    wall_slide_jump_type = ACT_JUMP
 }, {
     -- character witch can stand in water long, swim faster
     name = 'Vulpixie',
@@ -377,7 +377,7 @@ initialCharacterStatsTable = {{
     swimming_speed = 400,
     walking_speed = 120,
     triple_jump_strength = 87,
-    kick_dive_on = true,
+    kick_dive_on = true
 }, {
     -- character witch can stand in water/snow water long, swim faster
     name = 'King Penguin',
@@ -407,7 +407,7 @@ initialCharacterStatsTable = {{
     gravity = 95,
     fall_gravity = 85,
     long_jump_strength = 125,
-    kick_jump_strength = 75,
+    kick_jump_strength = 75
 }, {
     -- no burning damage
     name = 'Thomas the Tank Engine',
@@ -538,10 +538,19 @@ initialCharacterStatsTable = {{
 }, {
     -- character with saultube custom animation + speedy + ground pound jump
     name = 'Saul',
-    walking_speed = 120,
     ground_pound_dive_on = true,
     saultube_jump_animation = true,
-    single_jump_strength = 95
+    gravity = 120,
+    in_air_speed = 140,
+    walking_speed = 140,
+    burning_damage_multiplier = 150,
+    bat_damage = 200,
+    knockback_resistance = -150,
+    ground_pound_jump_on = true,
+    ground_pound_antecipation_speed_up = 'medium',
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP
 }, {
     name = 'Saul PFP',
     walking_speed = 120,
@@ -759,8 +768,7 @@ initialCharacterStatsTable = {{
     ground_pound_max_y_vel = 200,
     ground_pound_gravity = 200,
     knockback_resistance = 35
-},
-{
+}, {
     -- character with in air jump that can not do double jump.
     -- to do triple jump you need to long jump first.
     name = 'Parappa the Rapper',
@@ -769,14 +777,43 @@ initialCharacterStatsTable = {{
     in_air_jump_strength = 5,
     in_air_jump_forward_vel_multiplier = 75,
     long_jump_triple_jump_on = true,
-    kick_dive_on = true,
-},
-{
+    kick_dive_on = true
+}, {
+    -- character with double jump, but has one health
     name = 'The Kid',
     one_hit = true,
     burning_damage_multiplier = 800,
     in_air_jump = 1,
     in_air_jump_strength = 35,
     in_air_speed = 120
+}, {
+    -- speedy character with bad jumps that can wall slide and gound pound jump
+    name = 'Fungus',
+    gravity = 120,
+    in_air_speed = 140,
+    walking_speed = 140,
+    burning_damage_multiplier = 150,
+    bat_damage = 200,
+    knockback_resistance = -150,
+    ground_pound_jump_on = true,
+    ground_pound_antecipation_speed_up = 'medium',
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP
+},
+{
+    -- speedy character with bad jumps that can wall slide and gound pound jump
+    name = 'DJ Toad',
+    gravity = 120,
+    in_air_speed = 140,
+    walking_speed = 140,
+    burning_damage_multiplier = 150,
+    bat_damage = 200,
+    knockback_resistance = -150,
+    ground_pound_jump_on = true,
+    ground_pound_antecipation_speed_up = 'medium',
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP
 }}
 

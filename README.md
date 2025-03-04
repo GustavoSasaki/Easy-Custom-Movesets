@@ -146,6 +146,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Dry Bones](https://mods.sm64coopdx.com/mods/cs-dry-bones.37/)
 - [Ebimasu](https://mods.sm64coopdx.com/mods/ebisumaru.594/)
 - [Frogsuit Wildcard](https://mods.sm64coopdx.com/mods/cs-frogsuit-wildcard-models.308/)
+- [Fungus](https://mods.sm64coopdx.com/mods/cs-fungusmod.610/)
 - [Ganbare Goemon](https://mods.sm64coopdx.com/mods/ganbare-goemon-mystical-ninja.595/)
 - [Gnarpy](https://mods.sm64coopdx.com/mods/cs-gnarpy.530/)
 - [Goemon](https://mods.sm64coopdx.com/mods/cs-goemon.573/)

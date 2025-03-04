@@ -79,7 +79,7 @@ local function isKnockBack(action)
     return action == ACT_HARD_BACKWARD_GROUND_KB or action == ACT_HARD_FORWARD_GROUND_KB or action ==
                ACT_BACKWARD_GROUND_KB or action == ACT_FORWARD_GROUND_KB or action == ACT_SOFT_BACKWARD_GROUND_KB or
                action == ACT_SOFT_FORWARD_GROUND_KB or action == ACT_HARD_BACKWARD_AIR_KB or action ==
-               ACT_HARD_FORWARD_AIR_KB
+               ACT_HARD_FORWARD_AIR_KB or action == ACT_BACKWARD_AIR_KB 
 end
 
 --- @param m MarioState
