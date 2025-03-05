@@ -112,6 +112,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | disable_coin_heal       | Disable heal from coins. | false |  |
 | coin_heal_multiplier       | Increase heal from coins (percentage). | 0 |  The value can be negative, making getting coin deal damage. |
 | one_hit       | The character die after being hit once. | false |   |
+| bat_damage_multiplier       | Increase damage from bats (percentage). | 100 |   |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder

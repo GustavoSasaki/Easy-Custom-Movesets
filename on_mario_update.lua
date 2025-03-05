@@ -122,8 +122,8 @@ end
 local function apply_in_air_jump(m, stats)
     if (m.input & INPUT_A_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].inAirJump > 0 and
         (m.action == ACT_STEEP_JUMP or m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
-            ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR) 
-            and (m.pos.y - m.floorHeight) > 100 then
+            ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR) and (m.pos.y - m.floorHeight) >
+        100 then
 
         gPlayerSyncTable[m.playerIndex].inAirJump = gPlayerSyncTable[m.playerIndex].inAirJump - 1
 
@@ -155,15 +155,14 @@ local function apply_in_air_jump(m, stats)
     end
 end
 
-
 --- @param m MarioState
 --- @param stats CharacterStats
 local function apply_kick_dive(m, stats)
-    if stats.kick_dive_on and m.action == ACT_JUMP_KICK and (m.input & INPUT_B_PRESSED) ~= 0  and m.actionTimer ~= 0 then
+    if stats.kick_dive_on and m.action == ACT_JUMP_KICK and (m.input & INPUT_B_PRESSED) ~= 0 and m.actionTimer ~= 0 then
         set_mario_action(m, ACT_DIVE, 0);
     end
 
-    if m.action == ACT_JUMP_KICK  then
+    if m.action == ACT_JUMP_KICK then
         m.actionTimer = m.actionTimer + 1
     end
 end
@@ -242,7 +241,7 @@ local function mario_update(m)
     end
 
     apply_in_air_jump(m, stats)
-    apply_kick_dive(m,stats)
+    apply_kick_dive(m, stats)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)
@@ -271,6 +270,19 @@ local function mario_update(m)
 
     gPlayerSyncTable[m.playerIndex].prevForwardVel = m.forwardVel
     gPlayerSyncTable[m.playerIndex].prevVelY = m.vel.y
+
+    if gPlayerSyncTable[m.playerIndex].shouldExplode == 0 then
+        gPlayerSyncTable[m.playerIndex].shouldExplode = nil
+        if (mario_can_bubble(m)) then
+            m.health = 0xFF;
+            mario_set_bubbled(m);
+        else
+            level_trigger_warp(m, WARP_OP_DEATH);
+        end
+    end
+    if gPlayerSyncTable[m.playerIndex].shouldExplode ~= nil then
+        gPlayerSyncTable[m.playerIndex].shouldExplode = gPlayerSyncTable[m.playerIndex].shouldExplode - 1
+    end
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

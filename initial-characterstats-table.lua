@@ -544,6 +544,7 @@ initialCharacterStatsTable = {{
     in_air_speed = 140,
     walking_speed = 140,
     burning_damage_multiplier = 150,
+    bat_damage_multiplier = 200,
     bat_damage = 200,
     knockback_resistance = -150,
     ground_pound_jump_on = true,
@@ -779,6 +780,13 @@ initialCharacterStatsTable = {{
     long_jump_triple_jump_on = true,
     kick_dive_on = true
 }, {
+    name = 'Joker Mario',
+    bat_damage_multiplier = 800,
+    saultube_triple_jump_animation = true
+}, {
+    name = 'Steve?',
+    bat_damage_multiplier = 0
+}, {
     -- character with double jump, but has one health
     name = 'The Kid',
     one_hit = true,
@@ -793,27 +801,42 @@ initialCharacterStatsTable = {{
     in_air_speed = 140,
     walking_speed = 140,
     burning_damage_multiplier = 150,
-    bat_damage = 200,
+    bat_damage_multiplier = 200,
     knockback_resistance = -150,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'medium',
     wall_slide_on = true,
-    wall_slide_jump_strength = 60,
-    wall_slide_jump_type = ACT_JUMP
-},
-{
+    wall_slide_jump_strength = 60
+}, {
     -- speedy character with bad jumps that can wall slide and gound pound jump
     name = 'DJ Toad',
     gravity = 120,
     in_air_speed = 140,
     walking_speed = 140,
     burning_damage_multiplier = 150,
-    bat_damage = 200,
+    bat_damage_multiplier = 200,
     knockback_resistance = -150,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'medium',
     wall_slide_on = true,
     wall_slide_jump_strength = 60,
     wall_slide_jump_type = ACT_JUMP
+}, {
+    name = 'Spider-Man',
+    bat_damage_multiplier = 1000
+}, {
+    name = 'Hulk',
+    bat_damage_multiplier = 1000
+}, {
+    name = 'Deadpool',
+    bat_damage_multiplier = 1000
+}, {
+    name = 'Venom',
+    bat_damage_multiplier = 1000
+}, {
+    name = 'Daredevil',
+    bat_damage_multiplier = 1000
+}, {
+    name = 'Wolverine',
+    bat_damage_multiplier = 1000
 }}
-
