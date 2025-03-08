@@ -138,6 +138,11 @@ local function on_set_action(m)
     apply_jump_speed(m, stats)
     apply_in_air_jump(m, stats)
     apply_knock_back_resistance(m, stats)
+
+    if stats.glide_dive_on and m.action == ACT_DIVE and  m.pos.y > (m.floorHeight + 10.0)  then
+        set_mario_action(m, ACT_GLIDE_DIVE, 0);
+    end
+
 end
 
 hook_event(HOOK_ON_SET_MARIO_ACTION, on_set_action)

@@ -73,6 +73,11 @@ end
 --- @param interactee Object
 --- @param interactType InteractionType
 local function on_interaction(m, interactee, interactType, interactValue)
+
+    if interactType == INTERACT_GRABBABLE and m.action == ACT_GLIDE_DIVE then
+        set_mario_action(m, ACT_DIVE, 0)
+    end
+    
     if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
         return
     end

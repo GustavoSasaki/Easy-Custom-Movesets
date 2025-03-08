@@ -839,4 +839,14 @@ initialCharacterStatsTable = {{
 }, {
     name = 'Wolverine',
     bat_damage_multiplier = 1000
-}}
+}, {
+    -- character that glides when diving. It can also do ground pound jump
+    name = 'Charizard',
+    glide_dive_on = true,
+    water_damage_multiplier = 250,
+    disable_burning = true,
+    disable_breath_heal = true,
+    ground_pound_jump_on = true,
+    knockback_resistance = 50,
+}
+}

@@ -152,6 +152,15 @@ local function clean_character_stats(cs)
     cs.bat_damage_multiplier = getNotNil(cs.bat_damage_multiplier, "number", 0) 
     cs.one_hit = getNotNil(cs.one_hit, "boolean", false)
     cs.disable_twirling_land = cs.disable_twirling_land ~= nil and type(cs.disable_twirling_land) == "boolean" and cs.disable_twirling_land or (cs.triple_jump_twirling_on or cs.back_flip_twirling_on or cs.side_flip_twirling_on)
+    
+    cs.glide_dive_on = getNotNil(cs.glide_dive_on, "boolean", false)
+    cs.glide_dive_forward_vel = cs.glide_dive_forward_vel ~= nil and type(cs.glide_dive_forward_vel) == "number" and cs.glide_dive_forward_vel or 50
+    cs.glide_dive_slowdown = cs.glide_dive_slowdown ~= nil and type(cs.glide_dive_slowdown) == "number" and cs.glide_dive_slowdown or 0.25
+    cs.glide_dive_angle_speed =  getNotNil(cs.glide_dive_angle_speed, "number", -0.25) + 1
+    cs.glide_dive_min_forward_speed = cs.glide_dive_min_forward_speed ~= nil and type(cs.glide_dive_min_forward_speed) == "number" and cs.glide_dive_min_forward_speed or 0
+    cs.glide_dive_max_time = cs.glide_dive_max_time ~= nil and type(cs.glide_dive_max_time) == "number" and cs.glide_dive_max_time or 999
+    cs.glide_dive_y_vel = cs.glide_dive_y_vel ~= nil and type(cs.glide_dive_y_vel) == "number" and cs.glide_dive_y_vel or -5
+
 end
 
 characterStatsTable = {}
@@ -271,6 +280,13 @@ end
 --- @field public disable_coin_heal boolean (Default false)
 --- @field public bat_damage_multiplier number (Default 0)
 --- @field public one_hit boolean (Default false)
+--- @field public glide_dive_on boolean (Default false)
+--- @field public glide_dive_forward_vel number (Default 50)
+--- @field public glide_dive_slowdown number (Default 0)
+--- @field public glide_dive_angle_speed number (Default 75)
+--- @field public glide_dive_min_forward_speed number (Default 999)
+--- @field public glide_dive_max_time number (Default 999)
+--- @field public glide_dive_y_vel number (Default -5)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
