@@ -118,12 +118,21 @@ local function apply_long_jump_triple_jump(m, stats)
 end
 
 --- @param m MarioState
+--- @return boolean
+local function is_enabled_in_air_jump(m)
+    return m.action == ACT_STEEP_JUMP or m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
+               ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR
+end
+
+--- @param m MarioState
 --- @param stats CharacterStats
 local function apply_in_air_jump(m, stats)
-    if (m.input & INPUT_A_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].inAirJump > 0 and
-        (m.action == ACT_STEEP_JUMP or m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
-            ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR) and (m.pos.y - m.floorHeight) >
-        100 then
+    if is_enabled_in_air_jump(m) then
+        m.actionTimer = m.actionTimer + 1
+    end
+
+    if (m.input & INPUT_A_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].inAirJump > 0 and is_enabled_in_air_jump(m) and
+        (m.pos.y - m.floorHeight) > 100 and m.actionTimer > 5 then
 
         gPlayerSyncTable[m.playerIndex].inAirJump = gPlayerSyncTable[m.playerIndex].inAirJump - 1
 
