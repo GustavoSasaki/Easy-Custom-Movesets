@@ -155,6 +155,17 @@ local function apply_in_air_jump(m, stats)
                            gPlayerSyncTable[m.playerIndex].inAirJump]
         end
         m.forwardVel = m.forwardVel * (1 - slowdown)
+
+
+        local forwardVelBase = stats.in_air_jump_forward_vel
+        if type(stats.in_air_jump_forward_vel) ~= "number" then
+            forwardVelBase = stats.in_air_jump_forward_vel[stats.in_air_jump -
+                           gPlayerSyncTable[m.playerIndex].inAirJump]
+        end
+        if m.forwardVel < forwardVelBase then
+            m.forwardVel = forwardVelBase
+        end
+
         if m.forwardVel > 100 then
             m.forwardVel = 100
         end

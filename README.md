@@ -102,6 +102,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | wall_slide_jump_strength       |  Increases the height of jump after wall slide (units). | 75 |  |
 | wall_slide_jump_type       |  Type of the jump after wall slide. | ACT_TRIPLE_JUMP | [Documentation](https://github.com/coop-deluxe/sm64coopdx/blob/abf818b90eef960a139f29e08efcec7f678fcda3/docs/lua/constants.md#sm64h) with all the types. |
 | in_air_jump_strength       |  Jump strength of in air jumps (units). | 42 | You can also pass an array defining the valur for each individual in air jump (Ex: {30,20,10} would make the first jump have 30 strength, the second 20 and third 10) |
+| in_air_jump_forward_vel       |  Set forward speed when doing in air jump (units). | 0 |  |
 | in_air_jump_animations       |  Animation of in air jumps (CharacterAnimID). | CHAR_ANIM_DOUBLE_JUMP_RISE |[Documentation](https://github.com/coop-deluxe/sm64coopdx/blob/abf818b90eef960a139f29e08efcec7f678fcda3/docs/lua/constants.md#enum-characteranimid) with all the animation. You can also pass as an array |
 | in_air_jump_sound       |  Sound of in air jumps (CharacterSound). | CHAR_SOUND_HOOHOO | [Documentation](https://github.com/coop-deluxe/sm64coopdx/blob/abf818b90eef960a139f29e08efcec7f678fcda3/docs/lua/constants.md#CharacterSound) with all the sounds. You can also pass as an array |
 | in_air_jump_forward_vel_multiplier       | How much forward velocity is converted to in air jumps (percentage). | 25 | You can also pass as an array |

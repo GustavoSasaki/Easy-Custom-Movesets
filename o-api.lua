@@ -118,6 +118,7 @@ local function clean_character_stats(cs)
     cs.in_air_jump_strength = cs.in_air_jump_strength == nil and  42 or cs.in_air_jump_strength
     cs.in_air_jump_animation = cs.in_air_jump_animation == nil and CHAR_ANIM_DOUBLE_JUMP_RISE or  cs.in_air_jump_animation 
     cs.in_air_jump_sound =  cs.in_air_jump_sound == nil and CHAR_SOUND_HOOHOO or cs.in_air_jump_sound 
+    cs.in_air_jump_forward_vel = cs.in_air_jump_forward_vel == nil and  0 or cs.in_air_jump_forward_vel
 
     cs.kick_dive_on = getNotNil(cs.kick_dive_on, "boolean", false)
     cs.disable_double_jump = getNotNil(cs.disable_double_jump, "boolean", false)
@@ -261,6 +262,7 @@ end
 --- @field public in_air_jump_sound number|number[]  (Default CHAR_SOUND_HOOHOO)
 --- @field public in_air_jump_forward_vel_multiplier number|number[]  (Default 0.25)
 --- @field public in_air_jump_forward_vel_slowdown number|number[]  (Default 0.2)
+--- @field public in_air_jump_forward_vel number|number[]  (Default 0)
 --- @field public kick_dive_on boolean (Default false)
 --- @field public disable_double_jump boolean (Default false)
 --- @field public disable_twirling_land boolean (Default triple_jump_twirling_on or back_flip_twirling_on or side_flip_twirling_on)
