@@ -303,6 +303,10 @@ local function mario_update(m)
     if gPlayerSyncTable[m.playerIndex].shouldExplode ~= nil then
         gPlayerSyncTable[m.playerIndex].shouldExplode = gPlayerSyncTable[m.playerIndex].shouldExplode - 1
     end
+
+    if stats.glide_dive_render_with_wing_cap and m.action == ACT_GLIDE_DIVE then
+        m.marioBodyState.capState = MARIO_HAS_WING_CAP_ON
+    end
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

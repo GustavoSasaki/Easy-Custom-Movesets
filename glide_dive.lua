@@ -28,9 +28,9 @@ local function act_glide_dive(m)
         play_mario_sound(m, SOUND_ACTION_THROW, CHAR_SOUND_HOOHOO);
         set_character_animation(m,CHAR_ANIM_FORWARD_SPINNING);
 
-        if m.actionTimer == 10 then
+        if m.actionTimer == 10 or stats.glide_dive_disable_spin then
             m.actionArg = 1
-            m.forwardVel = 60
+            m.forwardVel = stats.glide_dive_forward_vel
         end
     elseif m.actionArg == 1 then
         if m.forwardVel > 30 then
@@ -38,7 +38,7 @@ local function act_glide_dive(m)
         end
         m.vel.y = stats.glide_dive_y_vel
         play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
-        set_character_animation(m,CHAR_ANIM_DIVE);
+        set_character_animation(m,stats.glide_dive_render_with_wing_cap and CHAR_ANIM_WING_CAP_FLY or CHAR_ANIM_DIVE);
     end
 
     m.actionTimer = m.actionTimer + 1
@@ -58,6 +58,7 @@ local function act_glide_dive(m)
         return set_mario_action(m, ACT_GROUND_POUND, 0);
     end
 
+    print(m.forwardVel)
     update_air_without_turn(m);
 
     local airStep = perform_air_step(m, 0)

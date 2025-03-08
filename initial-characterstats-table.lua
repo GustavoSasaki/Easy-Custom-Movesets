@@ -847,6 +847,96 @@ initialCharacterStatsTable = {{
     disable_burning = true,
     disable_breath_heal = true,
     ground_pound_jump_on = true,
-    knockback_resistance = 50,
+    knockback_resistance = 50
+}, {
+    -- character with a glide that is faster, slower decent but with bad angle control. She can also dive from ground pound
+    name = 'Draco Centauros',
+    glide_dive_on = true,
+    glide_dive_slowdown = 0,
+    glide_dive_max_time = 35,
+    glide_dive_angle_speed = 10,
+    glide_dive_y_vel = -4,
+    glide_dive_forward_vel = 74,
+    water_damage_multiplier = 200,
+    ground_pound_dive_on = true,
+    coin_heal_multiplier = 50,
+    burning_damage_multiplier = 75
+}, {
+    -- character with an glide with downard angle. He can also super side flipa nd have buffed back flip
+    name = 'Spamton NEO',
+    glide_dive_on = true,
+    glide_dive_render_with_wing_cap = true,
+    glide_dive_y_vel = -10,
+    glide_dive_forward_vel = 80,
+    glide_dive_angle_speed = 5,
+    glide_dive_slowdown = 0.35,
+    glide_dive_min_forward_speed = 40,
+    super_side_flip_on = true,
+    back_flip_strength = 115
+},{
+    name = 'Swimming Spamton',
+    swimming_speed = 250,
+    water_damage_multiplier = 90,
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    ground_pound_dive_on = true
+}, {
+    name = 'Spamton',
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    ground_pound_jump_on = true
+}, {
+    name = 'Addison Spamton',
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    walking_speed = 130
+}, {
+    name = 'Big Shot Spamton',
+    super_side_flip_on = true,
+    mr_l_jump_on = true,
+    coin_heal_multiplier = 200,
+    ground_pound_dive_on = true
+},{
+    name = 'Flat-Shaded Spamto',
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    long_jump_triple_jump_on = true
+},{
+    name = 'Ralsei Spamton',
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    disable_double_jump = true,
+    kick_dive_on = true,
+    kick_jump_strength = 150
+},{
+    name = 'Spamario',
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    ground_pound_dive_on = true,
+    single_jump_strength = 90,
+    double_jump_strength = 95,
+    triple_jump_strength = 115
+},{
+    name = 'Dress Spamton',
+    super_side_flip_on = true,
+    back_flip_strength = 115,
+    fall_gravity = 85
+
 }
-}
+,{
+    -- character with an glide that goes upward and lots of resistance
+    name = 'Godzilla',
+    glide_dive_on = true,
+    glide_dive_render_with_wing_cap = true,
+    glide_dive_disable_spin = true,
+    glide_dive_min_forward_speed = 35,
+    glide_dive_angle_speed = 45,
+    glide_dive_slowdown = 1,
+    disable_burning = true,
+    disable_damage = true,
+    walking_speed = 125,
+    glide_dive_y_vel = 5,
+    ground_pound_max_y_vel = 150,
+    ground_pound_shake = 120,
+    knockback_resistance = 60
+}}

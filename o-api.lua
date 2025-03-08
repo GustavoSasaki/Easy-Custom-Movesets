@@ -160,6 +160,8 @@ local function clean_character_stats(cs)
     cs.glide_dive_min_forward_speed = cs.glide_dive_min_forward_speed ~= nil and type(cs.glide_dive_min_forward_speed) == "number" and cs.glide_dive_min_forward_speed or 0
     cs.glide_dive_max_time = cs.glide_dive_max_time ~= nil and type(cs.glide_dive_max_time) == "number" and cs.glide_dive_max_time or 999
     cs.glide_dive_y_vel = cs.glide_dive_y_vel ~= nil and type(cs.glide_dive_y_vel) == "number" and cs.glide_dive_y_vel or -5
+    cs.glide_dive_render_with_wing_cap = getNotNil(cs.glide_dive_render_with_wing_cap, "boolean", false)
+    cs.glide_dive_disable_spin = getNotNil(cs.glide_dive_disable_spin, "boolean", false)
 
 end
 
@@ -287,6 +289,8 @@ end
 --- @field public glide_dive_min_forward_speed number (Default 999)
 --- @field public glide_dive_max_time number (Default 999)
 --- @field public glide_dive_y_vel number (Default -5)
+--- @field public glide_dive_render_with_wing_cap boolean (Default false)
+--- @field public glide_dive_disable_spin boolean (Default false)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
