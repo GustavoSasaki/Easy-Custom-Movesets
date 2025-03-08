@@ -939,4 +939,14 @@ initialCharacterStatsTable = {{
     ground_pound_max_y_vel = 150,
     ground_pound_shake = 120,
     knockback_resistance = 60
+},
+{
+    name = 'Ori',
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP,
+    in_air_jump = 2,
+    in_air_jump_strength = { 20, 15},
+    in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_WING_CAP_FLY},
+    in_air_jump_forward_vel = {0,60}
 }}
