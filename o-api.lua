@@ -163,6 +163,8 @@ local function clean_character_stats(cs)
     cs.glide_dive_render_with_wing_cap = getNotNil(cs.glide_dive_render_with_wing_cap, "boolean", false)
     cs.glide_dive_disable_spin = getNotNil(cs.glide_dive_disable_spin, "boolean", false)
 
+    cs.water_enemy_damage_multiplier = getNotNil(cs.water_enemy_damage_multiplier, "number", 0)
+    cs.piranha_plant_damage_multiplier = getNotNil(cs.piranha_plant_damage_multiplier, "number", 0)
 end
 
 characterStatsTable = {}
@@ -291,6 +293,8 @@ end
 --- @field public glide_dive_y_vel number (Default -5)
 --- @field public glide_dive_render_with_wing_cap boolean (Default false)
 --- @field public glide_dive_disable_spin boolean (Default false)
+--- @field public water_enemy_damage_multiplier number (Default 0)
+--- @field public piranha_plant_damage_multiplier number (Default 0)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

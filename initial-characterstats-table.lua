@@ -545,7 +545,6 @@ initialCharacterStatsTable = {{
     walking_speed = 140,
     burning_damage_multiplier = 150,
     bat_damage_multiplier = 200,
-    bat_damage = 200,
     knockback_resistance = -150,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'medium',
@@ -847,7 +846,9 @@ initialCharacterStatsTable = {{
     disable_burning = true,
     disable_breath_heal = true,
     ground_pound_jump_on = true,
-    knockback_resistance = 50
+    knockback_resistance = 50,
+    water_enemy_damage_multiplier = 200,
+    piranha_plant_damage_multiplier = 50
 }, {
     -- character with a glide that is faster, slower decent but with bad angle control. She can also dive from ground pound
     name = 'Draco Centauros',
@@ -884,7 +885,8 @@ initialCharacterStatsTable = {{
     name = 'Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
-    ground_pound_jump_on = true
+    ground_pound_jump_on = true,
+    bat_damage_multiplier = 1000,
 }, {
     name = 'Addison Spamton',
     super_side_flip_on = true,

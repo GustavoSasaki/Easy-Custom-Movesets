@@ -58,7 +58,6 @@ local function act_glide_dive(m)
         return set_mario_action(m, ACT_GROUND_POUND, 0);
     end
 
-    print(m.forwardVel)
     update_air_without_turn(m);
 
     local airStep = perform_air_step(m, 0)

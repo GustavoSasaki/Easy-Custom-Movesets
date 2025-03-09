@@ -18,7 +18,8 @@ local function hurtByEnemy(m, enemy, multiplier)
         obj_spawn_yellow_coins(m.marioObj, 1)
 
         stop_background_music(get_current_background_music())
-        gPlayerSyncTable[m.playerIndex].shouldExplode = 70
+        gPlayerSyncTable[m.playerIndex].shouldExplode = 65
+        m.hurtCounter = 8*4
     else
         healOrHurtMario(m, -4 * multiplier * enemy.oDamageOrCoinValue)
     end
@@ -55,15 +56,29 @@ local function kill_enemy(obj)
     obj_mark_for_deletion(obj)
 end
 
+--- @param object Object
+--- @param bhvIds BehaviorId[]
+--- @return boolean
+function obj_has_behaviors(object, bhvIds)
+    for _, bhvId in ipairs(bhvIds) do
+        if obj_has_behavior_id(object, bhvId) == 1 then
+            return true
+        end
+    end
+    return false
+end
+
+
 --- @param m MarioState
---- @--- @param stats CharacterStats
+--- @param stat number
 --- @param interactee Object
-local function apply_bat_damage(m, stats, interactee)
-    if obj_has_behavior_id(interactee, id_bhvGoomba) == 1 and (interactee.oInteractStatus & INT_STATUS_ATTACKED_MARIO) ~=
+--- @param bhvIds BehaviorId[]
+local function apply_enemy_damage_multipler(m, stat, interactee, bhvIds)
+    if obj_has_behaviors(interactee, bhvIds) and (interactee.oInteractStatus & INT_STATUS_ATTACKED_MARIO) ~=
         0 then
 
-        hurtByEnemy(m, interactee, stats.bat_damage_multiplier)
-        if stats.bat_damage_multiplier <= 0 then
+        hurtByEnemy(m, interactee, stat)
+        if stat <= 0 then
             kill_enemy(interactee)
         end
     end
@@ -86,7 +101,9 @@ local function on_interaction(m, interactee, interactType, interactValue)
         return
     end
 
-    apply_bat_damage(m, stats, interactee)
+    apply_enemy_damage_multipler(m, stats.bat_damage_multiplier, interactee, {id_bhvSwoop})
+    apply_enemy_damage_multipler(m, stats.water_enemy_damage_multiplier, interactee, {id_bhvBub,id_bhvClamShell, id_bhvSushiShark, id_bhvUnagi})
+    apply_enemy_damage_multipler(m, stats.piranha_plant_damage_multiplier, interactee, {id_bhvPiranhaPlant, id_bhvFirePiranhaPlant})
     apply_interact_coin(m, stats, interactee, interactType)
 end
 hook_event(HOOK_ON_INTERACT, on_interaction)
