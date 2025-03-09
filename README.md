@@ -110,7 +110,6 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | in_air_jump_forward_vel_slowdown       | How much forward velocity is losted everytime the character do an air jumps (percentage). | 20 | You can also pass as an array |
 | disable_double_jump       | Disable double jump. | false | Some moves (such as in air jumps) makes get the right time for double jump be really awkard. Removing double jump is an way to resolve this. |
 | disable_twirling_land       | Disable landing state of twirling | false | When landing from twirling the character executes landing animatio. In this state, it doenst accepts inputs. |
-| knock_back_resistance       | Reduce knock back (percentage). | 0 |  |
 | disable_coin_heal       | Disable heal from coins. | false |  |
 | coin_heal_multiplier       | Increase heal from coins (percentage). | 0 |  The value can be negative, making getting coin deal damage. |
 | one_hit       | The character die after being hit once. | false |   |
@@ -118,10 +117,6 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | piranha_plant_damage_multiplier       | Increase damage from piranha plants (percentage). | 100 |   |
 | water_enemy_damage_multiplier       | Increase damage from fishs,sharks,clams and eels (percentage). | 100 |   |
 | knockback_resistance       | Decrease knockback (percentage). | 100 |   |
-| disable_coin_heal       | Disable coin healing | false |   |
-| coin_heal_multiplier       | Increase coin healing (percentage). | 100 |   |
-| one_hit       | The character dies in one hit. | false |   |
-| disable_twirling_land       | Disable animation of twirl landing. | triple_jump_twirling_on or  back_flip_twirling_on or side_flip_twirling_on (false)| When executing this animation, the character becomes unresponsive. Disabling makes the movement feel smother.  |
 | glide_dive_forward_vel       | Initial forward velocity when glide diving (units). | 50 |  |
 | glide_dive_slowdown       | How much the character loses forward velocity when glide diving (units). | 0.25 |  |
 | glide_dive_angle_speed       | How much control of the angle the character has when dive gliding (percentage). | 75 |  |
