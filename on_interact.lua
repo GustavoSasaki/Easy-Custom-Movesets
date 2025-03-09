@@ -78,7 +78,7 @@ local function apply_enemy_damage_multipler(m, stat, interactee, bhvIds)
         0 then
 
         hurtByEnemy(m, interactee, stat)
-        if stat <= 0 then
+        if stat < 0 then
             kill_enemy(interactee)
         end
     end

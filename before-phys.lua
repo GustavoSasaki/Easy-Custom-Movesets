@@ -1,7 +1,7 @@
 --- @param m MarioState
 --- @param stats CharacterStats
 local function apply_swimming_speed(m, stats)
-    if (m.action & ACT_FLAG_SWIMMING) == 0 then
+    if (m.action & ACT_FLAG_SWIMMING) == 0 or m.action == ACT_FORWARD_WATER_KB or m.action == ACT_BACKWARD_WATER_KB then
         return
     end
 
