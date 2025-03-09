@@ -143,7 +143,11 @@ initialCharacterStatsTable = {{
     gravity = 95,
     fall_gravity = 105,
     back_flip_strength = 115,
-    side_flip_strength = 115
+    side_flip_strength = 115,
+    glide_dive_on = true,
+    glide_dive_y_vel = -7,
+    glide_dive_forward_vel = 60,
+    glide_dive_max_time = 45
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Modern Knuckles",
@@ -152,7 +156,11 @@ initialCharacterStatsTable = {{
     gravity = 95,
     fall_gravity = 105,
     back_flip_strength = 115,
-    side_flip_strength = 115
+    side_flip_strength = 115,
+    glide_dive_on = true,
+    glide_dive_y_vel = -7,
+    glide_dive_forward_vel = 60,
+    glide_dive_max_time = 5
 }, {
     -- heavy and fast character with big kick and small jumps
     name = "Classic Eggman",
@@ -825,7 +833,9 @@ initialCharacterStatsTable = {{
     bat_damage_multiplier = 1000
 }, {
     name = 'Hulk',
-    bat_damage_multiplier = 1000
+    bat_damage_multiplier = 1000,
+    piranha_plant_damage_multiplier = -1,
+    water_enemy_damage_multiplier = -1
 }, {
     name = 'Deadpool',
     bat_damage_multiplier = 1000
@@ -837,7 +847,8 @@ initialCharacterStatsTable = {{
     bat_damage_multiplier = 1000
 }, {
     name = 'Wolverine',
-    bat_damage_multiplier = 1000
+    bat_damage_multiplier = 1000,
+    disable_damage = true
 }, {
     -- character that glides when diving. It can also do ground pound jump
     name = 'Charizard',
@@ -874,7 +885,7 @@ initialCharacterStatsTable = {{
     glide_dive_min_forward_speed = 40,
     super_side_flip_on = true,
     back_flip_strength = 115
-},{
+}, {
     name = 'Swimming Spamton',
     swimming_speed = 250,
     water_damage_multiplier = 90,
@@ -886,7 +897,6 @@ initialCharacterStatsTable = {{
     super_side_flip_on = true,
     back_flip_strength = 115,
     ground_pound_jump_on = true,
-    bat_damage_multiplier = 1000,
 }, {
     name = 'Addison Spamton',
     super_side_flip_on = true,
@@ -898,19 +908,19 @@ initialCharacterStatsTable = {{
     mr_l_jump_on = true,
     coin_heal_multiplier = 200,
     ground_pound_dive_on = true
-},{
+}, {
     name = 'Flat-Shaded Spamto',
     super_side_flip_on = true,
     back_flip_strength = 115,
     long_jump_triple_jump_on = true
-},{
+}, {
     name = 'Ralsei Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
     disable_double_jump = true,
     kick_dive_on = true,
     kick_jump_strength = 150
-},{
+}, {
     name = 'Spamario',
     super_side_flip_on = true,
     back_flip_strength = 115,
@@ -918,14 +928,13 @@ initialCharacterStatsTable = {{
     single_jump_strength = 90,
     double_jump_strength = 95,
     triple_jump_strength = 115
-},{
+}, {
     name = 'Dress Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
     fall_gravity = 85
 
-}
-,{
+}, {
     -- character with an glide that goes upward and lots of resistance
     name = 'Godzilla',
     glide_dive_on = true,
@@ -941,14 +950,13 @@ initialCharacterStatsTable = {{
     ground_pound_max_y_vel = 150,
     ground_pound_shake = 120,
     knockback_resistance = 60
-},
-{
+}, {
     name = 'Ori',
     wall_slide_on = true,
     wall_slide_jump_strength = 60,
     wall_slide_jump_type = ACT_JUMP,
     in_air_jump = 2,
-    in_air_jump_strength = { 20, 15},
+    in_air_jump_strength = {20, 15},
     in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_WING_CAP_FLY},
-    in_air_jump_forward_vel = {0,60}
+    in_air_jump_forward_vel = {0, 60},
 }}

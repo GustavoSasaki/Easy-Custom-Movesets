@@ -36,6 +36,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | wall_slide_on       | 	Allows the character to perform wall slide.  | false | Code created by djoslin0. |
 | in_air_jump       | 	How many jumps in the air the character can do | 0 |  |
 | kick_dive_on       | 	When pressing B, instead of performing a dive or kick depending on speed, the character will always execute a kick first. If B is pressed again, a dive will follow. | false |  |
+| glide_dive_on       | The character glide when diving. | false |  |
 
 ## Less Important Stats
 
@@ -114,6 +115,22 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | coin_heal_multiplier       | Increase heal from coins (percentage). | 0 |  The value can be negative, making getting coin deal damage. |
 | one_hit       | The character die after being hit once. | false |   |
 | bat_damage_multiplier       | Increase damage from bats (percentage). | 100 |   |
+| piranha_plant_damage_multiplier       | Increase damage from piranha plants (percentage). | 100 |   |
+| water_enemy_damage_multiplier       | Increase damage from fishs,sharks,clams and eels (percentage). | 100 |   |
+| knockback_resistance       | Decrease knockback (percentage). | 100 |   |
+| disable_coin_heal       | Disable coin healing | false |   |
+| coin_heal_multiplier       | Increase coin healing (percentage). | 100 |   |
+| one_hit       | The character dies in one hit. | false |   |
+| disable_twirling_land       | Disable animation of twirl landing. | triple_jump_twirling_on or  back_flip_twirling_on or side_flip_twirling_on (false)| When executing this animation, the character becomes unresponsive. Disabling makes the movement feel smother.  |
+| glide_dive_forward_vel       | Initial forward velocity when glide diving (units). | 50 |  |
+| glide_dive_slowdown       | How much the character loses forward velocity when glide diving (units). | 0.25 |  |
+| glide_dive_angle_speed       | How much control of the angle the character has when dive gliding (percentage). | 75 |  |
+| glide_dive_min_forward_speed       | If the character has less than this stat speed, he will stop gliding (units). | 0 |  |
+| glide_dive_max_time       | How much time the character can be glide diving (units). | 999 |  |
+| glide_dive_y_vel       | Fixed Y velocity apply to the character when glide diving (units). | -5 |  |
+| glide_dive_render_with_wing_cap       | Show the character with wing cap when glide diving. | false |  | --> fix ASJIASDJIOAS
+| glide_dive_disable_spin       | Removes spin animation when star glide diving. | false |  |
+
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder

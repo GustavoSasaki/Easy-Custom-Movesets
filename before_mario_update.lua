@@ -90,8 +90,8 @@ local function before_mario_update(m)
         m.hurtCounter = 0
         m.healCounter = 1
     elseif stats.one_hit then
-        if m.hurtCounter == 1 then
-            m.hurtCounter = 2
+        if m.hurtCounter > 0 then
+            m.health = 0xFF
         end
     end
 end
