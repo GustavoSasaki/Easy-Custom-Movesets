@@ -17,7 +17,7 @@ function act_ground_pound_jump(m)
 
 
     play_mario_sound(m, SOUND_ACTION_TERRAIN_HEAVY_LANDING, CHAR_SOUND_YAH_WAH_HOO);
-    common_air_action_step(m, ACT_BACKFLIP_LAND, CHAR_ANIM_SINGLE_JUMP, 0);
+    common_air_action_step(m, ACT_BACKFLIP_LAND, CHAR_ANIM_SINGLE_JUMP, AIR_STEP_CHECK_LEDGE_GRAB);
 
     if (m.action == ACT_BACKFLIP_LAND) then
         queue_rumble_data_mario(m, 5, 40);

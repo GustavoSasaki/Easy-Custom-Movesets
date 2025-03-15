@@ -85,6 +85,15 @@ local function apply_enemy_damage_multipler(m, stat, interactee, bhvIds)
 end
 
 --- @param m MarioState
+--- @--- @param interactType InteractionType
+local function interact_pole(m,interactType)
+    if interactType == INTERACT_POLE and (m.action == ACT_YOSHI_FLUTTER or m.action == ACT_GROUND_POUND_JUMP or m.action == ACT_GLIDE_DIVE or m.action == ACT_IN_AIR_JUMP or m.action == ACT_MR_L_FALL or m.action == ACT_SUPER_SIDE_FLIP ) then
+        set_mario_action(m,ACT_JUMP,0)
+    end
+end
+
+
+--- @param m MarioState
 --- @param interactee Object
 --- @param interactType InteractionType
 local function on_interaction(m, interactee, interactType, interactValue)
@@ -105,6 +114,8 @@ local function on_interaction(m, interactee, interactType, interactValue)
     apply_enemy_damage_multipler(m, stats.water_enemy_damage_multiplier, interactee, {id_bhvBub,id_bhvClamShell, id_bhvSushiShark, id_bhvUnagi})
     apply_enemy_damage_multipler(m, stats.piranha_plant_damage_multiplier, interactee, {id_bhvPiranhaPlant, id_bhvFirePiranhaPlant})
     apply_interact_coin(m, stats, interactee, interactType)
+
+    interact_pole(m,interactType)
 end
 hook_event(HOOK_ON_INTERACT, on_interaction)
 

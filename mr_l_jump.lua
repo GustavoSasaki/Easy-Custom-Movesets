@@ -31,7 +31,7 @@ function act_mr_l_jump(m)
     end
 
     m.intendedMag = m.intendedMag * stats.mr_l_air_speed;
-    common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_SINGLE_JUMP, AIR_STEP_NONE);
+    common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_SINGLE_JUMP, AIR_STEP_CHECK_LEDGE_GRAB);
 
     if m.vel.y < 0 then
         set_mario_action(m, ACT_MR_L_FALL, 0)
@@ -50,7 +50,7 @@ function act_mr_l_fall(m)
     end
 
     m.intendedMag = m.intendedMag * stats.mr_l_air_speed;
-    common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_GENERAL_FALL, AIR_STEP_NONE);
+    common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_GENERAL_FALL, AIR_STEP_CHECK_LEDGE_GRAB);
 end
 
 hook_mario_action(ACT_MR_L_JUMP, {
