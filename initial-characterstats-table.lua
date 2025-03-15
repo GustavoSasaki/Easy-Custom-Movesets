@@ -114,7 +114,9 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     jump_strength = 95,
-    explode_on_death = true
+    explode_on_death = true,
+    kill_toad = true,
+    kill_pink_bomb_on = true
 }, {
     -- character with fast air speed
     name = "Classic Tails",
@@ -196,7 +198,9 @@ initialCharacterStatsTable = {{
     name = "Mr.L",
     mr_l_jump_on = true,
     jump_strength = 103,
-    grounded_slowing_speed = 150
+    grounded_slowing_speed = 150,
+    kill_toad = true,
+    kill_pink_bomb_on = true
 }, {
     -- character with fast crawling and do twirling after back flip
     name = 'Baby Mario',
@@ -301,7 +305,9 @@ initialCharacterStatsTable = {{
     triple_jump_twirling_when = "start",
     fast_twirling_on = true,
     twirling_gravity = 90,
-    fast_twirling_gravity = 110
+    fast_twirling_gravity = 110,
+    kill_toad = true,
+    kill_pink_bomb_on = true
 }, {
     -- character with bad gas immunity, It has stronger long jump
     name = 'Dry Bones',
@@ -478,7 +484,8 @@ initialCharacterStatsTable = {{
     disable_burning = true,
     side_flip_strength = 90,
     back_flip_strength = 90,
-    ground_pound_shake = 150
+    ground_pound_shake = 150,
+    kill_toad = true,
 }, {
     -- character that can do fart after ground pound
     name = 'Turkey Wario',
@@ -486,7 +493,8 @@ initialCharacterStatsTable = {{
     burning_damage_multiplier = 125,
     waft_fart_per_level = 3,
     gravity = 105,
-    fall_gravity = 110
+    fall_gravity = 110,
+    kill_toad = true,
 }, {
     name = 'Slippy Toad',
     gravity = 90,
@@ -777,7 +785,9 @@ initialCharacterStatsTable = {{
     ground_pound_shake = 120,
     ground_pound_max_y_vel = 200,
     ground_pound_gravity = 200,
-    knockback_resistance = 35
+    knockback_resistance = 35,
+    kill_toad = true,
+    kill_pink_bomb_on = true
 }, {
     -- character with in air jump that can not do double jump.
     -- to do triple jump you need to long jump first.
@@ -791,7 +801,9 @@ initialCharacterStatsTable = {{
 }, {
     name = 'Joker Mario',
     bat_damage_multiplier = 800,
-    saultube_triple_jump_animation = true
+    saultube_triple_jump_animation = true,
+    kill_toad = true,
+    kill_pink_bomb_on = true
 }, {
     name = 'Steve?',
     bat_damage_multiplier = 0
@@ -952,7 +964,9 @@ initialCharacterStatsTable = {{
     glide_dive_y_vel = 5,
     ground_pound_max_y_vel = 150,
     ground_pound_shake = 120,
-    knockback_resistance = 60
+    knockback_resistance = 60,
+    kill_toad = true,
+    kill_pink_bomb_on = true
 }, {
     name = 'Ori',
     wall_slide_on = true,
@@ -991,7 +1005,8 @@ initialCharacterStatsTable = {{
     glide_dive_max_time = 35,
     burning_damage_multiplier = 75,
     water_damage_multiplier = 150,
-    coin_heal_multiplier = 50
+    coin_heal_multiplier = 50,
+    kill_toad = true,
 }, {
     -- charactar with strong yoshi flutter with bad horizontal speed. He can salso waft fart and ground pound jump
     name = 'Boshi',
@@ -1006,7 +1021,8 @@ initialCharacterStatsTable = {{
     ground_pound_jump_forward_vel = 40,
     knockback_resistance = 50,
     waft_fart_on = true,
-    water_enemy_damage_multiplier = 1000
+    water_enemy_damage_multiplier = 1000,
+    kill_toad = true,
 },
 {
     --he can fly

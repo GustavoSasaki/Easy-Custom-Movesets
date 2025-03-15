@@ -220,6 +220,8 @@ local function clean_character_stats(cs)
     cs.yoshi_flutter_reactivations = cs.yoshi_flutter_reactivations ~= nil and type(cs.yoshi_flutter_reactivations) ==
                                          "number" and cs.yoshi_flutter_reactivations or 2
     cs.yoshi_flutter_speed = getNotNil(cs.yoshi_flutter_speed, "number", 0) + 1
+    cs.kill_toad = getNotNil(cs.kill_toad, "boolean", false)
+    cs.kill_pink_bomb_on = getNotNil(cs.kill_pink_bomb_on, "boolean", false)
 
 end
 
@@ -359,7 +361,8 @@ end
 --- @field public yoshi_flutter_stength_ascending number (Default 6)
 --- @field public yoshi_flutter_max_y_vel number (Default 28)
 --- @field public yoshi_flutter_reactivations number (Default 2)
---- @field public yoshi_flutter_speed number (Default 1)
+--- @field public kill_toad boolean (Default false)
+--- @field public kill_pink_bomb_on boolean (Default false)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
