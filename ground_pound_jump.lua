@@ -2,11 +2,7 @@
 ACT_GROUND_POUND_JUMP = allocate_mario_action(ACT_FLAG_AIR | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION | ACT_FLAG_CONTROL_JUMP_HEIGHT)
 
 function act_ground_pound_jump(m)
-    if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
-        return
-    end
-
-    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
     end

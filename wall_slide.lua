@@ -1,11 +1,7 @@
 ACT_WALL_SLIDE = (0x0BF | ACT_FLAG_AIR | ACT_FLAG_MOVING | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 
 local function act_wall_slide(m)
-    if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
-        return
-    end
-
-    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
     end
@@ -49,11 +45,7 @@ local function act_wall_slide(m)
 end
 
 local function act_wall_slide_gravity(m)
-    if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
-        return
-    end
-
-    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
     end

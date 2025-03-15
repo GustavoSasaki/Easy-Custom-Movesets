@@ -200,14 +200,7 @@ local function apply_kick_dive(m, stats)
 end
 --- @param m MarioState
 local function mario_update(m)
-    if (m == nil) then
-        return
-    end
-    if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
-        return
-    end
-
-    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
     end

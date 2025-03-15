@@ -36,11 +36,7 @@ end
 --- @param m MarioState
 --- @param hazard_type number
 local function hazard_surface_interact(m, hazard_type)
-    if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
-        return true
-    end
-
-    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return true
     end

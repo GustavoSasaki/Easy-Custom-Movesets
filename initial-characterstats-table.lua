@@ -1017,4 +1017,18 @@ initialCharacterStatsTable = {{
     yoshi_flutter_cooldown = 15,
     disable_damage = true
 
+},
+{
+    -- since this is an default character, you will need to manually activate the moveset (just remove the --)
+    name = 'Toad',
+    -- gravity = 120,
+    -- in_air_speed = 140,
+    -- walking_speed = 140,
+    -- burning_damage_multiplier = 150,
+    -- bat_damage_multiplier = 200,
+    -- knockback_resistance = -150,
+    -- ground_pound_jump_on = true,
+    -- ground_pound_antecipation_speed_up = 'medium',
+    -- wall_slide_on = true,
+    -- wall_slide_jump_strength = 60
 }}

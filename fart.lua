@@ -3,11 +3,7 @@ ACT_WAFT_FART = allocate_mario_action(AIR_STEP_NONE | ACT_GROUP_AIRBORNE | ACT_F
 WAFT_FART_AUDIO = audio_sample_load('waft_fart.mp3')
 
 function act_waft_fart(m)
-    if gPlayerSyncTable[m.playerIndex].char_select_name == nil then
-        return
-    end
-
-    local stats = _G.customMoves.stats_from_name(gPlayerSyncTable[m.playerIndex].char_select_name)
+    local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
     end
