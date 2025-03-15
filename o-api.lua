@@ -223,6 +223,54 @@ local function clean_character_stats(cs)
     cs.kill_toad = getNotNil(cs.kill_toad, "boolean", false)
     cs.kill_pink_bomb_on = getNotNil(cs.kill_pink_bomb_on, "boolean", false)
 
+    cs.moveset_description = getNotNil(cs.moveset_description, "string", nil)
+
+end
+
+-- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
+local function split_text_into_lines(text)
+    local words = {}
+    for word in text:gmatch("%S+") do
+        table_insert(words, word)
+    end
+
+    local lines = {}
+    local currentLine = ""
+    for i, word in ipairs(words) do
+        local measuredWidth = djui_hud_measure_text(currentLine .. " " .. word)*0.3
+        if measuredWidth <= 100 then
+            currentLine = currentLine .. " " .. word
+        else
+            table_insert(lines, currentLine)
+            currentLine = word
+        end
+    end
+    table_insert(lines, currentLine) -- add the last line
+
+    return lines
+end
+
+local function add_ecm_description(description,characterStats)
+    table.insert(description, "")
+    table.insert(description, "")
+    local splited_ecm_description = split_text_into_lines("ECM moveset: "..characterStats.moveset_description)
+    for _, value in ipairs(splited_ecm_description) do
+        table.insert(description, value)
+    end
+end
+
+--- @param characterStats CharacterStats
+local function add_moveset_description(characterStats)
+     local charNumber = _G.charSelect.character_get_number_from_string(characterStats.name)
+     local description = _G.charSelect.character_get_current_table(charNumber).description
+
+     if characterStats.moveset_description == nil or #description > 5 then
+         return
+     end
+
+     add_ecm_description(description,characterStats)
+
+     
 end
 
 characterStatsTable = {}
@@ -363,10 +411,13 @@ end
 --- @field public yoshi_flutter_reactivations number (Default 2)
 --- @field public kill_toad boolean (Default false)
 --- @field public kill_pink_bomb_on boolean (Default false)
+--- @field public yoshi_flutter_speed number (Default 1)
+--- @field public moveset_description string|nil (Default nil)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
     upsert_table(characterStats)
+    add_moveset_description(characterStats)
 end
 
 --- @param name string
@@ -410,7 +461,9 @@ end
 
 _G.customMoves = {
     character_add = character_add,
-    stats_from_mario_state = stats_from_mario_state
+    add_moveset_description = add_moveset_description,
+    stats_from_mario_state = stats_from_mario_state,
+    characterStatsTable = characterStatsTable
 }
 
 -- @param name string

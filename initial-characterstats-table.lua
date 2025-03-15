@@ -3,38 +3,44 @@ initialCharacterStatsTable = {{
     name = "Hatsune Miku",
     long_jump_max_velocity = 150,
     long_jump_velocity_multiplier = 200,
-    long_jump_strength = 125
+    long_jump_strength = 125,
+    moveset_description = "big/fast long jump"
 }, {
     -- float character
     name = "Sackboy",
     gravity = 95,
     ground_pound_dive_on = true,
-    knockback_resistance = -10
+    knockback_resistance = -10,
+    moveset_description = "less gravity"
 }, {
     -- heavy character with better back/side flip
     name = "Peter Griffin",
     gravity = 115,
     back_flip_strength = 120,
     side_flip_strength = 120,
-    knockback_resistance = 60
+    knockback_resistance = 60,
+    moveset_description = "beeter side/back flip"
 }, {
     -- float character with big long jump
     name = "Osaka",
     gravity = 85,
     long_jump_strength = 105,
     mr_l_jump_on = true,
-    knockback_resistance = -5
+    knockback_resistance = -5,
+    moveset_description = "less gravity,mr.L jump"
 }, {
     -- character with fast long jump
     name = "Tomo",
     long_jump_velocity_multiplier = 200,
-    long_jump_max_velocity = 170
+    long_jump_max_velocity = 170,
+    moveset_description = "better long jump"
 }, {
     -- character with a faster and upward trajectory dive
     name = "Kagura",
     dive_y_vel = 15,
     dive_velocity = 120,
-    dive_max_velocity = 120
+    dive_max_velocity = 120,
+    moveset_description = "better dive"
 }, {
     -- character with big kick
     name = "Chiyo",
@@ -42,14 +48,17 @@ initialCharacterStatsTable = {{
     kick_jump_strength = 250,
     triple_jump_strength = 130,
     swimming_speed = 95,
-    water_damage_multiplier = 150
+    water_damage_multiplier = 150,
+    moveset_description = "high gravity, excelent kick/triple jump"
 }, {
     -- character with bigger jumps and low airborn deceleration
     name = "Sakaki",
     swimming_speed = 250,
     jump_strength = 115,
     airborne_deceleration_speed = 50,
-    wall_slide_on = true
+    wall_slide_on = true,
+
+    moveset_description = "better all around jumps"
 }, {
     -- weird character with bad normal jump, but good back/side/long jumps
     name = "Kaori",
@@ -58,7 +67,8 @@ initialCharacterStatsTable = {{
     triple_jump_strength = 80,
     back_flip_strength = 130,
     side_flip_strength = 130,
-    long_jump_strength = 130
+    long_jump_strength = 130,
+    moveset_description = "worst normal jumps, better special jumps"
 }, {
     -- character with increase fall gravity, explode on death
     name = "Yomi",
@@ -485,7 +495,7 @@ initialCharacterStatsTable = {{
     side_flip_strength = 90,
     back_flip_strength = 90,
     ground_pound_shake = 150,
-    kill_toad = true,
+    kill_toad = true
 }, {
     -- character that can do fart after ground pound
     name = 'Turkey Wario',
@@ -494,7 +504,7 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 3,
     gravity = 105,
     fall_gravity = 110,
-    kill_toad = true,
+    kill_toad = true
 }, {
     name = 'Slippy Toad',
     gravity = 90,
@@ -952,7 +962,8 @@ initialCharacterStatsTable = {{
     name = 'Dress Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
-    fall_gravity = 85
+    fall_gravity = 85,
+    moveset_description = "good back flip, super side flip",
 
 }, {
     -- character with an glide that goes upward and lots of resistance
@@ -971,7 +982,8 @@ initialCharacterStatsTable = {{
     ground_pound_shake = 120,
     knockback_resistance = 60,
     kill_toad = true,
-    kill_pink_bomb_on = true
+    kill_pink_bomb_on = true,
+    moveset_description = "glide dive upward",
 }, {
     name = 'Ori',
     wall_slide_on = true,
@@ -980,7 +992,8 @@ initialCharacterStatsTable = {{
     in_air_jump = 2,
     in_air_jump_strength = {20, 15},
     in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_WING_CAP_FLY},
-    in_air_jump_forward_vel = {0, 60}
+    in_air_jump_forward_vel = {0, 60},
+    moveset_description = "triple in air jumps, wall slide",
 }, {
     -- charactar with bad jumps, wall slide and a small but speedy yoshi flutter 
     name = "Mlops' Yoshi",
@@ -995,7 +1008,8 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 350,
     jump_strength = 82,
-    wall_slide_on = true
+    wall_slide_on = true,
+    moveset_description = "fast yoshi flutters, wall slide",
 }, {
     -- character that can do yoshi flutter one time in the air.Also has glide dive
     name = 'Rex',
@@ -1012,6 +1026,7 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 150,
     coin_heal_multiplier = 50,
     kill_toad = true,
+    moveset_description = "yoshi flutter, gldie dive"
 }, {
     -- charactar with strong yoshi flutter with bad horizontal speed. He can salso waft fart and ground pound jump
     name = 'Boshi',
@@ -1028,20 +1043,20 @@ initialCharacterStatsTable = {{
     waft_fart_on = true,
     water_enemy_damage_multiplier = 1000,
     kill_toad = true,
-},
-{
-    --he can fly
+    moveset_description = "yoshi flutter, ground pound jump"
+}, {
+    -- he can fly
     name = 'yosi cube',
     yoshi_flutter_on = true,
     yoshi_flutter_speed = 135,
     yoshi_flutter_reactivations = 99,
     yoshi_flutter_cooldown = 15,
-    disable_damage = true
+    disable_damage = true,
+    moveset_description = "infinite yoshi flutter"
 
-},
-{
+}, {
     -- since this is an default character, you will need to manually activate the moveset (just remove the --)
-    name = 'Toad',
+    name = 'Toad'
     -- gravity = 120,
     -- in_air_speed = 140,
     -- walking_speed = 140,
@@ -1052,8 +1067,7 @@ initialCharacterStatsTable = {{
     -- ground_pound_antecipation_speed_up = 'medium',
     -- wall_slide_on = true,
     -- wall_slide_jump_strength = 60
-},
-{
+}, {
     -- character with bad jumps that can do yoshi flutter and back flip twirling
     name = 'Mouser',
     yoshi_flutter_on = true,
@@ -1069,9 +1083,9 @@ initialCharacterStatsTable = {{
     kill_toad = true,
     kill_pink_bomb_on = true,
     back_flip_twirling_on = true,
+    moveset_description = "yoshi flutter, back flip twirl"
 
-},
-{
+}, {
     -- character with high gravity, but can triple jump twirling and glide dive 
     name = 'Morgana',
     knockback_resistance = -50,
@@ -1085,5 +1099,6 @@ initialCharacterStatsTable = {{
     triple_jump_strength = 110,
     triple_jump_twirling_on = true,
     triple_jump_twirling_when = 'start',
-    twirling_dive_on = true
+    twirling_dive_on = true,
+    moveset_description = "triple jump twirling, glide dive, high gravity",
 }}
