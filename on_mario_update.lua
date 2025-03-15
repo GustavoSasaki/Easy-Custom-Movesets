@@ -119,8 +119,16 @@ end
 
 --- @param m MarioState
 --- @return boolean
+local function is_enabled_in_yoshi_flutter(m)
+    return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
+               ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_LONG_JUMP or m.action == ACT_SIDE_FLIP 
+               or m.action == ACT_BACKFLIP or m.action == ACT_WATER_JUMP or m.action ==  ACT_GROUND_POUND_JUMP
+end
+
+--- @param m MarioState
+--- @return boolean
 local function is_enabled_in_air_jump(m)
-    return m.action == ACT_STEEP_JUMP or m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
+    return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
                ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR
 end
 
@@ -129,6 +137,11 @@ end
 local function apply_in_air_jump(m, stats)
     if is_enabled_in_air_jump(m) then
         m.actionTimer = m.actionTimer + 1
+    end
+
+    if is_enabled_in_yoshi_flutter(m)  and stats.yoshi_flutter_on and (m.input & INPUT_A_PRESSED) ~= 0 and m.vel.y < 0 then
+        resetYoshiFlutterCooldown(m,stats)
+        drop_and_set_mario_action(m, ACT_YOSHI_FLUTTER, 0)
     end
 
     if (m.input & INPUT_A_PRESSED) ~= 0 and gPlayerSyncTable[m.playerIndex].inAirJump > 0 and is_enabled_in_air_jump(m) and
@@ -156,11 +169,10 @@ local function apply_in_air_jump(m, stats)
         end
         m.forwardVel = m.forwardVel * (1 - slowdown)
 
-
         local forwardVelBase = stats.in_air_jump_forward_vel
         if type(stats.in_air_jump_forward_vel) ~= "number" then
-            forwardVelBase = stats.in_air_jump_forward_vel[stats.in_air_jump -
-                           gPlayerSyncTable[m.playerIndex].inAirJump]
+            forwardVelBase =
+                stats.in_air_jump_forward_vel[stats.in_air_jump - gPlayerSyncTable[m.playerIndex].inAirJump]
         end
         if m.forwardVel < forwardVelBase then
             m.forwardVel = forwardVelBase

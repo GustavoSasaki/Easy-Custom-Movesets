@@ -165,6 +165,17 @@ local function clean_character_stats(cs)
 
     cs.water_enemy_damage_multiplier = getNotNil(cs.water_enemy_damage_multiplier, "number", 0)
     cs.piranha_plant_damage_multiplier = getNotNil(cs.piranha_plant_damage_multiplier, "number", 0)
+
+    cs.yoshi_flutter_on = getNotNil(cs.yoshi_flutter_on, "boolean", false)
+    cs.yoshi_flutter_animation = cs.yoshi_flutter_animation ~= nil and type(cs.yoshi_flutter_animation) == "number" and cs.yoshi_flutter_animation or CHAR_ANIM_RUNNING
+    cs.yoshi_flutter_angle_speed =  getNotNil(cs.yoshi_flutter_angle_speed, "number", -0.10) + 1
+    cs.yoshi_flutter_cooldown = cs.yoshi_flutter_cooldown ~= nil and type(cs.yoshi_flutter_cooldown) == "number" and cs.yoshi_flutter_cooldown or 21
+    cs.yoshi_flutter_stength_descending = cs.yoshi_flutter_stength_descending ~= nil and type(cs.yoshi_flutter_stength_descending) == "number" and cs.yoshi_flutter_stength_descending or 17
+    cs.yoshi_flutter_stength_ascending = cs.yoshi_flutter_stength_ascending ~= nil and type(cs.yoshi_flutter_stength_ascending) == "number" and cs.yoshi_flutter_stength_ascending or 6
+    cs.yoshi_flutter_max_y_vel= cs.yoshi_flutter_max_y_vel ~= nil and type(cs.yoshi_flutter_max_y_vel) == "number" and cs.yoshi_flutter_max_y_vel or 28
+    cs.yoshi_flutter_reactivations= cs.yoshi_flutter_reactivations ~= nil and type(cs.yoshi_flutter_reactivations) == "number" and cs.yoshi_flutter_reactivations or 2
+    cs.yoshi_flutter_speed =  getNotNil(cs.yoshi_flutter_speed, "number", 0) + 1
+
 end
 
 characterStatsTable = {}
@@ -295,6 +306,15 @@ end
 --- @field public glide_dive_disable_spin boolean (Default false)
 --- @field public water_enemy_damage_multiplier number (Default 0)
 --- @field public piranha_plant_damage_multiplier number (Default 0)
+--- @field public yoshi_flutter_on boolean (Default false)
+--- @field public yoshi_flutter_animation CharacterAnimID (Default CHAR_ANIM_RUNNING)
+--- @field public yoshi_flutter_angle_speed number (Default 90)
+--- @field public yoshi_flutter_cooldown number (Default 21)
+--- @field public yoshi_flutter_stength_descending number (Default 17)
+--- @field public yoshi_flutter_stength_ascending number (Default 6)
+--- @field public yoshi_flutter_max_y_vel number (Default 28)
+--- @field public yoshi_flutter_reactivations number (Default 2)
+--- @field public yoshi_flutter_speed number (Default 1)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
@@ -338,4 +358,6 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].longJumpLandSpeed = 0
     gPlayerSyncTable[0].longJumpTimer = 100
     gPlayerSyncTable[0].inAirJump = 0
+    gPlayerSyncTable[0].yoshiFlutterCooldown = 0
+    gPlayerSyncTable[0].yoshiFlutterReactivations = 1
 end)

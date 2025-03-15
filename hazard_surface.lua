@@ -25,7 +25,7 @@ local function ignore_quicksand(m, hazard_type)
         (m.action == ACT_WAFT_FART or m.action == ACT_FAST_TWIRLING or m.action == ACT_GLIDE_DIVE or m.action ==
             ACT_GROUND_POUND_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_MR_L_JUMP or m.action ==
             ACT_MR_L_FALL or m.action == ACT_SUPER_SIDE_FLIP or m.action == ACT_SUPER_SIDE_FLIP_KICK or m.action ==
-            ACT_WALL_SLIDE) then
+            ACT_WALL_SLIDE or m.action == ACT_YOSHI_FLUTTER) then
         m.quicksandDepth = 0
         return true
     end

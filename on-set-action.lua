@@ -70,6 +70,7 @@ local function apply_in_air_jump(m, stats)
         m.action == ACT_LONG_JUMP_LAND or m.action == ACT_BACKFLIP_LAND or m.action == ACT_WALKING then
 
         gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
+        gPlayerSyncTable[m.playerIndex].yoshiFlutterReactivations = stats.yoshi_flutter_reactivations
     end
 end
 
@@ -115,6 +116,8 @@ local function on_set_action(m)
     if m.action == ACT_SPAWN_NO_SPIN_AIRBORNE or m.action == ACT_SPAWN_NO_SPIN_LANDING or m.action ==
         ACT_SPAWN_SPIN_AIRBORNE or m.action == ACT_SPAWN_SPIN_LANDING then
         gPlayerSyncTable[m.playerIndex].fart = stats.waft_fart_per_level
+        gPlayerSyncTable[m.playerIndex].yoshiFlutterReactivations = stats.yoshi_flutter_reactivations
+        gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
     end
 
     if stats.kick_dive_on and m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
@@ -146,6 +149,10 @@ local function on_set_action(m)
 
     if stats.glide_dive_on and m.action == ACT_DIVE and  m.pos.y > (m.floorHeight + 10.0) and m.prevAction ~= ACT_GROUND_POUND then
         set_mario_action(m, ACT_GLIDE_DIVE, 0);
+    end
+
+    if m.prevAction == ACT_YOSHI_FLUTTER then
+        audio_sample_stop(YOSHI_FLUTTER_AUDIO)
     end
 
 end

@@ -350,7 +350,9 @@ initialCharacterStatsTable = {{
     disable_breath_heal = true,
     single_jump_strength = 90,
     burning_damage_multiplier = 50,
-    lava_damage_multiplier = 50
+    lava_damage_multiplier = 50,
+    water_enemy_damage_multiplier = 50,
+    piranha_plant_damage_multiplier = 1000
 }, {
     -- character witch can stand in water long, swim faster
     name = 'Smith',
@@ -872,7 +874,8 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 200,
     ground_pound_dive_on = true,
     coin_heal_multiplier = 50,
-    burning_damage_multiplier = 75
+    burning_damage_multiplier = 75,
+    flutter_on = true
 }, {
     -- character with an glide with downard angle. He can also super side flipa nd have buffed back flip
     name = 'Spamton NEO',
@@ -896,7 +899,7 @@ initialCharacterStatsTable = {{
     name = 'Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
-    ground_pound_jump_on = true,
+    ground_pound_jump_on = true
 }, {
     name = 'Addison Spamton',
     super_side_flip_on = true,
@@ -958,5 +961,60 @@ initialCharacterStatsTable = {{
     in_air_jump = 2,
     in_air_jump_strength = {20, 15},
     in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_WING_CAP_FLY},
-    in_air_jump_forward_vel = {0, 60},
+    in_air_jump_forward_vel = {0, 60}
+}, {
+    -- charactar with bad jumps, wall slide and a small but speedy yoshi flutter 
+    name = "Mlops' Yoshi",
+    yoshi_flutter_on = true,
+    yoshi_flutter_stength_descending = 18,
+    yoshi_flutter_speed = 140,
+    yoshi_flutter_stength_ascending = 5,
+    yoshi_flutter_max_y_vel = 25,
+    yoshi_flutter_cooldown = 20,
+    yoshi_flutter_angle_speed = 65,
+    yoshi_flutter_reactivations = 6,
+    long_jump_velocity_multiplier = 200,
+    long_jump_max_velocity = 350,
+    jump_strength = 82,
+    wall_slide_on = true
+}, {
+    -- character that can do yoshi flutter one time in the air.Also has glide dive
+    name = 'Rex',
+    yoshi_flutter_on = true,
+    yoshi_flutter_reactivations = 1,
+    yoshi_flutter_max_y_vel = 36,
+    yoshi_flutter_stength_ascending = 7,
+    glide_dive_on = true,
+    glide_dive_y_vel = -10,
+    glide_dive_forward_vel = 60,
+    glide_dive_angle_speed = 15,
+    glide_dive_max_time = 35,
+    burning_damage_multiplier = 75,
+    water_damage_multiplier = 150,
+    coin_heal_multiplier = 50
+}, {
+    -- charactar with strong yoshi flutter with bad horizontal speed. He can salso waft fart and ground pound jump
+    name = 'Boshi',
+    yoshi_flutter_on = true,
+    fall_gravity = 130,
+    yoshi_flutter_angle_speed = 25,
+    yoshi_flutter_max_y_vel = 40,
+    yoshi_flutter_reactivations = 2,
+    yoshi_flutter_stength_ascending = 7,
+    yoshi_flutter_speed = 75,
+    ground_pound_jump_on = true,
+    ground_pound_jump_forward_vel = 40,
+    knockback_resistance = 50,
+    waft_fart_on = true,
+    water_enemy_damage_multiplier = 1000
+},
+{
+    --he can fly
+    name = 'yosi cube',
+    yoshi_flutter_on = true,
+    yoshi_flutter_speed = 135,
+    yoshi_flutter_reactivations = 99,
+    yoshi_flutter_cooldown = 15,
+    disable_damage = true
+
 }}
