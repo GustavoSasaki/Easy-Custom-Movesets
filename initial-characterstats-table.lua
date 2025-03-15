@@ -800,10 +800,15 @@ initialCharacterStatsTable = {{
     kick_dive_on = true
 }, {
     name = 'Joker Mario',
-    bat_damage_multiplier = 800,
+    bat_damage_multiplier = 1000,
+    bad_gas_damage_multiplier = 0,
     saultube_triple_jump_animation = true,
     kill_toad = true,
-    kill_pink_bomb_on = true
+    kill_pink_bomb_on = true,
+    single_jump_strength = 80,
+    double_jump_strength = 90,
+    triple_jump_strength = 110,
+    ground_pound_dive_on = true
 }, {
     name = 'Steve?',
     bat_damage_multiplier = 0
@@ -1047,4 +1052,38 @@ initialCharacterStatsTable = {{
     -- ground_pound_antecipation_speed_up = 'medium',
     -- wall_slide_on = true,
     -- wall_slide_jump_strength = 60
+},
+{
+    -- character with bad jumps that can do yoshi flutter and back flip twirling
+    name = 'Mouser',
+    yoshi_flutter_on = true,
+    yoshi_flutter_reactivations = 1,
+    yoshi_flutter_angle_speed = 50,
+    yoshi_flutter_speed = 120,
+    single_jump_strength = 75,
+    double_jump_strength = 75,
+    triple_jump_strength = 75,
+    back_flip_strength = 115,
+    side_flip_strength = 115,
+    long_jump_strength = 115,
+    kill_toad = true,
+    kill_pink_bomb_on = true,
+    back_flip_twirling_on = true,
+
+},
+{
+    -- character with high gravity, but can triple jump twirling and glide dive 
+    name = 'Morgana',
+    knockback_resistance = -50,
+    walking_speed = 135,
+    in_air_speed = 135,
+    gravity = 135,
+    glide_dive_on = true,
+    glide_dive_disable_spin = true,
+    glide_dive_y_vel = -25,
+    glide_dive_forward_vel = 60,
+    triple_jump_strength = 110,
+    triple_jump_twirling_on = true,
+    triple_jump_twirling_when = 'start',
+    twirling_dive_on = true
 }}
