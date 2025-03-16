@@ -37,6 +37,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | in_air_jump       | 	How many jumps in the air the character can do | 0 |  |
 | kick_dive_on       | 	When pressing B, instead of performing a dive or kick depending on speed, the character will always execute a kick first. If B is pressed again, a dive will follow. | false |  |
 | glide_dive_on       | The character glide when diving. | false |  |
+| kill_toad       | The character can kill toad | false |  |
+| yoshi_flutter_on       | The character can yoshi flutter after jumping | false |  |
 
 ## Less Important Stats
 
@@ -125,7 +127,16 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | glide_dive_y_vel       | Fixed Y velocity apply to the character when glide diving (units). | -5 |  |
 | glide_dive_render_with_wing_cap       | Show the character with wing cap when glide diving. | false |  | --> fix ASJIASDJIOAS
 | glide_dive_disable_spin       | Removes spin animation when star glide diving. | false |  |
-
+| kill_pink_bomb_on       | The character can kill pink bomb on | false |  |
+| moveset_description       | Description of moveset in the character selection screen | nil |  |
+| yoshi_flutter_animation       | Animation of yoshi flutter | CHAR_ANIM_RUNNING |  |
+| yoshi_flutter_angle_speed       | Yoshi flutter speed of changing angles (percentage). | 90 |  |
+| yoshi_flutter_cooldown       | Time between yoshi flutter are allowed (units). | 21 |  |
+| yoshi_flutter_stength_descending       | How much Y speed the character get while yoshi fluttering and having negative speed(units). | 17 |  |
+| yoshi_flutter_stength_ascending       |  How much Y speed the character get while yoshi fluttering and having positive speed (units). | 6 |  |
+| yoshi_flutter_max_y_vel       |  Maximun Y speed the character can get while yoshi fluttering (units). | 28 |  |
+| yoshi_flutter_reactivations       |  How many time the character can yoshi flutter before landing(units). | 2 |  |
+| yoshi_flutter_speed       |  Horizontal speed while yoshi fluttering. (percentage). | 100 |  |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
