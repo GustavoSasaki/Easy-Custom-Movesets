@@ -138,11 +138,6 @@ local function on_set_action(m)
     apply_in_air_jump(m, stats)
     apply_knock_back_resistance(m, stats)
 
-
-    if m.prevAction == ACT_CROUCHING and m.action == ACT_PUNCHING then
-        set_mario_action(m,ACT_PEELOUT,0)
-    end
-
     if stats.glide_dive_on and m.action == ACT_DIVE and  m.pos.y > (m.floorHeight + 10.0) and m.prevAction ~= ACT_GROUND_POUND then
         set_mario_action(m, ACT_GLIDE_DIVE, 0);
     end
