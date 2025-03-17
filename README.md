@@ -125,7 +125,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | glide_dive_min_forward_speed       | If the character has less than this stat speed, he will stop gliding (units). | 0 |  |
 | glide_dive_max_time       | How much time the character can be glide diving (units). | 999 |  |
 | glide_dive_y_vel       | Fixed Y velocity apply to the character when glide diving (units). | -5 |  |
-| glide_dive_render_with_wing_cap       | Show the character with wing cap when glide diving. | false |  | --> fix ASJIASDJIOAS
+| glide_dive_render_with_wing_cap       | Show the character with wing cap when glide diving. | false |  | 
 | glide_dive_disable_spin       | Removes spin animation when star glide diving. | false |  |
 | kill_pink_bomb_on       | The character can kill pink bomb on | false |  |
 | moveset_description       | Description of moveset in the character selection screen | nil |  |
@@ -137,6 +137,9 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | yoshi_flutter_max_y_vel       |  Maximun Y speed the character can get while yoshi fluttering (units). | 28 |  |
 | yoshi_flutter_reactivations       |  How many time the character can yoshi flutter before landing(units). | 2 |  |
 | yoshi_flutter_speed       |  Horizontal speed while yoshi fluttering. (percentage). | 100 |  |
+| bat_damage_multiplier       | 	How much damage the character takes from bats (percentage). | 100 |  |
+| goomba_damage_multiplier       | 	How much damage the character takes from goombas (percentage). | 100 |  |
+| flying_enemy_damage_multiplier       | 	How much damage the character takes from flying enemies (percentage). | 100 | Such as bullet bills, bokkends, haunted chairs, spindrifts, flyguys and snufits |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder

@@ -224,7 +224,9 @@ local function clean_character_stats(cs)
     cs.kill_pink_bomb_on = getNotNil(cs.kill_pink_bomb_on, "boolean", false)
 
     cs.moveset_description = getNotNil(cs.moveset_description, "string", nil)
-
+    cs.flying_enemy_damage_multuplier = getNotNil(cs.flying_enemy_damage_multuplier, "number", 0)
+    cs.goomba_damage_multiplier = getNotNil(cs.goomba_damage_multiplier, "number", 0)
+    
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -413,6 +415,8 @@ end
 --- @field public kill_pink_bomb_on boolean (Default false)
 --- @field public yoshi_flutter_speed number (Default 1)
 --- @field public moveset_description string|nil (Default nil)
+--- @field public flying_enemy_damage_multuplier number (Default 0)
+--- @field public goomba_damage_multiplier number (Default 0)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

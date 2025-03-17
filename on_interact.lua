@@ -76,7 +76,7 @@ local function apply_enemy_damage_multipler(m, stat, interactee, bhvIds)
     if obj_has_behaviors(interactee, bhvIds) and (interactee.oInteractStatus & INT_STATUS_ATTACKED_MARIO) ~= 0 then
 
         hurtByEnemy(m, interactee, stat)
-        if stat < 0 then
+        if stat <= -1 then
             kill_enemy(interactee)
         end
     end
@@ -173,6 +173,9 @@ local function on_interaction(m, interactee, interactType, interactValue)
     end
 
     attacking_npc(m,stats,interactee)
+
+    apply_enemy_damage_multipler(m, stats.flying_enemy_damage_multuplier, interactee, {id_bhvBulletBill,id_bhvBookendSpawn,id_bhvHauntedChair,id_bhvSpindrift,id_bhvFlyGuy,id_bhvSnufit,id_bhvSnufitBalls})
+    apply_enemy_damage_multipler(m, stats.goomba_damage_multiplier, interactee, {id_bhvGoomba})
     apply_enemy_damage_multipler(m, stats.bat_damage_multiplier, interactee, {id_bhvSwoop})
     apply_enemy_damage_multipler(m, stats.water_enemy_damage_multiplier, interactee,
         {id_bhvBub, id_bhvClamShell, id_bhvSushiShark, id_bhvUnagi})

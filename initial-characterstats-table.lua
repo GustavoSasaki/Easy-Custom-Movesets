@@ -11,6 +11,7 @@ initialCharacterStatsTable = {{
     gravity = 95,
     ground_pound_dive_on = true,
     knockback_resistance = -10,
+    goomba_damage_multiplier = 0,
     moveset_description = "less gravity"
 }, {
     -- heavy character with better back/side flip
@@ -19,6 +20,7 @@ initialCharacterStatsTable = {{
     back_flip_strength = 120,
     side_flip_strength = 120,
     knockback_resistance = 60,
+    goomba_damage_multiplier = 0,
     moveset_description = "beeter side/back flip"
 }, {
     -- float character with big long jump
@@ -210,7 +212,8 @@ initialCharacterStatsTable = {{
     jump_strength = 103,
     grounded_slowing_speed = 150,
     kill_toad = true,
-    kill_pink_bomb_on = true
+    kill_pink_bomb_on = true,
+    goomba_damage_multiplier = 200,
 }, {
     -- character with fast crawling and do twirling after back flip
     name = 'Baby Mario',
@@ -281,7 +284,8 @@ initialCharacterStatsTable = {{
     twirling_ground_pound_on = true,
     walking_speed = 140,
     back_flip_strength = 85,
-    side_flip_strength = 85
+    side_flip_strength = 85,
+    goomba_damage_multiplier = 50,
 }, {
     name = "Junio Sonic",
     walking_speed = 252,
@@ -307,7 +311,8 @@ initialCharacterStatsTable = {{
     fast_twirling_on = true,
     twirling_gravity = 130,
     twirling_speed = 250,
-    back_flip_strength = 85
+    back_flip_strength = 85,
+    goomba_damage_multiplier = 200,
 }, {
     -- character that do twirling when triple jump. It twirling low gravity, you can descending quickly with fast twirling ( press Z button)
     name = 'Komodo Joe',
@@ -403,7 +408,8 @@ initialCharacterStatsTable = {{
     swimming_speed = 400,
     walking_speed = 120,
     triple_jump_strength = 87,
-    kick_dive_on = true
+    kick_dive_on = true,
+    goomba_damage_multiplier = 1000,
 }, {
     -- character witch can stand in water/snow water long, swim faster
     name = 'King Penguin',
@@ -433,7 +439,8 @@ initialCharacterStatsTable = {{
     gravity = 95,
     fall_gravity = 85,
     long_jump_strength = 125,
-    kick_jump_strength = 75
+    kick_jump_strength = 75,
+    flying_enemy_damage_multuplier = 50
 }, {
     -- no burning damage
     name = 'Thomas the Tank Engine',
@@ -442,7 +449,8 @@ initialCharacterStatsTable = {{
     lava_damage_multiplier = 0,
     ground_pound_max_y_vel = 130,
     ground_pound_shake = 150,
-    knockback_resistance = 60
+    knockback_resistance = 60,
+    flying_enemy_damage_multuplier = 50
 }, {
     name = 'Squidward',
     water_damage_multiplier = 0,
@@ -484,7 +492,8 @@ initialCharacterStatsTable = {{
     ground_pound_dive_on = true,
     ground_pound_dive_y_vel = 10,
     hold_walking_speed = 85,
-    knockback_resistance = 35
+    knockback_resistance = 35,
+    flying_enemy_damage_multuplier = 50
 }, {
     -- chracter with fast ground pound and immunity to burn
     name = 'Marty the Thwomp',
@@ -495,6 +504,7 @@ initialCharacterStatsTable = {{
     side_flip_strength = 90,
     back_flip_strength = 90,
     ground_pound_shake = 150,
+    flying_enemy_damage_multuplier = 50,
     kill_toad = true
 }, {
     -- character that can do fart after ground pound
@@ -504,7 +514,8 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 3,
     gravity = 105,
     fall_gravity = 110,
-    kill_toad = true
+    kill_toad = true,
+    goomba_damage_multiplier = 50,
 }, {
     name = 'Slippy Toad',
     gravity = 90,
@@ -620,7 +631,8 @@ initialCharacterStatsTable = {{
     long_jump_triple_jump_strength = 80,
     hold_walking_speed = 90,
     burning_damage_multiplier = 125,
-    snow_water_damage_multiplier = 0
+    snow_water_damage_multiplier = 0,
+    goomba_damage_multiplier = 200,
 }, {
     -- character witch start twirling when triple jump
     name = 'Marten',
@@ -659,7 +671,8 @@ initialCharacterStatsTable = {{
     super_side_flip_kick_foward_vel = 30,
     super_side_flip_add_foward_vel = 30,
     walking_speed = 130,
-    knockback_resistance = 35
+    knockback_resistance = 35,
+    flying_enemy_damage_multuplier = 50
 }, {
     -- character with ground pound jump and he can also do super side flip with lower speed
     name = 'Patrick Starfish',
@@ -697,7 +710,8 @@ initialCharacterStatsTable = {{
     walking_speed = 150,
     jump_strength = 85,
     wall_slide_jump_strength = 60,
-    knockback_resistance = -5
+    knockback_resistance = -5,
+    flying_enemy_damage_multuplier = 200
 }, {
     -- character that do an dive when jumping from weall slide. Also is great swimmer
     name = 'Yae',
@@ -746,7 +760,8 @@ initialCharacterStatsTable = {{
     wall_slide_jump_type = ACT_TWIRLING,
     twirling_ground_pound_on = true,
     triple_jump_twirling_when = "start",
-    disable_twirling_land = true
+    disable_twirling_land = true,
+    goomba_damage_multiplier = 200,
 }, {
     -- character with double jump
     name = 'Donald Duck',
@@ -797,7 +812,8 @@ initialCharacterStatsTable = {{
     ground_pound_gravity = 200,
     knockback_resistance = 35,
     kill_toad = true,
-    kill_pink_bomb_on = true
+    kill_pink_bomb_on = true,
+    flying_enemy_damage_multuplier = 50
 }, {
     -- character with in air jump that can not do double jump.
     -- to do triple jump you need to long jump first.
@@ -818,7 +834,9 @@ initialCharacterStatsTable = {{
     single_jump_strength = 80,
     double_jump_strength = 90,
     triple_jump_strength = 110,
-    ground_pound_dive_on = true
+    ground_pound_dive_on = true,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 50
 }, {
     name = 'Steve?',
     bat_damage_multiplier = 0
@@ -859,21 +877,31 @@ initialCharacterStatsTable = {{
     wall_slide_jump_type = ACT_JUMP
 }, {
     name = 'Spider-Man',
-    bat_damage_multiplier = 1000
+    bat_damage_multiplier = 1000,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 0,
 }, {
     name = 'Hulk',
     bat_damage_multiplier = 1000,
     piranha_plant_damage_multiplier = -1,
-    water_enemy_damage_multiplier = -1
+    water_enemy_damage_multiplier = -1,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 0,
 }, {
     name = 'Deadpool',
-    bat_damage_multiplier = 1000
+    bat_damage_multiplier = 1000,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 0,
 }, {
     name = 'Venom',
-    bat_damage_multiplier = 1000
+    bat_damage_multiplier = 1000,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 0,
 }, {
     name = 'Daredevil',
-    bat_damage_multiplier = 1000
+    bat_damage_multiplier = 1000,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 0,
 }, {
     name = 'Wolverine',
     bat_damage_multiplier = 1000,
@@ -942,7 +970,8 @@ initialCharacterStatsTable = {{
     name = 'Flat-Shaded Spamto',
     super_side_flip_on = true,
     back_flip_strength = 115,
-    long_jump_triple_jump_on = true
+    long_jump_triple_jump_on = true,
+    goomba_damage_multiplier = 1000,
 }, {
     name = 'Ralsei Spamton',
     super_side_flip_on = true,
@@ -983,6 +1012,8 @@ initialCharacterStatsTable = {{
     knockback_resistance = 60,
     kill_toad = true,
     kill_pink_bomb_on = true,
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = 0,
     moveset_description = "glide dive upward",
 }, {
     name = 'Ori',
@@ -1042,6 +1073,7 @@ initialCharacterStatsTable = {{
     knockback_resistance = 50,
     waft_fart_on = true,
     water_enemy_damage_multiplier = 1000,
+    goomba_damage_multiplier = 200,
     kill_toad = true,
     moveset_description = "yoshi flutter, ground pound jump"
 }, {
