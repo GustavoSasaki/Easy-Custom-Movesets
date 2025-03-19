@@ -293,6 +293,10 @@ local function mario_update(m)
         m.forwardVel = -(m.forwardVel * stats.super_side_flip_convert_foward_vel + stats.super_side_flip_add_foward_vel)
     end
 
+    if stats.peel_out_on then
+        enter_peel_out_state(m)
+    end
+
     gPlayerSyncTable[m.playerIndex].prevForwardVel = m.forwardVel
     gPlayerSyncTable[m.playerIndex].prevVelY = m.vel.y
 

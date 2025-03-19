@@ -39,6 +39,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | glide_dive_on       | The character glide when diving. | false |  |
 | kill_toad       | The character can kill toad | false |  |
 | yoshi_flutter_on       | The character can yoshi flutter after jumping | false |  |
+| peel_out_on       | The character can peel out by pressing UP while not moving. | false | This move was made by atrael2 with help of doggednamed1   |
 
 ## Less Important Stats
 
@@ -140,6 +141,10 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | bat_damage_multiplier       | 	How much damage the character takes from bats (percentage). | 100 |  |
 | goomba_damage_multiplier       | 	How much damage the character takes from goombas (percentage). | 100 |  |
 | flying_enemy_damage_multiplier       | 	How much damage the character takes from flying enemies (percentage). | 100 | Such as bullet bills, bokkends, haunted chairs, spindrifts, flyguys and snufits |
+| peel_out_max_vel       | Max velocity set when character release peel out with maximun charge (units). | 128 | This move was made by atrael2 with help of doggednamed1   |
+| peel_out_slowdown       | How much speed is lost every frame after releasing peel out (units). | 0.5 | This move was made by atrael2 with help of doggednamed1   |
+| peel_out_jump_reset_vel       | After an peel out, the character jumps are not affected by the extra speed. | true | Single/double jumps heigth are partially defined by current speed, after an peel out you have lots of speed, aka you jumps are really high.   |
+
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -178,6 +183,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Ebimasu](https://mods.sm64coopdx.com/mods/ebisumaru.594/)
 - [Frogsuit Wildcard](https://mods.sm64coopdx.com/mods/cs-frogsuit-wildcard-models.308/)
 - [Fungus](https://mods.sm64coopdx.com/mods/cs-fungusmod.610/)
+- [Gargl](https://mods.sm64coopdx.com/mods/cs-gargl.163/)
 - [Ganbare Goemon](https://mods.sm64coopdx.com/mods/ganbare-goemon-mystical-ninja.595/)
 - [Godzilla & Mothra](https://mods.sm64coopdx.com/mods/cs-godzilla-mothra.437/)
 - [Gnarpy](https://mods.sm64coopdx.com/mods/cs-gnarpy.530/)
@@ -226,6 +232,8 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Turkey Wario](https://mods.sm64coopdx.com/mods/cs-turkey-wario.411/)
 - [VL-Tone and CJes Luigi](https://mods.sm64coopdx.com/mods/cs-vl-tone-and-cjes-luigi.12/)
 - [Wapeach](https://mods.sm64coopdx.com/mods/cs-wapeach.17/)
+- [Watto](https://mods.sm64coopdx.com/mods/cs-watto.405/)
+- [WolfBoltOne](https://mods.sm64coopdx.com/mods/cs-wolfboltone.571/)
 - [Yae](https://mods.sm64coopdx.com/mods/yae.597/)
 - [Yosi Cube](https://mods.sm64coopdx.com/mods/cs-yosi-cube.152/)
 - [Yui Hirasawa](https://mods.sm64coopdx.com/mods/cs-yui-hirasawa-k-on.258/)

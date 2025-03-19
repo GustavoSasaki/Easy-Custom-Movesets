@@ -226,6 +226,13 @@ local function clean_character_stats(cs)
     cs.moveset_description = getNotNil(cs.moveset_description, "string", nil)
     cs.flying_enemy_damage_multuplier = getNotNil(cs.flying_enemy_damage_multuplier, "number", 0)
     cs.goomba_damage_multiplier = getNotNil(cs.goomba_damage_multiplier, "number", 0)
+
+    cs.peel_out_on = getNotNil(cs.peel_out_on, "boolean", false)
+    cs.peel_out_max_vel = cs.peel_out_max_vel ~= nil and type(cs.peel_out_max_vel) == "number" and
+    cs.peel_out_max_vel or 128
+    cs.peel_out_slowdown= cs.peel_out_slowdown ~= nil and type(cs.peel_out_slowdown) == "number" and
+    cs.peel_out_slowdown or 0.5
+    cs.peel_out_jump_reset_vel = getNotNil(cs.peel_out_jump_reset_vel, "boolean", true)
     
 end
 
@@ -417,6 +424,10 @@ end
 --- @field public moveset_description string|nil (Default nil)
 --- @field public flying_enemy_damage_multuplier number (Default 0)
 --- @field public goomba_damage_multiplier number (Default 0)
+--- @field public peel_out_on boolean (Default false)
+--- @field public peel_out_max_vel number (Default 128)
+--- @field public peel_out_slowdown number (Default0.5)
+--- @field public peel_out_jump_reset_vel boolean (Default true)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

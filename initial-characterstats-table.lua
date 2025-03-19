@@ -99,7 +99,10 @@ initialCharacterStatsTable = {{
     name = "Pepsiman",
     walking_speed = 130,
     jump_strength = 110,
-    kick_dive_on = true
+    kick_dive_on = true,
+    peel_out_on = true,
+    peel_out_slowdown = 0.35,
+    moveset_description = "faster, strong jumps, pell out"
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Classic Sonic",
@@ -108,7 +111,9 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
-    jump_strength = 95
+    jump_strength = 95,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Modern Sonic",
@@ -117,7 +122,9 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
-    jump_strength = 95
+    jump_strength = 95,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     name = "Shadow the Hedgehog",
     walking_speed = 160,
@@ -138,7 +145,9 @@ initialCharacterStatsTable = {{
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
     jump_strength = 95,
-    fall_gravity = 80
+    fall_gravity = 80,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- character with fast air speed
     name = "Modern Tails",
@@ -148,7 +157,9 @@ initialCharacterStatsTable = {{
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
     jump_strength = 95,
-    fall_gravity = 80
+    fall_gravity = 80,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Classic Knuckles",
@@ -161,7 +172,9 @@ initialCharacterStatsTable = {{
     glide_dive_on = true,
     glide_dive_y_vel = -7,
     glide_dive_forward_vel = 60,
-    glide_dive_max_time = 45
+    glide_dive_max_time = 45,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Modern Knuckles",
@@ -174,21 +187,27 @@ initialCharacterStatsTable = {{
     glide_dive_on = true,
     glide_dive_y_vel = -7,
     glide_dive_forward_vel = 60,
-    glide_dive_max_time = 5
+    glide_dive_max_time = 5,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- heavy and fast character with big kick and small jumps
     name = "Classic Eggman",
     walking_speed = 161,
     jump_strength = 95,
     gravity = 117,
-    kick_jump_strength = 180
+    kick_jump_strength = 180,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- heavy and fast character with big kick and small jumps
     name = "Modern Eggman",
     walking_speed = 161,
     jump_strength = 95,
     gravity = 117,
-    kick_jump_strength = 180
+    kick_jump_strength = 180,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     name = "Classic Super Sonic",
     walking_speed = 252,
@@ -196,7 +215,9 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
-    jump_strength = 95
+    jump_strength = 95,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     name = "Modern Super Sonic",
     walking_speed = 252,
@@ -204,7 +225,9 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 200,
     long_jump_max_velocity = 130,
     airborne_deceleration_speed = 50,
-    jump_strength = 95
+    jump_strength = 95,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- character with mr l jump 
     name = "Mr.L",
@@ -213,7 +236,7 @@ initialCharacterStatsTable = {{
     grounded_slowing_speed = 150,
     kill_toad = true,
     kill_pink_bomb_on = true,
-    goomba_damage_multiplier = 200,
+    goomba_damage_multiplier = 200
 }, {
     -- character with fast crawling and do twirling after back flip
     name = 'Baby Mario',
@@ -285,7 +308,7 @@ initialCharacterStatsTable = {{
     walking_speed = 140,
     back_flip_strength = 85,
     side_flip_strength = 85,
-    goomba_damage_multiplier = 50,
+    goomba_damage_multiplier = 50
 }, {
     name = "Junio Sonic",
     walking_speed = 252,
@@ -295,7 +318,9 @@ initialCharacterStatsTable = {{
     airborne_deceleration_speed = 50,
     jump_strength = 95,
     mr_l_jump_on = true,
-    play_mr_l_anticipation_audio = false
+    play_mr_l_anticipation_audio = false,
+    peel_out_jump_on = true,
+    peel_out_jump_reset_vel = false,
 }, {
     -- character that do twirling when starting triple jump/side flip, can do dive when twirling. Also, horrible long jump
     name = "MyMelodyHD",
@@ -312,7 +337,7 @@ initialCharacterStatsTable = {{
     twirling_gravity = 130,
     twirling_speed = 250,
     back_flip_strength = 85,
-    goomba_damage_multiplier = 200,
+    goomba_damage_multiplier = 200
 }, {
     -- character that do twirling when triple jump. It twirling low gravity, you can descending quickly with fast twirling ( press Z button)
     name = 'Komodo Joe',
@@ -409,7 +434,7 @@ initialCharacterStatsTable = {{
     walking_speed = 120,
     triple_jump_strength = 87,
     kick_dive_on = true,
-    goomba_damage_multiplier = 1000,
+    goomba_damage_multiplier = 1000
 }, {
     -- character witch can stand in water/snow water long, swim faster
     name = 'King Penguin',
@@ -450,7 +475,12 @@ initialCharacterStatsTable = {{
     ground_pound_max_y_vel = 130,
     ground_pound_shake = 150,
     knockback_resistance = 60,
-    flying_enemy_damage_multuplier = 50
+    flying_enemy_damage_multuplier = 50,
+    goomba_damage_multiplier = -1,
+    peel_out_on = true,
+    peel_out_slowdown = 0.65,
+    peel_out_jump_reset_vel = false,
+    moveset_description = "peel out, bunch of damage resistance"
 }, {
     name = 'Squidward',
     water_damage_multiplier = 0,
@@ -515,7 +545,7 @@ initialCharacterStatsTable = {{
     gravity = 105,
     fall_gravity = 110,
     kill_toad = true,
-    goomba_damage_multiplier = 50,
+    goomba_damage_multiplier = 50
 }, {
     name = 'Slippy Toad',
     gravity = 90,
@@ -632,7 +662,7 @@ initialCharacterStatsTable = {{
     hold_walking_speed = 90,
     burning_damage_multiplier = 125,
     snow_water_damage_multiplier = 0,
-    goomba_damage_multiplier = 200,
+    goomba_damage_multiplier = 200
 }, {
     -- character witch start twirling when triple jump
     name = 'Marten',
@@ -761,7 +791,7 @@ initialCharacterStatsTable = {{
     twirling_ground_pound_on = true,
     triple_jump_twirling_when = "start",
     disable_twirling_land = true,
-    goomba_damage_multiplier = 200,
+    goomba_damage_multiplier = 200
 }, {
     -- character with double jump
     name = 'Donald Duck',
@@ -879,29 +909,29 @@ initialCharacterStatsTable = {{
     name = 'Spider-Man',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multuplier = 50,
-    goomba_damage_multiplier = 0,
+    goomba_damage_multiplier = 0
 }, {
     name = 'Hulk',
     bat_damage_multiplier = 1000,
     piranha_plant_damage_multiplier = -1,
     water_enemy_damage_multiplier = -1,
     flying_enemy_damage_multuplier = 50,
-    goomba_damage_multiplier = 0,
+    goomba_damage_multiplier = 0
 }, {
     name = 'Deadpool',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multuplier = 50,
-    goomba_damage_multiplier = 0,
+    goomba_damage_multiplier = 0
 }, {
     name = 'Venom',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multuplier = 50,
-    goomba_damage_multiplier = 0,
+    goomba_damage_multiplier = 0
 }, {
     name = 'Daredevil',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multuplier = 50,
-    goomba_damage_multiplier = 0,
+    goomba_damage_multiplier = 0
 }, {
     name = 'Wolverine',
     bat_damage_multiplier = 1000,
@@ -971,7 +1001,7 @@ initialCharacterStatsTable = {{
     super_side_flip_on = true,
     back_flip_strength = 115,
     long_jump_triple_jump_on = true,
-    goomba_damage_multiplier = 1000,
+    goomba_damage_multiplier = 1000
 }, {
     name = 'Ralsei Spamton',
     super_side_flip_on = true,
@@ -992,7 +1022,7 @@ initialCharacterStatsTable = {{
     super_side_flip_on = true,
     back_flip_strength = 115,
     fall_gravity = 85,
-    moveset_description = "good back flip, super side flip",
+    moveset_description = "good back flip, super side flip"
 
 }, {
     -- character with an glide that goes upward and lots of resistance
@@ -1014,7 +1044,7 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     flying_enemy_damage_multuplier = 50,
     goomba_damage_multiplier = 0,
-    moveset_description = "glide dive upward",
+    moveset_description = "glide dive upward"
 }, {
     name = 'Ori',
     wall_slide_on = true,
@@ -1024,7 +1054,7 @@ initialCharacterStatsTable = {{
     in_air_jump_strength = {20, 15},
     in_air_jump_animation = {CHAR_ANIM_DOUBLE_JUMP_RISE, CHAR_ANIM_WING_CAP_FLY},
     in_air_jump_forward_vel = {0, 60},
-    moveset_description = "triple in air jumps, wall slide",
+    moveset_description = "triple in air jumps, wall slide"
 }, {
     -- charactar with bad jumps, wall slide and a small but speedy yoshi flutter 
     name = "Mlops' Yoshi",
@@ -1040,7 +1070,7 @@ initialCharacterStatsTable = {{
     long_jump_max_velocity = 350,
     jump_strength = 82,
     wall_slide_on = true,
-    moveset_description = "fast yoshi flutters, wall slide",
+    moveset_description = "fast yoshi flutters, wall slide"
 }, {
     -- character that can do yoshi flutter one time in the air.Also has glide dive
     name = 'Rex',
@@ -1059,15 +1089,8 @@ initialCharacterStatsTable = {{
     kill_toad = true,
     moveset_description = "yoshi flutter, gldie dive"
 }, {
-    -- charactar with strong yoshi flutter with bad horizontal speed. He can salso waft fart and ground pound jump
     name = 'Boshi',
-    yoshi_flutter_on = true,
     fall_gravity = 130,
-    yoshi_flutter_angle_speed = 25,
-    yoshi_flutter_max_y_vel = 40,
-    yoshi_flutter_reactivations = 2,
-    yoshi_flutter_stength_ascending = 7,
-    yoshi_flutter_speed = 75,
     ground_pound_jump_on = true,
     ground_pound_jump_forward_vel = 40,
     knockback_resistance = 50,
@@ -1075,7 +1098,7 @@ initialCharacterStatsTable = {{
     water_enemy_damage_multiplier = 1000,
     goomba_damage_multiplier = 200,
     kill_toad = true,
-    moveset_description = "yoshi flutter, ground pound jump"
+    moveset_description = "ground pound jump"
 }, {
     -- he can fly
     name = 'yosi cube',
@@ -1132,5 +1155,50 @@ initialCharacterStatsTable = {{
     triple_jump_twirling_on = true,
     triple_jump_twirling_when = 'start',
     twirling_dive_on = true,
-    moveset_description = "triple jump twirling, glide dive, high gravity",
+    moveset_description = "triple jump twirling, glide dive, high gravity"
+}, {
+    -- charactar with strong yoshi flutter with bad horizontal speed. He can also waft fart 
+    name = 'Watto',
+    yoshi_flutter_on = true,
+    fall_gravity = 130,
+    yoshi_flutter_angle_speed = 25,
+    yoshi_flutter_max_y_vel = 40,
+    yoshi_flutter_reactivations = 2,
+    yoshi_flutter_stength_ascending = 7,
+    yoshi_flutter_speed = 75,
+    waft_fart_on = true,
+    waft_fart_per_level = 3,
+    waft_fart_velocity = 150,
+    waft_fart_strength = 70,
+    ground_pound_dive_on = true,
+    moveset_description = "yoshi flutter, waft fart"
+}, {
+    -- character that can do peel out and side flip twirling
+    name = 'Bolt',
+    peel_out_on = true,
+    peel_out_max_vel = 150,
+    back_flip_twirling_on = true,
+    back_flip_strength = 110,
+    twirling_dive_on = true,
+    burning_damage_multiplier = 150,
+    water_damage_multiplier = 125,
+    moveset_description = "peel out, back flip twirling"
+}, {
+    -- character that can do peel out losing little speed (but also having smaller maximum speed) 
+    -- it can also wall slide, triple jump twirling and has bad single/double jump_strength
+    name = 'Gargl',
+    peel_out_on = true,
+    peel_out_slowdown = 0.15,
+    peel_out_max_vel = 100,
+    peel_out_jump_reset_vel = false,
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP,
+    single_jump_strength = 75,
+    double_jump_strength = 85,
+    triple_jump_strength = 110,
+    triple_jump_twirling_on = true,
+    triple_jump_twirling_when = 'start',
+    walking_speed = 110,
+    moveset_description = "peel out, triple jump twirling, bad single/double jumps"
 }}
