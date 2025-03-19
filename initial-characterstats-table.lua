@@ -245,7 +245,8 @@ initialCharacterStatsTable = {{
     back_flip_twirling_on = true,
     back_flip_strength = 107,
     hold_walking_speed = 85,
-    knockback_resistance = -5
+    knockback_resistance = -5,
+    disable_fall_damage = true,
 
 }, {
     -- character with mr l jump that has great horizontal maneuverability
@@ -480,6 +481,7 @@ initialCharacterStatsTable = {{
     peel_out_on = true,
     peel_out_slowdown = 0.65,
     peel_out_jump_reset_vel = false,
+    disable_fall_damage = true,
     moveset_description = "peel out, bunch of damage resistance"
 }, {
     name = 'Squidward',
@@ -791,7 +793,8 @@ initialCharacterStatsTable = {{
     twirling_ground_pound_on = true,
     triple_jump_twirling_when = "start",
     disable_twirling_land = true,
-    goomba_damage_multiplier = 200
+    goomba_damage_multiplier = 200,
+    disable_fall_damage = true,
 }, {
     -- character with double jump
     name = 'Donald Duck',
@@ -909,7 +912,8 @@ initialCharacterStatsTable = {{
     name = 'Spider-Man',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multuplier = 50,
-    goomba_damage_multiplier = 0
+    goomba_damage_multiplier = 0,
+    disable_fall_damage = true,
 }, {
     name = 'Hulk',
     bat_damage_multiplier = 1000,
@@ -1044,6 +1048,7 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     flying_enemy_damage_multuplier = 50,
     goomba_damage_multiplier = 0,
+    disable_fall_damage = true,
     moveset_description = "glide dive upward"
 }, {
     name = 'Ori',
@@ -1097,6 +1102,7 @@ initialCharacterStatsTable = {{
     waft_fart_on = true,
     water_enemy_damage_multiplier = 1000,
     goomba_damage_multiplier = 200,
+    disable_fall_damage = true,
     kill_toad = true,
     moveset_description = "ground pound jump"
 }, {

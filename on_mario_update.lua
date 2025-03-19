@@ -316,6 +316,13 @@ local function mario_update(m)
     if stats.glide_dive_render_with_wing_cap and m.action == ACT_GLIDE_DIVE then
         m.marioBodyState.capState = MARIO_HAS_WING_CAP_ON
     end
+
+    if stats.disable_fall_damage and m.pos.y + m.vel.y <= m.floorHeight then
+        if should_get_stuck_in_ground(m) == 0 then
+            m.peakHeight = m.pos.y
+        end
+    end
+
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

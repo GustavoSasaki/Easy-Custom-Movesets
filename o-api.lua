@@ -233,6 +233,7 @@ local function clean_character_stats(cs)
     cs.peel_out_slowdown= cs.peel_out_slowdown ~= nil and type(cs.peel_out_slowdown) == "number" and
     cs.peel_out_slowdown or 0.5
     cs.peel_out_jump_reset_vel = getNotNil(cs.peel_out_jump_reset_vel, "boolean", true)
+    cs.disable_fall_damage = getNotNil(cs.disable_fall_damage, "boolean", false)
     
 end
 
@@ -428,6 +429,7 @@ end
 --- @field public peel_out_max_vel number (Default 128)
 --- @field public peel_out_slowdown number (Default0.5)
 --- @field public peel_out_jump_reset_vel boolean (Default true)
+--- @field public disable_fall_damage boolean ( Default false )
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
