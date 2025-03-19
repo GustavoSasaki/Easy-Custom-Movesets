@@ -1207,4 +1207,21 @@ initialCharacterStatsTable = {{
     triple_jump_twirling_when = 'start',
     walking_speed = 110,
     moveset_description = "peel out, triple jump twirling, bad single/double jumps"
+},{
+    name = 'OMORI',
+    kick_dive_on = true
+},{
+    name = 'SUNNY'
+},
+{
+    -- character that always dive first and can kick after.
+    -- also can dive from ground, and can triple jump from long jump
+    name = 'Mario (Lou Albano)',
+    always_dive_first = true,
+    dive_kick_on = true,
+    ground_pound_dive_on = true,
+    dive_velocity = 200,
+    dive_max_velocity = 125,
+    long_jump_triple_jump_on = true,
+    moveset_description="kick from dives,long jump triple jump"
 }}

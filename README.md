@@ -40,6 +40,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | kill_toad       | The character can kill toad | false |  |
 | yoshi_flutter_on       | The character can yoshi flutter after jumping | false |  |
 | peel_out_on       | The character can peel out by pressing UP while not moving. | false | This move was made by atrael2 with help of doggednamed1   |
+| dive_kick_on       | The character can kick from dive. | false |   |
+| always_dive_first       | The character always dives independently of current speed. | false |   |
 
 ## Less Important Stats
 
@@ -144,6 +146,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | peel_out_max_vel       | Max velocity set when character release peel out with maximun charge (units). | 128 | This move was made by atrael2 with help of doggednamed1   |
 | peel_out_slowdown       | How much speed is lost every frame after releasing peel out (units). | 0.5 | This move was made by atrael2 with help of doggednamed1   |
 | peel_out_jump_reset_vel       | After an peel out, the character jumps are not affected by the extra speed. | true | Single/double jumps heigth are partially defined by current speed, after an peel out you have lots of speed, aka you jumps are really high.   |
+| dive_ground_pound_on       | The character can ground pound from dive. | false |   |
 
 
 ## Instalation
@@ -209,6 +212,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Neco-Arc](https://mods.sm64coopdx.com/mods/cs-neco-arc.327/)
 - [Ninji](https://mods.sm64coopdx.com/mods/cs-ninji.574/)
 - [Ori](https://mods.sm64coopdx.com/mods/cs-ori-64.177/)
+- [Paisano Mario Redone](https://mods.sm64coopdx.com/mods/cs-paisano-mario-redone.113/)
 - [PaRappa the Rappe](https://mods.sm64coopdx.com/mods/cs-parappa-the-rapper.212/)
 - [Patrick Starfish](https://mods.sm64coopdx.com/mods/cs-patrick-starfish.269/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)

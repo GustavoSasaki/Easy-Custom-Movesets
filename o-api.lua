@@ -234,6 +234,9 @@ local function clean_character_stats(cs)
     cs.peel_out_slowdown or 0.5
     cs.peel_out_jump_reset_vel = getNotNil(cs.peel_out_jump_reset_vel, "boolean", true)
     cs.disable_fall_damage = getNotNil(cs.disable_fall_damage, "boolean", false)
+    cs.always_dive_first = getNotNil(cs.always_dive_first, "boolean", false)
+    cs.dive_kick_on = getNotNil(cs.dive_kick_on, "boolean", false)
+    cs.dive_ground_pound_on = getNotNil(cs.dive_ground_pound_on, "boolean", false)
     
 end
 
@@ -427,9 +430,12 @@ end
 --- @field public goomba_damage_multiplier number (Default 0)
 --- @field public peel_out_on boolean (Default false)
 --- @field public peel_out_max_vel number (Default 128)
---- @field public peel_out_slowdown number (Default0.5)
+--- @field public peel_out_slowdown number (Default 0.5)
 --- @field public peel_out_jump_reset_vel boolean (Default true)
 --- @field public disable_fall_damage boolean ( Default false )
+--- @field public always_dive_first boolean ( Default false )
+--- @field public dive_kick_on boolean ( Default false )
+--- @field public dive_ground_pound_on boolean ( Default false )
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

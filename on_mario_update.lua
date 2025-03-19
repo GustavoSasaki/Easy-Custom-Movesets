@@ -198,6 +198,24 @@ local function apply_kick_dive(m, stats)
         m.actionTimer = m.actionTimer + 1
     end
 end
+
+--- @param m MarioState
+--- @param stats CharacterStats
+local function apply_dive_cancel(m, stats)
+    if stats.dive_kick_on and m.action == ACT_DIVE and (m.input & INPUT_B_PRESSED) ~= 0 and m.actionTimer ~= 0 then
+        set_mario_action(m, ACT_JUMP_KICK, 0);
+    end
+
+    if stats.dive_ground_pound_on and  m.action == ACT_DIVE and (m.input & INPUT_Z_PRESSED) ~= 0 and m.actionTimer ~= 0 then
+        set_mario_action(m, ACT_GROUND_POUND, 0)
+    end
+
+
+    if m.action == ACT_DIVE then
+        m.actionTimer = m.actionTimer + 1
+    end
+end
+
 --- @param m MarioState
 local function mario_update(m)
     local stats = _G.customMoves.stats_from_mario_state(m)
@@ -267,6 +285,7 @@ local function mario_update(m)
 
     apply_in_air_jump(m, stats)
     apply_kick_dive(m, stats)
+    apply_dive_cancel(m,stats)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)

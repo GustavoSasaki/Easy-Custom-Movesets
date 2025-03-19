@@ -121,6 +121,10 @@ local function on_set_action(m)
         set_mario_action(m, ACT_JUMP_KICK, 0)
     end
 
+    if stats.always_dive_first and m.action == ACT_JUMP_KICK and m.prevAction ~= ACT_DIVE then
+        set_mario_action(m, ACT_DIVE, 0)
+    end
+
     if stats.disable_double_jump and m.action == ACT_DOUBLE_JUMP then
         resetVelocityToPrevAction(m)
         set_mario_action(m, ACT_JUMP, 0)
