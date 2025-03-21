@@ -87,16 +87,16 @@ end
 --- @param m MarioState
 --- @param stats CharacterStats
 local function apply_saultube_animation(m, stats)
-    if _G.jumpingAnimExists == false then
-        return
-    end
+    if _G.jumpingAnimExists then
 
-    if stats.saultube_single_jump_animation and m.action == ACT_JUMP then
-        _G.jumpingAnim.change_single_jump_animation(m)
-    elseif stats.saultube_double_jump_animation and m.action == ACT_DOUBLE_JUMP then
-        _G.jumpingAnim.change_double_jump_animation(m)
-    elseif stats.saultube_triple_jump_animation and m.action == ACT_TRIPLE_JUMP then
-        _G.jumpingAnim.change_triple_jump_animation(m)
+        if stats.saultube_single_jump_animation and m.action == ACT_JUMP then
+            _G.jumpingAnim.change_single_jump_animation(m)
+        elseif stats.saultube_double_jump_animation and m.action == ACT_DOUBLE_JUMP then
+            _G.jumpingAnim.change_double_jump_animation(m)
+        elseif stats.saultube_triple_jump_animation and m.action == ACT_TRIPLE_JUMP then
+            _G.jumpingAnim.change_triple_jump_animation(m)
+        end
+
     end
 
 end
@@ -120,16 +120,17 @@ end
 --- @param m MarioState
 --- @return boolean
 local function is_enabled_in_yoshi_flutter(m)
-    return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
-               ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_LONG_JUMP or m.action == ACT_SIDE_FLIP 
-               or m.action == ACT_BACKFLIP or m.action == ACT_WATER_JUMP or m.action ==  ACT_GROUND_POUND_JUMP
+    return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_JUMP or m.action ==
+               ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_LONG_JUMP or m.action ==
+               ACT_SIDE_FLIP or m.action == ACT_BACKFLIP or m.action == ACT_WATER_JUMP or m.action ==
+               ACT_GROUND_POUND_JUMP
 end
 
 --- @param m MarioState
 --- @return boolean
 local function is_enabled_in_air_jump(m)
-    return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action ==
-               ACT_JUMP or m.action == ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR
+    return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_JUMP or m.action ==
+               ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR
 end
 
 --- @param m MarioState
@@ -139,8 +140,8 @@ local function apply_in_air_jump(m, stats)
         m.actionTimer = m.actionTimer + 1
     end
 
-    if is_enabled_in_yoshi_flutter(m)  and stats.yoshi_flutter_on and (m.input & INPUT_A_PRESSED) ~= 0 and m.vel.y < 0 then
-        resetYoshiFlutterCooldown(m,stats)
+    if is_enabled_in_yoshi_flutter(m) and stats.yoshi_flutter_on and (m.input & INPUT_A_PRESSED) ~= 0 and m.vel.y < 0 then
+        resetYoshiFlutterCooldown(m, stats)
         drop_and_set_mario_action(m, ACT_YOSHI_FLUTTER, 0)
     end
 
@@ -206,10 +207,9 @@ local function apply_dive_cancel(m, stats)
         set_mario_action(m, ACT_JUMP_KICK, 0);
     end
 
-    if stats.dive_ground_pound_on and  m.action == ACT_DIVE and (m.input & INPUT_Z_PRESSED) ~= 0 and m.actionTimer ~= 0 then
+    if stats.dive_ground_pound_on and m.action == ACT_DIVE and (m.input & INPUT_Z_PRESSED) ~= 0 and m.actionTimer ~= 0 then
         set_mario_action(m, ACT_GROUND_POUND, 0)
     end
-
 
     if m.action == ACT_DIVE then
         m.actionTimer = m.actionTimer + 1
@@ -285,7 +285,7 @@ local function mario_update(m)
 
     apply_in_air_jump(m, stats)
     apply_kick_dive(m, stats)
-    apply_dive_cancel(m,stats)
+    apply_dive_cancel(m, stats)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)
