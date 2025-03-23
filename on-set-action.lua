@@ -116,16 +116,16 @@ local function on_set_action(m)
         gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
     end
 
-    if stats.kick_dive_on and m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK then
+    if stats.kick_dive_on and m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK and m.playerIndex == 0 then
         resetVelocityToPrevAction(m)
         set_mario_action(m, ACT_JUMP_KICK, 0)
     end
 
-    if stats.always_dive_first and m.action == ACT_JUMP_KICK and m.prevAction ~= ACT_DIVE then
+    if stats.always_dive_first and m.action == ACT_JUMP_KICK and m.prevAction ~= ACT_DIVE and m.playerIndex == 0 then
         set_mario_action(m, ACT_DIVE, 0)
     end
 
-    if stats.disable_double_jump and m.action == ACT_DOUBLE_JUMP then
+    if stats.disable_double_jump and m.action == ACT_DOUBLE_JUMP and m.playerIndex == 0 then
         resetVelocityToPrevAction(m)
         set_mario_action(m, ACT_JUMP, 0)
     end
@@ -144,6 +144,10 @@ local function on_set_action(m)
 
     if stats.glide_dive_on and m.action == ACT_DIVE and  m.pos.y > (m.floorHeight + 10.0) and m.prevAction ~= ACT_GROUND_POUND then
         set_mario_action(m, ACT_GLIDE_DIVE, 0);
+    end
+
+    if (m.action == ACT_JUMP) and m.playerIndex == 0  then
+       enter_sonic_jump(m,stats)
     end
 
     if m.prevAction == ACT_YOSHI_FLUTTER then

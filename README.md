@@ -42,6 +42,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | peel_out_on       | The character can peel out by pressing UP while not moving. | false | This move was made by atrael2 with help of doggednamed1   |
 | dive_kick_on       | The character can kick from dive. | false |   |
 | always_dive_first       | The character always dives independently of current speed. | false |   |
+| sonic_jump_on       | The character do sonic jump instead of single jump. | false | An jump with fixed Y velocity, smaller hitbox, no air/angle control.  |
 
 ## Less Important Stats
 
@@ -147,7 +148,8 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | peel_out_slowdown       | How much speed is lost every frame after releasing peel out (units). | 0.5 | This move was made by atrael2 with help of doggednamed1   |
 | peel_out_jump_reset_vel       | After an peel out, the character jumps are not affected by the extra speed. | true | Single/double jumps heigth are partially defined by current speed, after an peel out you have lots of speed, aka you jumps are really high.   |
 | dive_ground_pound_on       | The character can ground pound from dive. | false |   |
-
+| sonic_jump_strength       | Sonic jump strength (units). | 60 |   |
+| sonic_jump_add_forward_vel       | Added forawrd speed when sonic jump (units). | 15 |   |
 
 ## Instalation
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
@@ -187,6 +189,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Frogsuit Wildcard](https://mods.sm64coopdx.com/mods/cs-frogsuit-wildcard-models.308/)
 - [Fungus](https://mods.sm64coopdx.com/mods/cs-fungusmod.610/)
 - [Gargl](https://mods.sm64coopdx.com/mods/cs-gargl.163/)
+- [GamesCage](https://mods.sm64coopdx.com/mods/cs-the-gamescage.297/)
 - [Ganbare Goemon](https://mods.sm64coopdx.com/mods/ganbare-goemon-mystical-ninja.595/)
 - [Godzilla & Mothra](https://mods.sm64coopdx.com/mods/cs-godzilla-mothra.437/)
 - [Gnarpy](https://mods.sm64coopdx.com/mods/cs-gnarpy.530/)

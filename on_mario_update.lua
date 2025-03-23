@@ -123,14 +123,14 @@ local function is_enabled_in_yoshi_flutter(m)
     return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_JUMP or m.action ==
                ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_LONG_JUMP or m.action ==
                ACT_SIDE_FLIP or m.action == ACT_BACKFLIP or m.action == ACT_WATER_JUMP or m.action ==
-               ACT_GROUND_POUND_JUMP
+               ACT_GROUND_POUND_JUMP or m.action == ACT_SONIC_JUMP
 end
 
 --- @param m MarioState
 --- @return boolean
 local function is_enabled_in_air_jump(m)
     return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_JUMP or m.action ==
-               ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR
+               ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_SONIC_JUMP
 end
 
 --- @param m MarioState

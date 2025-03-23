@@ -237,6 +237,11 @@ local function clean_character_stats(cs)
     cs.always_dive_first = getNotNil(cs.always_dive_first, "boolean", false)
     cs.dive_kick_on = getNotNil(cs.dive_kick_on, "boolean", false)
     cs.dive_ground_pound_on = getNotNil(cs.dive_ground_pound_on, "boolean", false)
+    cs.sonic_jump_on = getNotNil(cs.sonic_jump_on, "boolean", false)
+    cs.sonic_jump_strength = cs.sonic_jump_strength ~= nil and type(cs.sonic_jump_strength) == "number" and
+    cs.sonic_jump_strength or 60
+    cs.sonic_jump_add_forward_vel = cs.sonic_jump_add_forward_vel ~= nil and type(cs.sonic_jump_add_forward_vel) == "number" and
+    cs.sonic_jump_add_forward_vel or 15
     
 end
 
@@ -435,6 +440,9 @@ end
 --- @field public disable_fall_damage boolean ( Default false )
 --- @field public always_dive_first boolean ( Default false )
 --- @field public dive_kick_on boolean ( Default false )
+--- @field public sonic_jump_on boolean ( Default false )
+--- @field public sonic_jump_strength number ( Default 60 )
+--- @field public sonic_jump_add_forward_vel number ( Default 10 )
 --- @field public dive_ground_pound_on boolean ( Default false )
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

@@ -113,7 +113,7 @@ initialCharacterStatsTable = {{
     airborne_deceleration_speed = 50,
     jump_strength = 95,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- gonna go fast ( fast character with fast long )
     name = "Modern Sonic",
@@ -124,7 +124,7 @@ initialCharacterStatsTable = {{
     airborne_deceleration_speed = 50,
     jump_strength = 95,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     name = "Shadow the Hedgehog",
     walking_speed = 160,
@@ -147,7 +147,7 @@ initialCharacterStatsTable = {{
     jump_strength = 95,
     fall_gravity = 80,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- character with fast air speed
     name = "Modern Tails",
@@ -159,7 +159,7 @@ initialCharacterStatsTable = {{
     jump_strength = 95,
     fall_gravity = 80,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Classic Knuckles",
@@ -174,7 +174,7 @@ initialCharacterStatsTable = {{
     glide_dive_forward_vel = 60,
     glide_dive_max_time = 45,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Modern Knuckles",
@@ -189,7 +189,7 @@ initialCharacterStatsTable = {{
     glide_dive_forward_vel = 60,
     glide_dive_max_time = 5,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- heavy and fast character with big kick and small jumps
     name = "Classic Eggman",
@@ -198,7 +198,7 @@ initialCharacterStatsTable = {{
     gravity = 117,
     kick_jump_strength = 180,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- heavy and fast character with big kick and small jumps
     name = "Modern Eggman",
@@ -207,7 +207,7 @@ initialCharacterStatsTable = {{
     gravity = 117,
     kick_jump_strength = 180,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     name = "Classic Super Sonic",
     walking_speed = 252,
@@ -217,7 +217,7 @@ initialCharacterStatsTable = {{
     airborne_deceleration_speed = 50,
     jump_strength = 95,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     name = "Modern Super Sonic",
     walking_speed = 252,
@@ -227,7 +227,7 @@ initialCharacterStatsTable = {{
     airborne_deceleration_speed = 50,
     jump_strength = 95,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- character with mr l jump 
     name = "Mr.L",
@@ -246,7 +246,7 @@ initialCharacterStatsTable = {{
     back_flip_strength = 107,
     hold_walking_speed = 85,
     knockback_resistance = -5,
-    disable_fall_damage = true,
+    disable_fall_damage = true
 
 }, {
     -- character with mr l jump that has great horizontal maneuverability
@@ -321,7 +321,7 @@ initialCharacterStatsTable = {{
     mr_l_jump_on = true,
     play_mr_l_anticipation_audio = false,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false,
+    peel_out_jump_reset_vel = false
 }, {
     -- character that do twirling when starting triple jump/side flip, can do dive when twirling. Also, horrible long jump
     name = "MyMelodyHD",
@@ -794,7 +794,7 @@ initialCharacterStatsTable = {{
     triple_jump_twirling_when = "start",
     disable_twirling_land = true,
     goomba_damage_multiplier = 200,
-    disable_fall_damage = true,
+    disable_fall_damage = true
 }, {
     -- character with double jump
     name = 'Donald Duck',
@@ -913,7 +913,7 @@ initialCharacterStatsTable = {{
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multuplier = 50,
     goomba_damage_multiplier = 0,
-    disable_fall_damage = true,
+    disable_fall_damage = true
 }, {
     name = 'Hulk',
     bat_damage_multiplier = 1000,
@@ -1207,13 +1207,12 @@ initialCharacterStatsTable = {{
     triple_jump_twirling_when = 'start',
     walking_speed = 110,
     moveset_description = "peel out, triple jump twirling, bad single/double jumps"
-},{
+}, {
     name = 'OMORI',
     kick_dive_on = true
-},{
+}, {
     name = 'SUNNY'
-},
-{
+}, {
     -- character that always dive first and can kick after.
     -- also can dive from ground, and can triple jump from long jump
     name = 'Mario (Lou Albano)',
@@ -1223,5 +1222,15 @@ initialCharacterStatsTable = {{
     dive_velocity = 200,
     dive_max_velocity = 125,
     long_jump_triple_jump_on = true,
-    moveset_description="kick from dives,long jump triple jump"
+    moveset_description = "kick from dives,long jump triple jump"
+}, {
+    name = 'GamesCage',
+    sonic_jump_on = true,
+    peel_out_on = true,
+    in_air_speed = 120,
+    walking_speed = 120,
+    wall_slide_on = true,
+    wall_slide_jump_strength = 60,
+    wall_slide_jump_type = ACT_JUMP,
+    moveset_description = "pell out, wall slide, speedy"
 }}
