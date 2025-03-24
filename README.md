@@ -141,7 +141,6 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | yoshi_flutter_max_y_vel       |  Maximun Y speed the character can get while yoshi fluttering (units). | 28 |  |
 | yoshi_flutter_reactivations       |  How many time the character can yoshi flutter before landing(units). | 2 |  |
 | yoshi_flutter_speed       |  Horizontal speed while yoshi fluttering. (percentage). | 100 |  |
-| bat_damage_multiplier       | 	How much damage the character takes from bats (percentage). | 100 |  |
 | goomba_damage_multiplier       | 	How much damage the character takes from goombas (percentage). | 100 |  |
 | flying_enemy_damage_multiplier       | 	How much damage the character takes from flying enemies (percentage). | 100 | Such as bullet bills, bokkends, haunted chairs, spindrifts, flyguys and snufits |
 | peel_out_max_vel       | Max velocity set when character release peel out with maximun charge (units). | 128 | This move was made by atrael2 with help of doggednamed1   |
@@ -232,6 +231,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
 - [Spamton](https://mods.sm64coopdx.com/mods/cs-spamton.6/)
 - [Talking Red](https://mods.sm64coopdx.com/mods/cs-talking-red.164/)
+- [Toothless Mini Pack](https://mods.sm64coopdx.com/mods/cs-toothless-mini-pack.540/)
 - [Saul & Friends](https://mods.sm64coopdx.com/mods/saul-friends.470/)
 - [Saul PFP](https://mods.sm64coopdx.com/mods/saul-pfp.603/)
 - [Squidward](https://mods.sm64coopdx.com/mods/squidward-cs.438/)

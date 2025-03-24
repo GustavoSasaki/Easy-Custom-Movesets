@@ -466,7 +466,7 @@ initialCharacterStatsTable = {{
     fall_gravity = 85,
     long_jump_strength = 125,
     kick_jump_strength = 75,
-    flying_enemy_damage_multuplier = 50
+    flying_enemy_damage_multiplier = 50
 }, {
     -- no burning damage
     name = 'Thomas the Tank Engine',
@@ -476,7 +476,7 @@ initialCharacterStatsTable = {{
     ground_pound_max_y_vel = 130,
     ground_pound_shake = 150,
     knockback_resistance = 60,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = -1,
     peel_out_on = true,
     peel_out_slowdown = 0.65,
@@ -525,7 +525,7 @@ initialCharacterStatsTable = {{
     ground_pound_dive_y_vel = 10,
     hold_walking_speed = 85,
     knockback_resistance = 35,
-    flying_enemy_damage_multuplier = 50
+    flying_enemy_damage_multiplier = 50
 }, {
     -- chracter with fast ground pound and immunity to burn
     name = 'Marty the Thwomp',
@@ -536,7 +536,7 @@ initialCharacterStatsTable = {{
     side_flip_strength = 90,
     back_flip_strength = 90,
     ground_pound_shake = 150,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     kill_toad = true
 }, {
     -- character that can do fart after ground pound
@@ -704,7 +704,7 @@ initialCharacterStatsTable = {{
     super_side_flip_add_foward_vel = 30,
     walking_speed = 130,
     knockback_resistance = 35,
-    flying_enemy_damage_multuplier = 50
+    flying_enemy_damage_multiplier = 50
 }, {
     -- character with ground pound jump and he can also do super side flip with lower speed
     name = 'Patrick Starfish',
@@ -743,7 +743,7 @@ initialCharacterStatsTable = {{
     jump_strength = 85,
     wall_slide_jump_strength = 60,
     knockback_resistance = -5,
-    flying_enemy_damage_multuplier = 200
+    flying_enemy_damage_multiplier = 200
 }, {
     -- character that do an dive when jumping from weall slide. Also is great swimmer
     name = 'Yae',
@@ -846,7 +846,7 @@ initialCharacterStatsTable = {{
     knockback_resistance = 35,
     kill_toad = true,
     kill_pink_bomb_on = true,
-    flying_enemy_damage_multuplier = 50
+    flying_enemy_damage_multiplier = 50
 }, {
     -- character with in air jump that can not do double jump.
     -- to do triple jump you need to long jump first.
@@ -868,7 +868,7 @@ initialCharacterStatsTable = {{
     double_jump_strength = 90,
     triple_jump_strength = 110,
     ground_pound_dive_on = true,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 50
 }, {
     name = 'Steve?',
@@ -911,7 +911,7 @@ initialCharacterStatsTable = {{
 }, {
     name = 'Spider-Man',
     bat_damage_multiplier = 1000,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0,
     disable_fall_damage = true
 }, {
@@ -919,22 +919,22 @@ initialCharacterStatsTable = {{
     bat_damage_multiplier = 1000,
     piranha_plant_damage_multiplier = -1,
     water_enemy_damage_multiplier = -1,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0
 }, {
     name = 'Deadpool',
     bat_damage_multiplier = 1000,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0
 }, {
     name = 'Venom',
     bat_damage_multiplier = 1000,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0
 }, {
     name = 'Daredevil',
     bat_damage_multiplier = 1000,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0
 }, {
     name = 'Wolverine',
@@ -950,7 +950,8 @@ initialCharacterStatsTable = {{
     ground_pound_jump_on = true,
     knockback_resistance = 50,
     water_enemy_damage_multiplier = 200,
-    piranha_plant_damage_multiplier = 50
+    piranha_plant_damage_multiplier = 50,
+    moveset_description = "glide dive, ground pound jump"
 }, {
     -- character with a glide that is faster, slower decent but with bad angle control. She can also dive from ground pound
     name = 'Draco Centauros',
@@ -964,7 +965,7 @@ initialCharacterStatsTable = {{
     ground_pound_dive_on = true,
     coin_heal_multiplier = 50,
     burning_damage_multiplier = 75,
-    flutter_on = true
+    moveset_description = "fast glide without turn, ground pound dive"
 }, {
     -- character with an glide with downard angle. He can also super side flipa nd have buffed back flip
     name = 'Spamton NEO',
@@ -976,43 +977,50 @@ initialCharacterStatsTable = {{
     glide_dive_slowdown = 0.35,
     glide_dive_min_forward_speed = 40,
     super_side_flip_on = true,
-    back_flip_strength = 115
+    back_flip_strength = 115,
+    moveset_description = "glide dive, great back flip, super side flip"
 }, {
     name = 'Swimming Spamton',
     swimming_speed = 250,
     water_damage_multiplier = 90,
     super_side_flip_on = true,
     back_flip_strength = 115,
-    ground_pound_dive_on = true
+    ground_pound_dive_on = true,
+    moveset_description = "ground pound dive, great back flip, super side flip"
 }, {
     name = 'Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
-    ground_pound_jump_on = true
+    ground_pound_jump_on = true,
+    moveset_description = "ground pound jump, great back flip, super side flip"
 }, {
     name = 'Addison Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
-    walking_speed = 130
+    walking_speed = 130,
+    moveset_description = "fast, great back flip, super side flip"
 }, {
     name = 'Big Shot Spamton',
     super_side_flip_on = true,
     mr_l_jump_on = true,
     coin_heal_multiplier = 200,
-    ground_pound_dive_on = true
+    ground_pound_dive_on = true,
+    moveset_description = "super side flip, mr.L jump"
 }, {
     name = 'Flat-Shaded Spamto',
     super_side_flip_on = true,
     back_flip_strength = 115,
     long_jump_triple_jump_on = true,
-    goomba_damage_multiplier = 1000
+    goomba_damage_multiplier = 1000,
+    moveset_description = "super side flip, long jump triple jump"
 }, {
     name = 'Ralsei Spamton',
     super_side_flip_on = true,
     back_flip_strength = 115,
     disable_double_jump = true,
     kick_dive_on = true,
-    kick_jump_strength = 150
+    kick_jump_strength = 150,
+    moveset_description = "super side flip,  kick dive, disable double jump"
 }, {
     name = 'Spamario',
     super_side_flip_on = true,
@@ -1020,7 +1028,8 @@ initialCharacterStatsTable = {{
     ground_pound_dive_on = true,
     single_jump_strength = 90,
     double_jump_strength = 95,
-    triple_jump_strength = 115
+    triple_jump_strength = 115,
+    moveset_description = "super side flip, ground pound dive"
 }, {
     name = 'Dress Spamton',
     super_side_flip_on = true,
@@ -1046,7 +1055,7 @@ initialCharacterStatsTable = {{
     knockback_resistance = 60,
     kill_toad = true,
     kill_pink_bomb_on = true,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0,
     disable_fall_damage = true,
     moveset_description = "glide dive upward"
@@ -1327,7 +1336,7 @@ initialCharacterStatsTable = {{
     ground_pound_dive_y_vel = 10,
     hold_walking_speed = 85,
     knockback_resistance = 35,
-    flying_enemy_damage_multuplier = 50,
+    flying_enemy_damage_multiplier = 50,
     moveset_description = 'ground pound jump, ground pound dive'
 }, {
     name = 'Tac',
@@ -1349,4 +1358,66 @@ initialCharacterStatsTable = {{
     long_jump_triple_jump_on = true,
     long_jump_triple_jump_strength = 90,
     moveset_description = "wall slide, great long jumps"
+}, {
+    name = 'Toothless',
+    glide_dive_on = true,
+    glide_dive_slowdown = 0,
+    glide_dive_max_time = 35,
+    glide_dive_angle_speed = 10,
+    glide_dive_y_vel = -4,
+    glide_dive_forward_vel = 74,
+    water_damage_multiplier = 200,
+    ground_pound_dive_on = true,
+    coin_heal_multiplier = 50,
+    burning_damage_multiplier = 75,
+    moveset_description = "fast glide dive without turn, ground pound dive"
+}, {
+    name = 'Dart',
+    glide_dive_on = true,
+    mr_l_jump_on = true,
+    play_mr_l_anticipation_audio = false,
+    knockback_resistance = -50,
+    moveset_description = "glide dive, mr L jump "
+}, {
+    name = 'Ruffrunner',
+    glide_dive_on = true,
+    glide_dive_disable_spin = true,
+    glide_dive_y_vel = -7,
+    glide_dive_forward_vel = 60,
+    glide_dive_max_time = 45,
+    back_flip_twirling_on = true,
+    back_flip_strength = 110,
+    twirling_dive_on = true,
+    twirling_gravity = 115,
+    moveset_description = "glide dive, backflip twirl, twirl dive"
+}, {
+    name = 'Pouncer',
+    glide_dive_on = true,
+    glide_dive_disable_spin = true,
+    glide_dive_min_forward_speed = 32,
+    glide_dive_angle_speed = 45,
+    glide_dive_slowdown = 0.75,
+    glide_dive_y_vel = 8,
+    single_jump_strength = 90,
+    kick_dive_on = true,
+    moveset_description = "upward glide dive, kick dive"
+},
+{
+    -- character that can glide dive and peel out
+    name = 'Chaos 0',
+    water_damage_multiplier  = 0,
+    water_enemy_damage_multiplier = -1,
+    swimming_speed = 250,
+    ground_pound_dive_on = true,
+    glide_dive_on = true,
+    glide_dive_y_vel = -7,
+    glide_dive_forward_vel = 60,
+    glide_dive_max_time = 45,
+    glide_dive_disable_spin = true,
+    peel_out_on = true,
+    peel_out_jump_reset_vel = false,
+    kill_toad = true,
+    kill_pink_bomb_on = true,
+    moveset_description="glide dive, peel out, fast swim"
+
 }}

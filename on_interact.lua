@@ -174,7 +174,7 @@ local function on_interaction(m, interactee, interactType, interactValue)
 
     attacking_npc(m,stats,interactee)
 
-    apply_enemy_damage_multipler(m, stats.flying_enemy_damage_multuplier, interactee, {id_bhvBulletBill,id_bhvBookendSpawn,id_bhvHauntedChair,id_bhvSpindrift,id_bhvFlyGuy,id_bhvSnufit,id_bhvSnufitBalls})
+    apply_enemy_damage_multipler(m, stats.flying_enemy_damage_multiplier, interactee, {id_bhvBulletBill,id_bhvBookendSpawn,id_bhvHauntedChair,id_bhvSpindrift,id_bhvFlyGuy,id_bhvSnufit,id_bhvSnufitBalls})
     apply_enemy_damage_multipler(m, stats.goomba_damage_multiplier, interactee, {id_bhvGoomba})
     apply_enemy_damage_multipler(m, stats.bat_damage_multiplier, interactee, {id_bhvSwoop})
     apply_enemy_damage_multipler(m, stats.water_enemy_damage_multiplier, interactee,
