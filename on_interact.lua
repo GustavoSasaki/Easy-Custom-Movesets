@@ -12,18 +12,19 @@ end
 --- @param enemy Object
 --- @param multiplier number
 local function hurtByEnemy(m, enemy, multiplier)
-    if multiplier >= 1000 then
-        set_mario_action(m, ACT_DISAPPEARED, 0)
-        spawn_sync_object(id_bhvSwoop, E_MODEL_EXPLOSION, m.pos.x, m.pos.y, m.pos.z, nil)
-        obj_spawn_yellow_coins(m.marioObj, 1)
+    local damageAmplified = (multiplier - 100) / 100 * enemy.oDamageOrCoinValue
+    healOrHurtMario(m, -4 * damageAmplified)
+end
 
-        stop_background_music(get_current_background_music())
-        gPlayerSyncTable[m.playerIndex].shouldExplode = 65
-        m.hurtCounter = 8 * 4
-    else
-        local damageAmplified = (multiplier - 100)/100 * enemy.oDamageOrCoinValue
-        healOrHurtMario(m, -4 * damageAmplified)
-    end
+--- @param m MarioState
+local function setMarioToExplode(m)
+    set_mario_action(m, ACT_DISAPPEARED, 0)
+    spawn_sync_object(id_bhvSwoop, E_MODEL_EXPLOSION, m.pos.x, m.pos.y, m.pos.z, nil)
+    obj_spawn_yellow_coins(m.marioObj, 1)
+
+    stop_background_music(get_current_background_music())
+    gPlayerSyncTable[m.playerIndex].shouldExplode = 65
+    m.hurtCounter = 8 * 4
 end
 
 --- @param m MarioState
@@ -35,7 +36,7 @@ local function apply_interact_coin(m, stats, coin, interactType)
         return
     end
 
-    local healAdded = coin.oDamageOrCoinValue * (stats.coin_heal_multiplier -100)/100 * 4
+    local healAdded = coin.oDamageOrCoinValue * (stats.coin_heal_multiplier - 100) / 100 * 4
     healOrHurtMario(m, healAdded)
 end
 
@@ -73,13 +74,44 @@ end
 --- @param stat number
 --- @param interactee Object
 --- @param bhvIds BehaviorId[]
-local function apply_enemy_damage_multipler(m, stat, interactee, bhvIds)
+--- @param multiplier number|nil
+--- @return number|nil
+local function apply_enemy_damage_multipler(m, stat, interactee, bhvIds, multiplier)
+    if multiplier == nil then
+        return nil
+    end
     if obj_has_behaviors(interactee, bhvIds) and (interactee.oInteractStatus & INT_STATUS_ATTACKED_MARIO) ~= 0 then
-
-        hurtByEnemy(m, interactee, stat)
-        if stat <= -1 then
+        if stat >= 1000 then
+            setMarioToExplode(m)
+            return nil
+        elseif stat <= -1 then
             kill_enemy(interactee)
+            return stat / 100 * multiplier
+        else
+            return stat / 100 * multiplier
         end
+    end
+    return multiplier
+end
+
+--- @param m MarioState
+--- @param stats CharacterStats
+--- @param interactee Object
+local function apply_all_enemies_damage_multipler(m, stats, interactee)
+    --- @type number?
+    local multiplier = 100
+    multiplier = apply_enemy_damage_multipler(m, stats.flying_enemy_damage_multiplier, interactee,
+        {id_bhvBulletBill, id_bhvFlyingBookend,id_bhvHauntedBookshelf, id_bhvHauntedChair, id_bhvSpindrift, id_bhvFlyGuy, id_bhvSnufit,
+         id_bhvSnufitBalls}, multiplier)
+    multiplier = apply_enemy_damage_multipler(m, stats.goomba_damage_multiplier, interactee, {id_bhvGoomba},multiplier)
+    multiplier = apply_enemy_damage_multipler(m, stats.bat_damage_multiplier, interactee, {id_bhvSwoop}, multiplier)
+    multiplier = apply_enemy_damage_multipler(m, stats.water_enemy_damage_multiplier, interactee,
+        {id_bhvBub, id_bhvClamShell, id_bhvSushiShark, id_bhvUnagi}, multiplier)
+    multiplier = apply_enemy_damage_multipler(m, stats.piranha_plant_damage_multiplier, interactee,
+        {id_bhvPiranhaPlant, id_bhvFirePiranhaPlant}, multiplier)
+
+    if multiplier ~= nil then
+        hurtByEnemy(m, interactee, multiplier)
     end
 end
 
@@ -93,13 +125,12 @@ local function interact_pole(m, interactType)
     end
 end
 
-
 --- @param m MarioState
 --- @param stats CharacterStats
 --- @param interactee Object
-local function kill_pink_bomb_on(m,stats,interactee) 
-    if stats.kill_pink_bomb_on and obj_has_behaviors(interactee, {id_bhvBobombBuddyOpensCannon,id_bhvBobombBuddy}) then
-        if  m.action == ACT_SLIDE_KICK or m.action == ACT_DIVE_SLIDE  or m.action == ACT_DIVE  then
+local function kill_pink_bomb_on(m, stats, interactee)
+    if stats.kill_pink_bomb_on and obj_has_behaviors(interactee, {id_bhvBobombBuddyOpensCannon, id_bhvBobombBuddy}) then
+        if m.action == ACT_SLIDE_KICK or m.action == ACT_DIVE_SLIDE or m.action == ACT_DIVE then
             interactee.oToadDying = 1
             interactee.oForwardVel = 20;
             interactee.oVelY = 40;
@@ -113,7 +144,8 @@ local function kill_pink_bomb_on(m,stats,interactee)
             interactee.oInteractStatus = 0
         else
             obj_mark_for_deletion(interactee)
-            spawn_sync_object(id_bhvExplosion, E_MODEL_EXPLOSION, interactee.oPosX, interactee.oPosY, interactee.oPosZ, nil)
+            spawn_sync_object(id_bhvExplosion, E_MODEL_EXPLOSION, interactee.oPosX, interactee.oPosY, interactee.oPosZ,
+                nil)
         end
     end
 end
@@ -121,9 +153,9 @@ end
 --- @param m MarioState
 --- @param stats CharacterStats
 --- @param interactee Object
-local function kill_toad(m,stats,interactee) 
+local function kill_toad(m, stats, interactee)
     if stats.kill_toad == false or (obj_has_behavior_id(interactee, id_bhvToadMessage)) == 0 then
-       return
+        return
     end
 
     interactee.oToadDying = 1
@@ -136,7 +168,8 @@ local function kill_toad(m,stats,interactee)
     end
     interactee.oInteractStatus = 0
 
-    if (m.action == ACT_GROUND_POUND or m.action == ACT_TWIRLING) or m.action == ACT_SLIDE_KICK or (m.action & ACT_FLAG_RIDING_SHELL) ~= 0 or m.action == ACT_DIVE_SLIDE  or m.action == ACT_DIVE then
+    if (m.action == ACT_GROUND_POUND or m.action == ACT_TWIRLING) or m.action == ACT_SLIDE_KICK or
+        (m.action & ACT_FLAG_RIDING_SHELL) ~= 0 or m.action == ACT_DIVE_SLIDE or m.action == ACT_DIVE then
         interactee.oForwardVel = 20;
         interactee.oVelY = 50;
     elseif (m.action == ACT_PUNCHING or m.action == ACT_MOVE_PUNCHING or m.action == ACT_JUMP_KICK) then
@@ -145,19 +178,17 @@ local function kill_toad(m,stats,interactee)
     end
 end
 
-
 --- @param m MarioState
 --- @param stats CharacterStats
 --- @param interactee Object
-local function attacking_npc(m,stats,interactee) 
+local function attacking_npc(m, stats, interactee)
     if (m.action & ACT_FLAG_ATTACKING) == 0 then
         return
     end
 
-    kill_pink_bomb_on(m,stats,interactee)
-    kill_toad(m,stats,interactee)
+    kill_pink_bomb_on(m, stats, interactee)
+    kill_toad(m, stats, interactee)
 end
-
 
 --- @param m MarioState
 --- @param interactee Object
@@ -173,15 +204,9 @@ local function on_interaction(m, interactee, interactType, interactValue)
         return
     end
 
-    attacking_npc(m,stats,interactee)
+    attacking_npc(m, stats, interactee)
 
-    apply_enemy_damage_multipler(m, stats.flying_enemy_damage_multiplier, interactee, {id_bhvBulletBill,id_bhvBookendSpawn,id_bhvHauntedChair,id_bhvSpindrift,id_bhvFlyGuy,id_bhvSnufit,id_bhvSnufitBalls})
-    apply_enemy_damage_multipler(m, stats.goomba_damage_multiplier, interactee, {id_bhvGoomba})
-    apply_enemy_damage_multipler(m, stats.bat_damage_multiplier, interactee, {id_bhvSwoop})
-    apply_enemy_damage_multipler(m, stats.water_enemy_damage_multiplier, interactee,
-        {id_bhvBub, id_bhvClamShell, id_bhvSushiShark, id_bhvUnagi})
-    apply_enemy_damage_multipler(m, stats.piranha_plant_damage_multiplier, interactee,
-        {id_bhvPiranhaPlant, id_bhvFirePiranhaPlant})
+    apply_all_enemies_damage_multipler(m,stats,interactee)
     apply_interact_coin(m, stats, interactee, interactType)
 
     interact_pole(m, interactType)
