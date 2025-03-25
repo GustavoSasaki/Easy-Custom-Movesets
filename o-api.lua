@@ -253,6 +253,7 @@ local function clean_character_stats(cs)
     cs.sonic_jump_strength or 60
     cs.sonic_jump_add_forward_vel = cs.sonic_jump_add_forward_vel ~= nil and type(cs.sonic_jump_add_forward_vel) == "number" and
     cs.sonic_jump_add_forward_vel or 15
+    cs.wall_slide_same_wall = getNotNil(cs.wall_slide_same_wall, "boolean", false)
     
 end
 
@@ -456,6 +457,7 @@ end
 --- @field public sonic_jump_strength number ( Default 60 )
 --- @field public sonic_jump_add_forward_vel number ( Default 10 )
 --- @field public dive_ground_pound_on boolean ( Default false )
+--- @field public wall_slide_same_wall boolean ( Default false)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)

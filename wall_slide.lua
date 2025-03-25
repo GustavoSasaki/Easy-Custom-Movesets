@@ -1,5 +1,12 @@
 ACT_WALL_SLIDE = (0x0BF | ACT_FLAG_AIR | ACT_FLAG_MOVING | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 
+gWallSlideState = {}
+for i = 0, (MAX_PLAYERS - 1) do
+    gWallSlideState[i] = {}
+    local e = gWallSlideState[i]
+    e.wall = nil
+end
+
 local function act_wall_slide(m)
     local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then

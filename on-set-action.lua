@@ -41,15 +41,16 @@ local function apply_jump_speed(m, stats)
     elseif m.action == ACT_WAFT_FART then
         gPlayerSyncTable[m.playerIndex].fart = gPlayerSyncTable[m.playerIndex].fart - 1
         m.vel.y = stats.waft_fart_strength
-        set_mario_particle_flags(m, PARTICLE_MIST_CIRCLE, false);
+        set_mario_particle_flags(m, PARTICLE_MIST_CIRCLE, 0);
     elseif m.action == ACT_TWIRL_LAND and
         (stats.triple_jump_twirling_on or stats.back_flip_twirling_on or stats.side_flip_twirling_on) and
         (m.controller.stickX ~= 0 or m.controller.stickY ~= 0) then
         set_mario_action(m, ACT_IDLE, 0);
     elseif m.action == ACT_LONG_JUMP_LAND then
         gPlayerSyncTable[m.playerIndex].longJumpLandSpeed = m.forwardVel
-    elseif m.action == ACT_SOFT_BONK and stats.wall_slide_on then
+    elseif m.action == ACT_SOFT_BONK and stats.wall_slide_on and (stats.wall_slide_same_wall or gWallSlideState[m.playerIndex].wall ~= m.wall) then
         m.faceAngle.y = m.faceAngle.y + 0x8000
+        gWallSlideState[m.playerIndex].wall = m.wall
         set_mario_action(m, ACT_WALL_SLIDE, 0)
     elseif m.action == ACT_IN_AIR_JUMP then
         set_anim_to_frame(m, 0)
@@ -70,6 +71,7 @@ local function apply_in_air_jump(m, stats)
         m.action == ACT_LONG_JUMP_LAND or m.action == ACT_BACKFLIP_LAND or m.action == ACT_WALKING then
 
         gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
+        gWallSlideState[m.playerIndex].wall = nil
         gPlayerSyncTable[m.playerIndex].yoshiFlutterReactivations = stats.yoshi_flutter_reactivations
     end
 end
@@ -80,7 +82,8 @@ local function isKnockBack(action)
     return action == ACT_HARD_BACKWARD_GROUND_KB or action == ACT_HARD_FORWARD_GROUND_KB or action ==
                ACT_BACKWARD_GROUND_KB or action == ACT_FORWARD_GROUND_KB or action == ACT_SOFT_BACKWARD_GROUND_KB or
                action == ACT_SOFT_FORWARD_GROUND_KB or action == ACT_HARD_BACKWARD_AIR_KB or action ==
-               ACT_HARD_FORWARD_AIR_KB or action == ACT_BACKWARD_AIR_KB or action == ACT_FORWARD_WATER_KB or action == ACT_BACKWARD_WATER_KB
+               ACT_HARD_FORWARD_AIR_KB or action == ACT_BACKWARD_AIR_KB or action == ACT_FORWARD_WATER_KB or action ==
+               ACT_BACKWARD_WATER_KB
 end
 
 --- @param m MarioState
@@ -142,12 +145,13 @@ local function on_set_action(m)
     apply_in_air_jump(m, stats)
     apply_knock_back_resistance(m, stats)
 
-    if stats.glide_dive_on and m.action == ACT_DIVE and  m.pos.y > (m.floorHeight + 10.0) and m.prevAction ~= ACT_GROUND_POUND then
+    if stats.glide_dive_on and m.action == ACT_DIVE and m.pos.y > (m.floorHeight + 10.0) and m.prevAction ~=
+        ACT_GROUND_POUND then
         set_mario_action(m, ACT_GLIDE_DIVE, 0);
     end
 
-    if (m.action == ACT_JUMP) and m.playerIndex == 0  then
-       enter_sonic_jump(m,stats)
+    if (m.action == ACT_JUMP) and m.playerIndex == 0 then
+        enter_sonic_jump(m, stats)
     end
 
     if m.prevAction == ACT_YOSHI_FLUTTER then
