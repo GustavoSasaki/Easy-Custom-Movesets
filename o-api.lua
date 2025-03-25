@@ -10,6 +10,16 @@ local function getNotNil(value, valueType, defaultValue)
     return defaultValue
 end
 
+--- @param value number
+--- @param defaultValue number
+--- @return number
+local function getNumberNotNil(value,defaultValue)
+    if value ~= nil and type(value) == "number" then
+        return value
+    end
+    return defaultValue
+end
+
 --- @param cs CharacterStats
 local function clean_character_stats(cs)
     cs['name'] = getNotNil(cs['name'], "string", "Untitled")
@@ -177,8 +187,8 @@ local function clean_character_stats(cs)
 
     cs.knockback_resistance = getNotNil(cs.knockback_resistance, "number", 0) + 1
     cs.disable_coin_heal = getNotNil(cs.disable_coin_heal, "boolean", false)
-    cs.coin_heal_multiplier = cs.disable_coin_heal == true and 0 or getNotNil(cs.coin_heal_multiplier, "number", 0)
-    cs.bat_damage_multiplier = getNotNil(cs.bat_damage_multiplier, "number", 0)
+    cs.coin_heal_multiplier = getNumberNotNil(cs.coin_heal_multiplier, 100)
+    cs.bat_damage_multiplier = getNumberNotNil(cs.bat_damage_multiplier, 100)
     cs.one_hit = getNotNil(cs.one_hit, "boolean", false)
     cs.disable_twirling_land = cs.disable_twirling_land ~= nil and type(cs.disable_twirling_land) == "boolean" and
                                    cs.disable_twirling_land or
@@ -200,8 +210,8 @@ local function clean_character_stats(cs)
     cs.glide_dive_render_with_wing_cap = getNotNil(cs.glide_dive_render_with_wing_cap, "boolean", false)
     cs.glide_dive_disable_spin = getNotNil(cs.glide_dive_disable_spin, "boolean", false)
 
-    cs.water_enemy_damage_multiplier = getNotNil(cs.water_enemy_damage_multiplier, "number", 0)
-    cs.piranha_plant_damage_multiplier = getNotNil(cs.piranha_plant_damage_multiplier, "number", 0)
+    cs.water_enemy_damage_multiplier = getNumberNotNil(cs.water_enemy_damage_multiplier,100)
+    cs.piranha_plant_damage_multiplier = getNumberNotNil(cs.piranha_plant_damage_multiplier, 100)
 
     cs.yoshi_flutter_on = getNotNil(cs.yoshi_flutter_on, "boolean", false)
     cs.yoshi_flutter_animation = cs.yoshi_flutter_animation ~= nil and type(cs.yoshi_flutter_animation) == "number" and
@@ -224,8 +234,8 @@ local function clean_character_stats(cs)
     cs.kill_pink_bomb_on = getNotNil(cs.kill_pink_bomb_on, "boolean", false)
 
     cs.moveset_description = getNotNil(cs.moveset_description, "string", nil)
-    cs.flying_enemy_damage_multiplier = getNotNil(cs.flying_enemy_damage_multiplier, "number", 0)
-    cs.goomba_damage_multiplier = getNotNil(cs.goomba_damage_multiplier, "number", 0)
+    cs.flying_enemy_damage_multiplier = getNumberNotNil(cs.flying_enemy_damage_multiplier, 100)
+    cs.goomba_damage_multiplier = getNumberNotNil(cs.goomba_damage_multiplier, 100)
 
     cs.peel_out_on = getNotNil(cs.peel_out_on, "boolean", false)
     cs.peel_out_max_vel = cs.peel_out_max_vel ~= nil and type(cs.peel_out_max_vel) == "number" and
@@ -404,9 +414,9 @@ end
 --- @field public disable_double_jump boolean (Default false)
 --- @field public disable_twirling_land boolean (Default triple_jump_twirling_on or back_flip_twirling_on or side_flip_twirling_on)
 --- @field public knockback_resistance number (Default 100)
---- @field public coin_heal_multiplier number (Default 0)
+--- @field public coin_heal_multiplier number (Default 100)
 --- @field public disable_coin_heal boolean (Default false)
---- @field public bat_damage_multiplier number (Default 0)
+--- @field public bat_damage_multiplier number (Default 100)
 --- @field public one_hit boolean (Default false)
 --- @field public glide_dive_on boolean (Default false)
 --- @field public glide_dive_forward_vel number (Default 50)
@@ -417,8 +427,8 @@ end
 --- @field public glide_dive_y_vel number (Default -5)
 --- @field public glide_dive_render_with_wing_cap boolean (Default false)
 --- @field public glide_dive_disable_spin boolean (Default false)
---- @field public water_enemy_damage_multiplier number (Default 0)
---- @field public piranha_plant_damage_multiplier number (Default 0)
+--- @field public water_enemy_damage_multiplier number (Default 100)
+--- @field public piranha_plant_damage_multiplier number (Default 100)
 --- @field public yoshi_flutter_on boolean (Default false)
 --- @field public yoshi_flutter_animation CharacterAnimID (Default CHAR_ANIM_RUNNING)
 --- @field public yoshi_flutter_angle_speed number (Default 90)
@@ -431,8 +441,8 @@ end
 --- @field public kill_pink_bomb_on boolean (Default false)
 --- @field public yoshi_flutter_speed number (Default 1)
 --- @field public moveset_description string|nil (Default nil)
---- @field public flying_enemy_damage_multiplier number (Default 0)
---- @field public goomba_damage_multiplier number (Default 0)
+--- @field public flying_enemy_damage_multiplier number (Default 100)
+--- @field public goomba_damage_multiplier number (Default 100)
 --- @field public peel_out_on boolean (Default false)
 --- @field public peel_out_max_vel number (Default 128)
 --- @field public peel_out_slowdown number (Default 0.5)
@@ -525,4 +535,5 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].inAirJump = 0
     gPlayerSyncTable[0].yoshiFlutterCooldown = 0
     gPlayerSyncTable[0].yoshiFlutterReactivations = 1
+    gPlayerSyncTable[0].sonicAnimFrame = 0
 end)

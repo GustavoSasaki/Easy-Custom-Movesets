@@ -12,7 +12,7 @@ end
 --- @param enemy Object
 --- @param multiplier number
 local function hurtByEnemy(m, enemy, multiplier)
-    if multiplier >= 9 then
+    if multiplier >= 1000 then
         set_mario_action(m, ACT_DISAPPEARED, 0)
         spawn_sync_object(id_bhvSwoop, E_MODEL_EXPLOSION, m.pos.x, m.pos.y, m.pos.z, nil)
         obj_spawn_yellow_coins(m.marioObj, 1)
@@ -21,7 +21,8 @@ local function hurtByEnemy(m, enemy, multiplier)
         gPlayerSyncTable[m.playerIndex].shouldExplode = 65
         m.hurtCounter = 8 * 4
     else
-        healOrHurtMario(m, -4 * multiplier * enemy.oDamageOrCoinValue)
+        local damageAmplified = (multiplier - 100)/100 * enemy.oDamageOrCoinValue
+        healOrHurtMario(m, -4 * damageAmplified)
     end
 end
 
@@ -34,7 +35,7 @@ local function apply_interact_coin(m, stats, coin, interactType)
         return
     end
 
-    local healAdded = coin.oDamageOrCoinValue * stats.coin_heal_multiplier * 3
+    local healAdded = coin.oDamageOrCoinValue * (stats.coin_heal_multiplier -100)/100 * 4
     healOrHurtMario(m, healAdded)
 end
 
