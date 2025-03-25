@@ -117,7 +117,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | disable_double_jump       | Disable double jump. | false | Some moves (such as in air jumps) makes get the right time for double jump be really awkard. Removing double jump is an way to resolve this. |
 | disable_twirling_land       | Disable landing state of twirling | false | When landing from twirling the character executes landing animatio. In this state, it doenst accepts inputs. |
 | disable_coin_heal       | Disable heal from coins. | false |  |
-| coin_heal_multiplier       | Increase heal from coins (percentage). | 0 |  The value can be negative, making getting coin deal damage. |
+| coin_heal_multiplier       | Increase heal from coins (percentage). | 100 |  The value can be negative, making getting coin deal damage. |
 | one_hit       | The character die after being hit once. | false |   |
 | bat_damage_multiplier       | Increase damage from bats (percentage). | 100 |   |
 | piranha_plant_damage_multiplier       | Increase damage from piranha plants (percentage). | 100 |   |
@@ -141,6 +141,7 @@ You can find examples in the [initial-characterstats-table.lua](https://github.c
 | yoshi_flutter_max_y_vel       |  Maximun Y speed the character can get while yoshi fluttering (units). | 28 |  |
 | yoshi_flutter_reactivations       |  How many time the character can yoshi flutter before landing(units). | 2 |  |
 | yoshi_flutter_speed       |  Horizontal speed while yoshi fluttering. (percentage). | 100 |  |
+| yoshi_flutter_max_time       |  The maximum duration of Yoshi flutter. | 30 |  |
 | goomba_damage_multiplier       | 	How much damage the character takes from goombas (percentage). | 100 |  |
 | flying_enemy_damage_multiplier       | 	How much damage the character takes from flying enemies (percentage). | 100 | Such as bullet bills, bokkends, haunted chairs, spindrifts, flyguys and snufits |
 | peel_out_max_vel       | Max velocity set when character release peel out with maximun charge (units). | 128 | This move was made by atrael2 with help of doggednamed1   |

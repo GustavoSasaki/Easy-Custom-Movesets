@@ -164,6 +164,10 @@ local function act_yoshi_flutter(m)
     m.marioObj.header.gfx.angle.x = get_new_head_angle(m)
     action_step(m, stats)
 
+    if m.actionTimer > stats.yoshi_flutter_max_time then
+        set_mario_action(m,ACT_FREEFALL,0)
+    end
+
     set_vel_y(m, stats)
     if m.forwardVel > 30 then
         m.forwardVel = m.forwardVel - 1

@@ -230,6 +230,7 @@ local function clean_character_stats(cs)
     cs.yoshi_flutter_reactivations = cs.yoshi_flutter_reactivations ~= nil and type(cs.yoshi_flutter_reactivations) ==
                                          "number" and cs.yoshi_flutter_reactivations or 2
     cs.yoshi_flutter_speed = getNotNil(cs.yoshi_flutter_speed, "number", 0) + 1
+    cs.yoshi_flutter_max_time = getNumberNotNil(cs.yoshi_flutter_max_time,30)
     cs.kill_toad = getNotNil(cs.kill_toad, "boolean", false)
     cs.kill_pink_bomb_on = getNotNil(cs.kill_pink_bomb_on, "boolean", false)
 
@@ -440,6 +441,7 @@ end
 --- @field public kill_toad boolean (Default false)
 --- @field public kill_pink_bomb_on boolean (Default false)
 --- @field public yoshi_flutter_speed number (Default 1)
+--- @field public yoshi_flutter_max_time number (Default 30)
 --- @field public moveset_description string|nil (Default nil)
 --- @field public flying_enemy_damage_multiplier number (Default 100)
 --- @field public goomba_damage_multiplier number (Default 100)
@@ -535,5 +537,4 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].inAirJump = 0
     gPlayerSyncTable[0].yoshiFlutterCooldown = 0
     gPlayerSyncTable[0].yoshiFlutterReactivations = 1
-    gPlayerSyncTable[0].sonicAnimFrame = 0
 end)
