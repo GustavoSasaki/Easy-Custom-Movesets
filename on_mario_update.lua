@@ -342,6 +342,10 @@ local function mario_update(m)
         end
     end
 
+    if stats.drop_dash_on and (m.input & INPUT_B_PRESSED) ~= 0 and isJumping(m) then
+        enter_drop_dash(m,stats)
+    end
+
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)

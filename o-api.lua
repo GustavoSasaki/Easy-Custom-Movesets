@@ -260,6 +260,9 @@ local function clean_character_stats(cs)
     cs.sonic_dash_slowdown_water = getNumberNotNil(cs.sonic_dash_slowdown, cs.sonic_dash_slowdown)
     cs.sonic_dash_slowdown_lava = getNumberNotNil(cs.sonic_dash_slowdown, -1.75)
     cs.sonic_dash_angle_speed = getNotNil(cs.peel_out_on, "number", 75)
+    cs.drop_dash_on = getNotNil(cs.drop_dash_on, "boolean", false)
+    cs.drop_dash_charge_vel = getNumberNotNil(cs.drop_dash_charge_vel, 90)
+    cs.drop_dash_gravity = getNumberNotNil(cs.drop_dash_gravity, 90)
     
 end
 
@@ -470,6 +473,9 @@ end
 --- @field public sonic_dash_slowdown_water number ( Default sonic_dash_slowdown)
 --- @field public sonic_dash_slowdown_lava number ( Default 1.75)
 --- @field public sonic_dash_angle_speed number ( Default 75)
+--- @field public drop_dash_on boolean ( Default false )
+--- @field public drop_dash_charge_vel number ( Default 90 )
+--- @field public drop_dash_gravity number ( Default 90 )
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
