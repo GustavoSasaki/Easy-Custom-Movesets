@@ -24,12 +24,12 @@ local function isGroundedSlowing(m)
 end
 --- @param m MarioState
 local function isGrounded(m)
-    return m.action == ACT_WALKING or m.action == ACT_HOLD_WALKING or m.action == ACT_HEAVY_HOLD_WALKING or m.action ==
+    return m.action == ACT_WALKING or m.action == ACT_HOLD_WALKING or m.action ==   ACT_HOLD_HEAVY_WALKING or m.action ==
                ACT_CRAWLING or m.action == ACT_FINISH_TURNING_AROUND or isGroundedSlowing(m)
 end
 
 --- @param m MarioState
-local function isJumping(m)
+function isJumping(m)
     return
         m.action == ACT_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_HOLD_JUMP or m.action == ACT_FREEFALL or
             m.action == ACT_SIDE_FLIP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_TWIRLING or m.action ==

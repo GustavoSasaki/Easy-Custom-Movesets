@@ -254,6 +254,12 @@ local function clean_character_stats(cs)
     cs.sonic_jump_add_forward_vel = cs.sonic_jump_add_forward_vel ~= nil and type(cs.sonic_jump_add_forward_vel) == "number" and
     cs.sonic_jump_add_forward_vel or 15
     cs.wall_slide_same_wall = getNotNil(cs.wall_slide_same_wall, "boolean", false)
+    cs.sonic_charge_dash_on = getNotNil(cs.sonic_charge_dash_on, "boolean", false)
+    cs.sonic_charge_dash_max_vel = getNumberNotNil(cs.sonic_charge_dash_max_vel, 130)
+    cs.sonic_dash_slowdown = getNumberNotNil(cs.sonic_dash_slowdown, 0.5)
+    cs.sonic_dash_slowdown_water = getNumberNotNil(cs.sonic_dash_slowdown, cs.sonic_dash_slowdown)
+    cs.sonic_dash_slowdown_lava = getNumberNotNil(cs.sonic_dash_slowdown, -1.75)
+    cs.sonic_dash_angle_speed = getNotNil(cs.peel_out_on, "number", 75)
     
 end
 
@@ -458,6 +464,12 @@ end
 --- @field public sonic_jump_add_forward_vel number ( Default 10 )
 --- @field public dive_ground_pound_on boolean ( Default false )
 --- @field public wall_slide_same_wall boolean ( Default false)
+--- @field public sonic_charge_dash_on boolean ( Default false)
+--- @field public sonic_charge_dash_max_vel number ( Default 130)
+--- @field public sonic_dash_slowdown number ( Default 0.5)
+--- @field public sonic_dash_slowdown_water number ( Default sonic_dash_slowdown)
+--- @field public sonic_dash_slowdown_lava number ( Default 1.75)
+--- @field public sonic_dash_angle_speed number ( Default 75)
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats)
@@ -539,4 +551,5 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     gPlayerSyncTable[0].inAirJump = 0
     gPlayerSyncTable[0].yoshiFlutterCooldown = 0
     gPlayerSyncTable[0].yoshiFlutterReactivations = 1
+    gPlayerSyncTable[0].sonicAnimFrame = 0
 end)

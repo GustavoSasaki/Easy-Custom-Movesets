@@ -12,7 +12,7 @@ for i = 0, (MAX_PLAYERS - 1) do
     e.animSpeed = 1
 end
 
-local function convert_s16(num)
+function convert_s16(num)
     local min = -32768
     local max = 32767
     while (num < min) do
