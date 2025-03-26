@@ -248,3 +248,4 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Yosi Cube](https://mods.sm64coopdx.com/mods/cs-yosi-cube.152/)
 - [Yui Hirasawa](https://mods.sm64coopdx.com/mods/cs-yui-hirasawa-k-on.258/)
 - [Yumpi](https://mods.sm64coopdx.com/mods/cs-yumpi.199/)
+- [2017x](https://mods.sm64coopdx.com/mods/cs-2017x.653/)

@@ -1401,11 +1401,10 @@ initialCharacterStatsTable = {{
     single_jump_strength = 90,
     kick_dive_on = true,
     moveset_description = "upward glide dive, kick dive"
-},
-{
+}, {
     -- character that can glide dive and peel out
     name = 'Chaos 0',
-    water_damage_multiplier  = 0,
+    water_damage_multiplier = 0,
     water_enemy_damage_multiplier = -1,
     swimming_speed = 250,
     ground_pound_dive_on = true,
@@ -1418,6 +1417,16 @@ initialCharacterStatsTable = {{
     peel_out_jump_reset_vel = false,
     kill_toad = true,
     kill_pink_bomb_on = true,
-    moveset_description="glide dive, peel out, fast swim"
+    sonic_charge_dash_on = true,
+    moveset_description = "glide dive, peel out, fast swim"
 
+}, {
+    -- character with charge dash and drop dash
+    name = '\"SONIC\"',
+    drop_dash_on = true,
+    sonic_charge_dash_on = true,
+    kill_toad = true,
+    kill_pink_bomb_on = true,
+    walking_speed = 135,
+    moveset_description = "fast, drop dash, charge dash"
 }}
