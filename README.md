@@ -243,6 +243,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [VL-Tone and CJes Luigi](https://mods.sm64coopdx.com/mods/cs-vl-tone-and-cjes-luigi.12/)
 - [Wapeach](https://mods.sm64coopdx.com/mods/cs-wapeach.17/)
 - [Watto](https://mods.sm64coopdx.com/mods/cs-watto.405/)
+- [Weirdo](https://mods.sm64coopdx.com/mods/cs-weirdo.515/)
 - [WolfBoltOne](https://mods.sm64coopdx.com/mods/cs-wolfboltone.571/)
 - [Yae](https://mods.sm64coopdx.com/mods/yae.597/)
 - [Yosi Cube](https://mods.sm64coopdx.com/mods/cs-yosi-cube.152/)

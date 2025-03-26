@@ -1429,4 +1429,16 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     walking_speed = 135,
     moveset_description = "fast, drop dash, charge dash"
+}, {
+    -- character with an drop dash that slowdown little inw ater/lava. Also yoshi flutter
+    name = 'Weirdo',
+    sonic_charge_dash_on = true,
+    sonic_dash_slowdown_lava = 0.05,
+    sonic_dash_slowdown_water = 0.05,
+    coin_heal_multiplier = 50,
+    yoshi_flutter_on = true,
+    yoshi_flutter_reactivations = 1,
+    yoshi_flutter_max_y_vel = 36,
+    yoshi_flutter_stength_ascending = 7,
+    moveset_description = "drop dash, yoshi flutter, coin heal less"
 }}

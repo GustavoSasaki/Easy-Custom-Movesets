@@ -58,7 +58,7 @@ end
 local function apply_slowdown(m, stats)
     if is_above_water(m) then
         mario_set_forward_vel(m, m.forwardVel - stats.sonic_dash_slowdown_water)
-    elseif is_above_lava then
+    elseif is_above_lava(m) then
         mario_set_forward_vel(m, m.forwardVel - stats.sonic_dash_slowdown_lava)
     else
         mario_set_forward_vel(m, m.forwardVel - stats.sonic_dash_slowdown)
@@ -84,7 +84,7 @@ local function act_sonic_dash(m)
 
     local startYaw = m.faceAngle.y
     apply_slowdown(m, stats)
-    if (m.controller.buttonDown & B_BUTTON) ~= 0 and m.forwardVel < 75 and is_above_water == false and is_above_lava ==
+    if (m.controller.buttonDown & B_BUTTON) ~= 0 and m.forwardVel < 75 and is_above_water(m) == false and is_above_lava(m) ==
         false then
         m.forwardVel = stats.sonic_charge_dash_max_vel
         audio_sample_play(peelRelease, m.pos, 0.55)
@@ -94,7 +94,7 @@ local function act_sonic_dash(m)
     if changedAction then
         return
     end
-    if m.forwardVel < 1 then
+    if m.forwardVel < 10 then
         set_mario_action(m, ACT_IDLE, 0)
         return
     end
