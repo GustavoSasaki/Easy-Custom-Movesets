@@ -3,7 +3,7 @@ ACT_GLIDE_DIVE = allocate_mario_action(ACT_FLAG_AIR | ACT_FLAG_DIVING | ACT_FLAG
 
 --- @param num integer
 --- Limits an integer in the s16 range
-local function s16(num)
+function s16(num)
     num = math.floor(num) & 0xFFFF
     if num >= 32768 then
         return num - 65536

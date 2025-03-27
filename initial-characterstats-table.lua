@@ -1417,14 +1417,14 @@ initialCharacterStatsTable = {{
     peel_out_jump_reset_vel = false,
     kill_toad = true,
     kill_pink_bomb_on = true,
-    sonic_charge_dash_on = true,
+    charge_sonic_dash_on = true,
     moveset_description = "glide dive, peel out, fast swim"
 
 }, {
     -- character with charge dash and drop dash
     name = '\"SONIC\"',
     drop_dash_on = true,
-    sonic_charge_dash_on = true,
+    charge_sonic_dash_on = true,
     kill_toad = true,
     kill_pink_bomb_on = true,
     walking_speed = 135,
@@ -1432,7 +1432,7 @@ initialCharacterStatsTable = {{
 }, {
     -- character with an drop dash that slowdown little inw ater/lava. Also yoshi flutter
     name = 'Weirdo',
-    sonic_charge_dash_on = true,
+    charge_sonic_dash_on = true,
     sonic_dash_slowdown_lava = 0.05,
     sonic_dash_slowdown_water = 0.05,
     coin_heal_multiplier = 50,
@@ -1441,4 +1441,16 @@ initialCharacterStatsTable = {{
     yoshi_flutter_max_y_vel = 36,
     yoshi_flutter_stength_ascending = 7,
     moveset_description = "drop dash, yoshi flutter, coin heal less"
+},
+{
+    -- character can climb wall by wall slide jumpign while holding in the direction of the wall.
+    -- also has fast dash while having bad angle speed
+    name = 'Whisper the Wolf',
+    drop_dash_on = true,
+    sonic_dash_angle_speed = 50,
+    sonic_dash_max_vel = 150,
+    wall_slide_on = true,
+    wall_slide_jump_type = ACT_SIDE_FLIP,
+    wall_slide_same_wall = true,
+    moveset_description = "wall slide, drop dash"
 }}

@@ -86,7 +86,7 @@ local function act_sonic_dash(m)
     apply_slowdown(m, stats)
     if (m.controller.buttonDown & B_BUTTON) ~= 0 and m.forwardVel < 75 and is_above_water(m) == false and is_above_lava(m) ==
         false then
-        m.forwardVel = stats.sonic_charge_dash_max_vel
+        m.forwardVel = stats.sonic_dash_max_vel
         audio_sample_play(peelRelease, m.pos, 0.55)
     end
 
@@ -117,8 +117,8 @@ local function act_sonic_dash(m)
         set_mario_action(m, ACT_JUMP, 0)
     end
 
-    local angle_speed = 0x800 * stats.sonic_dash_angle_speed
-    m.faceAngle.y = m.intendedYaw - approach_s32(convert_s16(m.intendedYaw - m.faceAngle.y), 0, angle_speed, angle_speed)
+    local angleSpeed = 0x800 * stats.sonic_dash_angle_speed
+    m.faceAngle.y = m.intendedYaw - approach_s32(s16(m.intendedYaw - m.faceAngle.y), 0, angleSpeed, angleSpeed)
 
     if (m.input & INPUT_ABOVE_SLIDE) ~= 0 then
         return set_mario_action(m, ACT_WALKING, 0)

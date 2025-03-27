@@ -158,7 +158,7 @@ local function on_set_action(m)
         audio_sample_stop(YOSHI_FLUTTER_AUDIO)
     end
 
-    if stats.sonic_charge_dash_on and (m.action == ACT_PUNCHING or m.action == ACT_MOVE_PUNCHING or m.action == ACT_SLIDE_KICK) then
+    if stats.charge_sonic_dash_on and (m.action == ACT_PUNCHING or m.action == ACT_MOVE_PUNCHING or m.action == ACT_SLIDE_KICK) then
         if (m.input & INPUT_Z_DOWN) ~= 0 and (m.input & INPUT_B_PRESSED) ~= 0  then
             set_mario_action(m, ACT_SONIC_DASH_CHARGE, 45)
         end

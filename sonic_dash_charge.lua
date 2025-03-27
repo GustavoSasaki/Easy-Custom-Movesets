@@ -41,8 +41,8 @@ local function act_sonic_dash_charge(m)
         return
     end
     m.actionArg = m.actionArg + 11
-    if m.actionArg > stats.sonic_charge_dash_max_vel then
-        m.actionArg = stats.sonic_charge_dash_max_vel
+    if m.actionArg > stats.sonic_dash_max_vel then
+        m.actionArg = stats.sonic_dash_max_vel
     end
 
     smlua_anim_util_set_animation(m.marioObj, "JUMPBALL")
