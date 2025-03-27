@@ -1453,4 +1453,60 @@ initialCharacterStatsTable = {{
     wall_slide_jump_type = ACT_SIDE_FLIP,
     wall_slide_same_wall = true,
     moveset_description = "wall slide, drop dash"
+},
+{
+    name = 'E-102 Gamma',
+    disable_burning = true,
+    bad_gas_damage_multiplier = 0,
+    lava_damage_multiplier = 0,
+    ground_pound_max_y_vel = 130,
+    ground_pound_shake = 150,
+    knockback_resistance = 60,
+    flying_enemy_damage_multiplier = 50,
+    goomba_damage_multiplier = -1,
+    peel_out_on = true,
+    peel_out_slowdown = 0.65,
+    peel_out_jump_reset_vel = false,
+    disable_fall_damage = true,
+    moveset_description = "peel out, bunch of damage resistance"
+}
+,
+-- character with peel out, glide dive and no fall dagame
+{
+    name = 'NiGHTS',
+    gravity = 80,
+    glide_dive_on = true,
+    glide_dive_render_with_wing_cap = true,
+    glide_dive_disable_spin = true,
+    glide_dive_min_forward_speed = 35,
+    glide_dive_angle_speed = 45,
+    glide_dive_forward_vel = 70,
+    glide_dive_slowdown = 0.5,
+    disable_fall_damage = true,
+    peel_out_on = true,
+    moveset_description = "glide dive, peel out, no fall damage"
+},
+{
+    name = 'Blaze the Cat',
+    peel_out_on = true,
+    drop_dash_on = true,
+    charge_sonic_dash_on = true,
+    walking_speed = 140,
+    in_air_speed = 80,
+    moveset_description="peel out, charge dash, drop dash"
+},
+{
+    -- the perfect character
+    name = 'Burger Man',
+    drop_dash_on = true,
+    drop_dash_charge_vel = 150,
+    sonic_dash_max_vel = 150,
+    walking_speed = 150,
+    in_air_speed = 150,
+    disable_damage = true,
+    waft_fart_on = true,
+    waft_fart_per_level = 15,
+    waft_fart_velocity = 150,
+    waft_fart_strength = 70,
+    moveset_description="takes no damage, drop dash, waft fart"
 }}

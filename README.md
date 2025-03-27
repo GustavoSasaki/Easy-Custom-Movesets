@@ -230,6 +230,7 @@ If you can't modify the mod files directly, you can submit a pull request to upd
 - [Slippy Toad](https://mods.sm64coopdx.com/mods/slippy-toad-64.549/)
 - [SMRPG](https://mods.sm64coopdx.com/mods/cs-smrpg-characters.35/)
 - [Sonic Classic and Modern Pack](https://mods.sm64coopdx.com/mods/cs-sonic-classic-and-modern-pack.444/)
+- [Sonic Randos](https://mods.sm64coopdx.com/mods/sonic-randos-cs.567/)
 - [Spamton](https://mods.sm64coopdx.com/mods/cs-spamton.6/)
 - [Talking Red](https://mods.sm64coopdx.com/mods/cs-talking-red.164/)
 - [Toothless Mini Pack](https://mods.sm64coopdx.com/mods/cs-toothless-mini-pack.540/)

@@ -342,7 +342,7 @@ local function mario_update(m)
         end
     end
 
-    if stats.drop_dash_on and (m.input & INPUT_B_PRESSED) ~= 0 and isJumping(m) then
+    if stats.drop_dash_on and (m.input & INPUT_B_PRESSED) ~= 0 and isJumping(m) and  m.pos.y > (m.floorHeight + 100.0)  then
         enter_drop_dash(m,stats)
     end
 
