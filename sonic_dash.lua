@@ -21,7 +21,7 @@ function update_sonic_slide_animation(m)
                                                  m.marioObj.header.gfx.animInfo.curAnim.loopEnd
     end
     gPlayerSyncTable[0].sonicAnimFrame = gPlayerSyncTable[0].sonicAnimFrame + 2 * (m.forwardVel / 95)
-    smlua_anim_util_set_animation(m.marioObj, "JUMPBALL_METAL")
+    smlua_anim_util_set_animation(m.marioObj, "SONIC_BALL")
     set_anim_to_frame(m, gPlayerSyncTable[0].sonicAnimFrame)
 
 end

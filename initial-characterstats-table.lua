@@ -1452,6 +1452,7 @@ initialCharacterStatsTable = {{
     wall_slide_on = true,
     wall_slide_jump_type = ACT_SIDE_FLIP,
     wall_slide_same_wall = true,
+    sonic_jump_on = true,
     moveset_description = "wall slide, drop dash"
 },
 {
@@ -1509,4 +1510,8 @@ initialCharacterStatsTable = {{
     waft_fart_velocity = 150,
     waft_fart_strength = 70,
     moveset_description="takes no damage, drop dash, waft fart"
+},
+{
+    name= 'Big The Cat',
+    ground_pound_jump_on = true
 }}
