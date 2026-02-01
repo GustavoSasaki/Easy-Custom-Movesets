@@ -514,6 +514,9 @@ end)
 --- @param m MarioState
 --- @return CharacterStats|nil
 local function stats_from_mario_state(m)
+    if  _G.charSelect.are_movesets_restricted() then
+        return nil
+    end
 
     local charName = gPlayerSyncTable[m.playerIndex].char_select_name
     if charName == nil then
@@ -545,7 +548,6 @@ local function removeUnusedCharacters()
 end
 --- @param m MarioState
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
-
     removeUnusedCharacters()
 end)
 
