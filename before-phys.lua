@@ -88,7 +88,8 @@ local function apply_ground_pound_cap_velocity(m, stats)
 end
 
 --- @param m MarioState
-local function mario_before_phys_step(m)
+--- @param stepType integer
+local function mario_before_phys_step(m,stepType)
     local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
@@ -99,6 +100,8 @@ local function mario_before_phys_step(m)
     apply_ground_pound_cap_velocity(m, stats)
 
     gPlayerSyncTable[m.playerIndex].prevYvel = m.vel.y
+
+    ecm_apply_gravity(m,stepType)
 end
 
 hook_event(HOOK_BEFORE_PHYS_STEP, mario_before_phys_step)
