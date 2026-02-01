@@ -943,7 +943,7 @@ initialCharacterStatsTable = {{
 }, {
     -- character that glides when diving. It can also do ground pound jump
     name = 'Charizard',
-    glide_dive_on = true,
+    glide_dive_on = false,
     water_damage_multiplier = 250,
     disable_burning = true,
     disable_breath_heal = true,

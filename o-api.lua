@@ -21,7 +21,9 @@ local function getNumberNotNil(value,defaultValue)
 end
 
 --- @param cs CharacterStats
-local function clean_character_stats(cs)
+--- @param fromInitialTable boolean
+local function clean_character_stats(cs,fromInitialTable)
+    cs.fromInitialTable = fromInitialTable
     cs['name'] = getNotNil(cs['name'], "string", "Untitled")
     cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 0.0) + 1
 
@@ -314,7 +316,7 @@ end
 
 characterStatsTable = {}
 for _, character in ipairs(initialCharacterStatsTable) do
-    clean_character_stats(character)
+    clean_character_stats(character,true)
     table_insert(characterStatsTable, character)
 end
 
@@ -322,7 +324,10 @@ end
 local function upsert_table(characterStats)
     for i = 1, #characterStatsTable do
         if characterStatsTable[i].name == characterStats.name then
-            characterStatsTable[i] = characterStats
+            if characterStatsTable[i].isDefaultCharacter then
+                characterStatsTable[i] = characterStats
+            end
+            return
         end
     end
     table_insert(characterStatsTable, characterStats)
@@ -476,9 +481,10 @@ end
 --- @field public drop_dash_on boolean ( Default false )
 --- @field public drop_dash_charge_vel number ( Default 90 )
 --- @field public drop_dash_gravity number ( Default 90 )
+--- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
-    clean_character_stats(characterStats)
+    clean_character_stats(characterStats,false)
     upsert_table(characterStats)
     add_moveset_description(characterStats)
 end
@@ -589,3 +595,16 @@ for i = 0, MAX_PLAYERS - 1 do
     gPlayerSyncTable[i].yoshiFlutterReactivations = 1
     gPlayerSyncTable[i].sonicAnimFrame = 0
 end
+
+
+
+print(
+mod_file_exists("moveset_configs\\a.lua")
+)
+
+print(
+mod_file_exists(".\\..\\cheats.lua")
+)
+print(
+mod_file_exists(".\\..\\Easy-Custom-Movesets")
+)
