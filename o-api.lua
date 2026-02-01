@@ -547,15 +547,16 @@ end
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
 
     removeUnusedCharacters()
-
-    gPlayerSyncTable[0].prevVelY = 0
-    gPlayerSyncTable[0].prevForwardVel = 0
-
-    gPlayerSyncTable[0].fart = 1
-    gPlayerSyncTable[0].longJumpLandSpeed = 0
-    gPlayerSyncTable[0].longJumpTimer = 100
-    gPlayerSyncTable[0].inAirJump = 0
-    gPlayerSyncTable[0].yoshiFlutterCooldown = 0
-    gPlayerSyncTable[0].yoshiFlutterReactivations = 1
-    gPlayerSyncTable[0].sonicAnimFrame = 0
 end)
+
+for i = 0, MAX_PLAYERS - 1 do
+    gPlayerSyncTable[i].prevVelY = 0
+    gPlayerSyncTable[i].prevForwardVel = 0
+    gPlayerSyncTable[i].fart = 1
+    gPlayerSyncTable[i].longJumpLandSpeed = 0
+    gPlayerSyncTable[i].longJumpTimer = 100
+    gPlayerSyncTable[i].inAirJump = 0
+    gPlayerSyncTable[i].yoshiFlutterCooldown = 0
+    gPlayerSyncTable[i].yoshiFlutterReactivations = 1
+    gPlayerSyncTable[i].sonicAnimFrame = 0
+end
