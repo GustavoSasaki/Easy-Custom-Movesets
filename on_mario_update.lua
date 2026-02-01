@@ -217,7 +217,7 @@ local function apply_dive_cancel(m, stats)
 end
 
 --- @param m MarioState
-local function mario_update(m)
+function ecm_mario_update(m)
     local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
@@ -348,4 +348,4 @@ local function mario_update(m)
 
 end
 
-hook_event(HOOK_MARIO_UPDATE, mario_update)
+hook_event(HOOK_MARIO_UPDATE, ecm_mario_update)

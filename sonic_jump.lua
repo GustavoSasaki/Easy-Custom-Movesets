@@ -62,7 +62,6 @@ function enter_sonic_jump(m,stats)
 
     m.vel.y = stats.sonic_jump_strength
     m.forwardVel = gPlayerSyncTable[m.playerIndex].prevForwardVel
-    print(m.forwardVel)
     mario_set_forward_vel(m, math.min(m.forwardVel + stats.sonic_jump_add_forward_vel,160))
 end
 

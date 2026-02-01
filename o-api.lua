@@ -546,9 +546,36 @@ local function removeUnusedCharacters()
         end
     end
 end
+
+local function addCharHookMovesetOfCharSelect()
+    for i = 1, #characterStatsTable do
+        local stats = characterStatsTable[i];
+        local charNumber = _G.charSelect.character_get_number_from_string(characterStatsTable[i].name);
+
+        if stats.disable_double_jump or stats.kick_dive_on or stats.always_dive_first
+        or  stats.disable_twirling_land or stats.glide_dive_on or stats.charge_sonic_dash_on 
+        or stats.triple_jump_twirling_on or stats.back_flip_twirling_on or stats.side_flip_twirling_on
+        or stats.sonic_jump_on
+        then
+            _G.charSelect.character_hook_moveset(charNumber,HOOK_ON_SET_MARIO_ACTION,ecm_on_set_action)
+        end
+
+        if stats.ground_pound_dive_on or stats.mr_l_jump_on or stats.long_jump_triple_jump_on
+        or  stats.yoshi_flutter_on or stats.kick_dive_on or stats.dive_kick_on 
+        or stats.dive_ground_pound_on or stats.back_flip_twirling_on or stats.twirling_ground_pound_on
+        or stats.twirling_dive_on or stats.triple_jump_twirling_on or stats.side_flip_twirling_on
+        or stats.fast_twirling_on or stats.waft_fart_on or stats.ground_pound_jump_on 
+        or stats.super_side_flip_on or stats.peel_out_on or stats.drop_dash_on
+        then
+            _G.charSelect.character_hook_moveset(charNumber,HOOK_MARIO_UPDATE,ecm_mario_update)
+        end
+    end
+end
+
 --- @param m MarioState
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
     removeUnusedCharacters()
+    addCharHookMovesetOfCharSelect()
 end)
 
 for i = 0, MAX_PLAYERS - 1 do

@@ -98,7 +98,7 @@ local function apply_knock_back_resistance(m, stats)
 end
 
 --- @param m MarioState
-local function on_set_action(m)
+function ecm_on_set_action(m)
     local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
         return
@@ -167,4 +167,4 @@ local function on_set_action(m)
 
 end
 
-hook_event(HOOK_ON_SET_MARIO_ACTION, on_set_action)
+hook_event(HOOK_ON_SET_MARIO_ACTION, ecm_on_set_action)
