@@ -321,10 +321,11 @@ for _, character in ipairs(initialCharacterStatsTable) do
 end
 
 --- @param characterStats CharacterStats
-local function upsert_table(characterStats)
+--- @param shouldOverride boolean
+local function upsert_table(characterStats,shouldOverride)
     for i = 1, #characterStatsTable do
         if characterStatsTable[i].name == characterStats.name then
-            if characterStatsTable[i].isDefaultCharacter then
+            if characterStatsTable[i].fromInitialTable or shouldOverride then
                 characterStatsTable[i] = characterStats
             end
             return
@@ -485,7 +486,18 @@ end
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
     clean_character_stats(characterStats,false)
-    upsert_table(characterStats)
+    upsert_table(characterStats, false)
+    add_moveset_description(characterStats)
+end
+
+--- @param fileName string
+--- @param originalName string
+local function character_add_from_config(fileName,originalName)
+    --- @type CharacterStats
+    local characterStats = require("moveset_configs\\"..fileName.."_ecm_moveset")
+    characterStats.name = originalName
+    clean_character_stats(characterStats,false)
+    upsert_table(characterStats, true)
     add_moveset_description(characterStats)
 end
 
@@ -578,10 +590,28 @@ local function addCharHookMovesetOfCharSelect()
     end
 end
 
+
+local function addStatsFromConfigFolder()
+    local charSelectTable = _G.charSelect.character_get_full_table()
+    print(#charSelectTable)
+    for i = 1, #charSelectTable do
+        for j = 1, #charSelectTable[i] do
+            local char = charSelectTable[i][j];
+            local fileName = char.name:lower():gsub(" ", "_")
+            if mod_file_exists("moveset_configs\\"..fileName.."_ecm_moveset.lua") then
+                character_add_from_config(fileName,char.name)
+            end
+        end
+    end
+end
+
 --- @param m MarioState
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
-    removeUnusedCharacters()
-    addCharHookMovesetOfCharSelect()
+    if network_is_server() then
+        removeUnusedCharacters()
+        addStatsFromConfigFolder()
+        addCharHookMovesetOfCharSelect()
+    end
 end)
 
 for i = 0, MAX_PLAYERS - 1 do
@@ -597,14 +627,3 @@ for i = 0, MAX_PLAYERS - 1 do
 end
 
 
-
-print(
-mod_file_exists("moveset_configs\\a.lua")
-)
-
-print(
-mod_file_exists(".\\..\\cheats.lua")
-)
-print(
-mod_file_exists(".\\..\\Easy-Custom-Movesets")
-)
