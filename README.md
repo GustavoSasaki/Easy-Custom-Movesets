@@ -78,7 +78,6 @@ For example, to add support to the Iono character mod, I added line 61-63 to the
 - [Asterix](https://mods.sm64coopdx.com/mods/asterix.534/)
 - [Azumanga Daioh](https://mods.sm64coopdx.com/mods/azumanga-daioh-64-pack.205/)
 - [Baby Mario](https://mods.sm64coopdx.com/mods/cs-baby-mario.48/)
-- [Boshi](https://mods.sm64coopdx.com/mods/cs-dynos-boshi.364/)
 - [Charizard](https://mods.sm64coopdx.com/mods/cs-charizardmod.611/)
 - [Connie](https://mods.sm64coopdx.com/mods/cs-connie-mario-luigi-brothership.207/)
 - [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)

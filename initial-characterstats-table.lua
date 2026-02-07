@@ -1103,18 +1103,6 @@ initialCharacterStatsTable = {{
     kill_toad = true,
     moveset_description = "yoshi flutter, gldie dive"
 }, {
-    name = 'Boshi',
-    fall_gravity = 130,
-    ground_pound_jump_on = true,
-    ground_pound_jump_forward_vel = 40,
-    knockback_resistance = 50,
-    waft_fart_on = true,
-    water_enemy_damage_multiplier = 1000,
-    goomba_damage_multiplier = 200,
-    disable_fall_damage = true,
-    kill_toad = true,
-    moveset_description = "ground pound jump"
-}, {
     -- he can fly
     name = 'yosi cube',
     yoshi_flutter_on = true,
