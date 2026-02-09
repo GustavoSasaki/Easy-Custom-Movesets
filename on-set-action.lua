@@ -90,10 +90,10 @@ end
 --- @param stats CharacterStats
 local function apply_knock_back_resistance(m, stats)
     if m.action == ACT_THROWN_BACKWARD or m.action == ACT_THROWN_FORWARD then
-        m.forwardVel = m.forwardVel * (1 - stats.knockback_resistance)
+        m.forwardVel = m.forwardVel /stats.knockback_resistance
     elseif isKnockBack(m.action) and
         not (isKnockBack(m.prevAction) or m.prevAction == ACT_THROWN_BACKWARD or m.prevAction == ACT_THROWN_FORWARD) then
-        m.forwardVel = m.forwardVel * (1 - stats.knockback_resistance)
+        m.forwardVel = m.forwardVel /stats.knockback_resistance
     end
 end
 
