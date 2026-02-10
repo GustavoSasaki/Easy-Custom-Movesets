@@ -315,9 +315,11 @@ local function add_moveset_description(characterStats)
 end
 
 characterStatsTable = {}
-for _, character in ipairs(initialCharacterStatsTable) do
-    clean_character_stats(character,true)
-    table_insert(characterStatsTable, character)
+if network_is_server() then
+    for _, character in ipairs(initialCharacterStatsTable) do
+        clean_character_stats(character,true)
+        table_insert(characterStatsTable, character)
+    end
 end
 
 --- @param characterStats CharacterStats
@@ -593,7 +595,6 @@ end
 
 local function addStatsFromConfigFolder()
     local charSelectTable = _G.charSelect.character_get_full_table()
-    print(#charSelectTable)
     for i = 1, #charSelectTable do
         for j = 1, #charSelectTable[i] do
             local char = charSelectTable[i][j];
@@ -605,13 +606,38 @@ local function addStatsFromConfigFolder()
     end
 end
 
+local function sendStatsTable()
+    gGlobalSyncTable.characterStatsTable= {}
+    for i = 1, #characterStatsTable do
+        gGlobalSyncTable.characterStatsTable[i] =  {}
+
+        for key, value in pairs(characterStatsTable[i] ) do
+            gGlobalSyncTable.characterStatsTable[i][key] = value
+        end
+    end
+end
+
 --- @param m MarioState
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
-    if network_is_server() then
+    if network_is_server() and m.playerIndex == gNetworkPlayers[0].globalIndex then
         removeUnusedCharacters()
         addStatsFromConfigFolder()
         addCharHookMovesetOfCharSelect()
+        sendStatsTable()
     end
+end)
+
+
+hook_event(HOOK_ON_SYNC_VALID,function(m)
+    if network_is_server()  then return end
+
+    local charTable = gGlobalSyncTable._table.characterStatsTable
+    if not charTable or not charTable._table then return end
+
+    for _, entry in pairs(charTable._table) do
+        table_insert(characterStatsTable, entry._table)
+    end
+
 end)
 
 for i = 0, MAX_PLAYERS - 1 do
