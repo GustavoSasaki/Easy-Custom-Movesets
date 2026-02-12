@@ -265,7 +265,10 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.drop_dash_on = getNotNil(cs.drop_dash_on, "boolean", false)
     cs.drop_dash_charge_vel = getNumberNotNil(cs.drop_dash_charge_vel, 90)
     cs.drop_dash_gravity = getNumberNotNil(cs.drop_dash_gravity, 90)
-    
+    local allJumpsAngleSpeed = getNotNil(cs.all_jumps_angle_speed, "number", 0)
+    cs.dive_angle_speed = getNotNil(cs.dive_angle_speed, "number", allJumpsAngleSpeed) + 1
+    cs.basic_jump_angle_speed= getNotNil(cs.basic_jump_angle_speed, "number", allJumpsAngleSpeed) + 1
+    cs.special_jump_angle_speed= getNotNil(cs.special_jump_angle_speed, "number", allJumpsAngleSpeed) + 1
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -484,6 +487,10 @@ end
 --- @field public drop_dash_on boolean ( Default false )
 --- @field public drop_dash_charge_vel number ( Default 90 )
 --- @field public drop_dash_gravity number ( Default 90 )
+--- @field public dive_angle_speed number ( Default 0 ) 
+--- @field public all_jumps_angle_speed number ( Default 0 ) angle speed to all jumps
+--- @field public basic_jump_angle_speed number ( Default 0 ) angle speed to single/double/triple jump
+--- @field public special_jump_angle_speed number ( Default 0 ) angle speed to all vanilla jumps except single/double/triple
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -653,3 +660,19 @@ for i = 0, MAX_PLAYERS - 1 do
 end
 
 
+
+--- @param m MarioState
+--- @param ... integer  List of action IDs to check against
+--- @return boolean
+function checkMarioAction(m, ...)
+    local actions = { ... }
+    local currentAction = m.action
+
+    for i = 1, #actions do
+        if currentAction == actions[i] then
+            return true
+        end
+    end
+
+    return false
+end

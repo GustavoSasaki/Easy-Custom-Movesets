@@ -78,7 +78,7 @@ end
 
 --- @param action integer
 --- @return boolean
-local function isKnockBack(action)
+function isKnockBack(action)
     return action == ACT_HARD_BACKWARD_GROUND_KB or action == ACT_HARD_FORWARD_GROUND_KB or action ==
                ACT_BACKWARD_GROUND_KB or action == ACT_FORWARD_GROUND_KB or action == ACT_SOFT_BACKWARD_GROUND_KB or
                action == ACT_SOFT_FORWARD_GROUND_KB or action == ACT_HARD_BACKWARD_AIR_KB or action ==

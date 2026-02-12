@@ -217,6 +217,32 @@ local function apply_dive_cancel(m, stats)
 end
 
 --- @param m MarioState
+--- @param stats CharacterStats
+--- @return number 
+local function get_angle_speed(m, stats)
+    if isKnockBack(m.action) then return 0 end
+    if m.action == ACT_DIVE then
+        return 0x800 * stats.dive_angle_speed
+    elseif  checkMarioAction(m,ACT_JUMP,ACT_DOUBLE_JUMP,ACT_TRIPLE_JUMP,ACT_SPECIAL_TRIPLE_JUMP,ACT_STEEP_JUMP,ACT_WATER_JUMP,
+    ACT_HOLD_JUMP,ACT_HOLD_WATER_JUMP,ACT_SONIC_JUMP, ACT_IN_AIR_JUMP) then
+        return 0x800 * stats.basic_jump_angle_speed
+    elseif checkMarioAction(m,ACT_BACKFLIP,ACT_WALL_KICK_AIR,ACT_SIDE_FLIP,ACT_LONG_JUMP,ACT_JUMP_KICK,ACT_BACKFLIP,
+ACT_WAFT_FART,ACT_GROUND_POUND_JUMP,ACT_MR_L_FALL,ACT_SUPER_SIDE_FLIP,ACT_MR_L_JUMP) then
+        return 0x800 * stats.special_jump_angle_speed 
+    end
+    return 0
+end
+
+
+--- @param m MarioState
+--- @param stats CharacterStats
+local function apply_angle_speed(m, stats)
+    local angleSpeed  = get_angle_speed(m,stats)
+    m.faceAngle.y = m.intendedYaw - approach_s32(s16(m.intendedYaw - m.faceAngle.y), 0, angleSpeed, angleSpeed)
+
+end
+
+--- @param m MarioState
 function ecm_mario_update(m)
     local stats = _G.customMoves.stats_from_mario_state(m)
     if stats == nil then
@@ -289,6 +315,7 @@ function ecm_mario_update(m)
     apply_burning_damage_multiplier(m, stats)
     apply_ground_pound_stats(m, stats)
     apply_saultube_animation(m, stats)
+    apply_angle_speed(m,stats)
 
     if (m.action == ACT_LONG_JUMP_LAND) then
         gPlayerSyncTable[m.playerIndex].longJumpTimer = 0
