@@ -242,12 +242,10 @@ local function apply_animation(m, stats)
      end
 
      if(m.action == ACT_JUMP) and (stats.single_jump_animation == "special" or stats.single_jump_animation == "special_v2") then
-        if (m.vel.y > 0 and stats.single_jump_animation == "special") or  stats.single_jump_animation == "special_v2" then
+        if (m.vel.y > 0 and stats.single_jump_animation == "special_v2") or  stats.single_jump_animation == "special" then
             set_character_animation(m, CHAR_ANIM_FORWARD_SPINNING)
             local loop_end = m.marioObj.header.gfx.animInfo.curAnim.loopEnd
-            set_anim_to_frame (m,((-1) + m.actionState)%loop_end)
-
-            m.actionState =   m.actionState +1
+            set_anim_to_frame (m,((-2) + m.actionTimer * stats.special_triple_jump_animation_speedup)%loop_end)
         end
     end
 
@@ -255,9 +253,7 @@ local function apply_animation(m, stats)
         if (m.vel.y > 0 ) then
             set_character_animation(m, CHAR_ANIM_FORWARD_SPINNING)
             local loop_end = m.marioObj.header.gfx.animInfo.curAnim.loopEnd
-            set_anim_to_frame (m,((-1) + m.actionState)%loop_end)
-
-            m.actionState =   m.actionState +1
+            set_anim_to_frame (m,((-2) + m.actionTimer * stats.special_triple_jump_animation_speedup)%loop_end)
         end
         if m.vel.y < 0  and stats.triple_jump_animation == "special" then
             set_character_animation(m, CHAR_ANIM_GENERAL_FALL);
@@ -405,6 +401,11 @@ function ecm_mario_update(m)
     end
 
     apply_animation(m,stats)
+
+    if m.action == ACT_SPECIAL_TRIPLE_JUMP and m.vel.y > 0 then
+        local loop_end = m.marioObj.header.gfx.animInfo.curAnim.loopEnd
+        set_anim_to_frame (m,(-2 + m.actionTimer * stats.special_triple_jump_animation_speedup)%loop_end)
+    end
 
     if m.action == ACT_SPECIAL_TRIPLE_JUMP and stats.disable_special_triple_jump_bounce and m.actionState == 1 then
         m.vel.y = 0
