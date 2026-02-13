@@ -269,6 +269,10 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.dive_angle_speed = getNotNil(cs.dive_angle_speed, "number", allJumpsAngleSpeed) + 1
     cs.basic_jump_angle_speed= getNotNil(cs.basic_jump_angle_speed, "number", allJumpsAngleSpeed) + 1
     cs.special_jump_angle_speed= getNotNil(cs.special_jump_angle_speed, "number", allJumpsAngleSpeed) + 1
+    cs.special_triple_jump_on = getNotNil(cs.special_triple_jump_on, "boolean", false)
+    cs.disable_special_triple_jump_bounce = getNotNil(cs.disable_special_triple_jump_bounce, "boolean", false)
+    cs.single_jump_animation = getNotNil(cs.single_jump_animation, "string", "default")
+    cs.triple_jump_animation = getNotNil(cs.triple_jump_animation, "string", "default")
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -491,6 +495,10 @@ end
 --- @field public all_jumps_angle_speed number ( Default 0 ) angle speed to all jumps
 --- @field public basic_jump_angle_speed number ( Default 0 ) angle speed to single/double/triple jump
 --- @field public special_jump_angle_speed number ( Default 0 ) angle speed to all vanilla jumps except single/double/triple
+--- @field public special_triple_jump_on boolean ( Default false ) substitute triple jump with special triple jump
+--- @field public disable_special_triple_jump_bounce boolean ( Default false )
+--- @field public single_jump_animation string ( Default "default" ) substitute single jump animation (It can be "special" )
+--- @field public triple_jump_animation string ( Default "default" ) substitute triple jump animation (It can be "special" or "special_v2")
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

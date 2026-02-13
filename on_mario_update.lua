@@ -123,14 +123,14 @@ local function is_enabled_in_yoshi_flutter(m)
     return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_JUMP or m.action ==
                ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_LONG_JUMP or m.action ==
                ACT_SIDE_FLIP or m.action == ACT_BACKFLIP or m.action == ACT_WATER_JUMP or m.action ==
-               ACT_GROUND_POUND_JUMP or m.action == ACT_SONIC_JUMP
+               ACT_GROUND_POUND_JUMP or m.action == ACT_SONIC_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP 
 end
 
 --- @param m MarioState
 --- @return boolean
 local function is_enabled_in_air_jump(m)
     return m.action == ACT_TRIPLE_JUMP or m.action == ACT_DOUBLE_JUMP or m.action == ACT_JUMP or m.action ==
-               ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_SONIC_JUMP
+               ACT_IN_AIR_JUMP or m.action == ACT_WALL_KICK_AIR or m.action == ACT_SONIC_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP 
 end
 
 --- @param m MarioState
@@ -236,6 +236,37 @@ end
 
 --- @param m MarioState
 --- @param stats CharacterStats
+local function apply_animation(m, stats)
+    if stats.disable_special_triple_jump_bounce and m.action == ACT_SPECIAL_TRIPLE_JUMP and m.actionState == 1 then
+        set_mario_action(m, ACT_FREEFALL_LAND_STOP, 0);
+     end
+
+     if(m.action == ACT_JUMP) and (stats.single_jump_animation == "special" or stats.single_jump_animation == "special_v2") then
+        if (m.vel.y > 0 and stats.single_jump_animation == "special") or  stats.single_jump_animation == "special_v2" then
+            set_character_animation(m, CHAR_ANIM_FORWARD_SPINNING)
+            local loop_end = m.marioObj.header.gfx.animInfo.curAnim.loopEnd
+            set_anim_to_frame (m,((-1) + m.actionState)%loop_end)
+
+            m.actionState =   m.actionState +1
+        end
+    end
+
+     if(m.action == ACT_TRIPLE_JUMP) and (stats.triple_jump_animation == "special" or stats.triple_jump_animation == "special_v2") then
+        if (m.vel.y > 0 ) then
+            set_character_animation(m, CHAR_ANIM_FORWARD_SPINNING)
+            local loop_end = m.marioObj.header.gfx.animInfo.curAnim.loopEnd
+            set_anim_to_frame (m,((-1) + m.actionState)%loop_end)
+
+            m.actionState =   m.actionState +1
+        end
+        if m.vel.y < 0  and stats.triple_jump_animation == "special" then
+            set_character_animation(m, CHAR_ANIM_GENERAL_FALL);
+        end
+    end
+end
+
+--- @param m MarioState
+--- @param stats CharacterStats
 local function apply_angle_speed(m, stats)
     local angleSpeed  = get_angle_speed(m,stats)
     m.faceAngle.y = m.intendedYaw - approach_s32(s16(m.intendedYaw - m.faceAngle.y), 0, angleSpeed, angleSpeed)
@@ -277,7 +308,7 @@ function ecm_mario_update(m)
 
     apply_mr_l(m, stats)
 
-    if m.action == ACT_TRIPLE_JUMP and stats.triple_jump_twirling_on then
+    if (m.action == ACT_TRIPLE_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP) and stats.triple_jump_twirling_on then
         if stats.triple_jump_twirling_when == "start" then
             set_mario_action(m, ACT_TWIRLING, 0)
         elseif stats.triple_jump_twirling_when == "fall" and m.vel.y < 4 then
@@ -373,6 +404,17 @@ function ecm_mario_update(m)
         enter_drop_dash(m,stats)
     end
 
+    apply_animation(m,stats)
+
+    if m.action == ACT_SPECIAL_TRIPLE_JUMP and stats.disable_special_triple_jump_bounce and m.actionState == 1 then
+        m.vel.y = 0
+        set_mario_action(m, ACT_FREEFALL_LAND_STOP, 0);
+    end
+
+    if m.prevAction == ACT_SPECIAL_TRIPLE_JUMP and m.action == ACT_FREEFALL_LAND_STOP and stats.disable_special_triple_jump_bounce then
+        set_mario_action(m, ACT_TRIPLE_JUMP_LAND, 0);
+        queue_rumble_data_mario(m, 5, 40);
+    end
 end
 
 hook_event(HOOK_MARIO_UPDATE, ecm_mario_update)

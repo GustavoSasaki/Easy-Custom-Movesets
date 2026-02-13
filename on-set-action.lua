@@ -8,7 +8,7 @@ local function apply_jump_speed(m, stats)
     elseif m.action == ACT_DOUBLE_JUMP then
         m.vel.y = m.vel.y + stats.double_jump_strength
 
-    elseif m.action == ACT_TRIPLE_JUMP then
+    elseif m.action == ACT_TRIPLE_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP then
         m.vel.y = m.vel.y + (stats.triple_jump_strength * 69)
 
     elseif m.action == ACT_BACKFLIP then
@@ -118,6 +118,11 @@ function ecm_on_set_action(m)
         gPlayerSyncTable[m.playerIndex].yoshiFlutterReactivations = stats.yoshi_flutter_reactivations
         gPlayerSyncTable[m.playerIndex].inAirJump = stats.in_air_jump
     end
+
+    if stats.special_triple_jump_on and m.action == ACT_TRIPLE_JUMP then
+        set_mario_action(m, ACT_SPECIAL_TRIPLE_JUMP, 0)
+    end
+
 
     if stats.kick_dive_on and m.action == ACT_DIVE and m.prevAction ~= ACT_JUMP_KICK and m.playerIndex == 0 then
         resetVelocityToPrevAction(m)
