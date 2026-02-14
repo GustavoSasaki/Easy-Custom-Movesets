@@ -275,10 +275,10 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.drop_dash_on = getNotNil(cs.drop_dash_on, "boolean", false)
     cs.drop_dash_charge_vel = getNumberNotNil(cs.drop_dash_charge_vel, 90)
     cs.drop_dash_gravity = getNumberNotNil(cs.drop_dash_gravity, 90)
-    local allJumpsAngleSpeed = getNotNil(cs.all_jumps_angle_speed, "number", 0)
-    cs.dive_angle_speed = getNotNil(cs.dive_angle_speed, "number", allJumpsAngleSpeed) + 1
-    cs.basic_jump_angle_speed= getNotNil(cs.basic_jump_angle_speed, "number", allJumpsAngleSpeed) + 1
-    cs.special_jump_angle_speed= getNotNil(cs.special_jump_angle_speed, "number", allJumpsAngleSpeed) + 1
+    local allJumpsAngleSpeed = toPercent(cs.all_jumps_angle_speed, 0)
+    cs.dive_angle_speed = toPercent(cs.dive_angle_speed,allJumpsAngleSpeed)
+    cs.basic_jump_angle_speed= toPercent(cs.basic_jump_angle_speed,  allJumpsAngleSpeed)
+    cs.special_jump_angle_speed= toPercent(cs.special_jump_angle_speed,  allJumpsAngleSpeed)
     cs.special_triple_jump_on = getNotNil(cs.special_triple_jump_on, "boolean", false)
     cs.disable_special_triple_jump_bounce = getNotNil(cs.disable_special_triple_jump_bounce, "boolean", false)
     cs.single_jump_animation = getNotNil(cs.single_jump_animation, "string", "default")
