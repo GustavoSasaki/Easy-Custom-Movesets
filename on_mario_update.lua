@@ -46,10 +46,14 @@ local function apply_ground_pound_stats(m, stats)
         skip_action_timer_in_ground_pound(m, stats)
     end
 
-    if stats.ground_pound_dive_on and m.action == ACT_GROUND_POUND and m.actionTimer >= 6 and
+    if stats.ground_pound_dive_on and m.action == ACT_GROUND_POUND and m.actionTimer >= 4 and
         (m.input & INPUT_B_PRESSED) ~= 0 then
         m.vel.y = stats.ground_pound_dive_y_vel
         m.forwardVel = stats.ground_pound_dive_forward_vel
+
+        if stats.ground_pound_dive_change_direction_on then
+            m.faceAngle.y = m.intendedYaw 
+        end
         set_mario_action(m, ACT_DIVE, 0)
     end
 end

@@ -284,6 +284,7 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.single_jump_animation = getNotNil(cs.single_jump_animation, "string", "default")
     cs.triple_jump_animation = getNotNil(cs.triple_jump_animation, "string", "default")
     cs.special_triple_jump_animation_speedup = getNotNil(cs.special_triple_jump_animation_speedup, "number", -1) + 2
+    cs.ground_pound_dive_change_direction_on = getNotNil(cs.ground_pound_dive_change_direction_on,"boolean",false)
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -511,6 +512,7 @@ end
 --- @field public single_jump_animation string ( Default "default" ) substitute single jump animation (It can be "special" )
 --- @field public triple_jump_animation string ( Default "default" ) substitute triple jump animation (It can be "special" or "special_v2")
 --- @field public special_triple_jump_animation_speedup string ( Default 0 ) increase speed animation for special triple jump
+--- @field public ground_pound_dive_change_direction_on boolean ( Default false) permit change angle when ground pound diving
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

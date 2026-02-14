@@ -1537,6 +1537,7 @@ initialCharacterStatsTable = {{
     dive_angle_speed = 20,
     basic_jump_angle_speed = 20,
     moveset_description = "",
+    ground_pound_dive_change_direction_on = true,
     fromInitialTable = false
 },
 {
