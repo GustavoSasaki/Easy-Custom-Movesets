@@ -48,7 +48,7 @@ local function clean_character_stats(cs,fromInitialTable)
     cs['double_jump_strength'] = 52 * getNotNil(cs['double_jump_strength'], "number", allJumpsStrength)
     cs['triple_jump_strength'] = getNotNil(cs['triple_jump_strength'], "number", allJumpsStrength)
     cs['back_flip_strength'] = 62 * getNotNil(cs['back_flip_strength'], "number", allJumpsStrength)
-    cs['side_flip_strength'] = 62 * getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
+    cs['side_flip_strength'] = getNotNil(cs['side_flip_strength'], "number", allJumpsStrength)
     cs['long_jump_strength'] = 30 * getNotNil(cs['long_jump_strength'], "number", allJumpsStrength)
     cs.kick_jump_strength = getNotNil(cs.kick_jump_strength, "number", allJumpsStrength)
 

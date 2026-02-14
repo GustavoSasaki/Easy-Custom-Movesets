@@ -8,14 +8,14 @@ local function apply_jump_speed(m, stats)
     elseif m.action == ACT_DOUBLE_JUMP then
         m.vel.y = m.vel.y + stats.double_jump_strength
 
-    elseif m.action == ACT_TRIPLE_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP then
+    elseif m.action == ACT_TRIPLE_JUMP then
         m.vel.y = m.vel.y + (stats.triple_jump_strength * 69)
 
     elseif m.action == ACT_BACKFLIP then
         m.vel.y = m.vel.y + stats.back_flip_strength
 
     elseif m.action == ACT_SIDE_FLIP then
-        m.vel.y = m.vel.y + stats.side_flip_strength
+        m.vel.y = 62 * (1+stats.side_flip_strength)
 
     elseif m.action == ACT_LONG_JUMP then
         m.vel.y = m.vel.y + stats.long_jump_strength
@@ -29,7 +29,7 @@ local function apply_jump_speed(m, stats)
         m.vel.y = m.vel.y + (20 * stats.kick_jump_strength)
 
     elseif m.action == ACT_DIVE then
-        m.vel.y = m.vel.y + stats.dive_y_vel
+        m.vel.y = stats.dive_y_vel
         m.forwardVel = m.forwardVel + stats.dive_velocity
         if (m.forwardVel > stats.dive_max_velocity) then
             m.forwardVel = stats.dive_max_velocity
@@ -121,6 +121,7 @@ function ecm_on_set_action(m)
 
     if stats.special_triple_jump_on and m.action == ACT_TRIPLE_JUMP then
         set_mario_action(m, ACT_SPECIAL_TRIPLE_JUMP, 0)
+        m.vel.y = m.vel.y + (stats.triple_jump_strength * 69)
     end
 
 

@@ -56,7 +56,6 @@ function ecm_apply_gravity(m,stepType)
     end
 
     -- gravity magic number defined at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario_step.c#L689
-    local isFalling = (m.vel.y - 4 * stats.gravity - 4) < 0
     if m.action == ACT_TWIRLING or m.action == ACT_TORNADO_TWIRLING then
         if stats.twirling_gravity > 0 or m.vel.y < 0 then
             m.vel.y = m.vel.y - 4 * stats.twirling_gravity
@@ -75,7 +74,7 @@ function ecm_apply_gravity(m,stepType)
         m.vel.y = m.vel.y - 4 * stats.mr_l_gravity
     elseif m.action == ACT_GROUND_POUND then
         m.vel.y = m.vel.y - 4 * stats.ground_pound_gravity
-    elseif isFalling then
+    elseif m.vel.y < 0 then
         local gravityStrength = getGravityStrength(m)
         m.vel.y = m.vel.y - gravityStrength * stats.fall_gravity
     else
