@@ -633,6 +633,12 @@ local function addStatsFromConfigFolder()
             end
         end
     end
+    for _, charName in pairs(tableOfCtNames) do
+        local fileName = charName:lower():gsub(" ", "_")
+        if mod_file_exists("moveset_configs\\"..fileName.."_ecm_moveset.lua") then
+            character_add_from_config(fileName,charName)
+        end
+    end
 end
 
 local function sendStatsTable()
