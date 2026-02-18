@@ -624,20 +624,26 @@ end
 
 local function addStatsFromConfigFolder()
     local charSelectTable = _G.charSelect.character_get_full_table()
+    local charNames = {}
     for i = 1, #charSelectTable do
         for j = 1, #charSelectTable[i] do
             local char = charSelectTable[i][j];
             local fileName = char.name:lower():gsub(" ", "_")
             if mod_file_exists("moveset_configs\\"..fileName.."_ecm_moveset.lua") then
-                character_add_from_config(fileName,char.name)
+                charNames[char.name] = true
             end
         end
     end
     for _, charName in pairs(tableOfCtNames) do
         local fileName = charName:lower():gsub(" ", "_")
         if mod_file_exists("moveset_configs\\"..fileName.."_ecm_moveset.lua") then
-            character_add_from_config(fileName,charName)
+            charNames[charName] = true
         end
+    end
+
+    for charName, _ in pairs(charNames) do
+        local fileName = charName:lower():gsub(" ", "_")
+        character_add_from_config(fileName,charName)
     end
 end
 
