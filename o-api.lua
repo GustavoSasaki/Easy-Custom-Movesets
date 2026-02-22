@@ -33,6 +33,10 @@ end
 --- @param cs CharacterStats
 --- @param fromInitialTable boolean
 local function clean_character_stats(cs,fromInitialTable)
+    setmetatable(cs, {
+        __index = defaultStats
+    })
+
     cs.fromInitialTable = fromInitialTable
     cs['name'] = getNotNil(cs['name'], "string", "Untitled")
     cs['swimming_speed'] = getNotNil(cs['swimming_speed'], "number", 0.0) + 1
@@ -513,6 +517,7 @@ end
 --- @field public triple_jump_animation string ( Default "default" ) substitute triple jump animation (It can be "special" or "special_v2")
 --- @field public special_triple_jump_animation_speedup string ( Default 0 ) increase speed animation for special triple jump
 --- @field public ground_pound_dive_change_direction_on boolean ( Default false) permit change angle when ground pound diving
+--- @field public mushroom_allergy boolean (Default false) character dies when touching mushrooms
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

@@ -39,3 +39,29 @@ end
 hook_behavior(id_bhvBobombBuddyOpensCannon, OBJ_LIST_PUSHABLE, false, nil, bhv_custom_pink_bomb_on)
 hook_behavior(id_bhvBobombBuddy, OBJ_LIST_PUSHABLE, false, nil, bhv_custom_pink_bomb_on)
 
+--- @param mushroom Object
+local function bhv_custom_1Up(mushroom)
+    local nearMario = nearest_mario_state_to_object(mushroom)
+    local stats = _G.customMoves.stats_from_mario_state(nearMario)
+    if stats == nil then return end
+    if stats.mushroom_allergy == false then return end
+
+    if (nearMario.playerIndex == 0 and obj_check_if_collided_with_object(mushroom, nearMario.marioObj) == 1) then
+        nearMario.numLives = nearMario.numLives -1
+        nearMario.health = 0
+        nearMario.healCounter = 0;
+        if((nearMario.action & (ACT_FLAG_STATIONARY|ACT_FLAG_MOVING)) ~= 0 and (nearMario.action & (ACT_FLAG_ON_POLE|ACT_FLAG_INTANGIBLE)) == 0) then
+            set_mario_action(nearMario, ACT_SUFFOCATION, 0);
+        end
+    end
+end
+
+
+hook_behavior(id_bhv1Up, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+hook_behavior(id_bhv1upJumpOnApproach, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+hook_behavior(id_bhv1upRunningAway, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+hook_behavior(id_bhv1upSliding, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+hook_behavior(id_bhv1upWalking, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+hook_behavior(id_bhvHidden1up, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+hook_behavior(id_bhvHidden1upInPole, OBJ_LIST_LEVEL, false, nil, bhv_custom_1Up)
+
