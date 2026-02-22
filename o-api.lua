@@ -30,9 +30,20 @@ local function getNumberNotNil(value,defaultValue)
     return defaultValue
 end
 
+
+--- @param value boolean|nil
+--- @return boolean|nil
+local function getIfBool(value)
+    if type(value) ~= "boolean" then
+        return nil
+    end
+    return value
+end
+
+
 --- @param cs CharacterStats
 --- @param fromInitialTable boolean
-local function clean_character_stats(cs,fromInitialTable)
+local function clean_character_stats(cs, fromInitialTable)
     setmetatable(cs, {
         __index = defaultStats
     })
@@ -43,7 +54,7 @@ local function clean_character_stats(cs,fromInitialTable)
 
     cs['gravity'] = getNotNil(cs['gravity'], "number", 0.0)
     cs['fall_gravity'] = getNotNil(cs['fall_gravity'], "number", cs['gravity'])
-    cs['explode_on_death'] = getNotNil(cs['explode_on_death'], "boolean", false)
+    cs['explode_on_death'] = getIfBool(cs['explode_on_death'])
     cs['airborne_deceleration_speed'] = getNotNil(cs['airborne_deceleration_speed'], "number", 0.0)
 
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
@@ -61,7 +72,7 @@ local function clean_character_stats(cs,fromInitialTable)
     cs['dive_max_velocity'] = 48 * (getNotNil(cs['dive_max_velocity'], "number", 0.0) + 1)
 
     cs.ground_pound_antecipation_speed_up = getNotNil(cs.ground_pound_antecipation_speed_up, "string", "zero")
-    cs.ground_pound_dive_on = getNotNil(cs.ground_pound_dive_on, "boolean", false)
+    cs.ground_pound_dive_on = getIfBool(cs.ground_pound_dive_on)
     cs.ground_pound_dive_y_vel = cs.ground_pound_dive_y_vel ~= nil and type(cs.ground_pound_dive_y_vel) == "number" and
                                      cs.ground_pound_dive_y_vel or 0
     cs.ground_pound_dive_forward_vel = cs.ground_pound_dive_forward_vel ~= nil and
@@ -69,7 +80,7 @@ local function clean_character_stats(cs,fromInitialTable)
                                            cs.ground_pound_dive_forward_vel or cs['dive_max_velocity']
     cs.ground_pound_gravity = getNotNil(cs.ground_pound_gravity, "number", cs.gravity)
     cs.ground_pound_max_y_vel = 75 * (getNotNil(cs.ground_pound_max_y_vel, "number", 0.0) + 1)
-    cs.waft_fart_on = getNotNil(cs.waft_fart_on, "boolean", false)
+    cs.waft_fart_on = getIfBool(cs.waft_fart_on)
     cs.waft_fart_velocity = cs.waft_fart_velocity ~= nil and type(cs.waft_fart_velocity) == "number" and
                                 cs.waft_fart_velocity or 100
     cs.waft_fart_strength = cs.waft_fart_strength ~= nil and type(cs.waft_fart_strength) == "number" and
@@ -77,13 +88,13 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.waft_fart_per_level = cs.waft_fart_per_level ~= nil and type(cs.waft_fart_per_level) == "number" and
                                  cs.waft_fart_per_level or 1
     cs.ground_pound_shake = (getNotNil(cs.ground_pound_shake, "number", 0.0) + 1)
-    cs.ground_pound_jump_on = getNotNil(cs.ground_pound_jump_on, "boolean", false)
+    cs.ground_pound_jump_on = getIfBool(cs.ground_pound_jump_on)
     cs.ground_pound_jump_strength = cs.ground_pound_jump_strength ~= nil and type(cs.ground_pound_jump_strength) ==
                                         "number" and cs.ground_pound_jump_strength or 70
     cs.ground_pound_jump_forward_vel = cs.ground_pound_jump_forward_vel ~= nil and
                                            type(cs.ground_pound_jump_forward_vel) == "number" and
                                            cs.ground_pound_jump_forward_vel or 5
-    cs.ground_pound_jump_dive_on = getNotNil(cs.ground_pound_jump_dive_on, "boolean", false)
+    cs.ground_pound_jump_dive_on = getIfBool(cs.ground_pound_jump_dive_on)
 
     cs['long_jump_velocity_multiplier'] = 1.5 * getNotNil(cs['long_jump_velocity_multiplier'], "number", 0.0)
     cs['long_jump_max_velocity'] = 48 * (getNotNil(cs['long_jump_max_velocity'], "number", 0.0) + 1)
@@ -94,31 +105,31 @@ local function clean_character_stats(cs,fromInitialTable)
     cs['crawling_speed'] = toPercent(cs.crawling_speed, cs.walking_speed) 
     cs['grounded_slowing_speed'] =toPercent(cs.grounded_slowing_speed, 1.0)
 
-    cs['mr_l_jump_on'] = getNotNil(cs['mr_l_jump_on'], "boolean", false)
+    cs['mr_l_jump_on'] = getIfBool(cs['mr_l_jump_on'])
     cs['mr_l_jump_strength'] = cs['mr_l_jump_strength'] ~= nil and type(cs['mr_l_jump_strength']) == "number" and
                                    cs['mr_l_jump_strength'] or 93
     cs['mr_l_gravity'] = getNotNil(cs['mr_l_gravity'], "number", 0.4)
     cs['mr_l_air_speed'] = getNotNil(cs['mr_l_air_speed'], "number", -0.4) + 1
-    cs['play_mr_l_anticipation_audio'] = getNotNil(cs['play_mr_l_anticipation_audio'], "boolean", true)
+    cs['play_mr_l_anticipation_audio'] = getIfBool(cs['play_mr_l_anticipation_audio'])
 
     cs.bad_gas_damage_multiplier = getNotNil(cs.bad_gas_damage_multiplier, "number", 0.0)
     cs.water_damage_multiplier = getNotNil(cs.water_damage_multiplier, "number", 0.0)
     cs.snow_water_damage_multiplier = getNotNil(cs.snow_water_damage_multiplier, "number", cs.water_damage_multiplier)
-    cs.disable_breath_heal = getNotNil(cs.disable_breath_heal, "boolean", false)
+    cs.disable_breath_heal = getIfBool(cs.disable_breath_heal)
     cs.burning_damage_multiplier = getNotNil(cs.burning_damage_multiplier, "number", 0.0)
-    cs.disable_burning = getNotNil(cs.disable_burning, "boolean", false)
-    cs.disable_damage = getNotNil(cs.disable_damage, "boolean", false)
+    cs.disable_burning = getIfBool(cs.disable_burning)
+    cs.disable_damage = getIfBool(cs.disable_damage)
     cs.lava_damage_multiplier = getNotNil(cs.lava_damage_multiplier, "number", 0.0)
 
-    cs.twirling_dive_on = getNotNil(cs.twirling_dive_on, "boolean", false)
+    cs.twirling_dive_on = getIfBool(cs.twirling_dive_on)
     cs.twirling_gravity = getNotNil(cs.twirling_gravity, "number", cs.gravity)
-    cs.triple_jump_twirling_on = getNotNil(cs.triple_jump_twirling_on, "boolean", false)
+    cs.triple_jump_twirling_on = getIfBool(cs.triple_jump_twirling_on)
     cs.triple_jump_twirling_when = getNotNil(cs.triple_jump_twirling_when, "string", "fall")
-    cs.fast_twirling_on = getNotNil(cs.fast_twirling_on, "boolean", false)
+    cs.fast_twirling_on = getIfBool(cs.fast_twirling_on)
     cs.fast_twirling_gravity = getNotNil(cs.fast_twirling_gravity, "number", cs.twirling_gravity)
-    cs.back_flip_twirling_on = getNotNil(cs.back_flip_twirling_on, "boolean", false)
-    cs.side_flip_twirling_on = getNotNil(cs.side_flip_twirling_on, "boolean", false)
-    cs.twirling_ground_pound_on = getNotNil(cs.twirling_ground_pound_on, "boolean", false)
+    cs.back_flip_twirling_on = getIfBool(cs.back_flip_twirling_on)
+    cs.side_flip_twirling_on = getIfBool(cs.side_flip_twirling_on)
+    cs.twirling_ground_pound_on = getIfBool(cs.twirling_ground_pound_on)
     cs.twirling_speed = toPercent(cs.twirling_speed, cs.in_air_speed)
 
     cs.saultube_jump_animation = getNotNil(cs.saultube_jump_animation, "boolean", false)
@@ -129,7 +140,7 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.saultube_triple_jump_animation = getNotNil(cs.saultube_triple_jump_animation, "boolean",
         cs.saultube_jump_animation)
 
-    cs.long_jump_triple_jump_on = getNotNil(cs.long_jump_triple_jump_on, "boolean", false)
+    cs.long_jump_triple_jump_on = getIfBool(cs.long_jump_triple_jump_on)
     cs.long_jump_triple_jump_strength = getNotNil(cs.long_jump_triple_jump_strength, "number", cs.triple_jump_strength)
     cs.long_jump_triple_jump_forward_vel = cs.long_jump_triple_jump_forward_vel ~= nil and
                                                type(cs.long_jump_triple_jump_forward_vel) == "number" and
@@ -138,7 +149,7 @@ local function clean_character_stats(cs,fromInitialTable)
                                                    type(cs.long_jump_triple_jump_add_forward_vel) == "number" and
                                                    cs.long_jump_triple_jump_add_forward_vel or 0
 
-    cs.super_side_flip_on = getNotNil(cs.super_side_flip_on, "boolean", false)
+    cs.super_side_flip_on = getIfBool(cs.super_side_flip_on)
     cs.super_side_flip_strength =
         cs.super_side_flip_strength ~= nil and type(cs.super_side_flip_strength) == "number" and
             cs.super_side_flip_strength or 75
@@ -157,7 +168,7 @@ local function clean_character_stats(cs,fromInitialTable)
         cs.super_side_flip_min_velocity ~= nil and type(cs.super_side_flip_min_velocity) == "number" and
             cs.super_side_flip_min_velocity or 36
 
-    cs.wall_slide_on = getNotNil(cs.wall_slide_on, "boolean", false)
+    cs.wall_slide_on = getIfBool(cs.wall_slide_on)
     cs.wall_slide_gravity = getNotNil(cs.wall_slide_gravity, "number", -0.5) + 1
     cs.wall_slide_max_gravity = getNotNil(cs.wall_slide_max_gravity, "number", -0.73) + 1
     cs.wall_slide_jump_forward_vel = cs.wall_slide_jump_forward_vel ~= nil and type(cs.wall_slide_jump_forward_vel) ==
@@ -175,8 +186,8 @@ local function clean_character_stats(cs,fromInitialTable)
     cs.in_air_jump_sound = cs.in_air_jump_sound == nil and CHAR_SOUND_HOOHOO or cs.in_air_jump_sound
     cs.in_air_jump_forward_vel = cs.in_air_jump_forward_vel == nil and 0 or cs.in_air_jump_forward_vel
 
-    cs.kick_dive_on = getNotNil(cs.kick_dive_on, "boolean", false)
-    cs.disable_double_jump = getNotNil(cs.disable_double_jump, "boolean", false)
+    cs.kick_dive_on = getIfBool(cs.kick_dive_on)
+    cs.disable_double_jump = getIfBool(cs.disable_double_jump)
 
     if cs.in_air_jump_forward_vel_multiplier == nil then
         cs.in_air_jump_forward_vel_multiplier = 0.25
@@ -202,15 +213,16 @@ local function clean_character_stats(cs,fromInitialTable)
     end
 
     cs.knockback_resistance = getNotNil(cs.knockback_resistance, "number", 0) + 1
-    cs.disable_coin_heal = getNotNil(cs.disable_coin_heal, "boolean", false)
+    cs.disable_coin_heal = getIfBool(cs.disable_coin_heal)
     cs.coin_heal_multiplier = getNumberNotNil(cs.coin_heal_multiplier, 100)
     cs.bat_damage_multiplier = getNumberNotNil(cs.bat_damage_multiplier, 100)
-    cs.one_hit = getNotNil(cs.one_hit, "boolean", false)
-    cs.disable_twirling_land = cs.disable_twirling_land ~= nil and type(cs.disable_twirling_land) == "boolean" and
-                                   cs.disable_twirling_land or
-                                   (cs.triple_jump_twirling_on or cs.back_flip_twirling_on or cs.side_flip_twirling_on)
-
-    cs.glide_dive_on = getNotNil(cs.glide_dive_on, "boolean", false)
+    cs.one_hit = getIfBool(cs.one_hit)
+    if cs.disable_twirling_land == nil then
+         cs.disable_twirling_land = (cs.triple_jump_twirling_on or cs.back_flip_twirling_on or cs.side_flip_twirling_on)
+    else
+         cs.disable_twirling_land = getIfBool(cs.disable_twirling_land)
+    end
+    cs.glide_dive_on = getIfBool(cs.glide_dive_on)
     cs.glide_dive_forward_vel = cs.glide_dive_forward_vel ~= nil and type(cs.glide_dive_forward_vel) == "number" and
                                     cs.glide_dive_forward_vel or 50
     cs.glide_dive_slowdown = cs.glide_dive_slowdown ~= nil and type(cs.glide_dive_slowdown) == "number" and
@@ -223,13 +235,13 @@ local function clean_character_stats(cs,fromInitialTable)
                                  cs.glide_dive_max_time or 999
     cs.glide_dive_y_vel =
         cs.glide_dive_y_vel ~= nil and type(cs.glide_dive_y_vel) == "number" and cs.glide_dive_y_vel or -5
-    cs.glide_dive_render_with_wing_cap = getNotNil(cs.glide_dive_render_with_wing_cap, "boolean", false)
-    cs.glide_dive_disable_spin = getNotNil(cs.glide_dive_disable_spin, "boolean", false)
+    cs.glide_dive_render_with_wing_cap = getIfBool(cs.glide_dive_render_with_wing_cap)
+    cs.glide_dive_disable_spin = getIfBool(cs.glide_dive_disable_spin)
 
     cs.water_enemy_damage_multiplier = getNumberNotNil(cs.water_enemy_damage_multiplier,100)
     cs.piranha_plant_damage_multiplier = getNumberNotNil(cs.piranha_plant_damage_multiplier, 100)
 
-    cs.yoshi_flutter_on = getNotNil(cs.yoshi_flutter_on, "boolean", false)
+    cs.yoshi_flutter_on = getIfBool(cs.yoshi_flutter_on)
     cs.yoshi_flutter_animation = cs.yoshi_flutter_animation ~= nil and type(cs.yoshi_flutter_animation) == "number" and
                                      cs.yoshi_flutter_animation or CHAR_ANIM_RUNNING
     cs.yoshi_flutter_angle_speed = getNotNil(cs.yoshi_flutter_angle_speed, "number", -0.10) + 1
@@ -247,48 +259,49 @@ local function clean_character_stats(cs,fromInitialTable)
                                          "number" and cs.yoshi_flutter_reactivations or 2
     cs.yoshi_flutter_speed = getNotNil(cs.yoshi_flutter_speed, "number", 0) + 1
     cs.yoshi_flutter_max_time = getNumberNotNil(cs.yoshi_flutter_max_time,30)
-    cs.kill_toad = getNotNil(cs.kill_toad, "boolean", false)
-    cs.kill_pink_bomb_on = getNotNil(cs.kill_pink_bomb_on, "boolean", false)
+    cs.kill_toad = getIfBool(cs.kill_toad)
+    cs.kill_pink_bomb_on = getIfBool(cs.kill_pink_bomb_on)
 
     cs.moveset_description = getNotNil(cs.moveset_description, "string", nil)
     cs.flying_enemy_damage_multiplier = getNumberNotNil(cs.flying_enemy_damage_multiplier, 100)
     cs.goomba_damage_multiplier = getNumberNotNil(cs.goomba_damage_multiplier, 100)
 
-    cs.peel_out_on = getNotNil(cs.peel_out_on, "boolean", false)
+    cs.peel_out_on = getIfBool(cs.peel_out_on)
     cs.peel_out_max_vel = cs.peel_out_max_vel ~= nil and type(cs.peel_out_max_vel) == "number" and
     cs.peel_out_max_vel or 128
     cs.peel_out_slowdown= cs.peel_out_slowdown ~= nil and type(cs.peel_out_slowdown) == "number" and
     cs.peel_out_slowdown or 0.5
-    cs.peel_out_jump_reset_vel = getNotNil(cs.peel_out_jump_reset_vel, "boolean", true)
-    cs.disable_fall_damage = getNotNil(cs.disable_fall_damage, "boolean", false)
-    cs.always_dive_first = getNotNil(cs.always_dive_first, "boolean", false)
-    cs.dive_kick_on = getNotNil(cs.dive_kick_on, "boolean", false)
-    cs.dive_ground_pound_on = getNotNil(cs.dive_ground_pound_on, "boolean", false)
-    cs.sonic_jump_on = getNotNil(cs.sonic_jump_on, "boolean", false)
+    cs.peel_out_jump_reset_vel = getIfBool(cs.peel_out_jump_reset_vel)
+    cs.disable_fall_damage = getIfBool(cs.disable_fall_damage)
+    cs.always_dive_first = getIfBool(cs.always_dive_first)
+    cs.dive_kick_on = getIfBool(cs.dive_kick_on)
+    cs.dive_ground_pound_on = getIfBool(cs.dive_ground_pound_on)
+    cs.sonic_jump_on = getIfBool(cs.sonic_jump_on)
     cs.sonic_jump_strength = cs.sonic_jump_strength ~= nil and type(cs.sonic_jump_strength) == "number" and
     cs.sonic_jump_strength or 60
     cs.sonic_jump_add_forward_vel = cs.sonic_jump_add_forward_vel ~= nil and type(cs.sonic_jump_add_forward_vel) == "number" and
     cs.sonic_jump_add_forward_vel or 15
-    cs.wall_slide_same_wall = getNotNil(cs.wall_slide_same_wall, "boolean", false)
-    cs.charge_sonic_dash_on = getNotNil(cs.charge_sonic_dash_on, "boolean", false)
+    cs.wall_slide_same_wall = getIfBool(cs.wall_slide_same_wall)
+    cs.charge_sonic_dash_on = getIfBool(cs.charge_sonic_dash_on)
     cs.sonic_dash_max_vel = getNumberNotNil(cs.sonic_dash_max_vel, 130)
     cs.sonic_dash_slowdown = getNumberNotNil(cs.sonic_dash_slowdown, 0.5)
     cs.sonic_dash_slowdown_water = getNumberNotNil(cs.sonic_dash_slowdown_water, cs.sonic_dash_slowdown)
     cs.sonic_dash_slowdown_lava = getNumberNotNil(cs.sonic_dash_slowdown_lava, -1.75)
     cs.sonic_dash_angle_speed = getNotNil(cs.sonic_dash_angle_speed, "number", -0.25) + 1
-    cs.drop_dash_on = getNotNil(cs.drop_dash_on, "boolean", false)
+    cs.drop_dash_on = getIfBool(cs.drop_dash_on)
     cs.drop_dash_charge_vel = getNumberNotNil(cs.drop_dash_charge_vel, 90)
     cs.drop_dash_gravity = getNumberNotNil(cs.drop_dash_gravity, 90)
     local allJumpsAngleSpeed = toPercent(cs.all_jumps_angle_speed, 0)
     cs.dive_angle_speed = toPercent(cs.dive_angle_speed,allJumpsAngleSpeed)
     cs.basic_jump_angle_speed= toPercent(cs.basic_jump_angle_speed,  allJumpsAngleSpeed)
     cs.special_jump_angle_speed= toPercent(cs.special_jump_angle_speed,  allJumpsAngleSpeed)
-    cs.special_triple_jump_on = getNotNil(cs.special_triple_jump_on, "boolean", false)
-    cs.disable_special_triple_jump_bounce = getNotNil(cs.disable_special_triple_jump_bounce, "boolean", false)
+    cs.special_triple_jump_on = getIfBool(cs.special_triple_jump_on)
+    cs.disable_special_triple_jump_bounce = getIfBool(cs.disable_special_triple_jump_bounce)
     cs.single_jump_animation = getNotNil(cs.single_jump_animation, "string", "default")
     cs.triple_jump_animation = getNotNil(cs.triple_jump_animation, "string", "default")
     cs.special_triple_jump_animation_speedup = getNotNil(cs.special_triple_jump_animation_speedup, "number", -1) + 2
-    cs.ground_pound_dive_change_direction_on = getNotNil(cs.ground_pound_dive_change_direction_on,"boolean",false)
+    cs.ground_pound_dive_change_direction_on = getIfBool(cs.ground_pound_dive_change_direction_on)
+    cs.mushroom_allergy = getIfBool(cs.mushroom_allergy)
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
