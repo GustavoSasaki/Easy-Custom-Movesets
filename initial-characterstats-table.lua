@@ -1578,7 +1578,7 @@ initialCharacterStatsTable = {{
     knockback_resistance = 90,
     dive_kick_on = true,
     triple_jump_animation = "special",
-    moveset_description = "Default moveset",
+    moveset_description = "",
     fromInitialTable = false
 },
 {
@@ -1607,7 +1607,7 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     triple_jump_animation = "special_v2",
     special_triple_jump_animation_speedup = 20,
-    moveset_description = "Default moveset",
+    moveset_description = "",
     fromInitialTable = false
 },
 {
@@ -1665,7 +1665,7 @@ initialCharacterStatsTable = {{
     kill_toad = true,
     kill_pink_bomb_on = true,
     dive_angle_speed = 25,
-    moveset_description = "Default moveset",
+    moveset_description = "",
     fromInitialTable = false
 },
 {
@@ -1676,7 +1676,7 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 5,
     charge_sonic_dash_on = true,
     drop_dash_on = true,
-    moveset_description = "Default moveset",
+    moveset_description = "",
     fromInitialTable = false
 },
 {
@@ -1696,7 +1696,7 @@ initialCharacterStatsTable = {{
     dive_angle_speed = 5,
     basic_jump_angle_speed = 15,
     triple_jump_animation = "special_v2",
-    moveset_description = "Default moveset",
+    moveset_description = "",
     fromInitialTable = false
 },
 {
@@ -1744,6 +1744,183 @@ fromInitialTable = false
     in_air_jump_animation=CHAR_ANIM_FORWARD_SPINNING,
     wall_slide_jump_type = ACT_JUMP,
     all_jumps_angle_speed=15,
+    fromInitialTable = false
+},
+{
+    name = 'Jeffy',
+    swimming_speed = 80,
+    hold_walking_speed = 80,
+    jump_strength = 90,
+    back_flip_strength = 115,
+    charge_sonic_dash_on = true,
+    knockback_resistance = 50,
+    special_jump_angle_speed = 15,
+    triple_jump_animation = "special_v2",
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "t pose",
+    chaorrin_umbrella_vertical_speed = 5,
+    chaorrin_umbrella_glide_forward_speed = 140,
+    chaorrin_umbrella_caps_foward_speed = false,
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Big',
+    long_jump_strength = 115,
+    ground_pound_jump_on = true,
+    ground_pound_jump_forward_vel = 25,
+    ground_pound_jump_dive_on = true,
+    peel_out_on = true,
+    knockback_resistance = 110,
+    coin_heal_multiplier = 50,
+    chaorrin_umbrella_glide_on = true,
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Jeffy',
+    swimming_speed = 80,
+    hold_walking_speed = 80,
+    jump_strength = 90,
+    back_flip_strength = 115,
+    charge_sonic_dash_on = true,
+    knockback_resistance = 50,
+    special_jump_angle_speed = 15,
+    triple_jump_animation = "special_v2",
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "pole grab",
+    chaorrin_umbrella_vertical_speed = 5,
+    chaorrin_umbrella_glide_forward_speed = 140,
+    chaorrin_umbrella_caps_foward_speed = false,
+    moveset_description = "",
+    fromInitialTable = true
+},
+ {
+    name = 'Nessie',
+    swimming_speed = 200,
+    wall_slide_on = true,
+    long_jump_triple_jump_on = true,
+    water_damage_multiplier = 50,
+    burning_damage_multiplier = 200,
+    water_enemy_damage_multiplier = 50,
+    goomba_damage_multiplier = 999,
+    bat_damage_multiplier = 999,
+    knockback_resistance = 80,
+    explode_on_death = true,
+    dive_ground_pound_on = true,
+    dive_angle_speed = 20,
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "pole grab",
+    chaorrin_umbrella_max_timer = 60,
+    chaorrin_umbrella_vertical_speed = 4.5,
+    chaorrin_umbrella_glide_forward_speed = 200,
+    chaorrin_umbrella_caps_foward_speed = false,
+    moveset_description = "",
+    fromInitialTable = true
+},
+ {
+    name = 'Smalls',
+    long_jump_strength = 115,
+    ground_pound_jump_on = true,
+    ground_pound_jump_forward_vel = 25,
+    ground_pound_jump_dive_on = true,
+    peel_out_on = true,
+    knockback_resistance = 110,
+    coin_heal_multiplier = 50,
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "hang ceiling",
+    chaorrin_umbrella_max_timer = 48,
+    chaorrin_umbrella_vertical_speed = -0.3,
+    chaorrin_umbrella_glide_forward_speed = 80,
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = "Emmy",
+    walking_speed = 115,
+    in_air_speed = 110,
+    wall_slide_on = true,
+    wall_slide_jump_strength = 65,
+    single_jump_strength = 105,
+    moveset_description = "Balanced, wall slide",
+    fromInitialTable = false
+}, {
+    name = "EmmyCap",
+    walking_speed = 135,
+    knockback_resistance = 40,
+    charge_sonic_dash_on = true,
+    ground_pound_max_y_vel = 150,
+    moveset_description = "Fast dash, high knockback resist",
+    fromInitialTable = false
+}, {
+    name = "Amy",
+    burning_damage_multiplier = 0,
+    lava_damage_multiplier = 50,
+    walking_speed = 110,
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "t pose",
+    chaorrin_umbrella_vertical_speed = 4.5,
+    chaorrin_umbrella_glide_forward_speed = 120,
+    moveset_description = "",
+    fromInitialTable = false
+}, {
+    name = "Franny",
+    gravity = 85,
+    fall_gravity = 75,
+    in_air_speed = 140,
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "hang ceiling",
+    chaorrin_umbrella_max_timer = 60,
+    chaorrin_umbrella_vertical_speed = 5,
+    chaorrin_umbrella_glide_forward_speed = 160,
+    moveset_description = "",
+    fromInitialTable = false
+}, {
+    name = "Lulu",
+    walking_speed = 145,
+    side_flip_strength = 130,
+    back_flip_strength = 130,
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "pole grab",
+    chaorrin_umbrella_vertical_speed = 4.0,
+    chaorrin_umbrella_glide_forward_speed = 150,
+    moveset_description = "",
+    fromInitialTable = false
+}, {
+    name = "Molly",
+    crawling_speed = 350,
+    ground_pound_jump_on = true,
+    ground_pound_antecipation_speed_up = 'immediately',
+    moveset_description = "",
+    fromInitialTable = false
+}, {
+    name = "Polly",
+    gravity = 130,
+    walking_speed = 125,
+    peel_out_on = true,
+    knockback_resistance = 140,
+    goomba_damage_multiplier = 0,
+    moveset_description = "",
+    fromInitialTable = false
+}, {
+    name = "Tabby",
+    mr_l_jump_on = true,
+    mr_l_air_speed = 125,
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "pole grab",
+    chaorrin_umbrella_vertical_speed = 4.8,
+    chaorrin_umbrella_glide_forward_speed = 130,
+    moveset_description = "",
+    fromInitialTable = false
+}, {
+    -- Wendy: Weather bot. Designed to navigate storms.
+    name = "Wendy",
+    water_damage_multiplier = 150, 
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "hang ceiling",
+    chaorrin_umbrella_vertical_speed = 5.5,
+    chaorrin_umbrella_glide_forward_speed = 180,
+    moveset_description = "",
     fromInitialTable = false
 }
 }
