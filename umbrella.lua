@@ -20,8 +20,9 @@ function bhv_big_umbrella_loop(obj)
     local front = 20
      if m.marioObj.header.gfx.animInfo.animID == MARIO_ANIM_HANG_ON_CEILING  then
          front = 20
-    elseif  m.marioObj.header.gfx.animInfo.animID ==  MARIO_ANIM_GRAB_POLE_SHORT then
-         front = 20
+    elseif  m.marioObj.header.gfx.animInfo.animID ==  MARIO_ANIM_GRAB_POLE_SHORT or
+    m.marioObj.header.gfx.animInfo.animID == CHAR_ANIM_START_TWIRL then
+         front = 0
     end
 
     local limb = 0

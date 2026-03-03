@@ -37,6 +37,7 @@ function isJumping(m)
             m.action == ACT_LONG_JUMP or m.action == ACT_RIDING_SHELL_JUMP or m.action == ACT_RIDING_SHELL_FALL or
             m.action == ACT_DIVE or m.action == ACT_JUMP_KICK or m.action == ACT_WAFT_FART or m.action == ACT_SUPER_SIDE_FLIP or m.action == ACT_SUPER_SIDE_FLIP_KICK
             or m.action == ACT_YOSHI_FLUTTER or m.action == ACT_GLIDE_DIVE or m.action == ACT_SONIC_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP 
+            or m.action == ACT_UMBRELLA_GLIDE
 end
 
 --- @param m MarioState
@@ -56,6 +57,7 @@ local function apply_walking_speed(m, stats)
     elseif m.action == ACT_YOSHI_FLUTTER and m.actionArg == 1 then
         hScale = stats.yoshi_flutter_speed
     elseif m.action == ACT_UMBRELLA_GLIDE then
+        print("yesss")
         hScale = stats.chaorrin_umbrella_glide_forward_speed
     elseif isJumping(m) then
         hScale = stats.in_air_speed
