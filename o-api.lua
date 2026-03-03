@@ -302,6 +302,12 @@ local function clean_character_stats(cs, fromInitialTable)
     cs.special_triple_jump_animation_speedup = getNotNil(cs.special_triple_jump_animation_speedup, "number", -1) + 2
     cs.ground_pound_dive_change_direction_on = getIfBool(cs.ground_pound_dive_change_direction_on)
     cs.mushroom_allergy = getIfBool(cs.mushroom_allergy)
+    cs.chaorrin_umbrella_glide_on = getIfBool(cs.chaorrin_umbrella_glide_on)
+    cs.chaorrin_umbrella_animation = getNotNil(cs.chaorrin_umbrella_animation, "string", "default")
+    cs.chaorrin_umbrella_max_timer = getNumberNotNil(cs.chaorrin_umbrella_max_timer, 999)
+    cs.chaorrin_umbrella_vertical_speed = getNumberNotNil(cs.chaorrin_umbrella_vertical_speed, 15)
+    cs.chaorrin_umbrella_glide_forward_speed = toPercent(cs.chaorrin_umbrella_glide_forward_speed, 1.0)
+    cs.chaorrin_umbrella_caps_forward_speed = getIfBool(cs.chaorrin_umbrella_caps_forward_speed) 
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -531,6 +537,12 @@ end
 --- @field public special_triple_jump_animation_speedup string ( Default 0 ) increase speed animation for special triple jump
 --- @field public ground_pound_dive_change_direction_on boolean ( Default false) permit change angle when ground pound diving
 --- @field public mushroom_allergy boolean (Default false) character dies when touching mushrooms
+--- @field public chaorrin_umbrella_glide_on boolean (Default false) apply umbrella glide
+--- @field public chaorrin_umbrella_animation string (Default "default") animation applied when umbrella gliding
+--- @field public chaorrin_umbrella_max_timer number (Default 999) max time umbrella gliding before touching ground
+--- @field public chaorrin_umbrella_vertical_speed number (Default 2) how much vertical speed when descending in umbrella glide, uses units
+--- @field public chaorrin_umbrella_glide_forward_speed number (Default 100) how much horizontal speed when umbrella glide, uses toPercent
+--- @field public chaorrin_umbrella_caps_foward_speed boolean (Default true) caps velocity to 20 when umbrella glide_dive_min_forward_speed
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)

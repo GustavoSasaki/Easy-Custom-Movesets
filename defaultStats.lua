@@ -45,5 +45,12 @@ defaultStats = {
     disable_special_triple_jump_bounce = false,
     ground_pound_dive_change_direction_on = false,
     special_triple_jump_on = false,
-    mushroom_allergy = false
+    mushroom_allergy = false,
+    -- Umbrella Glide Defaults
+    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_animation = "default",
+    chaorrin_umbrella_max_timer = 999,
+    chaorrin_umbrella_vertical_speed = 5,
+    chaorrin_umbrella_glide_forward_speed = 100,
+    chaorrin_umbrella_caps_forward_speed = true
 }

@@ -55,6 +55,8 @@ local function apply_walking_speed(m, stats)
         hScale = stats.twirling_speed
     elseif m.action == ACT_YOSHI_FLUTTER and m.actionArg == 1 then
         hScale = stats.yoshi_flutter_speed
+    elseif m.action == ACT_UMBRELLA_GLIDE then
+        hScale = stats.chaorrin_umbrella_glide_forward_speed
     elseif isJumping(m) then
         hScale = stats.in_air_speed
     elseif isGroundedSlowing(m) then

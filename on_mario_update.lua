@@ -353,6 +353,7 @@ function ecm_mario_update(m)
     end
 
     apply_long_jump_triple_jump(m, stats)
+    apply_umbrella_glide(m,stats)
 
     if (gPlayerSyncTable[m.playerIndex].longJumpTimer < 100) then
         gPlayerSyncTable[m.playerIndex].longJumpTimer = gPlayerSyncTable[m.playerIndex].longJumpTimer + 1
