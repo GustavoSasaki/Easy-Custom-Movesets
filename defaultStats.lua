@@ -47,10 +47,18 @@ defaultStats = {
     special_triple_jump_on = false,
     mushroom_allergy = false,
     -- Umbrella Glide Defaults
-    chaorrin_umbrella_glide_on = true,
+    chaorrin_umbrella_glide_on = false,
     chaorrin_umbrella_animation = "default",
     chaorrin_umbrella_max_timer = 999,
     chaorrin_umbrella_vertical_speed = 5,
     chaorrin_umbrella_glide_forward_speed = 100,
-    chaorrin_umbrella_caps_forward_speed = true
+    chaorrin_umbrella_caps_forward_speed = true,
+    -- Honey Queen Fly Defaults
+    honeyQueen_fly_on = false,
+    honeyQueen_fly_render_cap = true,
+    honeyQueen_max_fly_timer = 80,
+    honeyQueen_render_hud = true,
+    honeyQueen_fly_animation = "default",
+    honeyQueen_fly_forward_speed = 100,
+    honeyQueen_fly_strength = 100,
 }

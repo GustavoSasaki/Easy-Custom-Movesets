@@ -308,6 +308,16 @@ local function clean_character_stats(cs, fromInitialTable)
     cs.chaorrin_umbrella_vertical_speed = getNumberNotNil(cs.chaorrin_umbrella_vertical_speed, 15)
     cs.chaorrin_umbrella_glide_forward_speed = toPercent(cs.chaorrin_umbrella_glide_forward_speed, 1.0)
     cs.chaorrin_umbrella_caps_forward_speed = getIfBool(cs.chaorrin_umbrella_caps_forward_speed) 
+    cs.honeyQueen_fly_on = getIfBool(cs.honeyQueen_fly_on)
+    cs.honeyQueen_fly_render_cap= getIfBool(cs.honeyQueen_fly_render_cap)
+    cs.honeyQueen_max_fly_timer=          cs.honeyQueen_max_fly_timer ~= nil and type(cs.honeyQueen_max_fly_timer) == "number" and
+    cs.honeyQueen_max_fly_timer or 80
+    cs.honeyQueen_render_hud=  getIfBool(cs.honeyQueen_render_hud)
+    cs.honeyQueen_fly_animation =  cs.honeyQueen_fly_animation ~= nil and 
+    (type(cs.honeyQueen_fly_animation) == "number" or type(cs.honeyQueen_fly_animation) == "string") and
+    cs.honeyQueen_fly_animation or "honeyqueen_fly_idle"
+    cs.honeyQueen_fly_forward_speed = toPercent(cs.honeyQueen_fly_forward_speed, 1.0)
+    cs.honeyQueen_fly_strength = toPercent(cs.honeyQueen_fly_strength, 1.0)
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -543,6 +553,13 @@ end
 --- @field public chaorrin_umbrella_vertical_speed number (Default 2) how much vertical speed when descending in umbrella glide, uses units
 --- @field public chaorrin_umbrella_glide_forward_speed number (Default 100) how much horizontal speed when umbrella glide, uses toPercent
 --- @field public chaorrin_umbrella_caps_foward_speed boolean (Default true) caps velocity to 20 when umbrella glide_dive_min_forward_speed
+--- @field public honeyQueen_fly_on boolean (Default false) permits execute honey queen fly
+--- @field public honeyQueen_fly_render_cap boolean (Default true) Render wing cap when honey queen flying
+--- @field public honeyQueen_max_fly_timer number (Default 80) how much time in the air for honey queen flying
+--- @field public honeyQueen_render_hud boolean (Default false) render hud of honey queen flying
+--- @field public honeyQueen_fly_animation number|string (Default 'default') animation while honey queen flying
+--- @field public honeyQueen_fly_forward_speed number (Default 100) how much horizontal speed when honey queen fly in percent
+--- @field public honeyQueen_fly_strength number (Default 100) how much vertical speed when honey queen fly in percent
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -564,7 +581,7 @@ end
 
 --- @param name string
 --- @return CharacterStats|nil
-local function stats_from_name(name)
+function stats_from_name(name)
     for i = 1, #characterStatsTable do
         if characterStatsTable[i].name == name then
             return characterStatsTable[i]
