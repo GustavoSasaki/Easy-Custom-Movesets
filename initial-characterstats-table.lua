@@ -1520,7 +1520,7 @@ initialCharacterStatsTable = {{
     goomba_damage_multiplier = 200,
     knockback_resistance = 85,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Il Piantissimo',
@@ -1538,7 +1538,7 @@ initialCharacterStatsTable = {{
     basic_jump_angle_speed = 20,
     moveset_description = "",
     ground_pound_dive_change_direction_on = true,
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Ducky',
@@ -1562,7 +1562,7 @@ initialCharacterStatsTable = {{
     disable_special_triple_jump_bounce = true,
     special_triple_jump_animation_speedup = 20,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Mario Party Mario',
@@ -1579,7 +1579,7 @@ initialCharacterStatsTable = {{
     dive_kick_on = true,
     triple_jump_animation = "special",
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Gold Ship',
@@ -1608,7 +1608,7 @@ initialCharacterStatsTable = {{
     triple_jump_animation = "special_v2",
     special_triple_jump_animation_speedup = 20,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Tuxie',
@@ -1629,7 +1629,7 @@ initialCharacterStatsTable = {{
     knockback_resistance = 30,
     dive_angle_speed = 5,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Scatman',
@@ -1646,7 +1646,7 @@ initialCharacterStatsTable = {{
     all_jumps_angle_speed = 25,
     single_jump_animation = "special_v2",
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
 
@@ -1666,7 +1666,7 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     dive_angle_speed = 25,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Chuck',
@@ -1677,7 +1677,7 @@ initialCharacterStatsTable = {{
     charge_sonic_dash_on = true,
     drop_dash_on = true,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Omega',
@@ -1697,7 +1697,7 @@ initialCharacterStatsTable = {{
     basic_jump_angle_speed = 15,
     triple_jump_animation = "special_v2",
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
 name = 'Baby Yoshi',
@@ -1719,7 +1719,7 @@ yoshi_flutter_cooldown = 15,
 yoshi_flutter_max_time = 35,
 yoshi_flutter_stength_descending = 20,
 yoshi_flutter_stength_ascending = 10,
-fromInitialTable = false
+fromInitialTable = true
 },
 {
     name = 'SAMUS ARAN',
@@ -1744,7 +1744,7 @@ fromInitialTable = false
     in_air_jump_animation=CHAR_ANIM_FORWARD_SPINNING,
     wall_slide_jump_type = ACT_JUMP,
     all_jumps_angle_speed=15,
-    fromInitialTable = false
+    fromInitialTable = true
 },
 {
     name = 'Jeffy',
@@ -1843,7 +1843,7 @@ fromInitialTable = false
     wall_slide_jump_strength = 65,
     single_jump_strength = 105,
     moveset_description = "Balanced, wall slide",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "EmmyCap",
     walking_speed = 135,
@@ -1851,7 +1851,7 @@ fromInitialTable = false
     charge_sonic_dash_on = true,
     ground_pound_max_y_vel = 150,
     moveset_description = "Fast dash, high knockback resist",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "Amy",
     burning_damage_multiplier = 0,
@@ -1862,7 +1862,7 @@ fromInitialTable = false
     chaorrin_umbrella_vertical_speed = 4.5,
     chaorrin_umbrella_glide_forward_speed = 120,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "Franny",
     gravity = 85,
@@ -1874,7 +1874,7 @@ fromInitialTable = false
     chaorrin_umbrella_vertical_speed = 5,
     chaorrin_umbrella_glide_forward_speed = 160,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "Lulu",
     walking_speed = 145,
@@ -1885,14 +1885,14 @@ fromInitialTable = false
     chaorrin_umbrella_vertical_speed = 4.0,
     chaorrin_umbrella_glide_forward_speed = 150,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "Molly",
     crawling_speed = 350,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'immediately',
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "Polly",
     gravity = 130,
@@ -1901,7 +1901,7 @@ fromInitialTable = false
     knockback_resistance = 140,
     goomba_damage_multiplier = 0,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     name = "Tabby",
     mr_l_jump_on = true,
@@ -1911,7 +1911,7 @@ fromInitialTable = false
     chaorrin_umbrella_vertical_speed = 4.8,
     chaorrin_umbrella_glide_forward_speed = 130,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
 }, {
     -- Wendy: Weather bot. Designed to navigate storms.
     name = "Wendy",
@@ -1921,6 +1921,142 @@ fromInitialTable = false
     chaorrin_umbrella_vertical_speed = 5.5,
     chaorrin_umbrella_glide_forward_speed = 180,
     moveset_description = "",
-    fromInitialTable = false
+    fromInitialTable = true
+},
+ {
+    name = 'Bill Cipher',
+    super_side_flip_on = true,
+    long_jump_triple_jump_on = true,
+    disable_damage = true,
+    knockback_resistance = 50,
+    explode_on_death = true,
+    kill_toad = true,
+    kill_pink_bomb_on = true,
+    honeyQueen_fly_on = true,
+    honeyQueen_fly_render_cap = false,
+    honeyQueen_max_fly_timer = 60,
+    honeyQueen_render_hud = true,
+    honeyQueen_fly_forward_speed = 150,
+    honeyQueen_fly_strength = 150,
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Chick Gizzard Lips',
+    gravity = 90,
+    back_flip_strength = 90,
+    long_jump_strength = 90,
+    dive_velocity = 120,
+    waft_fart_on = true,
+    yoshi_flutter_on = true,
+    peel_out_on = true,
+    water_damage_multiplier = 150,
+    burning_damage_multiplier = 150,
+    lava_damage_multiplier = 150,
+    piranha_plant_damage_multiplier = 150,
+    flying_enemy_damage_multiplier = 150,
+    knockback_resistance = 80,
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Fawful',
+    long_jump_strength = 116,
+    side_flip_twirling_on = true,
+    twirling_ground_pound_on = true,
+    twirling_dive_on = true,
+    super_side_flip_on = true,
+    long_jump_triple_jump_on = true,
+    explode_on_death = true,
+    kill_toad = true,
+    kill_pink_bomb_on = true,
+    mushroom_allergy = true,
+    honeyQueen_fly_on = true,
+    honeyQueen_max_fly_timer = 70,
+    honeyQueen_render_hud = true,
+    honeyQueen_fly_forward_speed = 110,
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Midna',
+    walking_speed = 120,
+    jump_strength = 90,
+    double_jump_strength = 93,
+    triple_jump_strength = 96,
+    back_flip_strength = 96,
+    side_flip_strength = 96,
+    long_jump_strength = 96,
+    dive_y_vel = 40,
+    dive_velocity = 110,
+    wall_slide_on = true,
+    water_enemy_damage_multiplier = 200,
+    goomba_damage_multiplier = 999,
+    bat_damage_multiplier = 999,
+    dive_angle_speed = 10,
+    basic_jump_angle_speed = 10,
+    special_jump_angle_speed = 10,
+    honeyQueen_fly_on = true,
+    honeyQueen_fly_render_cap = false,
+    honeyQueen_max_fly_timer = 70,
+    honeyQueen_render_hud = true,
+    honeyQueen_fly_forward_speed = 125,
+    honeyQueen_fly_strength = 90,
+    moveset_description = "Default moveset",
+    fromInitialTable = true
+},
+{
+    name = 'Peter Shorts',
+    fall_gravity = 105,
+    walking_speed = 120,
+    in_air_speed = 120,
+    jump_strength = 90,
+    double_jump_strength = 90,
+    triple_jump_strength = 105,
+    back_flip_strength = 90,
+    dive_kick_on = true,
+    single_jump_animation = "special",
+    triple_jump_animation = "special",
+    moveset_description = "",
+    fromInitialTable = true
+},
+ {
+    name = 'RUDY',
+    ground_pound_dive_on = true,
+    back_flip_twirling_on = true,
+    ground_pound_jump_on = true,
+    yoshi_flutter_on = true,
+    drop_dash_on = true,
+    disable_fall_damage = true,
+    knockback_resistance = 75,
+    mushroom_allergy = true,
+    triple_jump_animation = "special_v2",
+    moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Stew',
+    gravity = 110,
+    in_air_speed = 110,
+    back_flip_strength = 110,
+    long_jump_strength = 110,
+    dive_velocity = 90,
+    mr_l_jump_on = true,
+    triple_jump_twirling_on = true,
+    yoshi_flutter_on = true,
+    peel_out_on = true,
+    peel_out_max_vel = 141,
+    peel_out_slowdown = 0.4,
+    water_damage_multiplier = 150,
+    burning_damage_multiplier = 150,
+    lava_damage_multiplier = 150,
+    piranha_plant_damage_multiplier = 150,
+    flying_enemy_damage_multiplier = 150,
+    knockback_resistance = 80,
+    all_jumps_angle_speed = 5,
+    basic_jump_angle_speed = 5,
+    special_jump_angle_speed = 5,
+    moveset_description = "",
+    fromInitialTable = true
 }
 }

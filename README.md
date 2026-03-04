@@ -31,6 +31,7 @@ You can look all the stats at [Here](https://github.com/GustavoSasaki/Easy-Custo
 - Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
 - Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
 - Optional (enable the use of saultube animation stats): Download the ZIP file from [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) and unzip into mod folder
+- Optional (enable the use of honey queen stats): Download the ZIP file from [Honey Queen Mod](https://mods.sm64coopdx.com/mods/cs-honey-queen.392/) and unzip into mod folder
 - Enable character-select-coop and easy-custom-movesets in sm64coopDX mod screen.
 
 ## Adding/Editing movesets
@@ -53,6 +54,7 @@ For example, to add the move drop dash to Burger Man, add this to the file.
 - Dark Starly (sonic dash)
 - Doggednamed1 (drop dash)
 - Chaorrin [umbrella glide](https://mods.sm64coopdx.com/mods/cs-big-and-small-the-cats.881/)
+- Melzinoff [honey queen fly](https://mods.sm64coopdx.com/mods/cs-honey-queen.392/)
 
 ## Integrating your mod
 
@@ -88,7 +90,10 @@ For example, to add support to the Iono character mod, I added line 61-63 to the
 - [Baby Mario](https://mods.sm64coopdx.com/mods/cs-baby-mario.48/)
 - [Baby Yoshi](https://mods.sm64coopdx.com/mods/cs-baby-yoshi.692/)
 - [Big and Small the cats](https://mods.sm64coopdx.com/mods/cs-big-and-small-the-cats.881/)
+- [Bill Cipher](https://mods.sm64coopdx.com/mods/cs-bill-cipher.917/)
+- [BiS Fawful](https://mods.sm64coopdx.com/mods/cs-bis-fawful.462/)
 - [Charizard](https://mods.sm64coopdx.com/mods/cs-charizardmod.611/)
+- [Chick Stew](https://mods.sm64coopdx.com/mods/cs-chick-stew.1004/)
 - [Chicken Jockey](https://mods.sm64coopdx.com/mods/cs-chicken-jockey.789/)
 - [Connie](https://mods.sm64coopdx.com/mods/cs-connie-mario-luigi-brothership.207/)
 - [Cream the Rabbit](https://mods.sm64coopdx.com/mods/cs-cream-the-rabbit.282/)
@@ -126,6 +131,7 @@ For example, to add support to the Iono character mod, I added line 61-63 to the
 - [Marvin the martian](https://mods.sm64coopdx.com/mods/marvin-the-martian.497/)
 - [Matikanefukukitaru](https://mods.sm64coopdx.com/mods/cs-matikanefukukitaru-uma-plushie.1017/)
 - [Megumin](https://mods.sm64coopdx.com/mods/cs-megumin.202/)
+- [Midna](https://mods.sm64coopdx.com/mods/cs-midna.645/)
 - [Mips](https://mods.sm64coopdx.com/mods/cs-mips.326/)
 - [Mlops Yoshi](https://mods.sm64coopdx.com/mods/cs-mlops-yoshi.214/)
 - [Modern Penguin](https://mods.sm64coopdx.com/mods/cs-modern-penguin.1061/)
@@ -144,8 +150,10 @@ For example, to add support to the Iono character mod, I added line 61-63 to the
 - [Penelope Pussycat ](https://mods.sm64coopdx.com/mods/penelope-pussycat.539/)
 - [Pepsiman](https://mods.sm64coopdx.com/mods/cs-pepsiman.88/)
 - [Peter Griffin](https://mods.sm64coopdx.com/mods/cs-peter-griffin.11/)
+- [Peter Shorts](https://mods.sm64coopdx.com/mods/cs-peter-shorts.237/)
 - [QP](https://mods.sm64coopdx.com/threads/cs-qp.670/)
 - [Rex](https://mods.sm64coopdx.com/mods/cs-rex-super-mario-world.575/)
+- [Rooster Rudy](https://mods.sm64coopdx.com/mods/rooster-rudy-cs.570/)
 - [SackBoy](https://mods.sm64coopdx.com/mods/cs-sackboy.459/)
 - [Samus Aran](https://mods.sm64coopdx.com/mods/cs-samus-aran.349/)
 - [Saul & Friends](https://mods.sm64coopdx.com/mods/saul-friends.470/)
@@ -158,6 +166,7 @@ For example, to add support to the Iono character mod, I added line 61-63 to the
 - [Sonic Randos](https://mods.sm64coopdx.com/mods/sonic-randos-cs.567/)
 - [Spamton](https://mods.sm64coopdx.com/mods/cs-spamton.6/)
 - [Squidward](https://mods.sm64coopdx.com/mods/squidward-cs.438/)
+- [Superstar Fawful](https://mods.sm64coopdx.com/mods/cs-superstar-fawful.563/)
 - [Talking Red](https://mods.sm64coopdx.com/mods/cs-talking-red.164/)
 - [Thomas The Tank Engine](https://mods.sm64coopdx.com/mods/cs-thomas-the-tank-engine.41/)
 - [Toon Link](https://mods.sm64coopdx.com/mods/cs-toon-link.460/)
