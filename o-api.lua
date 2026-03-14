@@ -374,6 +374,11 @@ if network_is_server() then
         clean_character_stats(character,true)
         table_insert(characterStatsTable, character)
     end
+
+    for _, character in ipairs(communityCharacterStatsTable) do
+        clean_character_stats(character,true)
+        table_insert(characterStatsTable, character)
+    end
 end
 
 --- @param characterStats CharacterStats
