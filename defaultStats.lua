@@ -61,4 +61,6 @@ defaultStats = {
     honeyQueen_fly_animation = "default",
     honeyQueen_fly_forward_speed = 100,
     honeyQueen_fly_strength = 100,
+    hide_barrel_on= false,
+    hide_barrel_type = "barrel"
 }

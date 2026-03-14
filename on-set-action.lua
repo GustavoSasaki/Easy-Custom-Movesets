@@ -104,6 +104,25 @@ function ecm_on_set_action(m)
         return
     end
 
+
+    if m.action == ACT_CROUCHING  and stats.hide_barrel_on then
+        local model = E_MODEL_ECM_BARREL
+        if stats.hide_barrel_type == 'box' then
+            model = E_MODEL_ECM_BOX
+        elseif stats.hide_barrel_type == 'substitute' then
+            model = E_MODEL_ECM_SUBSTITUTE
+        end
+
+        spawn_sync_object(id_bhvbarrel, model, m.pos.x, m.pos.y , m.pos.z + 1,
+        ---@param o Object
+        function(o)
+            o.globalPlayerIndex = m.marioObj.globalPlayerIndex
+            o.oMoveAngleYaw = m.faceAngle.y
+            play_sound(SOUND_ACTION_THROW, o.header.gfx.cameraToObject)
+        end)
+    end
+
+
     if stats.disable_double_jump then
         m.doubleJumpTimer = 0
     end

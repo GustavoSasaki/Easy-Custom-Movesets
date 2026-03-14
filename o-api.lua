@@ -318,6 +318,8 @@ local function clean_character_stats(cs, fromInitialTable)
     cs.honeyQueen_fly_animation or "honeyqueen_fly_idle"
     cs.honeyQueen_fly_forward_speed = toPercent(cs.honeyQueen_fly_forward_speed, 1.0)
     cs.honeyQueen_fly_strength = toPercent(cs.honeyQueen_fly_strength, 1.0)
+    cs.hide_barrel_on=  getIfBool(cs.hide_barrel_on)
+    cs.hide_barrel_type = getNotNil(cs.hide_barrel_type, "string", "barrel")
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -560,6 +562,8 @@ end
 --- @field public honeyQueen_fly_animation number|string (Default 'default') animation while honey queen flying
 --- @field public honeyQueen_fly_forward_speed number (Default 100) how much horizontal speed when honey queen fly in percent
 --- @field public honeyQueen_fly_strength number (Default 100) how much vertical speed when honey queen fly in percent
+--- @field public hide_barrel_on boolean (Default false) when press Z, hide inside barrel
+--- @field public hide_barrel_type string (Default 'barrel') Change barrel type from 'barrel', 'substitute', 'box'
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
