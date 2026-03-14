@@ -1,0 +1,17 @@
+extern const GeoLayout barrel_geo[];
+extern Lights1 barrel_Material__50_f3d_lights;
+extern Lights1 barrel_Material__49_f3d_lights;
+extern u8 barrel__5736BA6B_c_ci4[];
+extern u8 barrel__5736BA6B_c_pal_rgba16[];
+extern u8 barrel__1CF5C9C9_c_ci4[];
+extern u8 barrel__1CF5C9C9_c_pal_rgba16[];
+extern Vtx barrel_barrel_mesh_layer_1_vtx_cull[8];
+extern Vtx barrel_barrel_mesh_layer_1_vtx_0[54];
+extern Gfx barrel_barrel_mesh_layer_1_tri_0[];
+extern Vtx barrel_barrel_mesh_layer_1_vtx_1[10];
+extern Gfx barrel_barrel_mesh_layer_1_tri_1[];
+extern Gfx mat_barrel_Material__50_f3d[];
+extern Gfx mat_revert_barrel_Material__50_f3d[];
+extern Gfx mat_barrel_Material__49_f3d[];
+extern Gfx mat_revert_barrel_Material__49_f3d[];
+extern Gfx barrel_barrel_mesh_layer_1[];
