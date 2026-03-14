@@ -1,0 +1,15 @@
+extern const GeoLayout ecm_substitute_geo[];
+extern Lights1 ecm_substitute_migawaridoll_png_f3d_lights;
+extern Lights1 ecm_substitute_shadow1_png_054_f3d_lights;
+extern u8 ecm_substitute_migawaridoll_rgba16[];
+extern u8 ecm_substitute_shadow1_ia8[];
+extern Vtx ecm_substitute_migawaridoll1_mesh_layer_1_vtx_cull[8];
+extern Vtx ecm_substitute_migawaridoll1_mesh_layer_1_vtx_0[1726];
+extern Gfx ecm_substitute_migawaridoll1_mesh_layer_1_tri_0[];
+extern Vtx ecm_substitute_migawaridoll1_mesh_layer_1_vtx_1[21];
+extern Gfx ecm_substitute_migawaridoll1_mesh_layer_1_tri_1[];
+extern Gfx mat_ecm_substitute_migawaridoll_png_f3d[];
+extern Gfx mat_revert_ecm_substitute_migawaridoll_png_f3d[];
+extern Gfx mat_ecm_substitute_shadow1_png_054_f3d[];
+extern Gfx mat_revert_ecm_substitute_shadow1_png_054_f3d[];
+extern Gfx ecm_substitute_migawaridoll1_mesh_layer_1[];
