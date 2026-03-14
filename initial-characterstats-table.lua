@@ -10,8 +10,10 @@ initialCharacterStatsTable = {{
     name = "Sackboy",
     gravity = 95,
     ground_pound_dive_on = true,
-    knockback_resistance = -10,
+    knockback_resistance = 90,
     goomba_damage_multiplier = 0,
+    hide_barrel_on = true,
+    hide_barrel_type = 'box',
     moveset_description = "less gravity"
 }, {
     -- heavy character with better back/side flip
@@ -28,7 +30,7 @@ initialCharacterStatsTable = {{
     gravity = 85,
     long_jump_strength = 105,
     mr_l_jump_on = true,
-    knockback_resistance = -5,
+    knockback_resistance = 95,
     moveset_description = "less gravity,mr.L jump"
 }, {
     -- character with fast long jump
@@ -309,7 +311,8 @@ initialCharacterStatsTable = {{
     walking_speed = 140,
     back_flip_strength = 85,
     side_flip_strength = 85,
-    goomba_damage_multiplier = 50
+    goomba_damage_multiplier = 50,
+    hide_barrel_on = true
 }, {
     name = "Junio Sonic",
     walking_speed = 252,
@@ -356,7 +359,7 @@ initialCharacterStatsTable = {{
     bad_gas_damage_multiplier = 0,
     long_jump_velocity_multiplier = 150,
     long_jump_max_velocity = 130,
-    knockback_resistance = -5
+    knockback_resistance = 95
 
 }, {
     -- character witch can stand in water long, swim faster
@@ -482,6 +485,8 @@ initialCharacterStatsTable = {{
     peel_out_slowdown = 0.65,
     peel_out_jump_reset_vel = false,
     disable_fall_damage = true,
+    hide_barrel_on = true,
+    hide_barrel_type = 'barrel',
     moveset_description = "peel out, bunch of damage resistance"
 }, {
     name = 'Squidward',
@@ -500,7 +505,9 @@ initialCharacterStatsTable = {{
     disable_burning = true,
     walking_speed = 120,
     in_air_speed = 120,
-    grounded_slowing_speed = 150
+    grounded_slowing_speed = 150,
+    hide_barrel_on = true,
+    hide_barrel_type = 'barrel',
 
 }, {
     name = 'VL & CJes',
@@ -537,6 +544,8 @@ initialCharacterStatsTable = {{
     back_flip_strength = 90,
     ground_pound_shake = 150,
     flying_enemy_damage_multiplier = 50,
+    hide_barrel_on = true,
+    hide_barrel_type = 'box',
     kill_toad = true
 }, {
     -- character that can do fart after ground pound
@@ -616,7 +625,7 @@ initialCharacterStatsTable = {{
     walking_speed = 140,
     burning_damage_multiplier = 150,
     bat_damage_multiplier = 200,
-    knockback_resistance = -150,
+    knockback_resistance = 50,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'medium',
     wall_slide_on = true,
@@ -742,8 +751,10 @@ initialCharacterStatsTable = {{
     walking_speed = 150,
     jump_strength = 85,
     wall_slide_jump_strength = 60,
-    knockback_resistance = -5,
-    flying_enemy_damage_multiplier = 200
+    knockback_resistance = 95,
+    flying_enemy_damage_multiplier = 200,
+    hide_barrel_on = true,
+    hide_barrel_type = 'substitute',
 }, {
     -- character that do an dive when jumping from weall slide. Also is great swimmer
     name = 'Yae',
@@ -889,7 +900,7 @@ initialCharacterStatsTable = {{
     walking_speed = 140,
     burning_damage_multiplier = 150,
     bat_damage_multiplier = 200,
-    knockback_resistance = -150,
+    knockback_resistance = 50,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'medium',
     wall_slide_on = true,
@@ -902,7 +913,7 @@ initialCharacterStatsTable = {{
     walking_speed = 140,
     burning_damage_multiplier = 150,
     bat_damage_multiplier = 200,
-    knockback_resistance = -150,
+    knockback_resistance = 50,
     ground_pound_jump_on = true,
     ground_pound_antecipation_speed_up = 'medium',
     wall_slide_on = true,
@@ -951,6 +962,8 @@ initialCharacterStatsTable = {{
     knockback_resistance = 50,
     water_enemy_damage_multiplier = 200,
     piranha_plant_damage_multiplier = 50,
+    hide_barrel_on = true,
+    hide_barrel_type = 'substitute',
     moveset_description = "glide dive, ground pound jump"
 }, {
     -- character with a glide that is faster, slower decent but with bad angle control. She can also dive from ground pound
@@ -1146,7 +1159,7 @@ initialCharacterStatsTable = {{
 }, {
     -- character with high gravity, but can triple jump twirling and glide dive 
     name = 'Morgana',
-    knockback_resistance = -50,
+    knockback_resistance = 50,
     walking_speed = 135,
     in_air_speed = 135,
     gravity = 135,
@@ -1240,7 +1253,7 @@ initialCharacterStatsTable = {{
     in_air_speed = 110,
     in_air_jump = 10,
     in_air_jump_strength = 20,
-    knockback_resistance = -50,
+    knockback_resistance = 50,
     glide_dive_on = true,
     glide_dive_disable_spin = true,
     glide_dive_y_vel = -7,
@@ -1252,7 +1265,7 @@ initialCharacterStatsTable = {{
     jump_strength = 85,
     walking_speed = 120,
     in_air_speed = 110,
-    knockback_resistance = -50,
+    knockback_resistance = 50,
     glide_dive_on = true,
     glide_dive_disable_spin = true,
     glide_dive_y_vel = -7,
@@ -1264,7 +1277,7 @@ initialCharacterStatsTable = {{
     jump_strength = 85,
     walking_speed = 120,
     in_air_speed = 110,
-    knockback_resistance = -50,
+    knockback_resistance = 50,
     glide_dive_on = true,
     glide_dive_disable_spin = true,
     glide_dive_y_vel = -7,
@@ -1309,7 +1322,7 @@ initialCharacterStatsTable = {{
     jump_strength = 85,
     walking_speed = 120,
     in_air_speed = 110,
-    knockback_resistance = -50,
+    knockback_resistance = 50,
     glide_dive_on = true,
     glide_dive_disable_spin = true,
     glide_dive_y_vel = -7,
@@ -1365,7 +1378,7 @@ initialCharacterStatsTable = {{
     glide_dive_on = true,
     mr_l_jump_on = true,
     play_mr_l_anticipation_audio = false,
-    knockback_resistance = -50,
+    knockback_resistance = 50,
     moveset_description = "glide dive, mr L jump "
 }, {
     name = 'Ruffrunner',
@@ -1752,7 +1765,6 @@ fromInitialTable = true
     hold_walking_speed = 80,
     jump_strength = 90,
     back_flip_strength = 115,
-    charge_sonic_dash_on = true,
     knockback_resistance = 50,
     special_jump_angle_speed = 15,
     triple_jump_animation = "special_v2",
@@ -1774,24 +1786,6 @@ fromInitialTable = true
     knockback_resistance = 110,
     coin_heal_multiplier = 50,
     chaorrin_umbrella_glide_on = true,
-    moveset_description = "",
-    fromInitialTable = true
-},
-{
-    name = 'Jeffy',
-    swimming_speed = 80,
-    hold_walking_speed = 80,
-    jump_strength = 90,
-    back_flip_strength = 115,
-    charge_sonic_dash_on = true,
-    knockback_resistance = 50,
-    special_jump_angle_speed = 15,
-    triple_jump_animation = "special_v2",
-    chaorrin_umbrella_glide_on = true,
-    chaorrin_umbrella_animation = "pole grab",
-    chaorrin_umbrella_vertical_speed = 5,
-    chaorrin_umbrella_glide_forward_speed = 140,
-    chaorrin_umbrella_caps_foward_speed = false,
     moveset_description = "",
     fromInitialTable = true
 },
@@ -2057,6 +2051,54 @@ fromInitialTable = true
     basic_jump_angle_speed = 5,
     special_jump_angle_speed = 5,
     moveset_description = "",
+    fromInitialTable = true
+},
+{
+    name = 'Chavo',
+    coin_heal_multiplier = 50,
+    long_jump_triple_jump_on = true,
+    long_jump_triple_jump_forward_vel = 30,
+    hide_barrel_on = true,
+    fromInitialTable = true
+},
+{
+    name = 'MarioBro Shy Guy',
+    honeyQueen_fly_on = true,
+    honeyQueen_fly_render_cap = false,
+    hide_barrel_on = true,
+    hide_barrel_type = 'substitute',
+    walking_speed = 135,
+    in_air_speed = 115,
+    jump_strength = 85,
+    fromInitialTable = true
+},
+{
+    name = 'Shy Guy',
+    honeyQueen_fly_on = true,
+    honeyQueen_fly_render_cap = false,
+    hide_barrel_on = true,
+    walking_speed = 135,
+    in_air_speed = 115,
+    jump_strength = 85,
+    fromInitialTable = true
+},
+{
+    name = 'BDay Shy Guy',
+    honeyQueen_fly_on = true,
+    honeyQueen_fly_render_cap = false,
+    hide_barrel_on = true,
+    hide_barrel_type = 'box',
+    walking_speed = 135,
+    in_air_speed = 115,
+    jump_strength = 85,
+    fromInitialTable = true
+},
+{
+    name = 'Quico',
+    yoshi_flutter_on = true,
+    coin_heal_multiplier = 200,
+    triple_jump_twirling_on = true,
+    hide_barrel_on = true,
     fromInitialTable = true
 }
 }
