@@ -372,11 +372,13 @@ characterStatsTable = {}
 if network_is_server() then
     for _, character in ipairs(initialCharacterStatsTable) do
         clean_character_stats(character,true)
+        character.origin = 'Default'
         table_insert(characterStatsTable, character)
     end
 
     for _, character in ipairs(communityCharacterStatsTable) do
         clean_character_stats(character,true)
+        character.origin = 'Community'
         table_insert(characterStatsTable, character)
     end
 end
@@ -569,6 +571,7 @@ end
 --- @field public honeyQueen_fly_strength number (Default 100) how much vertical speed when honey queen fly in percent
 --- @field public hide_barrel_on boolean (Default false) when press Z, hide inside barrel
 --- @field public hide_barrel_type string (Default 'barrel') Change barrel type from 'barrel', 'substitute', 'box'
+--- @field public origin string|nil (Default nil)
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
 local function character_add(characterStats)
@@ -627,7 +630,19 @@ local function stats_from_mario_state(m)
     if charName == nil then
         return nil
     end
-    return stats_from_name(charName)
+
+    local stats = stats_from_name(charName)
+    if gGlobalSyncTable.ecmConfig == "Default" and 
+    stats  ~= nil and stats.origin == "Community"  then
+        return nil
+    end
+
+    if gGlobalSyncTable.ecmConfig == "Custom" and 
+    stats  ~= nil and (stats.origin == "Community" or stats.origin == "Default" ) then
+        return nil
+    end
+
+    return stats
 end
 
 _G.customMoves = {
