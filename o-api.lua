@@ -176,8 +176,7 @@ local function clean_character_stats(cs, fromInitialTable)
     cs.wall_slide_jump_strength =
         cs.wall_slide_jump_strength ~= nil and type(cs.wall_slide_jump_strength) == "number" and
             cs.wall_slide_jump_strength or 75
-    cs.wall_slide_jump_type = cs.wall_slide_jump_type ~= nil and type(cs.wall_slide_jump_type) == "number" and
-                                  cs.wall_slide_jump_type or ACT_TRIPLE_JUMP
+    cs.wall_slide_jump_type = getNumberNotNil(cs.wall_slide_jump_type,ACT_JUMP)
 
     cs.in_air_jump = cs.in_air_jump ~= nil and type(cs.in_air_jump) == "number" and cs.in_air_jump or 0
     cs.in_air_jump_strength = cs.in_air_jump_strength == nil and 42 or cs.in_air_jump_strength
