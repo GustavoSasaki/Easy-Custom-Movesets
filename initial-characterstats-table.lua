@@ -1271,20 +1271,6 @@ initialCharacterStatsTable = {{
     glide_dive_y_vel = -7,
     moveset_description = 'floaty character, glide dive'
 }, {
-    name = 'Kirby',
-    gravity = 85,
-    fall_gravity = 80,
-    jump_strength = 85,
-    walking_speed = 120,
-    in_air_speed = 110,
-    knockback_resistance = 50,
-    glide_dive_on = true,
-    glide_dive_disable_spin = true,
-    glide_dive_y_vel = -7,
-    in_air_jump = 10,
-    in_air_jump_strength = 20,
-    moveset_description = 'floaty character, in air jumps, glide dive'
-}, {
     name = 'Meta Knight',
     gravity = 85,
     fall_gravity = 80,
