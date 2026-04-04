@@ -2,7 +2,7 @@
 --- @param stats CharacterStats
 local function apply_jump_speed(m, stats)
     -- the jump constants are set at https://github.com/coop-deluxe/sm64coopdx/blob/f85b8419afc6266ac0af22c5723eebe3effa1f7d/src/game/mario.c#L924
-    if m.action == ACT_JUMP or m.action == ACT_HOLD_JUMP then
+    if m.action == ACT_JUMP or m.action == ACT_HOLD_JUMP or m.action == ACT_SONIC_JUMP then
         m.vel.y = m.vel.y + stats.single_jump_strength
 
     elseif m.action == ACT_DOUBLE_JUMP then

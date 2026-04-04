@@ -7,6 +7,11 @@ function sonic_jump(m)
         return set_mario_action(m, ACT_GROUND_POUND, 0);
     end
 
+    local stats = _G.customMoves.stats_from_mario_state(m)
+    if stats ~= nil and stats.glide_dive_on and m.pos.y > (m.floorHeight + 10.0) and (m.input & INPUT_B_PRESSED) ~= 0 then
+        set_mario_action(m, ACT_GLIDE_DIVE, 0);
+    end
+
     -- fix m.vel.x and m.vel.z not updating correctly
     mario_set_forward_vel(m,m.forwardVel)
     local step = perform_air_step(m, 0)

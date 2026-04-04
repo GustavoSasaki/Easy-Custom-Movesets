@@ -9,6 +9,7 @@ function apply_umbrella_glide(m,stats)
     
     if (m.controller.buttonDown & A_BUTTON) ~= 0 and m.vel.y < -15 and  (
         m.action == ACT_JUMP or
+        m.action == ACT_SONIC_JUMP or
         m.action == ACT_DOUBLE_JUMP or
         m.action == ACT_TRIPLE_JUMP or
         m.action == ACT_LONG_JUMP or
