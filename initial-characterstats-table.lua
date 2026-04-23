@@ -356,7 +356,7 @@ initialCharacterStatsTable = {{
     kill_toad = true,
     kill_pink_bomb_on = true,
     bowser_shell_slide = true,
-    bowser_shell_model = "default"
+    bowser_shell_model = "bowser"
 }, {
     -- character with bad gas immunity, It has stronger long jump
     name = 'Dry Bones',
@@ -365,8 +365,7 @@ initialCharacterStatsTable = {{
     long_jump_velocity_multiplier = 150,
     long_jump_max_velocity = 130,
     knockback_resistance = 95,
-    bowser_shell_slide = true,
-    bowser_shell_model = "drybowser"
+    bowser_shell_slide = true
 
 }, {
     -- character witch can stand in water long, swim faster
@@ -585,7 +584,7 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 50,
     swimming_speed = 200,
     bowser_shell_slide = true,
-    bowser_shell_model = "default"
+    bowser_shell_model = "koopalings_l"
 }, {
     -- character that can do ground pound jump and ground pound dive
     name = 'Fae',
@@ -1120,7 +1119,7 @@ initialCharacterStatsTable = {{
     jump_strength = 82,
     wall_slide_on = true,
     bowser_shell_slide = true, 
-    bowser_shell_model = "default",
+    bowser_shell_model = "koopalings_xl",
     moveset_description = "fast yoshi flutters, wall slide, shell slide"
 }, {
     -- character that can do yoshi flutter one time in the air.Also has glide dive
@@ -1139,7 +1138,7 @@ initialCharacterStatsTable = {{
     coin_heal_multiplier = 50,
     kill_toad = true,
     bowser_shell_slide = true, 
-    bowser_shell_model = "default",
+    bowser_shell_model = "koopalings_xl",
     bowser_fire_ball = true, 
     moveset_description = "yoshi flutter, glide dive, fire/shell"
 }, {
@@ -1151,7 +1150,7 @@ initialCharacterStatsTable = {{
     yoshi_flutter_cooldown = 15,
     disable_damage = true,
     bowser_shell_slide = true, 
-    bowser_shell_model = "default",
+    bowser_shell_model = "koopalings_s",
     moveset_description = "infinite yoshi flutter, shell slide"
 }, {
     -- since this is an default character, you will need to manually activate the moveset (just remove the --)
@@ -1398,8 +1397,8 @@ initialCharacterStatsTable = {{
     mr_l_jump_on = true,
     play_mr_l_anticipation_audio = false,
     knockback_resistance = 50,
-    bowser_shell_slide = true, -- Added: Dragon theme
-    bowser_shell_model = "default",
+    bowser_shell_slide = true,
+    bowser_shell_model = "koopalings_xl",
     moveset_description = "glide dive, mr L jump, shell slide"
 }, {
     name = 'Ruffrunner',
@@ -1745,7 +1744,7 @@ initialCharacterStatsTable = {{
     yoshi_flutter_stength_descending = 20,
     yoshi_flutter_stength_ascending = 10,
     bowser_shell_slide = true, -- Added: Reptile theme
-    bowser_shell_model = "default",
+    bowser_shell_model = "koopakid",
     fromInitialTable = true
 }, {
     name = 'SAMUS ARAN',
@@ -1821,7 +1820,7 @@ initialCharacterStatsTable = {{
     chaorrin_umbrella_glide_forward_speed = 200,
     chaorrin_umbrella_caps_foward_speed = false,
     bowser_shell_slide = true, 
-    bowser_shell_model = "default",
+    bowser_shell_model = "koopalings_l",
     moveset_description = "shell slide",
     fromInitialTable = true
 }, {

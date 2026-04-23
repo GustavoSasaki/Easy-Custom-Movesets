@@ -73,6 +73,6 @@ defaultStats = {
     -- bowser_punch lets you use custom bowser animation and needs bowser moveset
     bowser_punch = true,
     -- bowser_shell_model change shell_slide model and needs bowser moveset
-    -- Options: "bowser", "koopakid", "bowserjr", "koopalings_m", "koopalings_s", "koopalings_l", "koopalings_xl"
-    bowser_shell_model = "bowser2112"
+    -- Options: "bowser", "koopakid", "bowserjr", "koopalings_m", "koopalings_s", "koopalings_l", "koopalings_xl" or you can write the geo model
+    bowser_shell_model = "bowserjr"
 }

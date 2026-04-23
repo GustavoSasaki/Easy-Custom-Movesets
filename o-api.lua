@@ -579,7 +579,7 @@ end
 --- @field public bowser_shell_slide boolean (Default false) enables bowser shell slide (requires Bowser Moveset mod)
 --- @field public bowser_fire_ball boolean (Default false) enables bowser fireball (requires Bowser Moveset mod)
 --- @field public bowser_punch boolean (Default false) enables bowser punch with large hitbox (requires Bowser Moveset mod)
---- @field public bowser_shell_model string (Default 'bowserjr') shell model for bowser moveset: 'bowser', 'koopakid', 'bowserjr', 'koopalings_m', 'koopalings_s', 'koopalings_l', 'koopalings_xl'
+--- @field public bowser_shell_model string (Default 'bowserjr') shell model for bowser moveset: 'bowser', 'koopakid', 'bowserjr', 'koopalings_m', 'koopalings_s', 'koopalings_l', 'koopalings_xl', or you can write the geo_model
 --- @field public origin string|nil (Default nil)
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
@@ -767,6 +767,8 @@ local function getBowserShellModel(stats)
         resolvedModel = smlua_model_util_get_id('koopaling_large_shell_geo')
     elseif model == "koopalings_xl" then
         resolvedModel = smlua_model_util_get_id('koopaling_extralarge_shell_geo')
+    else
+        resolvedModel = smlua_model_util_get_id(model)
     end
 
     -- If model not loaded, fall back to default
