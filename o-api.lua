@@ -1,3 +1,4 @@
+-- NOTE FOR AI: All stat names should use snake_case (underscores) convention
 local table_insert = table.insert
 
 local function getNotNil(value, valueType, defaultValue)
@@ -319,6 +320,11 @@ local function clean_character_stats(cs, fromInitialTable)
     cs.honeyQueen_fly_strength = toPercent(cs.honeyQueen_fly_strength, 1.0)
     cs.hide_barrel_on=  getIfBool(cs.hide_barrel_on)
     cs.hide_barrel_type = getNotNil(cs.hide_barrel_type, "string", "barrel")
+
+    cs.bowser_shell_slide = getIfBool(cs.bowser_shell_slide)
+    cs.bowser_fire_ball = getIfBool(cs.bowser_fire_ball)
+    cs.bowser_punch = getIfBool(cs.bowser_punch)
+    cs.bowser_shell_model = getNotNil(cs.bowser_shell_model, "string", nil)
 end
 
 -- this code is directly from character select. I am going latter make an pull request to add split_text_into_lines to the API
@@ -570,6 +576,10 @@ end
 --- @field public honeyQueen_fly_strength number (Default 100) how much vertical speed when honey queen fly in percent
 --- @field public hide_barrel_on boolean (Default false) when press Z, hide inside barrel
 --- @field public hide_barrel_type string (Default 'barrel') Change barrel type from 'barrel', 'substitute', 'box'
+--- @field public bowser_shell_slide boolean (Default false) enables bowser shell slide (requires Bowser Moveset mod)
+--- @field public bowser_fire_ball boolean (Default false) enables bowser fireball (requires Bowser Moveset mod)
+--- @field public bowser_punch boolean (Default false) enables bowser punch with large hitbox (requires Bowser Moveset mod)
+--- @field public bowser_shell_model string (Default 'bowserjr') shell model for bowser moveset: 'bowser', 'koopakid', 'bowserjr', 'koopalings_m', 'koopalings_s', 'koopalings_l', 'koopalings_xl'
 --- @field public origin string|nil (Default nil)
 --- @field public fromInitialTable boolean
 --- @param characterStats CharacterStats
@@ -717,6 +727,56 @@ local function addStatsFromConfigFolder()
     end
 end
 
+--- @param stats CharacterStats
+--- @return integer
+local function getBowserFlags(stats)
+    local flags = 0
+    if stats.bowser_shell_slide then
+        flags = flags | _G.bowsMoveset.FLAG_CAN_USE_SHELL | _G.bowsMoveset.FLAG_STYLE_ANIMS
+    end
+    if stats.bowser_fire_ball then
+        flags = flags | _G.bowsMoveset.FLAG_CAN_USE_FIREBALL | _G.bowsMoveset.FLAG_STYLE_ANIMS
+    end
+    if stats.bowser_punch then
+        flags = flags | _G.bowsMoveset.FLAG_ATTACKS | _G.bowsMoveset.FLAG_STYLE_ANIMS | _G.bowsMoveset.FLAG_LARGE_HITBOX
+        | _G.bowsMoveset.FLAG_HEAVY_STEPS
+    end
+    return flags
+end
+
+--- @param stats CharacterStats
+--- @return integer|nil
+local function getBowserShellModel(stats)
+    local model = stats.bowser_shell_model
+    if model == nil then return nil end
+
+    local E_MODEL_BOWSER_JR_SHELL = smlua_model_util_get_id('bowserjr_shell_geo')
+    local resolvedModel = nil
+
+    if model == "bowser" then
+        resolvedModel = smlua_model_util_get_id('bowser_shell_geo')
+    elseif model == "koopakid" then
+        resolvedModel = smlua_model_util_get_id('koopakidshell_geo')
+    elseif model == "bowserjr" then
+        resolvedModel = E_MODEL_BOWSER_JR_SHELL
+    elseif model == "koopalings_m" then
+        resolvedModel = smlua_model_util_get_id('koopaling_medium_shell_geo')
+    elseif model == "koopalings_s" then
+        resolvedModel = smlua_model_util_get_id('koopaling_small_shell_geo')
+    elseif model == "koopalings_l" then
+        resolvedModel = smlua_model_util_get_id('koopaling_large_shell_geo')
+    elseif model == "koopalings_xl" then
+        resolvedModel = smlua_model_util_get_id('koopaling_extralarge_shell_geo')
+    end
+
+    -- If model not loaded, fall back to default
+    if resolvedModel == nil then
+        resolvedModel = E_MODEL_BOWSER_JR_SHELL
+    end
+
+    return resolvedModel
+end
+
 local function sendStatsTable()
     gGlobalSyncTable.characterStatsTable= {}
     for i = 1, #characterStatsTable do
@@ -726,7 +786,49 @@ local function sendStatsTable()
             gGlobalSyncTable.characterStatsTable[i][key] = value
         end
     end
+
+    -- Apply Bowser moveset based on per-character stats
+    if _G.bowsMoveset then
+        for i = 1, #characterStatsTable do
+            local stats = characterStatsTable[i]
+            local charNumber = _G.charSelect.character_get_number_from_string(stats.name)
+            if charNumber ~= nil then
+                local charTable = _G.charSelect.character_get_current_table(charNumber)
+                if charTable and charTable.model and _G.bowsMoveset then
+                    local flags = getBowserFlags(stats)
+                    local shellModel = getBowserShellModel(stats)
+                    if flags ~= 0 and shellModel then
+                        _G.bowsMoveset.character_add_shell_model(charTable.model, shellModel)
+                        _G.bowsMoveset.character_set_bows_flags(charTable.model, flags)
+                    end
+                end
+            end
+        end
+    end
 end
+
+
+local function applyBowserMoveset()
+    if _G.bowsMoveset == false then
+        return
+    end
+    for i = 1, #characterStatsTable do
+        local stats = characterStatsTable[i]
+        local charNumber = _G.charSelect.character_get_number_from_string(stats.name)
+        if charNumber ~= nil then
+            local charTable = _G.charSelect.character_get_current_table(charNumber)
+            if charTable and charTable.model then
+                local flags = getBowserFlags(stats)
+                local shellModel = getBowserShellModel(stats)
+                if flags ~= 0 and shellModel then
+                    _G.bowsMoveset.character_add_shell_model(charTable.model, shellModel)
+                    _G.bowsMoveset.character_set_bows_flags(charTable.model, flags)
+                end
+            end
+        end
+    end
+end
+
 
 --- @param m MarioState
 hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
@@ -735,6 +837,7 @@ hook_event(HOOK_ON_PLAYER_CONNECTED, function(m)
         addStatsFromConfigFolder()
         addCharHookMovesetOfCharSelect()
         sendStatsTable()
+        applyBowserMoveset()
     end
 end)
 
@@ -748,6 +851,8 @@ hook_event(HOOK_ON_SYNC_VALID,function(m)
     for _, entry in pairs(charTable._table) do
         table_insert(characterStatsTable, entry._table)
     end
+
+    applyBowserMoveset()
 
 end)
 

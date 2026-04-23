@@ -62,6 +62,17 @@ defaultStats = {
     honeyQueen_fly_forward_speed = 100,
     honeyQueen_fly_strength = 100,
     hide_barrel_on= false,
+    -- Change barrel type from 'barrel', 'substitute', 'box'
     hide_barrel_type = "barrel",
-    wall_slide_jump_type = ACT_JUMP
+    -- wall_slide_jump_type can be ACT_JUMP, ACT_DIVE, ACT_TRIPLE_JUMP, ACT_TWIRLING, ACT_SIDE_FLIP
+    wall_slide_jump_type = ACT_JUMP,
+    -- shell_slide lets the character slide inside shell, it needs bowser moveset, it executes by crouching while running
+    bowser_shell_slide = true,
+    -- bowser_fire_ball it lets you shoot fire while crouching and not moving and needs bowser moveset
+    bowser_fire_ball = true,
+    -- bowser_punch lets you use custom bowser animation and needs bowser moveset
+    bowser_punch = true,
+    -- bowser_shell_model change shell_slide model and needs bowser moveset
+    -- Options: "bowser", "koopakid", "bowserjr", "koopalings_m", "koopalings_s", "koopalings_l", "koopalings_xl"
+    bowser_shell_model = "bowser2112"
 }

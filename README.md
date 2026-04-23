@@ -28,10 +28,11 @@ You can look all the stats at [Here](https://github.com/GustavoSasaki/Easy-Custo
 
 
 ## How to Install
-- Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mod folder
-- Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mod folder
-- Optional (enable the use of saultube animation stats): Download the ZIP file from [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) and unzip into mod folder
-- Optional (enable the use of honey queen stats): Download the ZIP file from [Honey Queen Mod](https://mods.sm64coopdx.com/mods/cs-honey-queen.392/) and unzip into mod folder
+- Download the character-select-coop ZIP file from [releases](https://github.com/Squishy6094/character-select-coop/releases) and unzip into mods folder
+- Download the easy-custom-movesets ZIP file from [releases](https://github.com/GustavoSasaki/character-stats/releases) and unzip into mods folder
+- Optional (enable the use of saultube animation stats): Download the ZIP file from [Credits Jumping Animation](https://mods.sm64coopdx.com/threads/credits-jumping-animation.1959/#post-7532) and unzip into mods folder
+- Optional (enable the use of honey queen stats): Download the ZIP file from [Honey Queen Mod](https://mods.sm64coopdx.com/mods/cs-honey-queen.392/) and unzip it, then put Honey Queen folder into mods folder
+- Optional (enable the use of bowser stats): Download the ZIP file from [Bowser Moveset Mod](https://mods.sm64coopdx.com/mods/cs-bowser-jr-moveset.36/) and unzip it, then put Bowser Moveset folder into mods folder 
 - Enable character-select-coop and easy-custom-movesets in sm64coopDX mod screen.
 
 ## Adding/Editing movesets

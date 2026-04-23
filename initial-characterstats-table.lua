@@ -23,7 +23,8 @@ initialCharacterStatsTable = {{
     side_flip_strength = 120,
     knockback_resistance = 60,
     goomba_damage_multiplier = 0,
-    moveset_description = "beeter side/back flip"
+    bowser_punch = true,
+    moveset_description = "beeter side/back flip, heavy punch"
 }, {
     -- float character with big long jump
     name = "Osaka",
@@ -176,7 +177,8 @@ initialCharacterStatsTable = {{
     glide_dive_forward_vel = 60,
     glide_dive_max_time = 45,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false
+    peel_out_jump_reset_vel = false,
+    bowser_punch = true
 }, {
     -- character with fast air speed and higher back/side flip
     name = "Modern Knuckles",
@@ -191,7 +193,8 @@ initialCharacterStatsTable = {{
     glide_dive_forward_vel = 60,
     glide_dive_max_time = 5,
     peel_out_jump_on = true,
-    peel_out_jump_reset_vel = false
+    peel_out_jump_reset_vel = false,
+    bowser_punch = true
 }, {
     -- heavy and fast character with big kick and small jumps
     name = "Classic Eggman",
@@ -351,7 +354,9 @@ initialCharacterStatsTable = {{
     twirling_gravity = 90,
     fast_twirling_gravity = 110,
     kill_toad = true,
-    kill_pink_bomb_on = true
+    kill_pink_bomb_on = true,
+    bowser_shell_slide = true,
+    bowser_shell_model = "default"
 }, {
     -- character with bad gas immunity, It has stronger long jump
     name = 'Dry Bones',
@@ -359,7 +364,9 @@ initialCharacterStatsTable = {{
     bad_gas_damage_multiplier = 0,
     long_jump_velocity_multiplier = 150,
     long_jump_max_velocity = 130,
-    knockback_resistance = 95
+    knockback_resistance = 95,
+    bowser_shell_slide = true,
+    bowser_shell_model = "drybowser"
 
 }, {
     -- character witch can stand in water long, swim faster
@@ -374,7 +381,8 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 25,
     swimming_speed = 300,
     back_flip_strength = 110,
-    side_flip_strength = 110
+    side_flip_strength = 110,
+    bowser_fire_ball = true
 }, {
     -- character witch can stand in water long, swim faster
     name = 'Giwi',
@@ -556,7 +564,8 @@ initialCharacterStatsTable = {{
     gravity = 105,
     fall_gravity = 110,
     kill_toad = true,
-    goomba_damage_multiplier = 50
+    goomba_damage_multiplier = 50,
+    bowser_punch = true
 }, {
     name = 'Slippy Toad',
     gravity = 90,
@@ -574,7 +583,9 @@ initialCharacterStatsTable = {{
     ground_pound_jump_on = true,
     ground_pound_strength = 80,
     water_damage_multiplier = 50,
-    swimming_speed = 200
+    swimming_speed = 200,
+    bowser_shell_slide = true,
+    bowser_shell_model = "default"
 }, {
     -- character that can do ground pound jump and ground pound dive
     name = 'Fae',
@@ -645,7 +656,8 @@ initialCharacterStatsTable = {{
     double_jump_strength = 90,
     triple_jump_strength = 120,
     back_flip_strength = 115,
-    saultube_triple_jump_animation = true
+    saultube_triple_jump_animation = true,
+    bowser_fire_ball = true 
 }, {
     -- character with triple jump after long jump + can dive after ground pound
     name = 'Octi',
@@ -713,7 +725,8 @@ initialCharacterStatsTable = {{
     super_side_flip_add_foward_vel = 30,
     walking_speed = 130,
     knockback_resistance = 35,
-    flying_enemy_damage_multiplier = 50
+    flying_enemy_damage_multiplier = 50,
+    bowser_punch = true
 }, {
     -- character with ground pound jump and he can also do super side flip with lower speed
     name = 'Patrick Starfish',
@@ -924,33 +937,39 @@ initialCharacterStatsTable = {{
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0,
-    disable_fall_damage = true
+    disable_fall_damage = true,
+    bowser_punch = true 
 }, {
     name = 'Hulk',
     bat_damage_multiplier = 1000,
     piranha_plant_damage_multiplier = -1,
     water_enemy_damage_multiplier = -1,
     flying_enemy_damage_multiplier = 50,
-    goomba_damage_multiplier = 0
+    goomba_damage_multiplier = 0,
+    bowser_punch = true 
 }, {
     name = 'Deadpool',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multiplier = 50,
-    goomba_damage_multiplier = 0
+    goomba_damage_multiplier = 0,
+    bowser_punch = true 
 }, {
     name = 'Venom',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multiplier = 50,
-    goomba_damage_multiplier = 0
+    goomba_damage_multiplier = 0,
+    bowser_punch = true 
 }, {
     name = 'Daredevil',
     bat_damage_multiplier = 1000,
     flying_enemy_damage_multiplier = 50,
-    goomba_damage_multiplier = 0
+    goomba_damage_multiplier = 0,
+    bowser_punch = true 
 }, {
     name = 'Wolverine',
     bat_damage_multiplier = 1000,
-    disable_damage = true
+    disable_damage = true,
+    bowser_punch = true 
 }, {
     -- character that glides when diving. It can also do ground pound jump
     name = 'Charizard',
@@ -964,7 +983,8 @@ initialCharacterStatsTable = {{
     piranha_plant_damage_multiplier = 50,
     hide_barrel_on = true,
     hide_barrel_type = 'substitute',
-    moveset_description = "glide dive, ground pound jump"
+    bowser_fire_ball = true,
+    moveset_description = "glide dive, ground pound jump, fire balls"
 }, {
     -- character with a glide that is faster, slower decent but with bad angle control. She can also dive from ground pound
     name = 'Draco Centauros',
@@ -978,7 +998,8 @@ initialCharacterStatsTable = {{
     ground_pound_dive_on = true,
     coin_heal_multiplier = 50,
     burning_damage_multiplier = 75,
-    moveset_description = "fast glide without turn, ground pound dive"
+    bowser_fire_ball = true,
+    moveset_description = "fast glide without turn, ground pound dive, fire ball"
 }, {
     -- character with an glide with downard angle. He can also super side flipa nd have buffed back flip
     name = 'Spamton NEO',
@@ -1033,7 +1054,7 @@ initialCharacterStatsTable = {{
     disable_double_jump = true,
     kick_dive_on = true,
     kick_jump_strength = 150,
-    moveset_description = "super side flip,  kick dive, disable double jump"
+    moveset_description = "super side flip, kick dive, disable double jump"
 }, {
     name = 'Spamario',
     super_side_flip_on = true,
@@ -1049,7 +1070,6 @@ initialCharacterStatsTable = {{
     back_flip_strength = 115,
     fall_gravity = 85,
     moveset_description = "good back flip, super side flip"
-
 }, {
     -- character with an glide that goes upward and lots of resistance
     name = 'Godzilla',
@@ -1071,7 +1091,9 @@ initialCharacterStatsTable = {{
     flying_enemy_damage_multiplier = 50,
     goomba_damage_multiplier = 0,
     disable_fall_damage = true,
-    moveset_description = "glide dive upward"
+    bowser_fire_ball = true,
+    bowser_punch = true,
+    moveset_description = "glide dive upward, fire ball, heavy punch"
 }, {
     name = 'Ori',
     wall_slide_on = true,
@@ -1097,7 +1119,9 @@ initialCharacterStatsTable = {{
     long_jump_max_velocity = 350,
     jump_strength = 82,
     wall_slide_on = true,
-    moveset_description = "fast yoshi flutters, wall slide"
+    bowser_shell_slide = true, 
+    bowser_shell_model = "default",
+    moveset_description = "fast yoshi flutters, wall slide, shell slide"
 }, {
     -- character that can do yoshi flutter one time in the air.Also has glide dive
     name = 'Rex',
@@ -1114,7 +1138,10 @@ initialCharacterStatsTable = {{
     water_damage_multiplier = 150,
     coin_heal_multiplier = 50,
     kill_toad = true,
-    moveset_description = "yoshi flutter, gldie dive"
+    bowser_shell_slide = true, 
+    bowser_shell_model = "default",
+    bowser_fire_ball = true, 
+    moveset_description = "yoshi flutter, glide dive, fire/shell"
 }, {
     -- he can fly
     name = 'yosi cube',
@@ -1123,8 +1150,9 @@ initialCharacterStatsTable = {{
     yoshi_flutter_reactivations = 99,
     yoshi_flutter_cooldown = 15,
     disable_damage = true,
-    moveset_description = "infinite yoshi flutter"
-
+    bowser_shell_slide = true, 
+    bowser_shell_model = "default",
+    moveset_description = "infinite yoshi flutter, shell slide"
 }, {
     -- since this is an default character, you will need to manually activate the moveset (just remove the --)
     name = 'Toad'
@@ -1154,8 +1182,8 @@ initialCharacterStatsTable = {{
     kill_toad = true,
     kill_pink_bomb_on = true,
     back_flip_twirling_on = true,
-    moveset_description = "yoshi flutter, back flip twirl"
-
+    bowser_fire_ball = true, 
+    moveset_description = "yoshi flutter, back flip twirl, fire balls"
 }, {
     -- character with high gravity, but can triple jump twirling and glide dive 
     name = 'Morgana',
@@ -1233,7 +1261,8 @@ initialCharacterStatsTable = {{
     dive_velocity = 200,
     dive_max_velocity = 125,
     long_jump_triple_jump_on = true,
-    moveset_description = "kick from dives,long jump triple jump"
+    bowser_punch = true,
+    moveset_description = "kick from dives, long jump triple jump, heavy punch"
 }, {
     name = 'GamesCage',
     sonic_jump_on = true,
@@ -1300,7 +1329,8 @@ initialCharacterStatsTable = {{
     ground_pound_jump_forward_vel = 40,
     in_air_jump = 10,
     in_air_jump_strength = 20,
-    moveset_description = 'floaty character, in air jumps, glide dive'
+    bowser_punch = true,
+    moveset_description = 'floaty, glide dive, heavy punch'
 }, {
     name = 'Waddle Dee',
     gravity = 85,
@@ -1325,7 +1355,8 @@ initialCharacterStatsTable = {{
     hold_walking_speed = 85,
     knockback_resistance = 35,
     flying_enemy_damage_multiplier = 50,
-    moveset_description = 'ground pound jump, ground pound dive'
+    bowser_punch = true, 
+    moveset_description = 'ground pound jump, ground pound dive, heavy punch'
 }, {
     name = 'Tac',
     wall_slide_on = true,
@@ -1345,7 +1376,8 @@ initialCharacterStatsTable = {{
     wall_slide_jump_strength = 60,
     long_jump_triple_jump_on = true,
     long_jump_triple_jump_strength = 90,
-    moveset_description = "wall slide, great long jumps"
+    bowser_punch = true,
+    moveset_description = "wall slide, great long jumps, heavy punch"
 }, {
     name = 'Toothless',
     glide_dive_on = true,
@@ -1358,14 +1390,17 @@ initialCharacterStatsTable = {{
     ground_pound_dive_on = true,
     coin_heal_multiplier = 50,
     burning_damage_multiplier = 75,
-    moveset_description = "fast glide dive without turn, ground pound dive"
+    bowser_fire_ball = true, 
+    moveset_description = "fast glide dive, shell slide, fire balls"
 }, {
     name = 'Dart',
     glide_dive_on = true,
     mr_l_jump_on = true,
     play_mr_l_anticipation_audio = false,
     knockback_resistance = 50,
-    moveset_description = "glide dive, mr L jump "
+    bowser_shell_slide = true, -- Added: Dragon theme
+    bowser_shell_model = "default",
+    moveset_description = "glide dive, mr L jump, shell slide"
 }, {
     name = 'Ruffrunner',
     glide_dive_on = true,
@@ -1377,7 +1412,7 @@ initialCharacterStatsTable = {{
     back_flip_strength = 110,
     twirling_dive_on = true,
     twirling_gravity = 115,
-    moveset_description = "glide dive, backflip twirl, twirl dive"
+    moveset_description = "glide dive, backflip twirl, shell slide"
 }, {
     name = 'Pouncer',
     glide_dive_on = true,
@@ -1388,7 +1423,7 @@ initialCharacterStatsTable = {{
     glide_dive_y_vel = 8,
     single_jump_strength = 90,
     kick_dive_on = true,
-    moveset_description = "upward glide dive, kick dive"
+    moveset_description = "upward glide dive, kick dive, shell slide"
 }, {
     -- character that can glide dive and peel out
     name = 'Chaos 0',
@@ -1407,7 +1442,6 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     charge_sonic_dash_on = true,
     moveset_description = "glide dive, peel out, fast swim"
-
 }, {
     -- character with charge dash and drop dash
     name = '\"SONIC\"',
@@ -1458,10 +1492,8 @@ initialCharacterStatsTable = {{
     peel_out_jump_reset_vel = false,
     disable_fall_damage = true,
     moveset_description = "peel out, bunch of damage resistance"
-}
-,
--- character with peel out, glide dive and no fall dagame
-{
+}, {
+    -- character with peel out, glide dive and no fall dagame
     name = 'NiGHTS',
     gravity = 80,
     glide_dive_on = true,
@@ -1482,9 +1514,9 @@ initialCharacterStatsTable = {{
     charge_sonic_dash_on = true,
     walking_speed = 140,
     in_air_speed = 80,
-    moveset_description="peel out, charge dash, drop dash"
-},
-{
+    bowser_fire_ball = true, -- Added: Fire powers theme
+    moveset_description="peel out, charge dash, fire balls"
+}, {
     -- the perfect character
     name = 'Burger Man',
     drop_dash_on = true,
@@ -1497,9 +1529,9 @@ initialCharacterStatsTable = {{
     waft_fart_per_level = 15,
     waft_fart_velocity = 150,
     waft_fart_strength = 70,
-    moveset_description="takes no damage, drop dash, waft fart"
-},
-{
+    bowser_punch = true,
+    moveset_description="takes no damage, drop dash, heavy punch"
+}, {
     name= 'Big The Cat',
     ground_pound_jump_on = true
 },
@@ -1518,10 +1550,10 @@ initialCharacterStatsTable = {{
     bad_gas_damage_multiplier = 201,
     goomba_damage_multiplier = 200,
     knockback_resistance = 85,
-    moveset_description = "",
+    bowser_punch = true,
+    moveset_description = "heavy punch",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Il Piantissimo',
     fall_gravity = 115,
     walking_speed = 110,
@@ -1579,8 +1611,7 @@ initialCharacterStatsTable = {{
     triple_jump_animation = "special",
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Gold Ship',
     swimming_speed = 90,
     gravity = 110,
@@ -1606,10 +1637,10 @@ initialCharacterStatsTable = {{
     kill_pink_bomb_on = true,
     triple_jump_animation = "special_v2",
     special_triple_jump_animation_speedup = 20,
-    moveset_description = "",
+    bowser_punch = true, 
+    moveset_description = "heavy punch",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Tuxie',
     swimming_speed = 300,
     gravity = 120,
@@ -1629,8 +1660,7 @@ initialCharacterStatsTable = {{
     dive_angle_speed = 5,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Scatman',
     gravity = 85,
     fall_gravity = 80,
@@ -1646,9 +1676,7 @@ initialCharacterStatsTable = {{
     single_jump_animation = "special_v2",
     moveset_description = "",
     fromInitialTable = true
-},
-{
-
+}, {
     name = 'Chicken Jockey',
     gravity = 130,
     walking_speed = 120,
@@ -1666,8 +1694,7 @@ initialCharacterStatsTable = {{
     dive_angle_speed = 25,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Chuck',
     waft_fart_on = true,
     waft_fart_velocity = 175,
@@ -1677,8 +1704,7 @@ initialCharacterStatsTable = {{
     drop_dash_on = true,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Omega',
     airborne_deceleration_speed = 50,
     in_air_speed = 120,
@@ -1695,32 +1721,33 @@ initialCharacterStatsTable = {{
     dive_angle_speed = 5,
     basic_jump_angle_speed = 15,
     triple_jump_animation = "special_v2",
-    moveset_description = "",
+    bowser_punch = true,
+    moveset_description = "heavy punch",
     fromInitialTable = true
-},
-{
-name = 'Baby Yoshi',
-swimming_speed = 90,
-gravity = 110,
-fall_gravity = 90,
-walking_speed = 120,
-hold_walking_speed = 85,
-crawling_speed = 150,
-ground_pound_dive_on = true,
-waft_fart_on = true,
-waft_fart_velocity = 130,
-waft_fart_strength = 60,
-yoshi_flutter_on = true,
-yoshi_flutter_angle_speed = 50,
-yoshi_flutter_speed = 135,
-yoshi_flutter_reactivations = 5,
-yoshi_flutter_cooldown = 15,
-yoshi_flutter_max_time = 35,
-yoshi_flutter_stength_descending = 20,
-yoshi_flutter_stength_ascending = 10,
-fromInitialTable = true
-},
-{
+}, {
+    name = 'Baby Yoshi',
+    swimming_speed = 90,
+    gravity = 110,
+    fall_gravity = 90,
+    walking_speed = 120,
+    hold_walking_speed = 85,
+    crawling_speed = 150,
+    ground_pound_dive_on = true,
+    waft_fart_on = true,
+    waft_fart_velocity = 130,
+    waft_fart_strength = 60,
+    yoshi_flutter_on = true,
+    yoshi_flutter_angle_speed = 50,
+    yoshi_flutter_speed = 135,
+    yoshi_flutter_reactivations = 5,
+    yoshi_flutter_cooldown = 15,
+    yoshi_flutter_max_time = 35,
+    yoshi_flutter_stength_descending = 20,
+    yoshi_flutter_stength_ascending = 10,
+    bowser_shell_slide = true, -- Added: Reptile theme
+    bowser_shell_model = "default",
+    fromInitialTable = true
+}, {
     name = 'SAMUS ARAN',
     fall_gravity = 110,
     hold_walking_speed = 120,
@@ -1744,8 +1771,7 @@ fromInitialTable = true
     wall_slide_jump_type = ACT_JUMP,
     all_jumps_angle_speed=15,
     fromInitialTable = true
-},
-{
+}, {
     name = 'Jeffy',
     swimming_speed = 80,
     hold_walking_speed = 80,
@@ -1761,8 +1787,7 @@ fromInitialTable = true
     chaorrin_umbrella_caps_foward_speed = false,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Big',
     long_jump_strength = 115,
     ground_pound_jump_on = true,
@@ -1772,10 +1797,10 @@ fromInitialTable = true
     knockback_resistance = 110,
     coin_heal_multiplier = 50,
     chaorrin_umbrella_glide_on = true,
-    moveset_description = "",
+    bowser_punch = true, 
+    moveset_description = "heavy punch",
     fromInitialTable = true
-},
- {
+}, {
     name = 'Nessie',
     swimming_speed = 200,
     wall_slide_on = true,
@@ -1795,10 +1820,11 @@ fromInitialTable = true
     chaorrin_umbrella_vertical_speed = 4.5,
     chaorrin_umbrella_glide_forward_speed = 200,
     chaorrin_umbrella_caps_foward_speed = false,
-    moveset_description = "",
+    bowser_shell_slide = true, 
+    bowser_shell_model = "default",
+    moveset_description = "shell slide",
     fromInitialTable = true
-},
- {
+}, {
     name = 'Smalls',
     long_jump_strength = 115,
     ground_pound_jump_on = true,
@@ -1814,8 +1840,7 @@ fromInitialTable = true
     chaorrin_umbrella_glide_forward_speed = 80,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = "Emmy",
     walking_speed = 115,
     in_air_speed = 110,
@@ -1841,7 +1866,7 @@ fromInitialTable = true
     chaorrin_umbrella_animation = "t pose",
     chaorrin_umbrella_vertical_speed = 4.5,
     chaorrin_umbrella_glide_forward_speed = 120,
-    moveset_description = "",
+    moveset_description = "heavy punch",
     fromInitialTable = true
 }, {
     name = "Franny",
@@ -1880,7 +1905,8 @@ fromInitialTable = true
     peel_out_on = true,
     knockback_resistance = 140,
     goomba_damage_multiplier = 0,
-    moveset_description = "",
+    bowser_punch = true,
+    moveset_description = "heavy punch",
     fromInitialTable = true
 }, {
     name = "Tabby",
@@ -1902,8 +1928,7 @@ fromInitialTable = true
     chaorrin_umbrella_glide_forward_speed = 180,
     moveset_description = "",
     fromInitialTable = true
-},
- {
+}, {
     name = 'Bill Cipher',
     super_side_flip_on = true,
     long_jump_triple_jump_on = true,
@@ -1918,10 +1943,10 @@ fromInitialTable = true
     honeyQueen_render_hud = true,
     honeyQueen_fly_forward_speed = 150,
     honeyQueen_fly_strength = 150,
-    moveset_description = "",
+    bowser_fire_ball = true,
+    moveset_description = "fire balls",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Chick Gizzard Lips',
     gravity = 90,
     back_flip_strength = 90,
@@ -1938,8 +1963,7 @@ fromInitialTable = true
     knockback_resistance = 80,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Fawful',
     long_jump_strength = 116,
     side_flip_twirling_on = true,
@@ -1957,8 +1981,7 @@ fromInitialTable = true
     honeyQueen_fly_forward_speed = 110,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Midna',
     walking_speed = 120,
     jump_strength = 90,
@@ -1984,8 +2007,7 @@ fromInitialTable = true
     honeyQueen_fly_strength = 90,
     moveset_description = "Default moveset",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Peter Shorts',
     fall_gravity = 105,
     walking_speed = 120,
@@ -1999,8 +2021,7 @@ fromInitialTable = true
     triple_jump_animation = "special",
     moveset_description = "",
     fromInitialTable = true
-},
- {
+}, {
     name = 'RUDY',
     ground_pound_dive_on = true,
     back_flip_twirling_on = true,
@@ -2013,8 +2034,7 @@ fromInitialTable = true
     triple_jump_animation = "special_v2",
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Stew',
     gravity = 110,
     in_air_speed = 110,
@@ -2038,16 +2058,14 @@ fromInitialTable = true
     special_jump_angle_speed = 5,
     moveset_description = "",
     fromInitialTable = true
-},
-{
+}, {
     name = 'Chavo',
     coin_heal_multiplier = 50,
     long_jump_triple_jump_on = true,
     long_jump_triple_jump_forward_vel = 30,
     hide_barrel_on = true,
     fromInitialTable = true
-},
-{
+}, {
     name = 'MarioBro Shy Guy',
     honeyQueen_fly_on = true,
     honeyQueen_fly_render_cap = false,
@@ -2057,8 +2075,7 @@ fromInitialTable = true
     in_air_speed = 115,
     jump_strength = 85,
     fromInitialTable = true
-},
-{
+}, {
     name = 'Shy Guy',
     honeyQueen_fly_on = true,
     honeyQueen_fly_render_cap = false,
@@ -2067,8 +2084,7 @@ fromInitialTable = true
     in_air_speed = 115,
     jump_strength = 85,
     fromInitialTable = true
-},
-{
+}, {
     name = 'BDay Shy Guy',
     honeyQueen_fly_on = true,
     honeyQueen_fly_render_cap = false,
@@ -2078,8 +2094,7 @@ fromInitialTable = true
     in_air_speed = 115,
     jump_strength = 85,
     fromInitialTable = true
-},
-{
+}, {
     name = 'Quico',
     yoshi_flutter_on = true,
     coin_heal_multiplier = 200,
