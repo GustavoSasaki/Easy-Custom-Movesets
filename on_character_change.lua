@@ -2,7 +2,7 @@
 _G.charSelect.hook_on_character_change(function(_,currChar)
     local stats = stats_from_name(_G.charSelect.character_get_full_table()[currChar][1].name)
 
-    if  _G.honeyQueenMoveset and stats and stats.honeyQueen_fly_on then
+    if  _G.honeyQueenMoveset ~= nil and stats and stats.honeyQueen_fly_on then
         local animation = stats.honeyQueen_fly_animation
         if stats.honeyQueen_fly_animation == "default" then
             animation = "honeyqueen_fly_idle"

@@ -37,7 +37,7 @@ function isJumping(m)
             m.action == ACT_LONG_JUMP or m.action == ACT_RIDING_SHELL_JUMP or m.action == ACT_RIDING_SHELL_FALL or
             m.action == ACT_DIVE or m.action == ACT_JUMP_KICK or m.action == ACT_WAFT_FART or m.action == ACT_SUPER_SIDE_FLIP or m.action == ACT_SUPER_SIDE_FLIP_KICK
             or m.action == ACT_YOSHI_FLUTTER or m.action == ACT_GLIDE_DIVE or m.action == ACT_SONIC_JUMP or m.action == ACT_SPECIAL_TRIPLE_JUMP 
-            or m.action == ACT_UMBRELLA_GLIDE or (_G.honeyQueenMoveset and  m.action == _G.honeyQueenMoveset.ACT_HONEYQUEENFLIGHT)
+            or m.action == ACT_UMBRELLA_GLIDE or (_G.honeyQueenMoveset ~= nil and  m.action == _G.honeyQueenMoveset.ACT_HONEYQUEENFLIGHT)
 end
 
 --- @param m MarioState
@@ -58,7 +58,7 @@ local function apply_walking_speed(m, stats)
         hScale = stats.yoshi_flutter_speed
     elseif m.action == ACT_UMBRELLA_GLIDE then
         hScale = stats.chaorrin_umbrella_glide_forward_speed
-    elseif _G.honeyQueenMoveset and  m.action == _G.honeyQueenMoveset.ACT_HONEYQUEENFLIGHT then
+    elseif _G.honeyQueenMoveset ~= nil and  m.action == _G.honeyQueenMoveset.ACT_HONEYQUEENFLIGHT then
         hScale = stats.honeyQueen_fly_forward_speed
     elseif isJumping(m) then
         hScale = stats.in_air_speed
@@ -95,7 +95,7 @@ end
 --- @param m MarioState
 --- @param stats CharacterStats
 local function apply_honeyQueen_fly_strength(m, stats) 
-    if _G.honeyQueenMoveset and  m.action == _G.honeyQueenMoveset.ACT_HONEYQUEENFLIGHT then
+    if _G.honeyQueenMoveset ~= nil and  m.action == _G.honeyQueenMoveset.ACT_HONEYQUEENFLIGHT then
         m.vel.y = m.vel.y  + 2.5 * (1-stats.honeyQueen_fly_strength)
     end
 end
