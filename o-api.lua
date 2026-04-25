@@ -790,7 +790,7 @@ local function sendStatsTable()
     end
 
     -- Apply Bowser moveset based on per-character stats
-    if _G.bowsMoveset then
+    if _G.bowsMoveset ~= nil then
         for i = 1, #characterStatsTable do
             local stats = characterStatsTable[i]
             local charNumber = _G.charSelect.character_get_number_from_string(stats.name)
@@ -811,7 +811,7 @@ end
 
 
 local function applyBowserMoveset()
-    if _G.bowsMoveset == false then
+    if _G.bowsMoveset == nil then
         return
     end
     for i = 1, #characterStatsTable do
