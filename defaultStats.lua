@@ -67,11 +67,11 @@ defaultStats = {
     -- wall_slide_jump_type can be ACT_JUMP, ACT_DIVE, ACT_TRIPLE_JUMP, ACT_TWIRLING, ACT_SIDE_FLIP
     wall_slide_jump_type = ACT_JUMP,
     -- shell_slide lets the character slide inside shell, it needs bowser moveset, it executes by crouching while running
-    bowser_shell_slide = true,
+    bowser_shell_slide = false,
     -- bowser_fire_ball it lets you shoot fire while crouching and not moving and needs bowser moveset
-    bowser_fire_ball = true,
+    bowser_fire_ball = false,
     -- bowser_punch lets you use custom bowser animation and needs bowser moveset
-    bowser_punch = true,
+    bowser_punch = false,
     -- bowser_shell_model change shell_slide model and needs bowser moveset
     -- Options: "bowser", "koopakid", "bowserjr", "koopalings_m", "koopalings_s", "koopalings_l", "koopalings_xl" or you can write the geo model
     bowser_shell_model = "bowserjr"
